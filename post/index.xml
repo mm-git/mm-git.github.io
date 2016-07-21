@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Posts on CODE HOUSE </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>https://mm-git.github.io/post/</link>
+    <language>en-us</language>
+    
+    <copyright>&amp;copy; 2016 code-house.jp</copyright>
+    <updated>Tue, 19 Jul 2016 14:52:38 &#43;0900</updated>
+    
+    <item>
+      <title>test</title>
+      <link>https://mm-git.github.io/post/test/</link>
+      <pubDate>Tue, 19 Jul 2016 14:52:38 &#43;0900</pubDate>
+      
+      <guid>https://mm-git.github.io/post/test/</guid>
+      <description>
+
+&lt;h1 id=&#34;test&#34;&gt;test&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This is a test.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
