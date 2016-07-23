@@ -3,7 +3,7 @@
   <channel>
       <title>Test on CODE HOUSE </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://mm-git.github.io/tags/test/</link>
+    <link>http://code-house.jp/tags/test/</link>
     <language>en-us</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
@@ -11,10 +11,10 @@
     
     <item>
       <title>test</title>
-      <link>https://mm-git.github.io/post/This%20is%20a%20test/</link>
+      <link>http://code-house.jp/post/This%20is%20a%20test/</link>
       <pubDate>Fri, 22 Jul 2016 15:47:09 &#43;0900</pubDate>
       
-      <guid>https://mm-git.github.io/post/This%20is%20a%20test/</guid>
+      <guid>http://code-house.jp/post/This%20is%20a%20test/</guid>
       <description>
 
 &lt;h2 id=&#34;test&#34;&gt;test&lt;/h2&gt;
@@ -50,10 +50,10 @@ bbbbb&lt;/p&gt;
     
     <item>
       <title>test</title>
-      <link>https://mm-git.github.io/post/This%20is%20a%20test2/</link>
+      <link>http://code-house.jp/post/This%20is%20a%20test2/</link>
       <pubDate>Fri, 22 Jul 2016 15:47:09 &#43;0900</pubDate>
       
-      <guid>https://mm-git.github.io/post/This%20is%20a%20test2/</guid>
+      <guid>http://code-house.jp/post/This%20is%20a%20test2/</guid>
       <description>
 
 &lt;h2 id=&#34;test&#34;&gt;test&lt;/h2&gt;
