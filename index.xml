@@ -7,73 +7,7 @@
     <language>en-us</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Fri, 22 Jul 2016 15:47:09 &#43;0900</updated>
-    
-    <item>
-      <title>test</title>
-      <link>http://code-house.jp/post/This%20is%20a%20test/</link>
-      <pubDate>Fri, 22 Jul 2016 15:47:09 &#43;0900</pubDate>
-      
-      <guid>http://code-house.jp/post/This%20is%20a%20test/</guid>
-      <description>
-
-&lt;h2 id=&#34;test&#34;&gt;test&lt;/h2&gt;
-
-&lt;p&gt;This is a test&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #fdf6e3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;test&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;:&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;日本語表示例はこんな感じです。
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxx&lt;/p&gt;
-
-&lt;p&gt;test test test test test test test test test test test test test test test test test test test test
-test test test test test test test test test test test test test test test test test test test test test test
-test test test test test test test test test test test test test test test test test test test test test test
-test test test test test test test test test test test test test test test test test test test test test test
-test test test test test test test test test test test test test test test test test test test test test test
-test test test test test test test test test test test test test test test test test test test test test test
-test test test test test test test test test test test test test test test test test test test test test test
-test test test test test test test test test test test test test test test test test test test test test test
-test test test test test test test test test test test test test test test test test test test test test test
-test test test test test test test test test test test test test test test test test test test test test test
-bbbbb&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>test</title>
-      <link>http://code-house.jp/post/This%20is%20a%20test2/</link>
-      <pubDate>Fri, 22 Jul 2016 15:47:09 &#43;0900</pubDate>
-      
-      <guid>http://code-house.jp/post/This%20is%20a%20test2/</guid>
-      <description>
-
-&lt;h2 id=&#34;test&#34;&gt;test&lt;/h2&gt;
-
-&lt;p&gt;This is a test&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #fdf6e3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;test&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;:&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;日本語表示例はこんな感じです。
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxx&lt;/p&gt;
-</description>
-    </item>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
   </channel>
 </rss>
