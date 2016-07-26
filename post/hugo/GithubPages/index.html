@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title> Tags </title>
+    <title> github pagesについて </title>
     
     <link rel="stylesheet" type="text/css" href="https://code-house.jp//css/uno.min.css" />
     <link rel="stylesheet" type="text/css" href="https://code-house.jp//css/lightGallery.css" />
@@ -50,13 +50,13 @@
 <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1496x2048.png">
 <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1536x2008.png">
     
-    <link href="https://code-house.jp/tags/index.xml" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
+    <link href="" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
     
     <script src="https://code-house.jp//js/jquery.min.js"></script>
     <script src="https://code-house.jp//js/main.min.js"></script>
 </head>
 
-<body>
+  <body>
     <div id="scriptHeader">
     <span class="mobile btn-mobile-menu">
             <i class="fa fa-bars btn-mobile-menu__icon"></i>
@@ -64,9 +64,7 @@
     </span>
     <header class="
         
-            
-                panel-cover panel-cover--collapsed
-            
+            panel-cover panel-cover--collapsed
         "  style="background-image: url(/images/background.jpg)" >
     <div class="panel-main">
         <div class="panel-main__inner panel-inverted">
@@ -166,39 +164,69 @@
 </noscript>
 
     <div class="content-wrapper">
-        <div class="content-wrapper__inner">
-            <section id="main">
-              <div>
-                <h1 id="title">Tags</h1>
-                <style type="text/css">
-                        #double ul{
-                          width:760px;
-                          margin-bottom:20px;
-                          overflow:hidden;
-                        }
-                        #double li{
-                          line-height:1.5em;
-                          float:left;
-                          display:inline;
-                          width:50%;
-                        }
-                </style>
-                <ul id="double">
-                
-                
-                    <li>
-                        <a href="github">github</a> 1
-                    </li>
-                
-                    <li>
-                        <a href="hugo">hugo</a> 2
-                    </li>
-                
-               </ul>
-              </div>
-            </section>
-            </div>
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>github pagesについて</h1>
+          <p class="post-date">2016-07-26</p>
+          
+
+<h2 id="github-pagesについて">github pagesについて</h2>
+
+<p><a href="https://pages.github.com/"><img title="github pages" src="http://capture.heartrails.com/200x150/cool?https://pages.github.com/" alt="https://pages.github.com/" width="200" height="150" /></a></p>
+
+<p>リポジトリの内容をそのままwebとして公開できるgithub pagesについて調べてみた。github pagesには次の２つがあるようだ。</p>
+
+<ul>
+<li>User site</li>
+<li>Project site</li>
+</ul>
+
+<p>※User siteと似たようなものに、Organization siteというのがある。これは、登録ユーザが組織の場合のサイトであるが、今回の説明では省略する。</p>
+
+<h3 id="user-site">User site</h3>
+
+<ul>
+<li>User siteは、githubに登録しているユーザが１つだけ持つことができるgithub pagesである。</li>
+<li>仕組みは簡単で、ユーザ名.github.ioという名前のリポジトリにファイルを置くだけである。</li>
+<li>https://ユーザ名.github.io というURLでページが表示される。</li>
+<li>表示されるのは、<strong>master</strong>ブランチ。</li>
+</ul>
+
+<p>※https://ユーザ名.github.com というURLだったようだが、.ioに変わったようだ。今は.comにアクセスすると.ioにリダイレクトされる。</p>
+
+<h3 id="project-site">Project site</h3>
+
+<ul>
+<li>ユーザ名.github.io以外のリポジトリをgithub pagesとして公開できるようにしたもの。</li>
+<li>リポジトリにgh_pagesというブランチを作りファイルを置く。</li>
+<li>https://ユーザ名.github.io/リポジトリ名 というURLでページが表示される。</li>
+<li>表示されるのは、<strong>gh_pages</strong>ブランチ。(masterではない)</li>
+</ul>
+
+<h2 id="実際の運用">実際の運用</h2>
+
+<p>User siteでは、gitgub pagesの元になるファイル群と、実際に公開するファイル群でそれぞれ別のリポジトリを作成するのがいいと思われる。
+(試してはいないが、元ファイルをmaster以外、公開ファイルをmasterにすれば、１つのリポジトリでも運用できるかもしれない)
+具体的にHugoでこのサイトを公開している私の場合、 <a href="https://github.com/mm-git/hugo" title="mm-git/hugo">mm-git/hugo</a>に元ファイルを置いている。そしてHugoが生成したpublicフォルダを<a href="https://github.com/mm-git/mm-git.github.io" title="mm-git/mm-git.github.io">mm-git/mm-git.github.io</a>に置くようにしている。</p>
+
         </div>
-    </body>
-    
+        <div class="sharing">
+<a href="https://twitter.com/intent/tweet?status=github%20pages%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6-https%3a%2f%2fcode-house.jp%2fpost%2fhugo%2fGithubPages%2f" target="_blank" title="Follow me on Twitter" class="twitter">
+<span class="fa fa-twitter-square fa-2x"></span></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2fpost%2fhugo%2fGithubPages%2f" target="_blank" title="Join me on Facebook" class="facebook">
+<span class="fa fa-facebook-square fa-2x"></span></a>
+<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2fpost%2fhugo%2fGithubPages%2f" target="_blank" title="Google+" class="googleplus">
+<span class="fa fa-google-plus-square fa-2x"></span></a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2fpost%2fhugo%2fGithubPages%2f&title=github%20pages%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6" target="_blank" title="LinkedIn" class="linkedin">
+<span class="fa fa-linkedin-square fa-2x"></span></a>
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
 </html>

@@ -3,75 +3,110 @@
   <channel>
       <title>Posts on CODE HOUSE </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://code-house.jp/post/</link>
+    <link>https://code-house.jp/post/</link>
     <language>en-us</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Fri, 22 Jul 2016 15:47:09 &#43;0900</updated>
+    <updated>Tue, 26 Jul 2016 12:21:20 &#43;0900</updated>
     
     <item>
-      <title>test</title>
-      <link>http://code-house.jp/post/This%20is%20a%20test/</link>
-      <pubDate>Fri, 22 Jul 2016 15:47:09 &#43;0900</pubDate>
+      <title>github pagesについて</title>
+      <link>https://code-house.jp/post/hugo/GithubPages/</link>
+      <pubDate>Tue, 26 Jul 2016 12:21:20 &#43;0900</pubDate>
       
-      <guid>http://code-house.jp/post/This%20is%20a%20test/</guid>
+      <guid>https://code-house.jp/post/hugo/GithubPages/</guid>
       <description>
 
-&lt;h2 id=&#34;test&#34;&gt;test&lt;/h2&gt;
+&lt;h2 id=&#34;github-pagesについて&#34;&gt;github pagesについて&lt;/h2&gt;
 
-&lt;p&gt;This is a test&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #fdf6e3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;test&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;:&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&#34;https://pages.github.com/&#34;&gt;&lt;img title=&#34;github pages&#34; src=&#34;http://capture.heartrails.com/200x150/cool?https://pages.github.com/&#34; alt=&#34;https://pages.github.com/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;日本語表示例はこんな感じです。
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxx&lt;/p&gt;
+&lt;p&gt;リポジトリの内容をそのままwebとして公開できるgithub pagesについて調べてみた。github pagesには次の２つがあるようだ。&lt;/p&gt;
 
-&lt;p&gt;test test test test test test test test test test test test test test test test test test test test
-test test test test test test test test test test test test test test test test test test test test test test
-test test test test test test test test test test test test test test test test test test test test test test
-test test test test test test test test test test test test test test test test test test test test test test
-test test test test test test test test test test test test test test test test test test test test test test
-test test test test test test test test test test test test test test test test test test test test test test
-test test test test test test test test test test test test test test test test test test test test test test
-test test test test test test test test test test test test test test test test test test test test test test
-test test test test test test test test test test test test test test test test test test test test test test
-test test test test test test test test test test test test test test test test test test test test test test
-bbbbb&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;User site&lt;/li&gt;
+&lt;li&gt;Project site&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;※User siteと似たようなものに、Organization siteというのがある。これは、登録ユーザが組織の場合のサイトであるが、今回の説明では省略する。&lt;/p&gt;
+
+&lt;h3 id=&#34;user-site&#34;&gt;User site&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;User siteは、githubに登録しているユーザが１つだけ持つことができるgithub pagesである。&lt;/li&gt;
+&lt;li&gt;仕組みは簡単で、ユーザ名.github.ioという名前のリポジトリにファイルを置くだけである。&lt;/li&gt;
+&lt;li&gt;https://ユーザ名.github.io というURLでページが表示される。&lt;/li&gt;
+&lt;li&gt;表示されるのは、&lt;strong&gt;master&lt;/strong&gt;ブランチ。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;※https://ユーザ名.github.com というURLだったようだが、.ioに変わったようだ。今は.comにアクセスすると.ioにリダイレクトされる。&lt;/p&gt;
+
+&lt;h3 id=&#34;project-site&#34;&gt;Project site&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ユーザ名.github.io以外のリポジトリをgithub pagesとして公開できるようにしたもの。&lt;/li&gt;
+&lt;li&gt;リポジトリにgh_pagesというブランチを作りファイルを置く。&lt;/li&gt;
+&lt;li&gt;https://ユーザ名.github.io/リポジトリ名 というURLでページが表示される。&lt;/li&gt;
+&lt;li&gt;表示されるのは、&lt;strong&gt;gh_pages&lt;/strong&gt;ブランチ。(masterではない)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;実際の運用&#34;&gt;実際の運用&lt;/h2&gt;
+
+&lt;p&gt;User siteでは、gitgub pagesの元になるファイル群と、実際に公開するファイル群でそれぞれ別のリポジトリを作成するのがいいと思われる。
+(試してはいないが、元ファイルをmaster以外、公開ファイルをmasterにすれば、１つのリポジトリでも運用できるかもしれない)
+具体的にHugoでこのサイトを公開している私の場合、 &lt;a href=&#34;https://github.com/mm-git/hugo&#34; title=&#34;mm-git/hugo&#34;&gt;mm-git/hugo&lt;/a&gt;に元ファイルを置いている。そしてHugoが生成したpublicフォルダを&lt;a href=&#34;https://github.com/mm-git/mm-git.github.io&#34; title=&#34;mm-git/mm-git.github.io&#34;&gt;mm-git/mm-git.github.io&lt;/a&gt;に置くようにしている。&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>test</title>
-      <link>http://code-house.jp/post/This%20is%20a%20test2/</link>
-      <pubDate>Fri, 22 Jul 2016 15:47:09 &#43;0900</pubDate>
+      <title>Hugoをinstallする</title>
+      <link>https://code-house.jp/post/hugo/HugoInsatallation/</link>
+      <pubDate>Tue, 26 Jul 2016 11:38:58 &#43;0900</pubDate>
       
-      <guid>http://code-house.jp/post/This%20is%20a%20test2/</guid>
+      <guid>https://code-house.jp/post/hugo/HugoInsatallation/</guid>
       <description>
 
-&lt;h2 id=&#34;test&#34;&gt;test&lt;/h2&gt;
+&lt;h2 id=&#34;hugoの導入&#34;&gt;Hugoの導入&lt;/h2&gt;
 
-&lt;p&gt;This is a test&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #fdf6e3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;test&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;:&lt;/span&gt;
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;&lt;img title=&#34;Hugo :: A fast and modern static website engine&#34; src=&#34;http://capture.heartrails.com/200x150/cool?https://gohugo.io/&#34; alt=&#34;https://gohugo.io/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;githubでは、github pagesという仕組みを利用して、自分のサイトを公開する機能がある。簡単にいうと、リポジトリに登録したファイルがそのままサイトとして公開されるようになっている。
+リポジトリに登録するファイルを自動生成して公開する仕組みにどんなものがあるのか調べていると、JekyllやHugoといったものが見つかった。Hugoというのが動作としては速いらしいということで、今回Hugoを使ってこのサイトを作成してみた。&lt;/p&gt;
+
+&lt;h3 id=&#34;インストール&#34;&gt;インストール&lt;/h3&gt;
+
+&lt;p&gt;私はmacで作業するのでhomebrewでインストールした。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #fdf6e3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;brew install hugo
+hugo new site hugo
+&lt;span style=&#34;color: #268bd2&#34;&gt;cd&lt;/span&gt; hugo
+git init
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;日本語表示例はこんな感じです。
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxx&lt;/p&gt;
+&lt;h3 id=&#34;テーマのインストール&#34;&gt;テーマのインストール&lt;/h3&gt;
+
+&lt;p&gt;テーマは themesフォルダ内に使用するテーマをgit cloneしてもいいのだけれど、下記のようにsubmoduleとして登録するようにしてみた。こうすることで、テーマ自体を自分のリポジトリに含めずに管理することができる。なお、テーマはhugo-unoを選択してみた。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #fdf6e3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #268bd2&#34;&gt;cd&lt;/span&gt; themes
+git submodule add https://github.com/fredrikloch/hugo-uno hugo-uno
+&lt;span style=&#34;color: #268bd2&#34;&gt;cd&lt;/span&gt; ..
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;※git initを実行していない、つまり親フォルダに .git フォルダが無いと、git submoduleできないので注意。&lt;/p&gt;
+
+&lt;h3 id=&#34;最低限の設定&#34;&gt;最低限の設定&lt;/h3&gt;
+
+&lt;p&gt;現状の設定は &lt;a href=&#34;https://github.com/mm-git/hugo/blob/master/config.toml&#34; title=&#34;mm-git/hugo/config.toml&#34;&gt;mm-git/hugo/config.toml&lt;/a&gt;を参照。
+とりあえずテーマの指定をconfig.tomlに追記&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;theme = &amp;quot;hugo-uno&amp;quot;    &amp;lt;&amp;lt; テーマをここで指定しておく
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;ローカルで表示&#34;&gt;ローカルで表示&lt;/h3&gt;
+
+&lt;p&gt;下記のようにしてserverを起動した後、localhost:1313にアクセスするとhugo-unoのテーマでページが表示されます。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #fdf6e3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;hugo server
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img title=&#34;hugo-uno&#34; src=&#34;https://goo.gl/2ZJ5m5&#34; alt=&#34;hugo-uno&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     

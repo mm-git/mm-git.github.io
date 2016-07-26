@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Github on CODE HOUSE </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>https://code-house.jp/tags/github/</link>
+    <language>en-us</language>
+    
+    <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
+    <updated>Tue, 26 Jul 2016 12:21:20 &#43;0900</updated>
+    
+    <item>
+      <title>github pagesについて</title>
+      <link>https://code-house.jp/post/hugo/GithubPages/</link>
+      <pubDate>Tue, 26 Jul 2016 12:21:20 &#43;0900</pubDate>
+      
+      <guid>https://code-house.jp/post/hugo/GithubPages/</guid>
+      <description>
+
+&lt;h2 id=&#34;github-pagesについて&#34;&gt;github pagesについて&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://pages.github.com/&#34;&gt;&lt;img title=&#34;github pages&#34; src=&#34;http://capture.heartrails.com/200x150/cool?https://pages.github.com/&#34; alt=&#34;https://pages.github.com/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;リポジトリの内容をそのままwebとして公開できるgithub pagesについて調べてみた。github pagesには次の２つがあるようだ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;User site&lt;/li&gt;
+&lt;li&gt;Project site&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;※User siteと似たようなものに、Organization siteというのがある。これは、登録ユーザが組織の場合のサイトであるが、今回の説明では省略する。&lt;/p&gt;
+
+&lt;h3 id=&#34;user-site&#34;&gt;User site&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;User siteは、githubに登録しているユーザが１つだけ持つことができるgithub pagesである。&lt;/li&gt;
+&lt;li&gt;仕組みは簡単で、ユーザ名.github.ioという名前のリポジトリにファイルを置くだけである。&lt;/li&gt;
+&lt;li&gt;https://ユーザ名.github.io というURLでページが表示される。&lt;/li&gt;
+&lt;li&gt;表示されるのは、&lt;strong&gt;master&lt;/strong&gt;ブランチ。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;※https://ユーザ名.github.com というURLだったようだが、.ioに変わったようだ。今は.comにアクセスすると.ioにリダイレクトされる。&lt;/p&gt;
+
+&lt;h3 id=&#34;project-site&#34;&gt;Project site&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ユーザ名.github.io以外のリポジトリをgithub pagesとして公開できるようにしたもの。&lt;/li&gt;
+&lt;li&gt;リポジトリにgh_pagesというブランチを作りファイルを置く。&lt;/li&gt;
+&lt;li&gt;https://ユーザ名.github.io/リポジトリ名 というURLでページが表示される。&lt;/li&gt;
+&lt;li&gt;表示されるのは、&lt;strong&gt;gh_pages&lt;/strong&gt;ブランチ。(masterではない)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;実際の運用&#34;&gt;実際の運用&lt;/h2&gt;
+
+&lt;p&gt;User siteでは、gitgub pagesの元になるファイル群と、実際に公開するファイル群でそれぞれ別のリポジトリを作成するのがいいと思われる。
+(試してはいないが、元ファイルをmaster以外、公開ファイルをmasterにすれば、１つのリポジトリでも運用できるかもしれない)
+具体的にHugoでこのサイトを公開している私の場合、 &lt;a href=&#34;https://github.com/mm-git/hugo&#34; title=&#34;mm-git/hugo&#34;&gt;mm-git/hugo&lt;/a&gt;に元ファイルを置いている。そしてHugoが生成したpublicフォルダを&lt;a href=&#34;https://github.com/mm-git/mm-git.github.io&#34; title=&#34;mm-git/mm-git.github.io&#34;&gt;mm-git/mm-git.github.io&lt;/a&gt;に置くようにしている。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
