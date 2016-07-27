@@ -4,7 +4,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title> Hugoをinstallする </title>
+    <title> Google PhotoをBlogに貼り付ける </title>
     
     <link rel="stylesheet" type="text/css" href="https://code-house.jp//css/uno.min.css" />
     <link rel="stylesheet" type="text/css" href="https://code-house.jp//css/lightGallery.css" />
@@ -166,61 +166,68 @@
     <div class="content-wrapper">
       <div class="content-wrapper__inner">
         <div class="post">
-          <h1>Hugoをinstallする</h1>
-          <p class="post-date">2016-07-26</p>
+          <h1>Google PhotoをBlogに貼り付ける</h1>
+          <p class="post-date">2016-07-27</p>
           
 
-<h2 id="hugoの導入">Hugoの導入</h2>
+<h2 id="google-photo">Google Photo</h2>
 
-<p><a href="https://gohugo.io/"><img title="Hugo :: A fast and modern static website engine" src="http://capture.heartrails.com/200x150/cool?https://gohugo.io/" alt="https://gohugo.io/" width="200" height="150" /></a></p>
+<p>Blogに画像を貼り付ける場合、２つの方法が考えられる。</p>
 
-<p>githubでは、github pagesという仕組みを利用して、自分のサイトを公開する機能がある。簡単にいうと、リポジトリに登録したファイルがそのままサイトとして公開されるようになっている。
-リポジトリに登録するファイルを自動生成して公開する仕組みにどんなものがあるのか調べていると、JekyllやHugoといったものが見つかった。Hugoというのが動作としては速いらしいということで、今回Hugoを使ってこのサイトを作成してみた。</p>
+<ul>
+<li>記事と一緒に画像もアップロードする</li>
+<li>画像の置き場を別に用意し記事からリンクする<br /></li>
+</ul>
 
-<h3 id="インストール">インストール</h3>
+<p>このサイトはgithub pagesを利用している。そのため、記事と一緒に画像もアップロードするとその分リポジトリの容量が増えてしまう。これはあまり好ましいと思えないので別に画像の置き場を用意する方法を採用する。なお、画像の置き場としてはgoogle photoを利用してみる。</p>
 
-<p>私はmacで作業するのでhomebrewでインストールした。</p>
-<div class="highlight" style="background: #fdf6e3"><pre style="line-height: 125%"><span></span>brew install hugo
-hugo new site hugo
-<span style="color: #268bd2">cd</span> hugo
-git init
-</pre></div>
+<h2 id="google-photoの画像をblogに表示する方法">Google Photoの画像をblogに表示する方法</h2>
 
-<h3 id="テーマのインストール">テーマのインストール</h3>
+<ol>
+<li>google photoでblogに表示したい写真を表示する。</li>
+<li>画面右上の共有アイコンを選択する。</li>
+<li>共有画面が表示されるので、リンクを取得を選択。</li>
+<li>作成されたリンクを開いて、さらに画像を選択する。(結果、1.と同じような画面になる。コメントの追加機能があるところが1.とは異なる)</li>
 
-<p>テーマは themesフォルダ内に使用するテーマをgit cloneしてもいいのだけれど、下記のようにsubmoduleとして登録するようにしてみた。こうすることで、テーマ自体を自分のリポジトリに含めずに管理することができる。なお、テーマはhugo-unoを選択してみた。</p>
-<div class="highlight" style="background: #fdf6e3"><pre style="line-height: 125%"><span></span><span style="color: #268bd2">cd</span> themes
-git submodule add https://github.com/fredrikloch/hugo-uno hugo-uno
-<span style="color: #268bd2">cd</span> ..
-</pre></div>
+<li><p>画像を右クリックして画像のアドレスをコピーする。</p>
 
-<p>※git initを実行していない、つまり親フォルダに .git フォルダが無いと、git submoduleできないので注意。</p>
+<p>ここで、取得されたアドレスは、アドレスさえ分かれば誰でも画像が見れる直リンクのアドレスとなっている。<code>https://lh3.googleusercontent.com/...</code>で始まる、とても長いアドレス。これをそのままblobに貼り付けてもいいのだが、これをさらにgoogleのアドレス短縮サービスで短くする。</p></li>
 
-<h3 id="最低限の設定">最低限の設定</h3>
+<li><p><a href="https://goo.gl/">https://goo.gl/</a> で先ほどの長いアドレスを短くする。</p></li>
 
-<p>現状の設定は <a href="https://github.com/mm-git/hugo/blob/master/config.toml" title="mm-git/hugo/config.toml">mm-git/hugo/config.toml</a>を参照。
-とりあえずテーマの指定をconfig.tomlに追記</p>
+<li><p>短くなったアドレスをblogにimgタグなどで貼り付ける。</p></li>
+</ol>
 
-<pre><code>theme = &quot;hugo-uno&quot;    &lt;&lt; テーマをここで指定しておく
-</code></pre>
+<h3 id="懸念事項など">懸念事項など</h3>
 
-<h3 id="ローカルで表示">ローカルで表示</h3>
+<ul>
+<li>1.の画像に対しても右クリックして画像のアドレスをコピーすることができる。このアドレスをそのまま短縮してもいいのかもしれない。</li>
+<li>気になる場合は、<code>google フォト 直リンク</code>などでググってみよう。</li>
+<li>画像への直リンクアドレスが未来永劫有効であるかが保証はされないと思われる。最悪blogの全画像が一気にデッドリンクになってしまうかも。</li>
+</ul>
 
-<p>下記のようにしてserverを起動した後、localhost:1313にアクセスするとhugo-unoのテーマでページが表示されます。</p>
-<div class="highlight" style="background: #fdf6e3"><pre style="line-height: 125%"><span></span>hugo server
-</pre></div>
+<h2 id="画像のexif-位置情報などはどうなるのか">画像のexif、位置情報などはどうなるのか？？</h2>
 
-<p><img title="hugo-uno" src="https://goo.gl/ynu35b" alt="hugo-uno" /></p>
+<ul>
+<li>上記の方法の場合、exif、位置情報は削除されるので<strong>安心してblogに貼り付けて大丈夫そうである。</strong>(2016/7/27現在)</li>
+<li>google photoにアップロードされている画像の元データにはexif、位置情報が保持されている。</li>
+<li>共有や右クリックからの画像の保存、アドレスのコピーの場合にはexif、位置情報は削除される。</li>
+<li>画像の所有者がgoogle photoのメニューからのダウンロードを行った場合は、exif、位置情報付きでダウンロードされる。</li>
+</ul>
+
+<h2 id="今後の課題">今後の課題</h2>
+
+<p>上記の方法は手作業では非常に面倒くさい。自動で短縮アドレスを取得するような方法を考えたい。</p>
 
         </div>
         <div class="sharing">
-<a href="https://twitter.com/intent/tweet?status=Hugo%e3%82%92install%e3%81%99%e3%82%8b-https%3a%2f%2fcode-house.jp%2fpost%2fhugo%2fHugoInsatallation%2f" target="_blank" title="Follow me on Twitter" class="twitter">
+<a href="https://twitter.com/intent/tweet?status=Google%20Photo%e3%82%92Blog%e3%81%ab%e8%b2%bc%e3%82%8a%e4%bb%98%e3%81%91%e3%82%8b-https%3a%2f%2fcode-house.jp%2fpost%2fetc%2fgooglephoto%2f" target="_blank" title="Follow me on Twitter" class="twitter">
 <span class="fa fa-twitter-square fa-2x"></span></a>
-<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2fpost%2fhugo%2fHugoInsatallation%2f" target="_blank" title="Join me on Facebook" class="facebook">
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2fpost%2fetc%2fgooglephoto%2f" target="_blank" title="Join me on Facebook" class="facebook">
 <span class="fa fa-facebook-square fa-2x"></span></a>
-<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2fpost%2fhugo%2fHugoInsatallation%2f" target="_blank" title="Google+" class="googleplus">
+<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2fpost%2fetc%2fgooglephoto%2f" target="_blank" title="Google+" class="googleplus">
 <span class="fa fa-google-plus-square fa-2x"></span></a>
-<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2fpost%2fhugo%2fHugoInsatallation%2f&title=Hugo%e3%82%92install%e3%81%99%e3%82%8b" target="_blank" title="LinkedIn" class="linkedin">
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2fpost%2fetc%2fgooglephoto%2f&title=Google%20Photo%e3%82%92Blog%e3%81%ab%e8%b2%bc%e3%82%8a%e4%bb%98%e3%81%91%e3%82%8b" target="_blank" title="LinkedIn" class="linkedin">
 <span class="fa fa-linkedin-square fa-2x"></span></a>
 </div>
         

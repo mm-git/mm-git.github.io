@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Google on CODE HOUSE </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>https://code-house.jp/tags/google/</link>
+    <language>en-us</language>
+    
+    <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
+    <updated>Wed, 27 Jul 2016 14:15:44 &#43;0900</updated>
+    
+    <item>
+      <title>Google PhotoをBlogに貼り付ける</title>
+      <link>https://code-house.jp/post/etc/googlephoto/</link>
+      <pubDate>Wed, 27 Jul 2016 14:15:44 &#43;0900</pubDate>
+      
+      <guid>https://code-house.jp/post/etc/googlephoto/</guid>
+      <description>
+
+&lt;h2 id=&#34;google-photo&#34;&gt;Google Photo&lt;/h2&gt;
+
+&lt;p&gt;Blogに画像を貼り付ける場合、２つの方法が考えられる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;記事と一緒に画像もアップロードする&lt;/li&gt;
+&lt;li&gt;画像の置き場を別に用意し記事からリンクする&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;このサイトはgithub pagesを利用している。そのため、記事と一緒に画像もアップロードするとその分リポジトリの容量が増えてしまう。これはあまり好ましいと思えないので別に画像の置き場を用意する方法を採用する。なお、画像の置き場としてはgoogle photoを利用してみる。&lt;/p&gt;
+
+&lt;h2 id=&#34;google-photoの画像をblogに表示する方法&#34;&gt;Google Photoの画像をblogに表示する方法&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;google photoでblogに表示したい写真を表示する。&lt;/li&gt;
+&lt;li&gt;画面右上の共有アイコンを選択する。&lt;/li&gt;
+&lt;li&gt;共有画面が表示されるので、リンクを取得を選択。&lt;/li&gt;
+&lt;li&gt;作成されたリンクを開いて、さらに画像を選択する。(結果、1.と同じような画面になる。コメントの追加機能があるところが1.とは異なる)&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;画像を右クリックして画像のアドレスをコピーする。&lt;/p&gt;
+
+&lt;p&gt;ここで、取得されたアドレスは、アドレスさえ分かれば誰でも画像が見れる直リンクのアドレスとなっている。&lt;code&gt;https://lh3.googleusercontent.com/...&lt;/code&gt;で始まる、とても長いアドレス。これをそのままblobに貼り付けてもいいのだが、これをさらにgoogleのアドレス短縮サービスで短くする。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://goo.gl/&#34;&gt;https://goo.gl/&lt;/a&gt; で先ほどの長いアドレスを短くする。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;短くなったアドレスをblogにimgタグなどで貼り付ける。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;懸念事項など&#34;&gt;懸念事項など&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1.の画像に対しても右クリックして画像のアドレスをコピーすることができる。このアドレスをそのまま短縮してもいいのかもしれない。&lt;/li&gt;
+&lt;li&gt;気になる場合は、&lt;code&gt;google フォト 直リンク&lt;/code&gt;などでググってみよう。&lt;/li&gt;
+&lt;li&gt;画像への直リンクアドレスが未来永劫有効であるかが保証はされないと思われる。最悪blogの全画像が一気にデッドリンクになってしまうかも。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;画像のexif-位置情報などはどうなるのか&#34;&gt;画像のexif、位置情報などはどうなるのか？？&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上記の方法の場合、exif、位置情報は削除されるので&lt;strong&gt;安心してblogに貼り付けて大丈夫そうである。&lt;/strong&gt;(2016/7/27現在)&lt;/li&gt;
+&lt;li&gt;google photoにアップロードされている画像の元データにはexif、位置情報が保持されている。&lt;/li&gt;
+&lt;li&gt;共有や右クリックからの画像の保存、アドレスのコピーの場合にはexif、位置情報は削除される。&lt;/li&gt;
+&lt;li&gt;画像の所有者がgoogle photoのメニューからのダウンロードを行った場合は、exif、位置情報付きでダウンロードされる。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;今後の課題&#34;&gt;今後の課題&lt;/h2&gt;
+
+&lt;p&gt;上記の方法は手作業では非常に面倒くさい。自動で短縮アドレスを取得するような方法を考えたい。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

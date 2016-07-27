@@ -1,10 +1,10 @@
-  <!DOCTYPE html>
+    <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title> Hugoをinstallする </title>
+    <title> Photo </title>
     
     <link rel="stylesheet" type="text/css" href="https://code-house.jp//css/uno.min.css" />
     <link rel="stylesheet" type="text/css" href="https://code-house.jp//css/lightGallery.css" />
@@ -50,21 +50,23 @@
 <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1496x2048.png">
 <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1536x2008.png">
     
-    <link href="" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
+    <link href="https://code-house.jp/tags/photo/index.xml" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
     
     <script src="https://code-house.jp//js/jquery.min.js"></script>
     <script src="https://code-house.jp//js/main.min.js"></script>
 </head>
 
-  <body>
-    <div id="scriptHeader">
+    <body>
+        <div id="scriptHeader">
     <span class="mobile btn-mobile-menu">
             <i class="fa fa-bars btn-mobile-menu__icon"></i>
             <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
     </span>
     <header class="
         
-            panel-cover panel-cover--collapsed
+            
+                panel-cover panel-cover--collapsed
+            
         "  style="background-image: url(/images/background.jpg)" >
     <div class="panel-main">
         <div class="panel-main__inner panel-inverted">
@@ -163,73 +165,21 @@
     </header>
 </noscript>
 
-    <div class="content-wrapper">
-      <div class="content-wrapper__inner">
-        <div class="post">
-          <h1>Hugoをinstallする</h1>
-          <p class="post-date">2016-07-26</p>
-          
-
-<h2 id="hugoの導入">Hugoの導入</h2>
-
-<p><a href="https://gohugo.io/"><img title="Hugo :: A fast and modern static website engine" src="http://capture.heartrails.com/200x150/cool?https://gohugo.io/" alt="https://gohugo.io/" width="200" height="150" /></a></p>
-
-<p>githubでは、github pagesという仕組みを利用して、自分のサイトを公開する機能がある。簡単にいうと、リポジトリに登録したファイルがそのままサイトとして公開されるようになっている。
-リポジトリに登録するファイルを自動生成して公開する仕組みにどんなものがあるのか調べていると、JekyllやHugoといったものが見つかった。Hugoというのが動作としては速いらしいということで、今回Hugoを使ってこのサイトを作成してみた。</p>
-
-<h3 id="インストール">インストール</h3>
-
-<p>私はmacで作業するのでhomebrewでインストールした。</p>
-<div class="highlight" style="background: #fdf6e3"><pre style="line-height: 125%"><span></span>brew install hugo
-hugo new site hugo
-<span style="color: #268bd2">cd</span> hugo
-git init
-</pre></div>
-
-<h3 id="テーマのインストール">テーマのインストール</h3>
-
-<p>テーマは themesフォルダ内に使用するテーマをgit cloneしてもいいのだけれど、下記のようにsubmoduleとして登録するようにしてみた。こうすることで、テーマ自体を自分のリポジトリに含めずに管理することができる。なお、テーマはhugo-unoを選択してみた。</p>
-<div class="highlight" style="background: #fdf6e3"><pre style="line-height: 125%"><span></span><span style="color: #268bd2">cd</span> themes
-git submodule add https://github.com/fredrikloch/hugo-uno hugo-uno
-<span style="color: #268bd2">cd</span> ..
-</pre></div>
-
-<p>※git initを実行していない、つまり親フォルダに .git フォルダが無いと、git submoduleできないので注意。</p>
-
-<h3 id="最低限の設定">最低限の設定</h3>
-
-<p>現状の設定は <a href="https://github.com/mm-git/hugo/blob/master/config.toml" title="mm-git/hugo/config.toml">mm-git/hugo/config.toml</a>を参照。
-とりあえずテーマの指定をconfig.tomlに追記</p>
-
-<pre><code>theme = &quot;hugo-uno&quot;    &lt;&lt; テーマをここで指定しておく
-</code></pre>
-
-<h3 id="ローカルで表示">ローカルで表示</h3>
-
-<p>下記のようにしてserverを起動した後、localhost:1313にアクセスするとhugo-unoのテーマでページが表示されます。</p>
-<div class="highlight" style="background: #fdf6e3"><pre style="line-height: 125%"><span></span>hugo server
-</pre></div>
-
-<p><img title="hugo-uno" src="https://goo.gl/ynu35b" alt="hugo-uno" /></p>
-
+        <div class="content-wrapper">
+            <div class="content-wrapper__inner">
+                
+                <h2>2016</h2>
+                <ul id="list">
+                    
+                    <li>
+                        <a href="https://code-house.jp/post/etc/googlephoto/">Google PhotoをBlogに貼り付ける </a>
+                        <div class="meta">2016-07-27</div>
+                    </li>
+                    
+                </ul>
+                
+            </div>
         </div>
-        <div class="sharing">
-<a href="https://twitter.com/intent/tweet?status=Hugo%e3%82%92install%e3%81%99%e3%82%8b-https%3a%2f%2fcode-house.jp%2fpost%2fhugo%2fHugoInsatallation%2f" target="_blank" title="Follow me on Twitter" class="twitter">
-<span class="fa fa-twitter-square fa-2x"></span></a>
-<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2fpost%2fhugo%2fHugoInsatallation%2f" target="_blank" title="Join me on Facebook" class="facebook">
-<span class="fa fa-facebook-square fa-2x"></span></a>
-<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2fpost%2fhugo%2fHugoInsatallation%2f" target="_blank" title="Google+" class="googleplus">
-<span class="fa fa-google-plus-square fa-2x"></span></a>
-<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2fpost%2fhugo%2fHugoInsatallation%2f&title=Hugo%e3%82%92install%e3%81%99%e3%82%8b" target="_blank" title="LinkedIn" class="linkedin">
-<span class="fa fa-linkedin-square fa-2x"></span></a>
-</div>
-        
-
-
-
-      </div>
-    </div>
-
-  </body>
-  
+    </body>
+    
 </html>
