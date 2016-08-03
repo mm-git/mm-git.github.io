@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>CODE HOUSE </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>https://code-house.jp/tags/imagemagick/</link>
+    <language>en-us</language>
+    
+    <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
+    <updated>Tue, 02 Aug 2016 18:32:15 &#43;0900</updated>
+    
+    <item>
+      <title>透過pngをsvgに変換する</title>
+      <link>https://code-house.jp/post/etc/pngtosvg/</link>
+      <pubDate>Tue, 02 Aug 2016 18:32:15 &#43;0900</pubDate>
+      
+      <guid>https://code-house.jp/post/etc/pngtosvg/</guid>
+      <description>
+
+&lt;h2 id=&#34;透過pngをsvg画像に変換する&#34;&gt;透過PNGをSVG画像に変換する。&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://goo.gl/I4cpTw&#34; width=&#34;200&#34; height=&#34;150&#34;&gt;&lt;sub style=&#34;font-size:0.5em&#34;&gt;絵が下手すぎる・・・&lt;/sub&gt;&lt;/p&gt;
+
+&lt;p&gt;pngをsvgに変換する。世の中そんなツールは出回ってそうなので簡単にできるかと思っていたが、以外にもハマりどころが多かったのでメモ。前提として、下記のことを達成することを目的とする。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;元になるpng画像はモノトーンの透過画像である。&lt;/li&gt;
+&lt;li&gt;png画像は、あるフォルダの複数のサブフォルダの中に複数存在する。&lt;/li&gt;
+&lt;li&gt;svg画像は別のフォルダに出力する。この時元のフォルダの構造をそのまま維持する。&lt;/li&gt;
+&lt;li&gt;上記をshell scriptでちゃちゃっと実行する。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;ハマったこと&#34;&gt;ハマったこと&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;findでファイルを探すもファイルが多い場合。&lt;/li&gt;
+&lt;li&gt;xargsでshell functionはそのままでは実行できない。&lt;/li&gt;
+&lt;li&gt;folder構造を維持するには？&lt;/li&gt;
+&lt;li&gt;透過pngをsvgに変換する方法&lt;/li&gt;
+&lt;li&gt;osxで\を入力しようとしたら¥になる？&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;findでファイルを探すもファイルが多い場合&#34;&gt;findでファイルを探すもファイルが多い場合。&lt;/h3&gt;
+
+&lt;p&gt;例えば、shellで&lt;code&gt;find . -name &#39;*.png&#39;&lt;/code&gt;のように実行すると、カレントフォルダ以下にあるpngファイルが検索できる。これをパイプを使って次のコマンドに渡したりできるのだが、ファイル数が多い場合エラーになってしまう。そこで、fineの結果をxargsというコマンドに渡して、どんなにファイルが多くても１つずつ処理させたりすることができる。(必ずしも１つずつ処理させる必要はないが)&lt;/p&gt;
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;find . -name &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;*.png&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;|&lt;/span&gt; xargs -IX -n1 wc -c X
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;findの結果を1つずつ処理するために、xargsで&lt;code&gt;-n1&lt;/code&gt;を指定している。こうすることでxagrsに続くコマンドに1つだけ値を渡すことができる。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-n1&lt;/code&gt;は次のコマンドにパラメータを幾つずつ渡すかを指定するパラメータ。次のコマンドを同時に幾つ実行するかは別途指定する必要がある。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://tagomoris.hatenablog.com/entry/20110513/1305267021&#34;&gt;xargs を使ってカジュアルに並列処理 - たごもりすメモ&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上記の例では、xargsからwcコマンドを実行している。&lt;code&gt;wc -c filename&lt;/code&gt;で、ファイルのサイズとパスが表示される。&lt;/li&gt;
+&lt;li&gt;xargsに続くコマンドにパラメータを渡す場合、そのコマンドの第一引数にパラメータを渡す場合は、&lt;code&gt;xargs -n1 wc&lt;/code&gt;のようにすればいい。しかし、そうではない場合、xargsの&lt;code&gt;-I&lt;/code&gt;オプションを使用する。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-I&lt;/code&gt;に続けて任意の文字を指定する(上の例ではX)。そしてwcコマンドのパラメータを受け取る位置にもその任意の文字を書く。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;folder構造を維持するには&#34;&gt;folder構造を維持するには？&lt;/h3&gt;
+
+&lt;p&gt;フォルダの構造を維持して、svgファイルを出力したい。そこで、あるフォルダのファイルを最初に処理した際に、出力先にも同じフォルダを作成するshell functionを作ってみる。&lt;/p&gt;
+
+&lt;h5 id=&#34;pngtosvg-sh&#34;&gt;pngtosvg.sh&lt;/h5&gt;
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #93a1a1; font-style: italic&#34;&gt;# $1に元ファイルのパス、$2に出力先のフォルダ名が指定されているとする&lt;/span&gt;
+&lt;span style=&#34;color: #859900&#34;&gt;function&lt;/span&gt; pngtosvg&lt;span style=&#34;color: #657b83&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color: #cb4b16&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;$(&lt;/span&gt;dirname &lt;span style=&#34;color: #cb4b16&#34;&gt;$1&lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;)&lt;/span&gt;
+  &lt;span style=&#34;color: #cb4b16&#34;&gt;exp&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;s/^[^\/]*/&lt;/span&gt;&lt;span style=&#34;color: #cb4b16&#34;&gt;$2&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;/&amp;quot;&lt;/span&gt;
+  &lt;span style=&#34;color: #cb4b16&#34;&gt;dist&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color: #268bd2&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #cb4b16&#34;&gt;$src&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;|&lt;/span&gt; sed -e &lt;span style=&#34;color: #cb4b16&#34;&gt;$exp&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;`&lt;/span&gt;
+
+  &lt;span style=&#34;color: #859900&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;[&lt;/span&gt; ! -d &lt;span style=&#34;color: #cb4b16&#34;&gt;$dist&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;];&lt;/span&gt; &lt;span style=&#34;color: #859900&#34;&gt;then&lt;/span&gt;
+    &lt;span style=&#34;color: #268bd2&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #cb4b16&#34;&gt;$dist&lt;/span&gt;
+    mkdir -p &lt;span style=&#34;color: #cb4b16&#34;&gt;$dist&lt;/span&gt;
+  &lt;span style=&#34;color: #859900&#34;&gt;fi&lt;/span&gt;
+&lt;span style=&#34;color: #657b83&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;このfunctionのハマりポイント。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;変数に値を代入する場合、=の前後にスペースを開けてはいけない。
+
+&lt;ul&gt;
+&lt;li&gt;スペースを開けると、変数名をコマンド名と解釈してしまいエラーになる。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;sedの正規表現では、最短一致の&lt;code&gt;?&lt;/code&gt;が使用できない。上記の例では、元フォルダの一番親のフォルダ名を$2で指定されたフォルダ名に変換している。
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;?&lt;/code&gt;が使えるなら、&lt;code&gt;s/^.*?/\/$2/&lt;/code&gt;の様に指定できるはずである。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;mkdirでフォルダを作成する場合、途中のフォルダが存在しない場合、通常であればエラーになる。&lt;code&gt;-p&lt;/code&gt;オプションを付ければ、途中のフォルダも全て作成してくれる。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;xargsでshell-functionはそのままでは実行できない&#34;&gt;xargsでshell functionはそのままでは実行できない。&lt;/h3&gt;
+
+&lt;p&gt;上記のshell functionをxagrsから実行しようとしたところ、そのまま実行できなくてハマった。調べてみると、下記のような記事が見つかった。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://d.hatena.ne.jp/wristed/20120603/1338691396&#34;&gt;xargsにbashのfunctionを渡す方法 - Weballergy&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;記事に書いてある通りに、shell functionをexportして、xargsからはbashのスクリプトとして実行する。&lt;/p&gt;
+
+&lt;h5 id=&#34;pngtosvg-sh-1&#34;&gt;pngtosvg.sh&lt;/h5&gt;
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #93a1a1; font-style: italic&#34;&gt;# $1に元ファイルのパス、$2に出力先のフォルダ名が指定されているとする&lt;/span&gt;
+&lt;span style=&#34;color: #859900&#34;&gt;function&lt;/span&gt; pngtosvg&lt;span style=&#34;color: #657b83&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color: #cb4b16&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;$(&lt;/span&gt;dirname &lt;span style=&#34;color: #cb4b16&#34;&gt;$1&lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;)&lt;/span&gt;
+  &lt;span style=&#34;color: #cb4b16&#34;&gt;exp&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;s/^[^\/]*/&lt;/span&gt;&lt;span style=&#34;color: #cb4b16&#34;&gt;$2&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;/&amp;quot;&lt;/span&gt;
+  &lt;span style=&#34;color: #cb4b16&#34;&gt;dist&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color: #268bd2&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #cb4b16&#34;&gt;$src&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;|&lt;/span&gt; sed -e &lt;span style=&#34;color: #cb4b16&#34;&gt;$exp&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;`&lt;/span&gt;
+
+  &lt;span style=&#34;color: #859900&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;[&lt;/span&gt; ! -d &lt;span style=&#34;color: #cb4b16&#34;&gt;$dist&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;];&lt;/span&gt; &lt;span style=&#34;color: #859900&#34;&gt;then&lt;/span&gt;
+    &lt;span style=&#34;color: #268bd2&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #cb4b16&#34;&gt;$dist&lt;/span&gt;
+    mkdir -p &lt;span style=&#34;color: #cb4b16&#34;&gt;$dist&lt;/span&gt;
+  &lt;span style=&#34;color: #859900&#34;&gt;fi&lt;/span&gt;
+&lt;span style=&#34;color: #657b83&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #268bd2&#34;&gt;export&lt;/span&gt; -f pngtosvg
+
+&lt;span style=&#34;color: #93a1a1; font-style: italic&#34;&gt;# ここの$1はpngtosvg.shに渡された第一パラメータ(元フォルダ)である。$2は出力先のフォルダである。&lt;/span&gt;
+find &lt;span style=&#34;color: #cb4b16&#34;&gt;$1&lt;/span&gt; -name &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;*.png&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;|&lt;/span&gt; xargs -IX -n1 bash -c &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;pngtosvg X &lt;/span&gt;&lt;span style=&#34;color: #cb4b16&#34;&gt;$2&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sh pngtosvg.sh hoge fuga&lt;/code&gt;の様に実行する。hogeのフォルダ構造がそのままfugaフォルダにも適応される。
+
+&lt;ul&gt;
+&lt;li&gt;ただし、pngファイルの存在するフォルダのみが適応される。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;見つかったpngファイルが全てxargsに渡される。&lt;/li&gt;
+&lt;li&gt;xargsからはbash経由でconvにXと$2が渡される。Xは見つかったpngファイルである。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;透過pngをsvgに変換する方法&#34;&gt;透過pngをsvgに変換する方法&lt;/h3&gt;
+
+&lt;p&gt;画像をsvgに変換するツールはpotraceを利用する。OSXの場合&lt;code&gt;brew install potrace&lt;/code&gt;で簡単にインストールができた。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://potrace.sourceforge.net/&#34;&gt;Peter Selinger: Potrace&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;しかし、このpotrace。いろいろと制限があり結構ハマった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;変換元のファイルとして直接pngを指定することはできない。
+
+&lt;ul&gt;
+&lt;li&gt;変換元としてはいくつかあるようだが、bmpを使ってみることにする。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;pngをbmpにするツールはたくさんある。しかし、透過のpngを透過でないbmpに変換しないと、結果のsvgファイルが正しく作成されない。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;透過pngを透過でないbmpに変換するにあたっては、下記が参考になった。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://qiita.com/iwiwi/items/fdec3466c4dea5818b3a&#34;&gt;(Qiita)コマンド一発で透過 png を綺麗に非透過 png にする&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;上記の記事で使われている&lt;code&gt;convert&lt;/code&gt;というコマンドは、imagemagickをインストールすると使えようになる。imagemagickもOSXの場合&lt;code&gt;brew install imagemagick&lt;/code&gt;でインストールが可能である。上記の記事ではpngをpngに変換しているが、この記事ではbmpに変換するので、下記のように最後のファイル名を.bmpに変更する。&lt;/p&gt;
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;convert xxx.png  &lt;span style=&#34;color: #cb4b16&#34;&gt;\(&lt;/span&gt; +clone -alpha opaque -fill white -colorize 100% &lt;span style=&#34;color: #cb4b16&#34;&gt;\)&lt;/span&gt; +swap -geometry +0+0 -compose Over -composite -alpha off xxx.bmp
+potrace --svg xxx.bmp
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;h3 id=&#34;osxで-を入力しようとしたら-になる&#34;&gt;osxで\を入力しようとしたら¥になる？&lt;/h3&gt;
+
+&lt;p&gt;上記のコマンドで、&lt;code&gt;\&lt;/code&gt;を入力しようとしたところ、OSXの環境によっては&lt;code&gt;¥&lt;/code&gt;しか入力できなくてハマった。
+対処の方法は下記のようなものがある。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;option + &lt;code&gt;\&lt;/code&gt; で&lt;code&gt;\&lt;/code&gt;が入力できる。&lt;/li&gt;
+&lt;li&gt;システム環境設定 &amp;gt; キーボード &amp;gt; 入力ソースで、&lt;strong&gt;¥キーで入力する文字&lt;/strong&gt;を&lt;code&gt;\&lt;/code&gt;に変更する。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://goo.gl/95mIgZ&#34; width=&#34;60%&#34; height=&#34;60%&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;shell-script最終版&#34;&gt;shell script最終版&lt;/h2&gt;
+
+&lt;p&gt;以上をふまえて、最終的なshell scriptは下記のようになる。&lt;/p&gt;
+
+&lt;h5 id=&#34;pngtosvg-sh-2&#34;&gt;pngtosvg.sh&lt;/h5&gt;
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #93a1a1; font-style: italic&#34;&gt;# $1に元ファイルのパス、$2に出力先のフォルダ名が指定されているとする&lt;/span&gt;
+&lt;span style=&#34;color: #859900&#34;&gt;function&lt;/span&gt; pngtosvg&lt;span style=&#34;color: #657b83&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color: #cb4b16&#34;&gt;base&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;$(&lt;/span&gt;basename &lt;span style=&#34;color: #cb4b16&#34;&gt;$1&lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;)&lt;/span&gt;
+  &lt;span style=&#34;color: #cb4b16&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;$(&lt;/span&gt;dirname &lt;span style=&#34;color: #cb4b16&#34;&gt;$1&lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;)&lt;/span&gt;
+  &lt;span style=&#34;color: #cb4b16&#34;&gt;exp&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;s/^[^\/]*/&lt;/span&gt;&lt;span style=&#34;color: #cb4b16&#34;&gt;$2&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;/&amp;quot;&lt;/span&gt;
+  &lt;span style=&#34;color: #cb4b16&#34;&gt;dist&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color: #268bd2&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #cb4b16&#34;&gt;$src&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;|&lt;/span&gt; sed -e &lt;span style=&#34;color: #cb4b16&#34;&gt;$exp&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;`&lt;/span&gt;
+  &lt;span style=&#34;color: #cb4b16&#34;&gt;distfile&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color: #268bd2&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #cb4b16&#34;&gt;$dist&lt;/span&gt;/&lt;span style=&#34;color: #cb4b16&#34;&gt;$base&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;|&lt;/span&gt; sed -e &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;s/.png/.bmp/&amp;#39;`&lt;/span&gt;
+
+  &lt;span style=&#34;color: #859900&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;[&lt;/span&gt; ! -d &lt;span style=&#34;color: #cb4b16&#34;&gt;$dist&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;];&lt;/span&gt; &lt;span style=&#34;color: #859900&#34;&gt;then&lt;/span&gt;
+    &lt;span style=&#34;color: #268bd2&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #cb4b16&#34;&gt;$dist&lt;/span&gt;
+    mkdir -p &lt;span style=&#34;color: #cb4b16&#34;&gt;$dist&lt;/span&gt;
+  &lt;span style=&#34;color: #859900&#34;&gt;fi&lt;/span&gt;
+
+  convert &lt;span style=&#34;color: #cb4b16&#34;&gt;$1&lt;/span&gt;  &lt;span style=&#34;color: #cb4b16&#34;&gt;\(&lt;/span&gt; +clone -alpha opaque -fill white -colorize 100% &lt;span style=&#34;color: #cb4b16&#34;&gt;\)&lt;/span&gt; +swap -geometry +0+0 -compose Over -composite -alpha off &lt;span style=&#34;color: #cb4b16&#34;&gt;$distfile&lt;/span&gt;
+  potrace --svg &lt;span style=&#34;color: #cb4b16&#34;&gt;$distfile&lt;/span&gt;
+  rm &lt;span style=&#34;color: #cb4b16&#34;&gt;$distfile&lt;/span&gt;
+&lt;span style=&#34;color: #657b83&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #268bd2&#34;&gt;export&lt;/span&gt; -f pngtosvg
+
+&lt;span style=&#34;color: #93a1a1; font-style: italic&#34;&gt;# ここの$1はpngtosvg.shに渡された第一パラメータ(元フォルダ)である。$2は出力先のフォルダである。&lt;/span&gt;
+find &lt;span style=&#34;color: #cb4b16&#34;&gt;$1&lt;/span&gt; -name &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;*.png&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;|&lt;/span&gt; xargs -IX -n1 bash -c &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;pngtosvg X &lt;/span&gt;&lt;span style=&#34;color: #cb4b16&#34;&gt;$2&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

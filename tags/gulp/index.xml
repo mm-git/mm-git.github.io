@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>CODE HOUSE </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>https://code-house.jp/tags/gulp/</link>
+    <language>en-us</language>
+    
+    <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
+    <updated>Tue, 02 Aug 2016 20:38:05 &#43;0900</updated>
+    
+    <item>
+      <title>gulpの初期設定</title>
+      <link>https://code-house.jp/post/gulp/gulpsetting/</link>
+      <pubDate>Tue, 02 Aug 2016 20:38:05 &#43;0900</pubDate>
+      
+      <guid>https://code-house.jp/post/gulp/gulpsetting/</guid>
+      <description>
+
+&lt;h2 id=&#34;gulpの初期設定&#34;&gt;gulpの初期設定&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://gulpjs.com/&#34;&gt;&lt;img title=&#34;gulp.js - the streaming build system&#34; src=&#34;http://capture.heartrails.com/200x150/cool?http://gulpjs.com/&#34; alt=&#34;http://gulpjs.com/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;少し前まではgruntを使って、webサイトのファイルなどを動的に生成していた。しかしgulpの方が設定やgulpスクリプトがすっきり書けるということでgulpに以降した。
+nodeアプリやモジュールの作成でgulpを使う場合の初期設定について書いてみる。なお下記を前提とする。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;設定、スクリプトはcoffeescriptで書く。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;node init&lt;/code&gt;などnode.jsの初期化は完了しているものとする。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;フォルダの構成&#34;&gt;フォルダの構成&lt;/h2&gt;
+
+&lt;p&gt;以下はあるプロジェクトフォルダのgulpに関するフォルダとファイルを抜粋したものである。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;project_folder
+├── 📁gulp
+│   ├── config.coffee
+│   └── 📁tasks
+│       ├── sass.coffee
+│            :
+├── gulpfile.coffee
+├── 📁node_modules
+└── package.json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;gulpフォルダ&#34;&gt;gulpフォルダ&lt;/h3&gt;
+
+&lt;p&gt;gulpフォルダには、gulpスクリプト全体に共通する設定を書いたconfig.coffeeと、tasksフォルダを用意する。
+そして、tasksフォルダにgulpスクリプトを置く。(上記の例だと、scssファイルをcssに変換する処理を書いたsass.coffeeがtasksフォルダに置かれている)&lt;/p&gt;
+
+&lt;h3 id=&#34;gulpfile-coffee&#34;&gt;gulpfile.coffee&lt;/h3&gt;
+
+&lt;p&gt;gulpfile.coffeeに書かれた内容は下記だけである。これで、gulp/tasksフォルダ以下にある全てのスクリプトを自動で認識して実行できるようになる。
+例えば、上記のsass.coffeeには&amp;rdquo;sass&amp;rdquo;という名前のgulpスクリプトが登録されている。&lt;code&gt;gulp sass&lt;/code&gt;とすると実行できる。&lt;/p&gt;
+
+&lt;h5 id=&#34;gulpfile-coffee-1&#34;&gt;gulpfile.coffee&lt;/h5&gt;
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #cb4b16&#34;&gt;requireDir = &lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;require(&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;require-dir&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #657b83&#34;&gt;requireDir(&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;./gulp/tasks&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color: #cb4b16&#34;&gt;recurse: &lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;true&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;})&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;h3 id=&#34;config-coffee&#34;&gt;config.coffee&lt;/h3&gt;
+
+&lt;p&gt;gulp/config.coffeeには、gulpスクリプト全体に共通する設定を記入する。json形式で好きなように設定を書く。
+gulpスクリプトでは、あるフォルダの内容を処理して公開フォルダへとコピーするといった処理が多いと思う。
+下記の例では、srcとdestで元ファイルのフォルダと公開フォルダを指定するような設定を書いている。&lt;/p&gt;
+
+&lt;h5 id=&#34;gulp-config-coffee&#34;&gt;gulp/config.coffee&lt;/h5&gt;
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1
+2
+3
+4
+5
+6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #cb4b16&#34;&gt;module.exports = &lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color: #cb4b16&#34;&gt;src: &lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;./src&amp;#39;&lt;/span&gt;
+  &lt;span style=&#34;color: #cb4b16&#34;&gt;dest: &lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;./app&amp;#39;&lt;/span&gt;
+  &lt;span style=&#34;color: #657b83&#34;&gt;:&lt;/span&gt;
+  &lt;span style=&#34;color: #657b83&#34;&gt;:&lt;/span&gt;
+&lt;span style=&#34;color: #657b83&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;こうすることで、例えば下記の様にconfig.coffeeを読み込んで、&lt;code&gt;config.src&lt;/code&gt;の様に参照ができるようになる。&lt;/p&gt;
+
+&lt;h5 id=&#34;gulp-tasks-sass-coffee&#34;&gt;gulp/tasks/sass.coffee&lt;/h5&gt;
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1
+2
+3
+4
+5
+6
+7
+8&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #cb4b16&#34;&gt;fs = &lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;require(&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;fs&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #cb4b16&#34;&gt;gulp = &lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;require(&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;gulp&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #cb4b16&#34;&gt;config = &lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;require(&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;../config&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;)&lt;/span&gt;    &lt;span style=&#34;color: #93a1a1; font-style: italic&#34;&gt;# config.coffeeを読み込む&lt;/span&gt;
+
+&lt;span style=&#34;color: #657b83&#34;&gt;gulp.task&lt;/span&gt; &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;sass&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #268bd2&#34;&gt;-&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #cb4b16&#34;&gt;files = &lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;fs.readdirSync(config.src&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;/scss&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;)&lt;/span&gt;  &lt;span style=&#34;color: #93a1a1; font-style: italic&#34;&gt;## config.srcの様にして参照できる&lt;/span&gt;
+  &lt;span style=&#34;color: #657b83&#34;&gt;:&lt;/span&gt;
+  &lt;span style=&#34;color: #657b83&#34;&gt;:&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;h3 id=&#34;package-json&#34;&gt;package.json&lt;/h3&gt;
+
+&lt;p&gt;gulpを最初に設定した時のpackage.jsonの中身は下記のようになっている。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm i coffee-script gulp require-dir -D`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;を実行すれば、package.jsonには自動的に下記が追加される。&lt;/p&gt;
+
+&lt;h5 id=&#34;package-json-1&#34;&gt;package.json&lt;/h5&gt;
+&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1
+2
+3
+4
+5
+6
+7
+8&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color: #dc322f&#34;&gt;:&lt;/span&gt;
+  &lt;span style=&#34;color: #859900&#34;&gt;&amp;quot;devDependencies&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color: #859900&#34;&gt;&amp;quot;coffee-script&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;^1.10.0&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color: #859900&#34;&gt;&amp;quot;gulp&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;^3.9.1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color: #859900&#34;&gt;&amp;quot;require-dir&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;^0.3.0&amp;quot;&lt;/span&gt;
+  &lt;span style=&#34;color: #657b83&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #657b83&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
