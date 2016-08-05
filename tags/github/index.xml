@@ -16,8 +16,7 @@
       
       <guid>https://code-house.jp/post/etc/dockerhub/</guid>
       <description>
-
-&lt;h2 id=&#34;docker-hub&#34;&gt;docker hub&lt;/h2&gt;
+        &lt;h2 id=&#34;docker-hub&#34;&gt;docker hub&lt;/h2&gt;
 
 &lt;p&gt;最近名前をよく聞くようになったdocker。Docker hubは、dockerで使うimageをクラウド上に置いておくことができる場所だ。ざっくり説明すると、&lt;/p&gt;
 
@@ -30,112 +29,8 @@
 
 &lt;p&gt;今回、werckerの処理を高速化するためにdockerにimageを登録してみたので、その手順を書いておく。なお、下記はgithubを使う場合で説明している。Bitbucketでも手順はほぼ同じと思われる。&lt;/p&gt;
 
-&lt;h2 id=&#34;docker-hubを使うまでの手順&#34;&gt;docker hubを使うまでの手順&lt;/h2&gt;
-
-&lt;p&gt;この段階では下記の点を除いてあまりハマらなかったので詳細は書かないが、下記のようにする。&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt; または &lt;a href=&#34;https://hub.docker.com/&#34;&gt;Docker hub&lt;/a&gt;でアカウントを登録する。
-
-&lt;ul&gt;
-&lt;li&gt;どちらで登録しても、アカウントは共通。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://hub.docker.com/&#34;&gt;Docker hub&lt;/a&gt;にログインする。&lt;/li&gt;
-&lt;li&gt;Docker hubとgithubのアカウントをリンクする。アカウントのSettingメニューでLinked Accounts &amp;amp; Servicesタブを選択すると、リンクのボタンがある。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;注意点&#34;&gt;注意点&lt;/h3&gt;
-
-&lt;p&gt;おそらく、いくらかの人はこの時点でgithubのアカウント名と同じアカウント名でDocker IDを取得できないと思われる。後でも説明するが、imageの名前を指定する際は、&lt;code&gt;dockerのID/imageの名前(=Docker hub上のレポジトリ名)&lt;/code&gt;の様になる。&lt;code&gt;githubのID&lt;/code&gt;ではないし、&lt;code&gt;githubのレポジトリ名&lt;/code&gt;でもない点に注意。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;githubのID/githubのレポジトリ名&lt;/code&gt;にしがちだが、そんなimageは無いとエラーになり盛大にハマった。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;docker-hubにimageを登録する&#34;&gt;docker hubにimageを登録する&lt;/h2&gt;
-
-&lt;p&gt;手順としては大きく下記である。&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;github上にDockerfileを置いたレポジトリを作成する。&lt;/li&gt;
-&lt;li&gt;Docker hub上でもレポジトリを用意し、上記のレポジトリから自動でimageを作成するように設定する。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;githubにdockerfileを置いたレポジトリを作成&#34;&gt;githubにDockerfileを置いたレポジトリを作成&lt;/h3&gt;
-
-&lt;p&gt;具体的には下記を参照。(HugoのSyntax hightlightでsolarized color schemeを使うためのboxを作ってみた)&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/mm-git/hugo-box&#34;&gt;mm-git/hugo-box&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h5 id=&#34;dockerfile&#34;&gt;Dockerfile&lt;/h5&gt;
-
-&lt;pre&gt;&lt;code&gt;FROM python:2.7.12
-
-MAINTAINER mm-git 
-
-RUN apt-get update -y
-RUN apt-get upgrade -y
-RUN pip install pygments pygments-style-solarized
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Dockerfileは&lt;code&gt;D&lt;/code&gt;だけ大文字。
-
-&lt;ul&gt;
-&lt;li&gt;ローカル環境で&lt;code&gt;docker build -t test .&lt;/code&gt;の様にしてテストしたところ、dockerfileだとファイルが無いと怒られた。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;FROMではベースとなる既存のimage名(とバージョン)を指定する。&lt;/li&gt;
-&lt;li&gt;Official base imageの一覧はここにある。 &lt;a href=&#34;https://hub.docker.com/explore/&#34;&gt;Explore Official Repositories&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Officialのimageは&lt;code&gt;DockerのID&lt;/code&gt;は無しで、&lt;code&gt;imageの名前&lt;/code&gt;(およびバージョン)のみを指定する。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;右上の検索ボックスで誰かが作った公開されているimageを検索できる。
-
-&lt;ul&gt;
-&lt;li&gt;Publicなのimageは&lt;code&gt;DockerのID/imageの名前&lt;/code&gt;(およびバージョン)を指定する。&lt;/li&gt;
-&lt;li&gt;検索できるものの、ある程度名前がわかっていないとhitしないかもしれない。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;docker-hub上でもレポジトリを作成&#34;&gt;Docker hub上でもレポジトリを作成&lt;/h3&gt;
-
-&lt;p&gt;下記参照。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://hub.docker.com/r/mmgit/hugo-box/&#34;&gt;mmgit/hugo-box&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;sub style=&#34;font-size:0.8em&#34;&gt;github ID: mm-git, Docker ID:mmgitの様に、微妙に異なる。全く違う人もたくさんいる。&lt;/sub&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-&lt;li&gt;レポジトリを作成
-
-&lt;ul&gt;
-&lt;li&gt;Docker hubに初めてログインしたあと、ダッシュボードにレポジトリを作成するボタンがあるが、githubと連携させるボタンは無い様である(2016-08-05現在)。画面の右上のCreateメニューにはCreate Automated buildがあるので、それを選択する。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;githubのレポジトリを選択する画面で対象となるレポジトリを選択する。&lt;/li&gt;
-&lt;li&gt;次の画面ではそのままCreate。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;これで、&lt;code&gt;git push&lt;/code&gt;するたびにimageが更新されるはずである。手動でビルドする場合は、Build SetingタブにTriggerボタンがあるので、押すとビルドされる。&lt;/p&gt;
-
-&lt;h2 id=&#34;作成したpublic-imageを使う&#34;&gt;作成したPublic imageを使う&lt;/h2&gt;
-
-&lt;p&gt;上記の例だと、作成してイメージは&lt;code&gt;mmgit/hugo-box&lt;/code&gt;という名前で指定できる。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;docker pull mmgit/hugo-box&lt;/code&gt;として使う&lt;/li&gt;
-&lt;li&gt;DockerfileのFROMに&lt;code&gt;mmgit/hugo-box&lt;/code&gt;と書いて更に拡張&lt;/li&gt;
-&lt;li&gt;werckerの場合は、wercker.ymlに&lt;code&gt;box: mmgit/hugo-box&lt;/code&gt;の様に書く。
-
-&lt;ul&gt;
-&lt;li&gt;werckerはもっともっと盛大にハマったので後日記事にする予定。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+        <a href='https://code-house.jp/post/etc/dockerhub/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
     </item>
     
     <item>
@@ -145,8 +40,7 @@ RUN pip install pygments pygments-style-solarized
       
       <guid>https://code-house.jp/post/hugo/GithubPages/</guid>
       <description>
-
-&lt;h2 id=&#34;github-pagesについて&#34;&gt;github pagesについて&lt;/h2&gt;
+        &lt;h2 id=&#34;github-pagesについて&#34;&gt;github pagesについて&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://pages.github.com/&#34;&gt;&lt;img title=&#34;github pages&#34; src=&#34;http://capture.heartrails.com/200x150/cool?https://pages.github.com/&#34; alt=&#34;https://pages.github.com/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
@@ -157,34 +51,8 @@ RUN pip install pygments pygments-style-solarized
 &lt;li&gt;Project site&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;※User siteと似たようなものに、Organization siteというのがある。これは、登録ユーザが組織の場合のサイトであるが、今回の説明では省略する。&lt;/p&gt;
-
-&lt;h3 id=&#34;user-site&#34;&gt;User site&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;User siteは、githubに登録しているユーザが１つだけ持つことができるgithub pagesである。&lt;/li&gt;
-&lt;li&gt;仕組みは簡単で、ユーザ名.github.ioという名前のリポジトリにファイルを置くだけである。&lt;/li&gt;
-&lt;li&gt;https://ユーザ名.github.io というURLでページが表示される。&lt;/li&gt;
-&lt;li&gt;表示されるのは、&lt;strong&gt;master&lt;/strong&gt;ブランチ。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;※https://ユーザ名.github.com というURLだったようだが、.ioに変わったようだ。今は.comにアクセスすると.ioにリダイレクトされる。&lt;/p&gt;
-
-&lt;h3 id=&#34;project-site&#34;&gt;Project site&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;ユーザ名.github.io以外のリポジトリをgithub pagesとして公開できるようにしたもの。&lt;/li&gt;
-&lt;li&gt;リポジトリにgh_pagesというブランチを作りファイルを置く。&lt;/li&gt;
-&lt;li&gt;https://ユーザ名.github.io/リポジトリ名 というURLでページが表示される。&lt;/li&gt;
-&lt;li&gt;表示されるのは、&lt;strong&gt;gh_pages&lt;/strong&gt;ブランチ。(masterではない)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;実際の運用&#34;&gt;実際の運用&lt;/h2&gt;
-
-&lt;p&gt;User siteでは、gitgub pagesの元になるファイル群と、実際に公開するファイル群でそれぞれ別のリポジトリを作成するのがいいと思われる。
-(試してはいないが、元ファイルをmaster以外、公開ファイルをmasterにすれば、１つのリポジトリでも運用できるかもしれない)
-具体的にHugoでこのサイトを公開している私の場合、 &lt;a href=&#34;https://github.com/mm-git/hugo&#34;&gt;mm-git/hugo&lt;/a&gt;に元ファイルを置いている。そしてHugoが生成したpublicフォルダを&lt;a href=&#34;https://github.com/mm-git/mm-git.github.io&#34;&gt;mm-git/mm-git.github.io&lt;/a&gt;に置くようにしている。&lt;/p&gt;
-</description>
+        <a href='https://code-house.jp/post/hugo/GithubPages/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
     </item>
     
   </channel>

@@ -16,8 +16,7 @@
       
       <guid>https://code-house.jp/post/etc/dockerhub/</guid>
       <description>
-
-&lt;h2 id=&#34;docker-hub&#34;&gt;docker hub&lt;/h2&gt;
+        &lt;h2 id=&#34;docker-hub&#34;&gt;docker hub&lt;/h2&gt;
 
 &lt;p&gt;最近名前をよく聞くようになったdocker。Docker hubは、dockerで使うimageをクラウド上に置いておくことができる場所だ。ざっくり説明すると、&lt;/p&gt;
 
@@ -30,112 +29,8 @@
 
 &lt;p&gt;今回、werckerの処理を高速化するためにdockerにimageを登録してみたので、その手順を書いておく。なお、下記はgithubを使う場合で説明している。Bitbucketでも手順はほぼ同じと思われる。&lt;/p&gt;
 
-&lt;h2 id=&#34;docker-hubを使うまでの手順&#34;&gt;docker hubを使うまでの手順&lt;/h2&gt;
-
-&lt;p&gt;この段階では下記の点を除いてあまりハマらなかったので詳細は書かないが、下記のようにする。&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt; または &lt;a href=&#34;https://hub.docker.com/&#34;&gt;Docker hub&lt;/a&gt;でアカウントを登録する。
-
-&lt;ul&gt;
-&lt;li&gt;どちらで登録しても、アカウントは共通。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://hub.docker.com/&#34;&gt;Docker hub&lt;/a&gt;にログインする。&lt;/li&gt;
-&lt;li&gt;Docker hubとgithubのアカウントをリンクする。アカウントのSettingメニューでLinked Accounts &amp;amp; Servicesタブを選択すると、リンクのボタンがある。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;注意点&#34;&gt;注意点&lt;/h3&gt;
-
-&lt;p&gt;おそらく、いくらかの人はこの時点でgithubのアカウント名と同じアカウント名でDocker IDを取得できないと思われる。後でも説明するが、imageの名前を指定する際は、&lt;code&gt;dockerのID/imageの名前(=Docker hub上のレポジトリ名)&lt;/code&gt;の様になる。&lt;code&gt;githubのID&lt;/code&gt;ではないし、&lt;code&gt;githubのレポジトリ名&lt;/code&gt;でもない点に注意。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;githubのID/githubのレポジトリ名&lt;/code&gt;にしがちだが、そんなimageは無いとエラーになり盛大にハマった。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;docker-hubにimageを登録する&#34;&gt;docker hubにimageを登録する&lt;/h2&gt;
-
-&lt;p&gt;手順としては大きく下記である。&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;github上にDockerfileを置いたレポジトリを作成する。&lt;/li&gt;
-&lt;li&gt;Docker hub上でもレポジトリを用意し、上記のレポジトリから自動でimageを作成するように設定する。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;githubにdockerfileを置いたレポジトリを作成&#34;&gt;githubにDockerfileを置いたレポジトリを作成&lt;/h3&gt;
-
-&lt;p&gt;具体的には下記を参照。(HugoのSyntax hightlightでsolarized color schemeを使うためのboxを作ってみた)&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/mm-git/hugo-box&#34;&gt;mm-git/hugo-box&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h5 id=&#34;dockerfile&#34;&gt;Dockerfile&lt;/h5&gt;
-
-&lt;pre&gt;&lt;code&gt;FROM python:2.7.12
-
-MAINTAINER mm-git 
-
-RUN apt-get update -y
-RUN apt-get upgrade -y
-RUN pip install pygments pygments-style-solarized
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Dockerfileは&lt;code&gt;D&lt;/code&gt;だけ大文字。
-
-&lt;ul&gt;
-&lt;li&gt;ローカル環境で&lt;code&gt;docker build -t test .&lt;/code&gt;の様にしてテストしたところ、dockerfileだとファイルが無いと怒られた。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;FROMではベースとなる既存のimage名(とバージョン)を指定する。&lt;/li&gt;
-&lt;li&gt;Official base imageの一覧はここにある。 &lt;a href=&#34;https://hub.docker.com/explore/&#34;&gt;Explore Official Repositories&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Officialのimageは&lt;code&gt;DockerのID&lt;/code&gt;は無しで、&lt;code&gt;imageの名前&lt;/code&gt;(およびバージョン)のみを指定する。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;右上の検索ボックスで誰かが作った公開されているimageを検索できる。
-
-&lt;ul&gt;
-&lt;li&gt;Publicなのimageは&lt;code&gt;DockerのID/imageの名前&lt;/code&gt;(およびバージョン)を指定する。&lt;/li&gt;
-&lt;li&gt;検索できるものの、ある程度名前がわかっていないとhitしないかもしれない。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;docker-hub上でもレポジトリを作成&#34;&gt;Docker hub上でもレポジトリを作成&lt;/h3&gt;
-
-&lt;p&gt;下記参照。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://hub.docker.com/r/mmgit/hugo-box/&#34;&gt;mmgit/hugo-box&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;sub style=&#34;font-size:0.8em&#34;&gt;github ID: mm-git, Docker ID:mmgitの様に、微妙に異なる。全く違う人もたくさんいる。&lt;/sub&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-&lt;li&gt;レポジトリを作成
-
-&lt;ul&gt;
-&lt;li&gt;Docker hubに初めてログインしたあと、ダッシュボードにレポジトリを作成するボタンがあるが、githubと連携させるボタンは無い様である(2016-08-05現在)。画面の右上のCreateメニューにはCreate Automated buildがあるので、それを選択する。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;githubのレポジトリを選択する画面で対象となるレポジトリを選択する。&lt;/li&gt;
-&lt;li&gt;次の画面ではそのままCreate。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;これで、&lt;code&gt;git push&lt;/code&gt;するたびにimageが更新されるはずである。手動でビルドする場合は、Build SetingタブにTriggerボタンがあるので、押すとビルドされる。&lt;/p&gt;
-
-&lt;h2 id=&#34;作成したpublic-imageを使う&#34;&gt;作成したPublic imageを使う&lt;/h2&gt;
-
-&lt;p&gt;上記の例だと、作成してイメージは&lt;code&gt;mmgit/hugo-box&lt;/code&gt;という名前で指定できる。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;docker pull mmgit/hugo-box&lt;/code&gt;として使う&lt;/li&gt;
-&lt;li&gt;DockerfileのFROMに&lt;code&gt;mmgit/hugo-box&lt;/code&gt;と書いて更に拡張&lt;/li&gt;
-&lt;li&gt;werckerの場合は、wercker.ymlに&lt;code&gt;box: mmgit/hugo-box&lt;/code&gt;の様に書く。
-
-&lt;ul&gt;
-&lt;li&gt;werckerはもっともっと盛大にハマったので後日記事にする予定。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+        <a href='https://code-house.jp/post/etc/dockerhub/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
     </item>
     
     <item>
@@ -145,8 +40,7 @@ RUN pip install pygments pygments-style-solarized
       
       <guid>https://code-house.jp/post/gulp/gulpsetting/</guid>
       <description>
-
-&lt;h2 id=&#34;gulpの初期設定&#34;&gt;gulpの初期設定&lt;/h2&gt;
+        &lt;h2 id=&#34;gulpの初期設定&#34;&gt;gulpの初期設定&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://gulpjs.com/&#34;&gt;&lt;img title=&#34;gulp.js - the streaming build system&#34; src=&#34;http://capture.heartrails.com/200x150/cool?http://gulpjs.com/&#34; alt=&#34;http://gulpjs.com/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
@@ -158,104 +52,8 @@ nodeアプリやモジュールの作成でgulpを使う場合の初期設定に
 &lt;li&gt;&lt;code&gt;node init&lt;/code&gt;などnode.jsの初期化は完了しているものとする。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;フォルダの構成&#34;&gt;フォルダの構成&lt;/h2&gt;
-
-&lt;p&gt;以下はあるプロジェクトフォルダのgulpに関するフォルダとファイルを抜粋したものである。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;project_folder
-├── 📁gulp
-│   ├── config.coffee
-│   └── 📁tasks
-│       ├── sass.coffee
-│            :
-├── gulpfile.coffee
-├── 📁node_modules
-└── package.json
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;gulpフォルダ&#34;&gt;gulpフォルダ&lt;/h3&gt;
-
-&lt;p&gt;gulpフォルダには、gulpスクリプト全体に共通する設定を書いたconfig.coffeeと、tasksフォルダを用意する。
-そして、tasksフォルダにgulpスクリプトを置く。(上記の例だと、scssファイルをcssに変換する処理を書いたsass.coffeeがtasksフォルダに置かれている)&lt;/p&gt;
-
-&lt;h3 id=&#34;gulpfile-coffee&#34;&gt;gulpfile.coffee&lt;/h3&gt;
-
-&lt;p&gt;gulpfile.coffeeに書かれた内容は下記だけである。これで、gulp/tasksフォルダ以下にある全てのスクリプトを自動で認識して実行できるようになる。
-例えば、上記のsass.coffeeには&amp;rdquo;sass&amp;rdquo;という名前のgulpスクリプトが登録されている。&lt;code&gt;gulp sass&lt;/code&gt;とすると実行できる。&lt;/p&gt;
-
-&lt;h5 id=&#34;gulpfile-coffee-1&#34;&gt;gulpfile.coffee&lt;/h5&gt;
-&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1
-2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #cb4b16&#34;&gt;requireDir = &lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;require(&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;require-dir&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #657b83&#34;&gt;requireDir(&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;./gulp/tasks&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color: #cb4b16&#34;&gt;recurse: &lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;true&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;})&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;h3 id=&#34;config-coffee&#34;&gt;config.coffee&lt;/h3&gt;
-
-&lt;p&gt;gulp/config.coffeeには、gulpスクリプト全体に共通する設定を記入する。json形式で好きなように設定を書く。
-gulpスクリプトでは、あるフォルダの内容を処理して公開フォルダへとコピーするといった処理が多いと思う。
-下記の例では、srcとdestで元ファイルのフォルダと公開フォルダを指定するような設定を書いている。&lt;/p&gt;
-
-&lt;h5 id=&#34;gulp-config-coffee&#34;&gt;gulp/config.coffee&lt;/h5&gt;
-&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1
-2
-3
-4
-5
-6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #cb4b16&#34;&gt;module.exports = &lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color: #cb4b16&#34;&gt;src: &lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;./src&amp;#39;&lt;/span&gt;
-  &lt;span style=&#34;color: #cb4b16&#34;&gt;dest: &lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;./app&amp;#39;&lt;/span&gt;
-  &lt;span style=&#34;color: #657b83&#34;&gt;:&lt;/span&gt;
-  &lt;span style=&#34;color: #657b83&#34;&gt;:&lt;/span&gt;
-&lt;span style=&#34;color: #657b83&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;p&gt;こうすることで、例えば下記の様にconfig.coffeeを読み込んで、&lt;code&gt;config.src&lt;/code&gt;の様に参照ができるようになる。&lt;/p&gt;
-
-&lt;h5 id=&#34;gulp-tasks-sass-coffee&#34;&gt;gulp/tasks/sass.coffee&lt;/h5&gt;
-&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1
-2
-3
-4
-5
-6
-7
-8&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #cb4b16&#34;&gt;fs = &lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;require(&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;fs&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #cb4b16&#34;&gt;gulp = &lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;require(&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;gulp&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #cb4b16&#34;&gt;config = &lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;require(&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;../config&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;)&lt;/span&gt;    &lt;span style=&#34;color: #93a1a1; font-style: italic&#34;&gt;# config.coffeeを読み込む&lt;/span&gt;
-
-&lt;span style=&#34;color: #657b83&#34;&gt;gulp.task&lt;/span&gt; &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;sass&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #268bd2&#34;&gt;-&amp;gt;&lt;/span&gt;
-  &lt;span style=&#34;color: #cb4b16&#34;&gt;files = &lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;fs.readdirSync(config.src&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;/scss&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;)&lt;/span&gt;  &lt;span style=&#34;color: #93a1a1; font-style: italic&#34;&gt;## config.srcの様にして参照できる&lt;/span&gt;
-  &lt;span style=&#34;color: #657b83&#34;&gt;:&lt;/span&gt;
-  &lt;span style=&#34;color: #657b83&#34;&gt;:&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;h3 id=&#34;package-json&#34;&gt;package.json&lt;/h3&gt;
-
-&lt;p&gt;gulpを最初に設定した時のpackage.jsonの中身は下記のようになっている。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;npm i coffee-script gulp require-dir -D`
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;を実行すれば、package.jsonには自動的に下記が追加される。&lt;/p&gt;
-
-&lt;h5 id=&#34;package-json-1&#34;&gt;package.json&lt;/h5&gt;
-&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1
-2
-3
-4
-5
-6
-7
-8&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color: #dc322f&#34;&gt;:&lt;/span&gt;
-  &lt;span style=&#34;color: #859900&#34;&gt;&amp;quot;devDependencies&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color: #859900&#34;&gt;&amp;quot;coffee-script&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;^1.10.0&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color: #859900&#34;&gt;&amp;quot;gulp&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;^3.9.1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color: #859900&#34;&gt;&amp;quot;require-dir&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;^0.3.0&amp;quot;&lt;/span&gt;
-  &lt;span style=&#34;color: #657b83&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color: #657b83&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description>
+        <a href='https://code-house.jp/post/gulp/gulpsetting/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
     </item>
     
     <item>
@@ -265,8 +63,7 @@ gulpスクリプトでは、あるフォルダの内容を処理して公開フ�
       
       <guid>https://code-house.jp/post/etc/pngtosvg/</guid>
       <description>
-
-&lt;h2 id=&#34;透過pngをsvg画像に変換する&#34;&gt;透過PNGをSVG画像に変換する。&lt;/h2&gt;
+        &lt;h2 id=&#34;透過pngをsvg画像に変換する&#34;&gt;透過PNGをSVG画像に変換する。&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://goo.gl/I4cpTw&#34; width=&#34;200&#34; height=&#34;150&#34;&gt;&lt;sub style=&#34;font-size:0.5em&#34;&gt;絵が下手すぎる・・・&lt;/sub&gt;&lt;/p&gt;
 
@@ -289,212 +86,8 @@ gulpスクリプトでは、あるフォルダの内容を処理して公開フ�
 &lt;li&gt;osxで\を入力しようとしたら¥になる？&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;findでファイルを探すもファイルが多い場合&#34;&gt;findでファイルを探すもファイルが多い場合。&lt;/h3&gt;
-
-&lt;p&gt;例えば、shellで&lt;code&gt;find . -name &#39;*.png&#39;&lt;/code&gt;のように実行すると、カレントフォルダ以下にあるpngファイルが検索できる。これをパイプを使って次のコマンドに渡したりできるのだが、ファイル数が多い場合エラーになってしまう。そこで、fineの結果をxargsというコマンドに渡して、どんなにファイルが多くても１つずつ処理させたりすることができる。(必ずしも１つずつ処理させる必要はないが)&lt;/p&gt;
-&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;find . -name &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;*.png&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;|&lt;/span&gt; xargs -IX -n1 wc -c X
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;ul&gt;
-&lt;li&gt;findの結果を1つずつ処理するために、xargsで&lt;code&gt;-n1&lt;/code&gt;を指定している。こうすることでxagrsに続くコマンドに1つだけ値を渡すことができる。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;-n1&lt;/code&gt;は次のコマンドにパラメータを幾つずつ渡すかを指定するパラメータ。次のコマンドを同時に幾つ実行するかは別途指定する必要がある。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;http://tagomoris.hatenablog.com/entry/20110513/1305267021&#34;&gt;xargs を使ってカジュアルに並列処理 - たごもりすメモ&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-&lt;li&gt;上記の例では、xargsからwcコマンドを実行している。&lt;code&gt;wc -c filename&lt;/code&gt;で、ファイルのサイズとパスが表示される。&lt;/li&gt;
-&lt;li&gt;xargsに続くコマンドにパラメータを渡す場合、そのコマンドの第一引数にパラメータを渡す場合は、&lt;code&gt;xargs -n1 wc&lt;/code&gt;のようにすればいい。しかし、そうではない場合、xargsの&lt;code&gt;-I&lt;/code&gt;オプションを使用する。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;-I&lt;/code&gt;に続けて任意の文字を指定する(上の例ではX)。そしてwcコマンドのパラメータを受け取る位置にもその任意の文字を書く。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;folder構造を維持するには&#34;&gt;folder構造を維持するには？&lt;/h3&gt;
-
-&lt;p&gt;フォルダの構造を維持して、svgファイルを出力したい。そこで、あるフォルダのファイルを最初に処理した際に、出力先にも同じフォルダを作成するshell functionを作ってみる。&lt;/p&gt;
-
-&lt;h5 id=&#34;pngtosvg-sh&#34;&gt;pngtosvg.sh&lt;/h5&gt;
-&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #93a1a1; font-style: italic&#34;&gt;# $1に元ファイルのパス、$2に出力先のフォルダ名が指定されているとする&lt;/span&gt;
-&lt;span style=&#34;color: #859900&#34;&gt;function&lt;/span&gt; pngtosvg&lt;span style=&#34;color: #657b83&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color: #cb4b16&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;$(&lt;/span&gt;dirname &lt;span style=&#34;color: #cb4b16&#34;&gt;$1&lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;)&lt;/span&gt;
-  &lt;span style=&#34;color: #cb4b16&#34;&gt;exp&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;s/^[^\/]*/&lt;/span&gt;&lt;span style=&#34;color: #cb4b16&#34;&gt;$2&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;/&amp;quot;&lt;/span&gt;
-  &lt;span style=&#34;color: #cb4b16&#34;&gt;dist&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color: #268bd2&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #cb4b16&#34;&gt;$src&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;|&lt;/span&gt; sed -e &lt;span style=&#34;color: #cb4b16&#34;&gt;$exp&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;`&lt;/span&gt;
-
-  &lt;span style=&#34;color: #859900&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;[&lt;/span&gt; ! -d &lt;span style=&#34;color: #cb4b16&#34;&gt;$dist&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;];&lt;/span&gt; &lt;span style=&#34;color: #859900&#34;&gt;then&lt;/span&gt;
-    &lt;span style=&#34;color: #268bd2&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #cb4b16&#34;&gt;$dist&lt;/span&gt;
-    mkdir -p &lt;span style=&#34;color: #cb4b16&#34;&gt;$dist&lt;/span&gt;
-  &lt;span style=&#34;color: #859900&#34;&gt;fi&lt;/span&gt;
-&lt;span style=&#34;color: #657b83&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;p&gt;このfunctionのハマりポイント。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;変数に値を代入する場合、=の前後にスペースを開けてはいけない。
-
-&lt;ul&gt;
-&lt;li&gt;スペースを開けると、変数名をコマンド名と解釈してしまいエラーになる。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;sedの正規表現では、最短一致の&lt;code&gt;?&lt;/code&gt;が使用できない。上記の例では、元フォルダの一番親のフォルダ名を$2で指定されたフォルダ名に変換している。
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;?&lt;/code&gt;が使えるなら、&lt;code&gt;s/^.*?/\/$2/&lt;/code&gt;の様に指定できるはずである。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;mkdirでフォルダを作成する場合、途中のフォルダが存在しない場合、通常であればエラーになる。&lt;code&gt;-p&lt;/code&gt;オプションを付ければ、途中のフォルダも全て作成してくれる。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;xargsでshell-functionはそのままでは実行できない&#34;&gt;xargsでshell functionはそのままでは実行できない。&lt;/h3&gt;
-
-&lt;p&gt;上記のshell functionをxagrsから実行しようとしたところ、そのまま実行できなくてハマった。調べてみると、下記のような記事が見つかった。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://d.hatena.ne.jp/wristed/20120603/1338691396&#34;&gt;xargsにbashのfunctionを渡す方法 - Weballergy&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;記事に書いてある通りに、shell functionをexportして、xargsからはbashのスクリプトとして実行する。&lt;/p&gt;
-
-&lt;h5 id=&#34;pngtosvg-sh-1&#34;&gt;pngtosvg.sh&lt;/h5&gt;
-&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #93a1a1; font-style: italic&#34;&gt;# $1に元ファイルのパス、$2に出力先のフォルダ名が指定されているとする&lt;/span&gt;
-&lt;span style=&#34;color: #859900&#34;&gt;function&lt;/span&gt; pngtosvg&lt;span style=&#34;color: #657b83&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color: #cb4b16&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;$(&lt;/span&gt;dirname &lt;span style=&#34;color: #cb4b16&#34;&gt;$1&lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;)&lt;/span&gt;
-  &lt;span style=&#34;color: #cb4b16&#34;&gt;exp&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;s/^[^\/]*/&lt;/span&gt;&lt;span style=&#34;color: #cb4b16&#34;&gt;$2&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;/&amp;quot;&lt;/span&gt;
-  &lt;span style=&#34;color: #cb4b16&#34;&gt;dist&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color: #268bd2&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #cb4b16&#34;&gt;$src&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;|&lt;/span&gt; sed -e &lt;span style=&#34;color: #cb4b16&#34;&gt;$exp&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;`&lt;/span&gt;
-
-  &lt;span style=&#34;color: #859900&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;[&lt;/span&gt; ! -d &lt;span style=&#34;color: #cb4b16&#34;&gt;$dist&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;];&lt;/span&gt; &lt;span style=&#34;color: #859900&#34;&gt;then&lt;/span&gt;
-    &lt;span style=&#34;color: #268bd2&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #cb4b16&#34;&gt;$dist&lt;/span&gt;
-    mkdir -p &lt;span style=&#34;color: #cb4b16&#34;&gt;$dist&lt;/span&gt;
-  &lt;span style=&#34;color: #859900&#34;&gt;fi&lt;/span&gt;
-&lt;span style=&#34;color: #657b83&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color: #268bd2&#34;&gt;export&lt;/span&gt; -f pngtosvg
-
-&lt;span style=&#34;color: #93a1a1; font-style: italic&#34;&gt;# ここの$1はpngtosvg.shに渡された第一パラメータ(元フォルダ)である。$2は出力先のフォルダである。&lt;/span&gt;
-find &lt;span style=&#34;color: #cb4b16&#34;&gt;$1&lt;/span&gt; -name &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;*.png&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;|&lt;/span&gt; xargs -IX -n1 bash -c &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;pngtosvg X &lt;/span&gt;&lt;span style=&#34;color: #cb4b16&#34;&gt;$2&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;sh pngtosvg.sh hoge fuga&lt;/code&gt;の様に実行する。hogeのフォルダ構造がそのままfugaフォルダにも適応される。
-
-&lt;ul&gt;
-&lt;li&gt;ただし、pngファイルの存在するフォルダのみが適応される。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;見つかったpngファイルが全てxargsに渡される。&lt;/li&gt;
-&lt;li&gt;xargsからはbash経由でconvにXと$2が渡される。Xは見つかったpngファイルである。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;透過pngをsvgに変換する方法&#34;&gt;透過pngをsvgに変換する方法&lt;/h3&gt;
-
-&lt;p&gt;画像をsvgに変換するツールはpotraceを利用する。OSXの場合&lt;code&gt;brew install potrace&lt;/code&gt;で簡単にインストールができた。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;http://potrace.sourceforge.net/&#34;&gt;Peter Selinger: Potrace&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;しかし、このpotrace。いろいろと制限があり結構ハマった。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;変換元のファイルとして直接pngを指定することはできない。
-
-&lt;ul&gt;
-&lt;li&gt;変換元としてはいくつかあるようだが、bmpを使ってみることにする。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;pngをbmpにするツールはたくさんある。しかし、透過のpngを透過でないbmpに変換しないと、結果のsvgファイルが正しく作成されない。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;透過pngを透過でないbmpに変換するにあたっては、下記が参考になった。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;http://qiita.com/iwiwi/items/fdec3466c4dea5818b3a&#34;&gt;(Qiita)コマンド一発で透過 png を綺麗に非透過 png にする&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;上記の記事で使われている&lt;code&gt;convert&lt;/code&gt;というコマンドは、imagemagickをインストールすると使えようになる。imagemagickもOSXの場合&lt;code&gt;brew install imagemagick&lt;/code&gt;でインストールが可能である。上記の記事ではpngをpngに変換しているが、この記事ではbmpに変換するので、下記のように最後のファイル名を.bmpに変更する。&lt;/p&gt;
-&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1
-2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;convert xxx.png  &lt;span style=&#34;color: #cb4b16&#34;&gt;\(&lt;/span&gt; +clone -alpha opaque -fill white -colorize 100% &lt;span style=&#34;color: #cb4b16&#34;&gt;\)&lt;/span&gt; +swap -geometry +0+0 -compose Over -composite -alpha off xxx.bmp
-potrace --svg xxx.bmp
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;h3 id=&#34;osxで-を入力しようとしたら-になる&#34;&gt;osxで\を入力しようとしたら¥になる？&lt;/h3&gt;
-
-&lt;p&gt;上記のコマンドで、&lt;code&gt;\&lt;/code&gt;を入力しようとしたところ、OSXの環境によっては&lt;code&gt;¥&lt;/code&gt;しか入力できなくてハマった。
-対処の方法は下記のようなものがある。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;option + &lt;code&gt;\&lt;/code&gt; で&lt;code&gt;\&lt;/code&gt;が入力できる。&lt;/li&gt;
-&lt;li&gt;システム環境設定 &amp;gt; キーボード &amp;gt; 入力ソースで、&lt;strong&gt;¥キーで入力する文字&lt;/strong&gt;を&lt;code&gt;\&lt;/code&gt;に変更する。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://goo.gl/95mIgZ&#34; width=&#34;60%&#34; height=&#34;60%&#34;&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;shell-script最終版&#34;&gt;shell script最終版&lt;/h2&gt;
-
-&lt;p&gt;以上をふまえて、最終的なshell scriptは下記のようになる。&lt;/p&gt;
-
-&lt;h5 id=&#34;pngtosvg-sh-2&#34;&gt;pngtosvg.sh&lt;/h5&gt;
-&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #93a1a1; font-style: italic&#34;&gt;# $1に元ファイルのパス、$2に出力先のフォルダ名が指定されているとする&lt;/span&gt;
-&lt;span style=&#34;color: #859900&#34;&gt;function&lt;/span&gt; pngtosvg&lt;span style=&#34;color: #657b83&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color: #cb4b16&#34;&gt;base&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;$(&lt;/span&gt;basename &lt;span style=&#34;color: #cb4b16&#34;&gt;$1&lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;)&lt;/span&gt;
-  &lt;span style=&#34;color: #cb4b16&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;$(&lt;/span&gt;dirname &lt;span style=&#34;color: #cb4b16&#34;&gt;$1&lt;/span&gt;&lt;span style=&#34;color: #859900&#34;&gt;)&lt;/span&gt;
-  &lt;span style=&#34;color: #cb4b16&#34;&gt;exp&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;s/^[^\/]*/&lt;/span&gt;&lt;span style=&#34;color: #cb4b16&#34;&gt;$2&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;/&amp;quot;&lt;/span&gt;
-  &lt;span style=&#34;color: #cb4b16&#34;&gt;dist&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color: #268bd2&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #cb4b16&#34;&gt;$src&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;|&lt;/span&gt; sed -e &lt;span style=&#34;color: #cb4b16&#34;&gt;$exp&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;`&lt;/span&gt;
-  &lt;span style=&#34;color: #cb4b16&#34;&gt;distfile&lt;/span&gt;&lt;span style=&#34;color: #657b83&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color: #268bd2&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #cb4b16&#34;&gt;$dist&lt;/span&gt;/&lt;span style=&#34;color: #cb4b16&#34;&gt;$base&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;|&lt;/span&gt; sed -e &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;s/.png/.bmp/&amp;#39;`&lt;/span&gt;
-
-  &lt;span style=&#34;color: #859900&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;[&lt;/span&gt; ! -d &lt;span style=&#34;color: #cb4b16&#34;&gt;$dist&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;];&lt;/span&gt; &lt;span style=&#34;color: #859900&#34;&gt;then&lt;/span&gt;
-    &lt;span style=&#34;color: #268bd2&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #cb4b16&#34;&gt;$dist&lt;/span&gt;
-    mkdir -p &lt;span style=&#34;color: #cb4b16&#34;&gt;$dist&lt;/span&gt;
-  &lt;span style=&#34;color: #859900&#34;&gt;fi&lt;/span&gt;
-
-  convert &lt;span style=&#34;color: #cb4b16&#34;&gt;$1&lt;/span&gt;  &lt;span style=&#34;color: #cb4b16&#34;&gt;\(&lt;/span&gt; +clone -alpha opaque -fill white -colorize 100% &lt;span style=&#34;color: #cb4b16&#34;&gt;\)&lt;/span&gt; +swap -geometry +0+0 -compose Over -composite -alpha off &lt;span style=&#34;color: #cb4b16&#34;&gt;$distfile&lt;/span&gt;
-  potrace --svg &lt;span style=&#34;color: #cb4b16&#34;&gt;$distfile&lt;/span&gt;
-  rm &lt;span style=&#34;color: #cb4b16&#34;&gt;$distfile&lt;/span&gt;
-&lt;span style=&#34;color: #657b83&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color: #268bd2&#34;&gt;export&lt;/span&gt; -f pngtosvg
-
-&lt;span style=&#34;color: #93a1a1; font-style: italic&#34;&gt;# ここの$1はpngtosvg.shに渡された第一パラメータ(元フォルダ)である。$2は出力先のフォルダである。&lt;/span&gt;
-find &lt;span style=&#34;color: #cb4b16&#34;&gt;$1&lt;/span&gt; -name &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;#39;*.png&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #657b83&#34;&gt;|&lt;/span&gt; xargs -IX -n1 bash -c &lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;pngtosvg X &lt;/span&gt;&lt;span style=&#34;color: #cb4b16&#34;&gt;$2&lt;/span&gt;&lt;span style=&#34;color: #2aa198&#34;&gt;&amp;quot;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description>
+        <a href='https://code-house.jp/post/etc/pngtosvg/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
     </item>
     
     <item>
@@ -504,8 +97,7 @@ find &lt;span style=&#34;color: #cb4b16&#34;&gt;$1&lt;/span&gt; -name &lt;span s
       
       <guid>https://code-house.jp/post/etc/googlephoto/</guid>
       <description>
-
-&lt;h2 id=&#34;google-photo&#34;&gt;Google Photo&lt;/h2&gt;
+        &lt;h2 id=&#34;google-photo&#34;&gt;Google Photo&lt;/h2&gt;
 
 &lt;p&gt;Blogに画像を貼り付ける場合、２つの方法が考えられる。&lt;/p&gt;
 
@@ -516,44 +108,8 @@ find &lt;span style=&#34;color: #cb4b16&#34;&gt;$1&lt;/span&gt; -name &lt;span s
 
 &lt;p&gt;このサイトはgithub pagesを利用している。そのため、記事と一緒に画像もアップロードするとその分リポジトリの容量が増えてしまう。これはあまり好ましいと思えないので別に画像の置き場を用意する方法を採用する。なお、画像の置き場としてはgoogle photoを利用してみる。&lt;/p&gt;
 
-&lt;h2 id=&#34;google-photoの画像をblogに表示する方法&#34;&gt;Google Photoの画像をblogに表示する方法&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;google photoでblogに表示したい写真を表示する。&lt;/li&gt;
-&lt;li&gt;画面右上の共有アイコンを選択する。&lt;/li&gt;
-&lt;li&gt;共有画面が表示されるので、リンクを取得を選択。&lt;/li&gt;
-&lt;li&gt;作成されたリンクを開いて、さらに画像を選択する。(結果、1.と同じような画面になる。コメントの追加機能があるところが1.とは異なる)&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;画像を右クリックして画像のアドレスをコピーする。&lt;/p&gt;
-
-&lt;p&gt;ここで、取得されたアドレスは、アドレスさえ分かれば誰でも画像が見れる直リンクのアドレスとなっている。&lt;code&gt;https://lh3.googleusercontent.com/...&lt;/code&gt;で始まる、とても長いアドレス。これをそのままblobに貼り付けてもいいのだが、これをさらにgoogleのアドレス短縮サービスで短くする。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://goo.gl/&#34;&gt;https://goo.gl/&lt;/a&gt; で先ほどの長いアドレスを短くする。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;短くなったアドレスをblogにimgタグなどで貼り付ける。&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;懸念事項など&#34;&gt;懸念事項など&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;1.の画像に対しても右クリックして画像のアドレスをコピーすることができる。このアドレスをそのまま短縮してもいいのかもしれない。&lt;/li&gt;
-&lt;li&gt;気になる場合は、&lt;code&gt;google フォト 直リンク&lt;/code&gt;などでググってみよう。&lt;/li&gt;
-&lt;li&gt;画像への直リンクアドレスが未来永劫有効であるかが保証はされないと思われる。最悪blogの全画像が一気にデッドリンクになってしまうかも。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;画像のexif-位置情報などはどうなるのか&#34;&gt;画像のexif、位置情報などはどうなるのか？？&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;上記の方法の場合、exif、位置情報は削除されるので&lt;strong&gt;安心してblogに貼り付けて大丈夫そうである。&lt;/strong&gt;(2016/7/27現在)&lt;/li&gt;
-&lt;li&gt;google photoにアップロードされている画像の元データにはexif、位置情報が保持されている。&lt;/li&gt;
-&lt;li&gt;共有や右クリックからの画像の保存、アドレスのコピーの場合にはexif、位置情報は削除される。&lt;/li&gt;
-&lt;li&gt;画像の所有者がgoogle photoのメニューからのダウンロードを行った場合は、exif、位置情報付きでダウンロードされる。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;今後の課題&#34;&gt;今後の課題&lt;/h2&gt;
-
-&lt;p&gt;上記の方法は手作業では非常に面倒くさい。自動で短縮アドレスを取得するような方法を考えたい。&lt;/p&gt;
-</description>
+        <a href='https://code-house.jp/post/etc/googlephoto/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
     </item>
     
     <item>
@@ -563,8 +119,7 @@ find &lt;span style=&#34;color: #cb4b16&#34;&gt;$1&lt;/span&gt; -name &lt;span s
       
       <guid>https://code-house.jp/post/hugo/GithubPages/</guid>
       <description>
-
-&lt;h2 id=&#34;github-pagesについて&#34;&gt;github pagesについて&lt;/h2&gt;
+        &lt;h2 id=&#34;github-pagesについて&#34;&gt;github pagesについて&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://pages.github.com/&#34;&gt;&lt;img title=&#34;github pages&#34; src=&#34;http://capture.heartrails.com/200x150/cool?https://pages.github.com/&#34; alt=&#34;https://pages.github.com/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
@@ -575,34 +130,8 @@ find &lt;span style=&#34;color: #cb4b16&#34;&gt;$1&lt;/span&gt; -name &lt;span s
 &lt;li&gt;Project site&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;※User siteと似たようなものに、Organization siteというのがある。これは、登録ユーザが組織の場合のサイトであるが、今回の説明では省略する。&lt;/p&gt;
-
-&lt;h3 id=&#34;user-site&#34;&gt;User site&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;User siteは、githubに登録しているユーザが１つだけ持つことができるgithub pagesである。&lt;/li&gt;
-&lt;li&gt;仕組みは簡単で、ユーザ名.github.ioという名前のリポジトリにファイルを置くだけである。&lt;/li&gt;
-&lt;li&gt;https://ユーザ名.github.io というURLでページが表示される。&lt;/li&gt;
-&lt;li&gt;表示されるのは、&lt;strong&gt;master&lt;/strong&gt;ブランチ。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;※https://ユーザ名.github.com というURLだったようだが、.ioに変わったようだ。今は.comにアクセスすると.ioにリダイレクトされる。&lt;/p&gt;
-
-&lt;h3 id=&#34;project-site&#34;&gt;Project site&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;ユーザ名.github.io以外のリポジトリをgithub pagesとして公開できるようにしたもの。&lt;/li&gt;
-&lt;li&gt;リポジトリにgh_pagesというブランチを作りファイルを置く。&lt;/li&gt;
-&lt;li&gt;https://ユーザ名.github.io/リポジトリ名 というURLでページが表示される。&lt;/li&gt;
-&lt;li&gt;表示されるのは、&lt;strong&gt;gh_pages&lt;/strong&gt;ブランチ。(masterではない)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;実際の運用&#34;&gt;実際の運用&lt;/h2&gt;
-
-&lt;p&gt;User siteでは、gitgub pagesの元になるファイル群と、実際に公開するファイル群でそれぞれ別のリポジトリを作成するのがいいと思われる。
-(試してはいないが、元ファイルをmaster以外、公開ファイルをmasterにすれば、１つのリポジトリでも運用できるかもしれない)
-具体的にHugoでこのサイトを公開している私の場合、 &lt;a href=&#34;https://github.com/mm-git/hugo&#34;&gt;mm-git/hugo&lt;/a&gt;に元ファイルを置いている。そしてHugoが生成したpublicフォルダを&lt;a href=&#34;https://github.com/mm-git/mm-git.github.io&#34;&gt;mm-git/mm-git.github.io&lt;/a&gt;に置くようにしている。&lt;/p&gt;
-</description>
+        <a href='https://code-house.jp/post/hugo/GithubPages/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
     </item>
     
     <item>
@@ -612,54 +141,15 @@ find &lt;span style=&#34;color: #cb4b16&#34;&gt;$1&lt;/span&gt; -name &lt;span s
       
       <guid>https://code-house.jp/post/hugo/HugoInsatallation/</guid>
       <description>
-
-&lt;h2 id=&#34;hugoの導入&#34;&gt;Hugoの導入&lt;/h2&gt;
+        &lt;h2 id=&#34;hugoの導入&#34;&gt;Hugoの導入&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;&lt;img title=&#34;Hugo :: A fast and modern static website engine&#34; src=&#34;http://capture.heartrails.com/200x150/cool?https://gohugo.io/&#34; alt=&#34;https://gohugo.io/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;githubでは、github pagesという仕組みを利用して、自分のサイトを公開する機能がある。簡単にいうと、リポジトリに登録したファイルがそのままサイトとして公開されるようになっている。
 リポジトリに登録するファイルを自動生成して公開する仕組みにどんなものがあるのか調べていると、JekyllやHugoといったものが見つかった。Hugoというのが動作としては速いらしいということで、今回Hugoを使ってこのサイトを作成してみた。&lt;/p&gt;
 
-&lt;h3 id=&#34;インストール&#34;&gt;インストール&lt;/h3&gt;
-
-&lt;p&gt;私はmacで作業するのでhomebrewでインストールした。&lt;/p&gt;
-&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1
-2
-3
-4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;brew install hugo
-hugo new site hugo
-&lt;span style=&#34;color: #268bd2&#34;&gt;cd&lt;/span&gt; hugo
-git init
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;h3 id=&#34;テーマのインストール&#34;&gt;テーマのインストール&lt;/h3&gt;
-
-&lt;p&gt;テーマは themesフォルダ内に使用するテーマをgit cloneしてもいいのだけれど、下記のようにsubmoduleとして登録するようにしてみた。こうすることで、テーマ自体を自分のリポジトリに含めずに管理することができる。なお、テーマはhugo-unoを選択してみた。&lt;/p&gt;
-&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1
-2
-3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #268bd2&#34;&gt;cd&lt;/span&gt; themes
-git submodule add https://github.com/fredrikloch/hugo-uno hugo-uno
-&lt;span style=&#34;color: #268bd2&#34;&gt;cd&lt;/span&gt; ..
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;p&gt;※git initを実行していない、つまり親フォルダに .git フォルダが無いと、git submoduleできないので注意。&lt;/p&gt;
-
-&lt;h3 id=&#34;最低限の設定&#34;&gt;最低限の設定&lt;/h3&gt;
-
-&lt;p&gt;現状の設定は &lt;a href=&#34;https://github.com/mm-git/hugo/blob/master/config.toml&#34; title=&#34;mm-git/hugo/config.toml&#34;&gt;mm-git/hugo/config.toml&lt;/a&gt;を参照。
-とりあえずテーマの指定をconfig.tomlに追記&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;theme = &amp;quot;hugo-uno&amp;quot;    &amp;lt;&amp;lt; テーマをここで指定しておく
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;ローカルで表示&#34;&gt;ローカルで表示&lt;/h3&gt;
-
-&lt;p&gt;下記のようにしてserverを起動した後、localhost:1313にアクセスするとhugo-unoのテーマでページが表示されます。&lt;/p&gt;
-&lt;table class=&#34;highlighttable&#34;&gt;&lt;tr&gt;&lt;td&gt;&lt;div class=&#34;linenodiv&#34; style=&#34;background-color: #f0f0f0; padding-right: 10px&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;hugo server
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;p&gt;&lt;img title=&#34;hugo-uno&#34; src=&#34;https://goo.gl/ynu35b&#34; alt=&#34;hugo-uno&#34; /&gt;&lt;/p&gt;
-</description>
+        <a href='https://code-house.jp/post/hugo/HugoInsatallation/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
     </item>
     
   </channel>
