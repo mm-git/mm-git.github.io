@@ -96,7 +96,11 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-scss
+scss/*
+!scss/fontawsome/
+scss/fontawesom/*
+!scss/fontawesom/fonts
+
 js/main.js
 css/uno.css
 css/uno.css.map
