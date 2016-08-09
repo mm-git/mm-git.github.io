@@ -7,14 +7,35 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Tue, 26 Jul 2016 12:21:20 &#43;0900</updated>
+    <updated>Tue, 09 Aug 2016 13:38:22 JST</updated>
+    
+    <item>
+      <title>Hugoの記事について</title>
+      <link>https://code-house.jp/2016/08/09/hugocontent/</link>
+      <pubDate>Tue, 09 Aug 2016 13:38:22 JST</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/09/hugocontent/</guid>
+      <description>
+        &lt;h2 id=&#34;hugoでの記事について&#34;&gt;Hugoでの記事について&lt;/h2&gt;
+
+&lt;p&gt;今後のことも考えて、Hugoでの記事の追加の仕方について考えてみる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;記事の追加の仕方とフォルダ構成&lt;/li&gt;
+&lt;li&gt;記事のPermalink&lt;/li&gt;
+&lt;li&gt;記事の書き方メモ&lt;/li&gt;
+&lt;/ul&gt;
+
+        <a href='https://code-house.jp/2016/08/09/hugocontent/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>github pagesについて</title>
-      <link>https://code-house.jp/post/hugo/GithubPages/</link>
-      <pubDate>Tue, 26 Jul 2016 12:21:20 &#43;0900</pubDate>
+      <link>https://code-house.jp/2016/07/26/githubpages/</link>
+      <pubDate>Tue, 26 Jul 2016 12:21:20 JST</pubDate>
       
-      <guid>https://code-house.jp/post/hugo/GithubPages/</guid>
+      <guid>https://code-house.jp/2016/07/26/githubpages/</guid>
       <description>
         &lt;h2 id=&#34;github-pagesについて&#34;&gt;github pagesについて&lt;/h2&gt;
 
@@ -27,16 +48,16 @@
 &lt;li&gt;Project site&lt;/li&gt;
 &lt;/ul&gt;
 
-        <a href='https://code-house.jp/post/hugo/GithubPages/' class="read-more"><nobr>Read more →</nobr></a>
+        <a href='https://code-house.jp/2016/07/26/githubpages/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     
     <item>
       <title>Hugoをinstallする</title>
-      <link>https://code-house.jp/post/hugo/HugoInsatallation/</link>
-      <pubDate>Tue, 26 Jul 2016 11:38:58 &#43;0900</pubDate>
+      <link>https://code-house.jp/2016/07/26/hugoinsatallation/</link>
+      <pubDate>Tue, 26 Jul 2016 11:38:58 JST</pubDate>
       
-      <guid>https://code-house.jp/post/hugo/HugoInsatallation/</guid>
+      <guid>https://code-house.jp/2016/07/26/hugoinsatallation/</guid>
       <description>
         &lt;h2 id=&#34;hugoの導入&#34;&gt;Hugoの導入&lt;/h2&gt;
 
@@ -45,7 +66,7 @@
 &lt;p&gt;githubでは、github pagesという仕組みを利用して、自分のサイトを公開する機能がある。簡単にいうと、リポジトリに登録したファイルがそのままサイトとして公開されるようになっている。
 リポジトリに登録するファイルを自動生成して公開する仕組みにどんなものがあるのか調べていると、JekyllやHugoといったものが見つかった。Hugoというのが動作としては速いらしいということで、今回Hugoを使ってこのサイトを作成してみた。&lt;/p&gt;
 
-        <a href='https://code-house.jp/post/hugo/HugoInsatallation/' class="read-more"><nobr>Read more →</nobr></a>
+        <a href='https://code-house.jp/2016/07/26/hugoinsatallation/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>CODE HOUSE </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>https://code-house.jp/blog/</link>
+    <language>ja_jp</language>
+    
+    <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
+    <updated>Tue, 09 Aug 2016 13:38:22 JST</updated>
+    
+    <item>
+      <title>Hugoの記事について</title>
+      <link>https://code-house.jp/2016/08/09/hugocontent/</link>
+      <pubDate>Tue, 09 Aug 2016 13:38:22 JST</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/09/hugocontent/</guid>
+      <description>
+        &lt;h2 id=&#34;hugoでの記事について&#34;&gt;Hugoでの記事について&lt;/h2&gt;
+
+&lt;p&gt;今後のことも考えて、Hugoでの記事の追加の仕方について考えてみる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;記事の追加の仕方とフォルダ構成&lt;/li&gt;
+&lt;li&gt;記事のPermalink&lt;/li&gt;
+&lt;li&gt;記事の書き方メモ&lt;/li&gt;
+&lt;/ul&gt;
+
+        <a href='https://code-house.jp/2016/08/09/hugocontent/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
+    
+    <item>
+      <title>[gulp] sass編</title>
+      <link>https://code-house.jp/2016/08/06/gulpsass/</link>
+      <pubDate>Sat, 06 Aug 2016 13:36:14 JST</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/06/gulpsass/</guid>
+      <description>
+        &lt;h2 id=&#34;gulp-を使った-sass-css-css-min変換&#34;&gt;gulp を使った sass→css, css.min変換&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sass-lang.com/&#34;&gt;&lt;img title=&#34;Sass: Syntactically Awesome Style Sheets&#34; src=&#34;http://capture.heartrails.com/200x150/cool?http://sass-lang.com/&#34; alt=&#34;http://sass-lang.com/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;今回gulpのスクリプトで&lt;code&gt;.scss&lt;/code&gt;を&lt;code&gt;.css&lt;/code&gt;及び&lt;code&gt;.min.css&lt;/code&gt;に変換してみる。gulp自体の設定については下記の記事参照。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+        <a href='https://code-house.jp/2016/08/06/gulpsass/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
+    
+    <item>
+      <title>docker hubにboxを登録する</title>
+      <link>https://code-house.jp/2016/08/05/dockerhub/</link>
+      <pubDate>Fri, 05 Aug 2016 12:24:34 JST</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/05/dockerhub/</guid>
+      <description>
+        &lt;h2 id=&#34;docker-hub&#34;&gt;docker hub&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://hub.docker.com/&#34;&gt;&lt;img title=&#34;Untitled&#34; src=&#34;http://capture.heartrails.com/200x150/cool/1470414919790?https://hub.docker.com/&#34; alt=&#34;https://hub.docker.com/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;最近名前をよく聞くようになったdocker。Docker hubは、dockerで使うimageをクラウド上に置いておくことができる場所だ。ざっくり説明すると、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;自分が作ったimageを世界に公開することもできるし、プライベートなimageも置くことができる。&lt;/li&gt;
+&lt;li&gt;2016-08-05現在、無料のプランだと、プライベートなimageは１つまで。並列処理でビルドできるimageは1つだけ。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;といった感じである。&lt;/p&gt;
+
+&lt;p&gt;今回、werckerの処理を高速化するためにdockerにimageを登録してみたので、その手順を書いておく。なお、下記はgithubを使う場合で説明している。Bitbucketでも手順はほぼ同じと思われる。&lt;/p&gt;
+
+        <a href='https://code-house.jp/2016/08/05/dockerhub/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
+    
+    <item>
+      <title>gulpの初期設定</title>
+      <link>https://code-house.jp/2016/08/02/gulpsetting/</link>
+      <pubDate>Tue, 02 Aug 2016 20:38:05 JST</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/02/gulpsetting/</guid>
+      <description>
+        &lt;h2 id=&#34;gulpの初期設定&#34;&gt;gulpの初期設定&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://gulpjs.com/&#34;&gt;&lt;img title=&#34;gulp.js - the streaming build system&#34; src=&#34;http://capture.heartrails.com/200x150/cool?http://gulpjs.com/&#34; alt=&#34;http://gulpjs.com/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;少し前まではgruntを使って、webサイトのファイルなどを動的に生成していた。しかしgulpの方が設定やgulpスクリプトがすっきり書けるということでgulpに移行した。
+nodeアプリやモジュールの作成でgulpを使う場合の初期設定について書いてみる。なお下記を前提とする。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;設定、スクリプトはcoffeescriptで書く。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;node init&lt;/code&gt;などnode.jsの初期化は完了しているものとする。&lt;/li&gt;
+&lt;/ul&gt;
+
+        <a href='https://code-house.jp/2016/08/02/gulpsetting/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
+    
+    <item>
+      <title>透過pngをsvgに変換する</title>
+      <link>https://code-house.jp/2016/08/02/pngtosvg/</link>
+      <pubDate>Tue, 02 Aug 2016 18:32:15 JST</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/02/pngtosvg/</guid>
+      <description>
+        &lt;h2 id=&#34;透過pngをsvg画像に変換する&#34;&gt;透過PNGをSVG画像に変換する。&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://goo.gl/I4cpTw&#34; width=&#34;200&#34; height=&#34;150&#34;&gt;&lt;sub style=&#34;font-size:0.5em&#34;&gt;絵が下手すぎる・・・&lt;/sub&gt;&lt;/p&gt;
+
+&lt;p&gt;pngをsvgに変換する。世の中そんなツールは出回ってそうなので簡単にできるかと思っていたが、以外にもハマりどころが多かったのでメモ。前提として、下記のことを達成することを目的とする。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;元になるpng画像はモノトーンの透過画像である。&lt;/li&gt;
+&lt;li&gt;png画像は、あるフォルダの複数のサブフォルダの中に複数存在する。&lt;/li&gt;
+&lt;li&gt;svg画像は別のフォルダに出力する。この時元のフォルダの構造をそのまま維持する。&lt;/li&gt;
+&lt;li&gt;上記をshell scriptでちゃちゃっと実行する。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;ハマったこと&#34;&gt;ハマったこと&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;findでファイルを探すもファイルが多い場合。&lt;/li&gt;
+&lt;li&gt;xargsでshell functionはそのままでは実行できない。&lt;/li&gt;
+&lt;li&gt;folder構造を維持するには？&lt;/li&gt;
+&lt;li&gt;透過pngをsvgに変換する方法&lt;/li&gt;
+&lt;li&gt;osxで\を入力しようとしたら¥になる？&lt;/li&gt;
+&lt;/ul&gt;
+
+        <a href='https://code-house.jp/2016/08/02/pngtosvg/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
+    
+    <item>
+      <title>Google PhotoをBlogに貼り付ける</title>
+      <link>https://code-house.jp/2016/07/27/googlephoto/</link>
+      <pubDate>Wed, 27 Jul 2016 14:15:44 JST</pubDate>
+      
+      <guid>https://code-house.jp/2016/07/27/googlephoto/</guid>
+      <description>
+        &lt;h2 id=&#34;google-photo&#34;&gt;Google Photo&lt;/h2&gt;
+
+&lt;p&gt;Blogに画像を貼り付ける場合、２つの方法が考えられる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;記事と一緒に画像もアップロードする&lt;/li&gt;
+&lt;li&gt;画像の置き場を別に用意し記事からリンクする&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;このサイトはgithub pagesを利用している。そのため、記事と一緒に画像もアップロードするとその分リポジトリの容量が増えてしまう。これはあまり好ましいと思えないので別に画像の置き場を用意する方法を採用する。なお、画像の置き場としてはgoogle photoを利用してみる。&lt;/p&gt;
+
+        <a href='https://code-house.jp/2016/07/27/googlephoto/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
+    
+    <item>
+      <title>github pagesについて</title>
+      <link>https://code-house.jp/2016/07/26/githubpages/</link>
+      <pubDate>Tue, 26 Jul 2016 12:21:20 JST</pubDate>
+      
+      <guid>https://code-house.jp/2016/07/26/githubpages/</guid>
+      <description>
+        &lt;h2 id=&#34;github-pagesについて&#34;&gt;github pagesについて&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://pages.github.com/&#34;&gt;&lt;img title=&#34;github pages&#34; src=&#34;http://capture.heartrails.com/200x150/cool?https://pages.github.com/&#34; alt=&#34;https://pages.github.com/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;リポジトリの内容をそのままwebとして公開できるgithub pagesについて調べてみた。github pagesには次の２つがあるようだ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;User site&lt;/li&gt;
+&lt;li&gt;Project site&lt;/li&gt;
+&lt;/ul&gt;
+
+        <a href='https://code-house.jp/2016/07/26/githubpages/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
+    
+    <item>
+      <title>Hugoをinstallする</title>
+      <link>https://code-house.jp/2016/07/26/hugoinsatallation/</link>
+      <pubDate>Tue, 26 Jul 2016 11:38:58 JST</pubDate>
+      
+      <guid>https://code-house.jp/2016/07/26/hugoinsatallation/</guid>
+      <description>
+        &lt;h2 id=&#34;hugoの導入&#34;&gt;Hugoの導入&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;&lt;img title=&#34;Hugo :: A fast and modern static website engine&#34; src=&#34;http://capture.heartrails.com/200x150/cool?https://gohugo.io/&#34; alt=&#34;https://gohugo.io/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;githubでは、github pagesという仕組みを利用して、自分のサイトを公開する機能がある。簡単にいうと、リポジトリに登録したファイルがそのままサイトとして公開されるようになっている。
+リポジトリに登録するファイルを自動生成して公開する仕組みにどんなものがあるのか調べていると、JekyllやHugoといったものが見つかった。Hugoというのが動作としては速いらしいということで、今回Hugoを使ってこのサイトを作成してみた。&lt;/p&gt;
+
+        <a href='https://code-house.jp/2016/07/26/hugoinsatallation/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
+    
+  </channel>
+</rss>

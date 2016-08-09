@@ -7,14 +7,14 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Tue, 02 Aug 2016 18:32:15 &#43;0900</updated>
+    <updated>Tue, 02 Aug 2016 18:32:15 JST</updated>
     
     <item>
       <title>透過pngをsvgに変換する</title>
-      <link>https://code-house.jp/post/etc/pngtosvg/</link>
-      <pubDate>Tue, 02 Aug 2016 18:32:15 &#43;0900</pubDate>
+      <link>https://code-house.jp/2016/08/02/pngtosvg/</link>
+      <pubDate>Tue, 02 Aug 2016 18:32:15 JST</pubDate>
       
-      <guid>https://code-house.jp/post/etc/pngtosvg/</guid>
+      <guid>https://code-house.jp/2016/08/02/pngtosvg/</guid>
       <description>
         &lt;h2 id=&#34;透過pngをsvg画像に変換する&#34;&gt;透過PNGをSVG画像に変換する。&lt;/h2&gt;
 
@@ -39,7 +39,7 @@
 &lt;li&gt;osxで\を入力しようとしたら¥になる？&lt;/li&gt;
 &lt;/ul&gt;
 
-        <a href='https://code-house.jp/post/etc/pngtosvg/' class="read-more"><nobr>Read more →</nobr></a>
+        <a href='https://code-house.jp/2016/08/02/pngtosvg/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     

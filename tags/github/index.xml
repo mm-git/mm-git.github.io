@@ -7,14 +7,14 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Fri, 05 Aug 2016 12:24:34 &#43;0900</updated>
+    <updated>Fri, 05 Aug 2016 12:24:34 JST</updated>
     
     <item>
       <title>docker hubにboxを登録する</title>
-      <link>https://code-house.jp/post/etc/dockerhub/</link>
-      <pubDate>Fri, 05 Aug 2016 12:24:34 &#43;0900</pubDate>
+      <link>https://code-house.jp/2016/08/05/dockerhub/</link>
+      <pubDate>Fri, 05 Aug 2016 12:24:34 JST</pubDate>
       
-      <guid>https://code-house.jp/post/etc/dockerhub/</guid>
+      <guid>https://code-house.jp/2016/08/05/dockerhub/</guid>
       <description>
         &lt;h2 id=&#34;docker-hub&#34;&gt;docker hub&lt;/h2&gt;
 
@@ -31,16 +31,16 @@
 
 &lt;p&gt;今回、werckerの処理を高速化するためにdockerにimageを登録してみたので、その手順を書いておく。なお、下記はgithubを使う場合で説明している。Bitbucketでも手順はほぼ同じと思われる。&lt;/p&gt;
 
-        <a href='https://code-house.jp/post/etc/dockerhub/' class="read-more"><nobr>Read more →</nobr></a>
+        <a href='https://code-house.jp/2016/08/05/dockerhub/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     
     <item>
       <title>github pagesについて</title>
-      <link>https://code-house.jp/post/hugo/GithubPages/</link>
-      <pubDate>Tue, 26 Jul 2016 12:21:20 &#43;0900</pubDate>
+      <link>https://code-house.jp/2016/07/26/githubpages/</link>
+      <pubDate>Tue, 26 Jul 2016 12:21:20 JST</pubDate>
       
-      <guid>https://code-house.jp/post/hugo/GithubPages/</guid>
+      <guid>https://code-house.jp/2016/07/26/githubpages/</guid>
       <description>
         &lt;h2 id=&#34;github-pagesについて&#34;&gt;github pagesについて&lt;/h2&gt;
 
@@ -53,7 +53,7 @@
 &lt;li&gt;Project site&lt;/li&gt;
 &lt;/ul&gt;
 
-        <a href='https://code-house.jp/post/hugo/GithubPages/' class="read-more"><nobr>Read more →</nobr></a>
+        <a href='https://code-house.jp/2016/07/26/githubpages/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     

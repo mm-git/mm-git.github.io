@@ -7,14 +7,35 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Sat, 06 Aug 2016 13:36:14 &#43;0900</updated>
+    <updated>Tue, 09 Aug 2016 13:38:22 JST</updated>
+    
+    <item>
+      <title>Hugoの記事について</title>
+      <link>https://code-house.jp/2016/08/09/hugocontent/</link>
+      <pubDate>Tue, 09 Aug 2016 13:38:22 JST</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/09/hugocontent/</guid>
+      <description>
+        &lt;h2 id=&#34;hugoでの記事について&#34;&gt;Hugoでの記事について&lt;/h2&gt;
+
+&lt;p&gt;今後のことも考えて、Hugoでの記事の追加の仕方について考えてみる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;記事の追加の仕方とフォルダ構成&lt;/li&gt;
+&lt;li&gt;記事のPermalink&lt;/li&gt;
+&lt;li&gt;記事の書き方メモ&lt;/li&gt;
+&lt;/ul&gt;
+
+        <a href='https://code-house.jp/2016/08/09/hugocontent/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>[gulp] sass編</title>
-      <link>https://code-house.jp/post/gulp/gulpsass/</link>
-      <pubDate>Sat, 06 Aug 2016 13:36:14 &#43;0900</pubDate>
+      <link>https://code-house.jp/2016/08/06/gulpsass/</link>
+      <pubDate>Sat, 06 Aug 2016 13:36:14 JST</pubDate>
       
-      <guid>https://code-house.jp/post/gulp/gulpsass/</guid>
+      <guid>https://code-house.jp/2016/08/06/gulpsass/</guid>
       <description>
         &lt;h2 id=&#34;gulp-を使った-sass-css-css-min変換&#34;&gt;gulp を使った sass→css, css.min変換&lt;/h2&gt;
 
@@ -26,16 +47,16 @@
 &lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-        <a href='https://code-house.jp/post/gulp/gulpsass/' class="read-more"><nobr>Read more →</nobr></a>
+        <a href='https://code-house.jp/2016/08/06/gulpsass/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     
     <item>
       <title>docker hubにboxを登録する</title>
-      <link>https://code-house.jp/post/etc/dockerhub/</link>
-      <pubDate>Fri, 05 Aug 2016 12:24:34 &#43;0900</pubDate>
+      <link>https://code-house.jp/2016/08/05/dockerhub/</link>
+      <pubDate>Fri, 05 Aug 2016 12:24:34 JST</pubDate>
       
-      <guid>https://code-house.jp/post/etc/dockerhub/</guid>
+      <guid>https://code-house.jp/2016/08/05/dockerhub/</guid>
       <description>
         &lt;h2 id=&#34;docker-hub&#34;&gt;docker hub&lt;/h2&gt;
 
@@ -52,16 +73,16 @@
 
 &lt;p&gt;今回、werckerの処理を高速化するためにdockerにimageを登録してみたので、その手順を書いておく。なお、下記はgithubを使う場合で説明している。Bitbucketでも手順はほぼ同じと思われる。&lt;/p&gt;
 
-        <a href='https://code-house.jp/post/etc/dockerhub/' class="read-more"><nobr>Read more →</nobr></a>
+        <a href='https://code-house.jp/2016/08/05/dockerhub/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     
     <item>
       <title>gulpの初期設定</title>
-      <link>https://code-house.jp/post/gulp/gulpsetting/</link>
-      <pubDate>Tue, 02 Aug 2016 20:38:05 &#43;0900</pubDate>
+      <link>https://code-house.jp/2016/08/02/gulpsetting/</link>
+      <pubDate>Tue, 02 Aug 2016 20:38:05 JST</pubDate>
       
-      <guid>https://code-house.jp/post/gulp/gulpsetting/</guid>
+      <guid>https://code-house.jp/2016/08/02/gulpsetting/</guid>
       <description>
         &lt;h2 id=&#34;gulpの初期設定&#34;&gt;gulpの初期設定&lt;/h2&gt;
 
@@ -75,16 +96,16 @@ nodeアプリやモジュールの作成でgulpを使う場合の初期設定に
 &lt;li&gt;&lt;code&gt;node init&lt;/code&gt;などnode.jsの初期化は完了しているものとする。&lt;/li&gt;
 &lt;/ul&gt;
 
-        <a href='https://code-house.jp/post/gulp/gulpsetting/' class="read-more"><nobr>Read more →</nobr></a>
+        <a href='https://code-house.jp/2016/08/02/gulpsetting/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     
     <item>
       <title>透過pngをsvgに変換する</title>
-      <link>https://code-house.jp/post/etc/pngtosvg/</link>
-      <pubDate>Tue, 02 Aug 2016 18:32:15 &#43;0900</pubDate>
+      <link>https://code-house.jp/2016/08/02/pngtosvg/</link>
+      <pubDate>Tue, 02 Aug 2016 18:32:15 JST</pubDate>
       
-      <guid>https://code-house.jp/post/etc/pngtosvg/</guid>
+      <guid>https://code-house.jp/2016/08/02/pngtosvg/</guid>
       <description>
         &lt;h2 id=&#34;透過pngをsvg画像に変換する&#34;&gt;透過PNGをSVG画像に変換する。&lt;/h2&gt;
 
@@ -109,16 +130,16 @@ nodeアプリやモジュールの作成でgulpを使う場合の初期設定に
 &lt;li&gt;osxで\を入力しようとしたら¥になる？&lt;/li&gt;
 &lt;/ul&gt;
 
-        <a href='https://code-house.jp/post/etc/pngtosvg/' class="read-more"><nobr>Read more →</nobr></a>
+        <a href='https://code-house.jp/2016/08/02/pngtosvg/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     
     <item>
       <title>Google PhotoをBlogに貼り付ける</title>
-      <link>https://code-house.jp/post/etc/googlephoto/</link>
-      <pubDate>Wed, 27 Jul 2016 14:15:44 &#43;0900</pubDate>
+      <link>https://code-house.jp/2016/07/27/googlephoto/</link>
+      <pubDate>Wed, 27 Jul 2016 14:15:44 JST</pubDate>
       
-      <guid>https://code-house.jp/post/etc/googlephoto/</guid>
+      <guid>https://code-house.jp/2016/07/27/googlephoto/</guid>
       <description>
         &lt;h2 id=&#34;google-photo&#34;&gt;Google Photo&lt;/h2&gt;
 
@@ -131,16 +152,16 @@ nodeアプリやモジュールの作成でgulpを使う場合の初期設定に
 
 &lt;p&gt;このサイトはgithub pagesを利用している。そのため、記事と一緒に画像もアップロードするとその分リポジトリの容量が増えてしまう。これはあまり好ましいと思えないので別に画像の置き場を用意する方法を採用する。なお、画像の置き場としてはgoogle photoを利用してみる。&lt;/p&gt;
 
-        <a href='https://code-house.jp/post/etc/googlephoto/' class="read-more"><nobr>Read more →</nobr></a>
+        <a href='https://code-house.jp/2016/07/27/googlephoto/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     
     <item>
       <title>github pagesについて</title>
-      <link>https://code-house.jp/post/hugo/GithubPages/</link>
-      <pubDate>Tue, 26 Jul 2016 12:21:20 &#43;0900</pubDate>
+      <link>https://code-house.jp/2016/07/26/githubpages/</link>
+      <pubDate>Tue, 26 Jul 2016 12:21:20 JST</pubDate>
       
-      <guid>https://code-house.jp/post/hugo/GithubPages/</guid>
+      <guid>https://code-house.jp/2016/07/26/githubpages/</guid>
       <description>
         &lt;h2 id=&#34;github-pagesについて&#34;&gt;github pagesについて&lt;/h2&gt;
 
@@ -153,16 +174,16 @@ nodeアプリやモジュールの作成でgulpを使う場合の初期設定に
 &lt;li&gt;Project site&lt;/li&gt;
 &lt;/ul&gt;
 
-        <a href='https://code-house.jp/post/hugo/GithubPages/' class="read-more"><nobr>Read more →</nobr></a>
+        <a href='https://code-house.jp/2016/07/26/githubpages/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     
     <item>
       <title>Hugoをinstallする</title>
-      <link>https://code-house.jp/post/hugo/HugoInsatallation/</link>
-      <pubDate>Tue, 26 Jul 2016 11:38:58 &#43;0900</pubDate>
+      <link>https://code-house.jp/2016/07/26/hugoinsatallation/</link>
+      <pubDate>Tue, 26 Jul 2016 11:38:58 JST</pubDate>
       
-      <guid>https://code-house.jp/post/hugo/HugoInsatallation/</guid>
+      <guid>https://code-house.jp/2016/07/26/hugoinsatallation/</guid>
       <description>
         &lt;h2 id=&#34;hugoの導入&#34;&gt;Hugoの導入&lt;/h2&gt;
 
@@ -171,7 +192,7 @@ nodeアプリやモジュールの作成でgulpを使う場合の初期設定に
 &lt;p&gt;githubでは、github pagesという仕組みを利用して、自分のサイトを公開する機能がある。簡単にいうと、リポジトリに登録したファイルがそのままサイトとして公開されるようになっている。
 リポジトリに登録するファイルを自動生成して公開する仕組みにどんなものがあるのか調べていると、JekyllやHugoといったものが見つかった。Hugoというのが動作としては速いらしいということで、今回Hugoを使ってこのサイトを作成してみた。&lt;/p&gt;
 
-        <a href='https://code-house.jp/post/hugo/HugoInsatallation/' class="read-more"><nobr>Read more →</nobr></a>
+        <a href='https://code-house.jp/2016/07/26/hugoinsatallation/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     

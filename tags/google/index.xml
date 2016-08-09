@@ -7,14 +7,14 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Wed, 27 Jul 2016 14:15:44 &#43;0900</updated>
+    <updated>Wed, 27 Jul 2016 14:15:44 JST</updated>
     
     <item>
       <title>Google PhotoをBlogに貼り付ける</title>
-      <link>https://code-house.jp/post/etc/googlephoto/</link>
-      <pubDate>Wed, 27 Jul 2016 14:15:44 &#43;0900</pubDate>
+      <link>https://code-house.jp/2016/07/27/googlephoto/</link>
+      <pubDate>Wed, 27 Jul 2016 14:15:44 JST</pubDate>
       
-      <guid>https://code-house.jp/post/etc/googlephoto/</guid>
+      <guid>https://code-house.jp/2016/07/27/googlephoto/</guid>
       <description>
         &lt;h2 id=&#34;google-photo&#34;&gt;Google Photo&lt;/h2&gt;
 
@@ -27,7 +27,7 @@
 
 &lt;p&gt;このサイトはgithub pagesを利用している。そのため、記事と一緒に画像もアップロードするとその分リポジトリの容量が増えてしまう。これはあまり好ましいと思えないので別に画像の置き場を用意する方法を採用する。なお、画像の置き場としてはgoogle photoを利用してみる。&lt;/p&gt;
 
-        <a href='https://code-house.jp/post/etc/googlephoto/' class="read-more"><nobr>Read more →</nobr></a>
+        <a href='https://code-house.jp/2016/07/27/googlephoto/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     

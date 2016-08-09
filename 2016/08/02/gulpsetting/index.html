@@ -1,0 +1,334 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> gulpの初期設定 </title>
+    
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp//css/lightGallery.css" />
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp//css/solarizedlight.css" />
+    
+    <link rel="apple-touch-icon" sizes="57x57" href="https://code-house.jp/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://code-house.jp/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://code-house.jp/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://code-house.jp/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://code-house.jp/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://code-house.jp/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://code-house.jp/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://code-house.jp/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://code-house.jp/apple-touch-icon-180x180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="logo">
+<link rel="icon" type="image/png" sizes="228x228" href="https://code-house.jp/coast-228x228.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://code-house.jp/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://code-house.jp/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://code-house.jp/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="230x230" href="https://code-house.jp/favicon-230x230.png">
+<link rel="shortcut icon" href="https://code-house.jp/favicon.ico">
+<link rel="yandex-tableau-widget" href="https://code-house.jp/yandex-browser-manifest.json">
+<meta name="msapplication-TileColor" content="#666666">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<link rel="icon" type="image/png" sizes="192x192" href="https://code-house.jp/android-chrome-192x192.png">
+<link rel="manifest" href="https://code-house.jp/manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#666666">
+<meta name="application-name" content="logo">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="https://code-house.jp/apple-touch-startup-image-320x460.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-640x920.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-640x1096.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-750x1294.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="https://code-house.jp/apple-touch-startup-image-1182x2208.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="https://code-house.jp/apple-touch-startup-image-1242x2148.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="https://code-house.jp/apple-touch-startup-image-748x1024.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="https://code-house.jp/apple-touch-startup-image-768x1004.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1496x2048.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1536x2008.png">
+    
+        <meta property="og:site_name" content="CODE HOUSE" />
+    <meta property="og:url" content="https://code-house.jp/2016/08/02/gulpsetting/" />
+    <meta property="og:title" content="gulpの初期設定" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content="https://code-house.jp/2016/08/02/gulpsetting/" />
+
+    
+        <meta property="og:description" content="少し前まではgruntを使って、webサイトのファイルなどを動的に生成していた。しかしgulpの方が設定やgulpスクリプトがすっきり書けるということでgulpに移行した。nodeアプリやモジュールの作成でgulpを使う場合の初期設定について書いてみる。" />
+        
+            <meta property="og:image" content="https://code-house.jp/open-graph.png">
+            <meta property="twitter:image" content="https://code-house.jp/open-graph.png">
+        
+        <meta property="og:type" content="article" />
+    
+
+
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
+    
+    <script src="https://code-house.jp//js/jquery.min.js"></script>
+    <script src="https://code-house.jp//js/main.min.js"></script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed">
+    
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content">
+                
+                <a href="https://code-house.jp/" title="link to homepage for CODE HOUSE">
+                    <img src="https://code-house.jp/images/codehouse_logo.png" width="100" alt="CODE HOUSE logo" class="panel-cover__logo" />
+                </a>
+                
+                <h1 class="panel-cover__title panel-title">
+                    <a href="https://code-house.jp/"  title="link to homepage for CODE HOUSE">CODE HOUSE</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">Hello, I&#39;m a freelance software engineer.</p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="https://code-house.jp//work" title="link to CODE HOUSE work" class="blog-button">Work</a> </li>
+                            <li class="navigation__item"><a href="https://code-house.jp//blog" title="link to CODE HOUSE blog" class="blog-button">Blog</a> </li>
+
+                            
+                            
+                        </ul>
+                    </nav>
+                    <br>
+                    <nav class="cover-navigation navigation--social">
+    <ul class="navigation">   
+        
+        <li class="navigation__item">
+            <a href="https://github.com/mm-git" title="mm-git on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.linkedin.com/in/meguro/en" title="Linkedin"> <i class='fa fa-linkedin'></i> <span class="label">Linkedin</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.facebook.com/" title=" on facebook"> <i class='fa fa-facebook'></i> <span class="label">facebook</span> </a>
+        </li>  
+    </ul>
+</nav>
+
+                </div>
+                <p class="panel-cover__copyright">Powered by Hugo. Copyright © 2016 code-house.jp</p>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="https://code-house.jp/" title="link to homepage for CODE HOUSE"> <img src="https://code-house.jp/images/codehouse_logo.png" width="80" alt="CODE HOUSE logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="https://code-house.jp/"  title="link to homepage for CODE HOUSE">CODE HOUSE</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  Hello, I&#39;m a freelance software engineer.  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="https://code-house.jp//work" title="link to CODE HOUSE work" class="blog-button">Work</a> </li>
+                                <li class="navigation__item"><a href="https://code-house.jp//blog" title="link to CODE HOUSE blog" class="blog-button">Blog</a> </li>
+                                
+                                
+                            </ul>
+                        </nav>
+                        <br><nav class="cover-navigation navigation--social">
+    <ul class="navigation">   
+        
+        <li class="navigation__item">
+            <a href="https://github.com/mm-git" title="mm-git on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.linkedin.com/in/meguro/en" title="Linkedin"> <i class='fa fa-linkedin'></i> <span class="label">Linkedin</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.facebook.com/" title=" on facebook"> <i class='fa fa-facebook'></i> <span class="label">facebook</span> </a>
+        </li>  
+    </ul>
+</nav>
+
+                    </div>
+                    <p class="panel-cover__copyright">Powered by Hugo. Copyright © 2016 code-house.jp</p>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>gulpの初期設定</h1>
+          <p class="post-date">2016-08-02</p>
+          
+
+<h2 id="gulpの初期設定">gulpの初期設定</h2>
+
+<p><a href="http://gulpjs.com/"><img title="gulp.js - the streaming build system" src="http://capture.heartrails.com/200x150/cool?http://gulpjs.com/" alt="http://gulpjs.com/" width="200" height="150" /></a></p>
+
+<p>少し前まではgruntを使って、webサイトのファイルなどを動的に生成していた。しかしgulpの方が設定やgulpスクリプトがすっきり書けるということでgulpに移行した。
+nodeアプリやモジュールの作成でgulpを使う場合の初期設定について書いてみる。なお下記を前提とする。</p>
+
+<ul>
+<li>設定、スクリプトはcoffeescriptで書く。</li>
+<li><code>node init</code>などnode.jsの初期化は完了しているものとする。</li>
+</ul>
+
+<h2 id="フォルダの構成">フォルダの構成</h2>
+
+<p>以下はあるプロジェクトフォルダのgulpに関するフォルダとファイルを抜粋したものである。</p>
+
+<pre><code>project_folder
+├── 📁gulp
+│   ├── config.coffee
+│   └── 📁tasks
+│       ├── sass.coffee
+│            :
+├── gulpfile.coffee
+├── 📁node_modules
+└── package.json
+</code></pre>
+
+<h3 id="gulpフォルダ">gulpフォルダ</h3>
+
+<p>gulpフォルダには、gulpスクリプト全体に共通する設定を書いたconfig.coffeeと、tasksフォルダを用意する。
+そして、tasksフォルダにgulpスクリプトを置く。(上記の例だと、scssファイルをcssに変換する処理を書いたsass.coffeeがtasksフォルダに置かれている)</p>
+
+<h3 id="gulpfile-coffee">gulpfile.coffee</h3>
+
+<p>gulpfile.coffeeに書かれた内容は下記だけである。これで、gulp/tasksフォルダ以下にある全てのスクリプトを自動で認識して実行できるようになる。
+例えば、上記のsass.coffeeには&rdquo;sass&rdquo;という名前のgulpスクリプトが登録されている。<code>gulp sass</code>とすると実行できる。</p>
+
+<h5 id="gulpfile-coffee-1">gulpfile.coffee</h5>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
+2</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #cb4b16">requireDir = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;require-dir&#39;</span><span style="color: #657b83">)</span>
+<span style="color: #657b83">requireDir(</span><span style="color: #2aa198">&#39;./gulp/tasks&#39;</span><span style="color: #657b83">,</span> <span style="color: #657b83">{</span> <span style="color: #cb4b16">recurse: </span><span style="color: #859900">true</span> <span style="color: #657b83">})</span>
+</pre></div>
+</td></tr></table>
+<h3 id="config-coffee">config.coffee</h3>
+
+<p>gulp/config.coffeeには、gulpスクリプト全体に共通する設定を記入する。json形式で好きなように設定を書く。
+gulpスクリプトでは、あるフォルダの内容を処理して公開フォルダへとコピーするといった処理が多いと思う。
+下記の例では、srcとdestで元ファイルのフォルダと公開フォルダを指定するような設定を書いている。</p>
+
+<h5 id="gulp-config-coffee">gulp/config.coffee</h5>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #cb4b16">module.exports = </span><span style="color: #657b83">{</span>
+  <span style="color: #cb4b16">src: </span><span style="color: #2aa198">&#39;./src&#39;</span>
+  <span style="color: #cb4b16">dest: </span><span style="color: #2aa198">&#39;./app&#39;</span>
+  <span style="color: #657b83">:</span>
+  <span style="color: #657b83">:</span>
+<span style="color: #657b83">}</span>
+</pre></div>
+</td></tr></table>
+<p>こうすることで、例えば下記の様にconfig.coffeeを読み込んで、<code>config.src</code>の様に参照ができるようになる。</p>
+
+<h5 id="gulp-tasks-sass-coffee">gulp/tasks/sass.coffee</h5>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #cb4b16">fs = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;fs&#39;</span><span style="color: #657b83">)</span>
+<span style="color: #cb4b16">gulp = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp&#39;</span><span style="color: #657b83">)</span>
+<span style="color: #cb4b16">config = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;../config&#39;</span><span style="color: #657b83">)</span>    <span style="color: #93a1a1; font-style: italic"># config.coffeeを読み込む</span>
+
+<span style="color: #657b83">gulp.task</span> <span style="color: #2aa198">&#39;sass&#39;</span><span style="color: #657b83">,</span> <span style="color: #268bd2">-&gt;</span>
+  <span style="color: #cb4b16">files = </span><span style="color: #657b83">fs.readdirSync(config.src</span> <span style="color: #657b83">+</span> <span style="color: #2aa198">&#39;/scss&#39;</span><span style="color: #657b83">)</span>  <span style="color: #93a1a1; font-style: italic">## config.srcの様にして参照できる</span>
+  <span style="color: #657b83">:</span>
+  <span style="color: #657b83">:</span>
+</pre></div>
+</td></tr></table>
+<h3 id="package-json">package.json</h3>
+
+<p>gulpを最初に設定した時のpackage.jsonの中身は下記のようになっている。</p>
+
+<pre><code>npm i coffee-script gulp require-dir -D`
+</code></pre>
+
+<p>を実行すれば、package.jsonには自動的に下記が追加される。</p>
+
+<h5 id="package-json-1">package.json</h5>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #657b83">{</span>
+  <span style="color: #dc322f">:</span>
+  <span style="color: #859900">&quot;devDependencies&quot;</span><span style="color: #657b83">:</span> <span style="color: #657b83">{</span>
+    <span style="color: #859900">&quot;coffee-script&quot;</span><span style="color: #657b83">:</span> <span style="color: #2aa198">&quot;^1.10.0&quot;</span><span style="color: #657b83">,</span>
+    <span style="color: #859900">&quot;gulp&quot;</span><span style="color: #657b83">:</span> <span style="color: #2aa198">&quot;^3.9.1&quot;</span><span style="color: #657b83">,</span>
+    <span style="color: #859900">&quot;require-dir&quot;</span><span style="color: #657b83">:</span> <span style="color: #2aa198">&quot;^0.3.0&quot;</span>
+  <span style="color: #657b83">}</span>
+<span style="color: #657b83">}</span>
+</pre></div>
+</td></tr></table>
+        </div>
+        <div class="sharing">
+<a href="https://twitter.com/intent/tweet?status=gulp%e3%81%ae%e5%88%9d%e6%9c%9f%e8%a8%ad%e5%ae%9a-https%3a%2f%2fcode-house.jp%2f2016%2f08%2f02%2fgulpsetting%2f" target="_blank" title="Follow me on Twitter" class="twitter">
+<span class="fa fa-twitter-square fa-2x"></span></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f02%2fgulpsetting%2f" target="_blank" title="Join me on Facebook" class="facebook">
+<span class="fa fa-facebook-square fa-2x"></span></a>
+<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f02%2fgulpsetting%2f" target="_blank" title="Google+" class="googleplus">
+<span class="fa fa-google-plus-square fa-2x"></span></a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f02%2fgulpsetting%2f&title=gulp%e3%81%ae%e5%88%9d%e6%9c%9f%e8%a8%ad%e5%ae%9a" target="_blank" title="LinkedIn" class="linkedin">
+<span class="fa fa-linkedin-square fa-2x"></span></a>
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-81918210-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+</html>

@@ -7,14 +7,14 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Sat, 06 Aug 2016 13:36:14 &#43;0900</updated>
+    <updated>Sat, 06 Aug 2016 13:36:14 JST</updated>
     
     <item>
       <title>[gulp] sass編</title>
-      <link>https://code-house.jp/post/gulp/gulpsass/</link>
-      <pubDate>Sat, 06 Aug 2016 13:36:14 &#43;0900</pubDate>
+      <link>https://code-house.jp/2016/08/06/gulpsass/</link>
+      <pubDate>Sat, 06 Aug 2016 13:36:14 JST</pubDate>
       
-      <guid>https://code-house.jp/post/gulp/gulpsass/</guid>
+      <guid>https://code-house.jp/2016/08/06/gulpsass/</guid>
       <description>
         &lt;h2 id=&#34;gulp-を使った-sass-css-css-min変換&#34;&gt;gulp を使った sass→css, css.min変換&lt;/h2&gt;
 
@@ -26,16 +26,16 @@
 &lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-        <a href='https://code-house.jp/post/gulp/gulpsass/' class="read-more"><nobr>Read more →</nobr></a>
+        <a href='https://code-house.jp/2016/08/06/gulpsass/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     
     <item>
       <title>gulpの初期設定</title>
-      <link>https://code-house.jp/post/gulp/gulpsetting/</link>
-      <pubDate>Tue, 02 Aug 2016 20:38:05 &#43;0900</pubDate>
+      <link>https://code-house.jp/2016/08/02/gulpsetting/</link>
+      <pubDate>Tue, 02 Aug 2016 20:38:05 JST</pubDate>
       
-      <guid>https://code-house.jp/post/gulp/gulpsetting/</guid>
+      <guid>https://code-house.jp/2016/08/02/gulpsetting/</guid>
       <description>
         &lt;h2 id=&#34;gulpの初期設定&#34;&gt;gulpの初期設定&lt;/h2&gt;
 
@@ -49,7 +49,7 @@ nodeアプリやモジュールの作成でgulpを使う場合の初期設定に
 &lt;li&gt;&lt;code&gt;node init&lt;/code&gt;などnode.jsの初期化は完了しているものとする。&lt;/li&gt;
 &lt;/ul&gt;
 
-        <a href='https://code-house.jp/post/gulp/gulpsetting/' class="read-more"><nobr>Read more →</nobr></a>
+        <a href='https://code-house.jp/2016/08/02/gulpsetting/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     

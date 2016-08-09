@@ -7,14 +7,14 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Sat, 06 Aug 2016 13:36:14 &#43;0900</updated>
+    <updated>Sat, 06 Aug 2016 13:36:14 JST</updated>
     
     <item>
       <title>[gulp] sass編</title>
-      <link>https://code-house.jp/post/gulp/gulpsass/</link>
-      <pubDate>Sat, 06 Aug 2016 13:36:14 &#43;0900</pubDate>
+      <link>https://code-house.jp/2016/08/06/gulpsass/</link>
+      <pubDate>Sat, 06 Aug 2016 13:36:14 JST</pubDate>
       
-      <guid>https://code-house.jp/post/gulp/gulpsass/</guid>
+      <guid>https://code-house.jp/2016/08/06/gulpsass/</guid>
       <description>
         &lt;h2 id=&#34;gulp-を使った-sass-css-css-min変換&#34;&gt;gulp を使った sass→css, css.min変換&lt;/h2&gt;
 
@@ -26,7 +26,7 @@
 &lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-        <a href='https://code-house.jp/post/gulp/gulpsass/' class="read-more"><nobr>Read more →</nobr></a>
+        <a href='https://code-house.jp/2016/08/06/gulpsass/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     
