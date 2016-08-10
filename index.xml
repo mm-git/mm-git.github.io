@@ -7,12 +7,29 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Tue, 09 Aug 2016 13:38:22 &#43;0900</updated>
+    <updated>Wed, 10 Aug 2016 10:30:21 &#43;0900</updated>
+    
+    <item>
+      <title>NODE.JS BACKBONE-GRAPH</title>
+      <link>https://code-house.jp/work/2016/backbonegraph</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/work/2016/backbonegraph</guid>
+      <description>
+        &lt;p&gt;&lt;img src=&#34;https://goo.gl/V5p3Ag&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;自作webアプリの再利用できそうな部分を初めてnode.jsのモジュールにしてみた。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/mm-git/backbone-graph&#34;&gt;mm-git/backbone-graph&lt;/a&gt;&lt;/p&gt;
+
+        <a href='https://code-house.jp/work/2016/backbonegraph' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>Hugoの記事について</title>
       <link>https://code-house.jp/2016/08/09/hugocontent/</link>
-      <pubDate>Tue, 09 Aug 2016 13:38:22 &#43;0900</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
       <guid>https://code-house.jp/2016/08/09/hugocontent/</guid>
       <description>
@@ -33,7 +50,7 @@
     <item>
       <title>[gulp] sass編</title>
       <link>https://code-house.jp/2016/08/06/gulpsass/</link>
-      <pubDate>Sat, 06 Aug 2016 13:36:14 &#43;0900</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
       <guid>https://code-house.jp/2016/08/06/gulpsass/</guid>
       <description>
@@ -54,7 +71,7 @@
     <item>
       <title>docker hubにboxを登録する</title>
       <link>https://code-house.jp/2016/08/05/dockerhub/</link>
-      <pubDate>Fri, 05 Aug 2016 12:24:34 &#43;0900</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
       <guid>https://code-house.jp/2016/08/05/dockerhub/</guid>
       <description>
@@ -80,7 +97,7 @@
     <item>
       <title>gulpの初期設定</title>
       <link>https://code-house.jp/2016/08/02/gulpsetting/</link>
-      <pubDate>Tue, 02 Aug 2016 20:38:05 &#43;0900</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
       <guid>https://code-house.jp/2016/08/02/gulpsetting/</guid>
       <description>
@@ -103,7 +120,7 @@ nodeアプリやモジュールの作成でgulpを使う場合の初期設定に
     <item>
       <title>透過pngをsvgに変換する</title>
       <link>https://code-house.jp/2016/08/02/pngtosvg/</link>
-      <pubDate>Tue, 02 Aug 2016 18:32:15 &#43;0900</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
       <guid>https://code-house.jp/2016/08/02/pngtosvg/</guid>
       <description>
@@ -137,7 +154,7 @@ nodeアプリやモジュールの作成でgulpを使う場合の初期設定に
     <item>
       <title>Google PhotoをBlogに貼り付ける</title>
       <link>https://code-house.jp/2016/07/27/googlephoto/</link>
-      <pubDate>Wed, 27 Jul 2016 14:15:44 &#43;0900</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
       <guid>https://code-house.jp/2016/07/27/googlephoto/</guid>
       <description>
@@ -159,7 +176,7 @@ nodeアプリやモジュールの作成でgulpを使う場合の初期設定に
     <item>
       <title>github pagesについて</title>
       <link>https://code-house.jp/2016/07/26/githubpages/</link>
-      <pubDate>Tue, 26 Jul 2016 12:21:20 &#43;0900</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
       <guid>https://code-house.jp/2016/07/26/githubpages/</guid>
       <description>
@@ -181,7 +198,7 @@ nodeアプリやモジュールの作成でgulpを使う場合の初期設定に
     <item>
       <title>Hugoをinstallする</title>
       <link>https://code-house.jp/2016/07/26/hugoinsatallation/</link>
-      <pubDate>Tue, 26 Jul 2016 11:38:58 &#43;0900</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
       <guid>https://code-house.jp/2016/07/26/hugoinsatallation/</guid>
       <description>
