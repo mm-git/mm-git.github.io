@@ -7,7 +7,19 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Thu, 11 Aug 2016 11:45:57 &#43;0900</updated>
+    <updated>Thu, 11 Aug 2016 12:14:50 &#43;0900</updated>
+    
+    <item>
+      <title>CODE HOUSE LOGO</title>
+      <link>https://code-house.jp/work/2016/codehouselogo</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/work/2016/codehouselogo</guid>
+      <description>
+        mm-git/logos
+        <a href='https://code-house.jp/work/2016/codehouselogo' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>[gulp] favicon編</title>
