@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <title> [gulp] sass編 </title>
     
-    <link rel="stylesheet" type="text/css" href="https://code-house.jp//css/uno.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://code-house.jp//css/lightGallery.css" />
-    <link rel="stylesheet" type="text/css" href="https://code-house.jp//css/solarizedlight.css" />
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/lightGallery.css" />
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/solarizedlight.css" />
     
     <link rel="apple-touch-icon" sizes="57x57" href="https://code-house.jp/apple-touch-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="https://code-house.jp/apple-touch-icon-60x60.png">
@@ -67,8 +67,8 @@
     
     <link href="" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
     
-    <script src="https://code-house.jp//js/jquery.min.js"></script>
-    <script src="https://code-house.jp//js/main.min.js"></script>
+    <script src="https://code-house.jp/js/jquery.min.js"></script>
+    <script src="https://code-house.jp/js/main.min.js"></script>
 </head>
 
   <body>
@@ -84,12 +84,12 @@
         <div class="panel-main__inner panel-inverted">
             <div class="panel-main__content">
                 
-                <a href="https://code-house.jp/" title="link to homepage for CODE HOUSE">
+                <a href="https://code-house.jp" title="link to homepage for CODE HOUSE">
                     <img src="https://code-house.jp/images/codehouse_logo.png" width="100" alt="CODE HOUSE logo" class="panel-cover__logo" />
                 </a>
                 
                 <h1 class="panel-cover__title panel-title">
-                    <a href="https://code-house.jp/"  title="link to homepage for CODE HOUSE">CODE HOUSE</a>
+                    <a href="https://code-house.jp"  title="link to homepage for CODE HOUSE">CODE HOUSE</a>
                 </h1>
                 <hr class="panel-cover__divider" />
                 <p class="panel-cover__description">Hello, I&#39;m a freelance software engineer.</p>
@@ -97,8 +97,8 @@
                 <div class="navigation-wrapper">
                     <nav class="cover-navigation cover-navigation--primary">
                         <ul class="navigation">
-                            <li class="navigation__item"><a href="https://code-house.jp//work" title="link to CODE HOUSE work" class="blog-button">Work</a> </li>
-                            <li class="navigation__item"><a href="https://code-house.jp//blog" title="link to CODE HOUSE blog" class="blog-button">Blog</a> </li>
+                            <li class="navigation__item"><a href="https://code-house.jp/work" title="link to CODE HOUSE work" class="blog-button">Work</a> </li>
+                            <li class="navigation__item"><a href="https://code-house.jp/blog" title="link to CODE HOUSE blog" class="blog-button">Blog</a> </li>
 
                             
                             
@@ -143,9 +143,9 @@
         <div class="panel-main">
             <div class="panel-main__inner panel-inverted">
                 <div class="panel-main__content"> 
-                    <a href="https://code-house.jp/" title="link to homepage for CODE HOUSE"> <img src="https://code-house.jp/images/codehouse_logo.png" width="80" alt="CODE HOUSE logo" class="panel-cover__logo logo" /> </a> 
+                    <a href="https://code-house.jp" title="link to homepage for CODE HOUSE"> <img src="https://code-house.jp/images/codehouse_logo.png" width="80" alt="CODE HOUSE logo" class="panel-cover__logo logo" /> </a> 
                     <h1 class="panel-cover__title panel-title">
-                        <a href="https://code-house.jp/"  title="link to homepage for CODE HOUSE">CODE HOUSE</a>
+                        <a href="https://code-house.jp"  title="link to homepage for CODE HOUSE">CODE HOUSE</a>
                     </h1>
                     <hr class="panel-cover__divider" />
                     <p class="panel-cover__description">  Hello, I&#39;m a freelance software engineer.  </p>
@@ -153,8 +153,8 @@
                     <div class="navigation-wrapper">
                         <nav class="cover-navigation cover-navigation--primary">
                             <ul class="navigation">
-                                <li class="navigation__item"><a href="https://code-house.jp//work" title="link to CODE HOUSE work" class="blog-button">Work</a> </li>
-                                <li class="navigation__item"><a href="https://code-house.jp//blog" title="link to CODE HOUSE blog" class="blog-button">Blog</a> </li>
+                                <li class="navigation__item"><a href="https://code-house.jp/work" title="link to CODE HOUSE work" class="blog-button">Work</a> </li>
+                                <li class="navigation__item"><a href="https://code-house.jp/blog" title="link to CODE HOUSE blog" class="blog-button">Blog</a> </li>
                                 
                                 
                             </ul>
@@ -276,13 +276,15 @@
 28
 29
 30
-31</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #cb4b16">fs = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;fs&#39;</span><span style="color: #657b83">)</span>
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #cb4b16">fs = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;fs&#39;</span><span style="color: #657b83">)</span>
 <span style="color: #cb4b16">gulp = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp&#39;</span><span style="color: #657b83">)</span>
 <span style="color: #cb4b16">sass = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp-sass&#39;</span><span style="color: #657b83">)</span>
 <span style="color: #cb4b16">autoprefixer = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp-autoprefixer&#39;</span><span style="color: #657b83">)</span>
 <span style="color: #cb4b16">cssmin = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp-cssmin&#39;</span><span style="color: #657b83">)</span>
 <span style="color: #cb4b16">rename = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp-rename&#39;</span><span style="color: #657b83">)</span>
 <span style="color: #cb4b16">plumber = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp-plumber&#39;</span><span style="color: #657b83">)</span>
+<span style="color: #cb4b16">config = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;../config&#39;</span><span style="color: #657b83">)</span>
 
 <span style="color: #657b83">gulp.task</span> <span style="color: #2aa198">&#39;sass&#39;</span><span style="color: #657b83">,</span> <span style="color: #268bd2">-&gt;</span>
   <span style="color: #cb4b16">sassFiles = </span><span style="color: #657b83">fs.readdirSync(config.src</span> <span style="color: #657b83">+</span> <span style="color: #2aa198">&#39;/scss&#39;</span><span style="color: #657b83">)</span>

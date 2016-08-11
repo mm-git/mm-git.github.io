@@ -1,10 +1,10 @@
-    <!DOCTYPE html>
+  <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head prefix="og: http://ogp.me/ns#">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title> Canvas </title>
+    <title> [gulp] favicon編 </title>
     
     <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/uno.min.css" />
     <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/lightGallery.css" />
@@ -49,28 +49,30 @@
 <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1536x2008.png">
     
         <meta property="og:site_name" content="CODE HOUSE" />
-    <meta property="og:url" content="https://code-house.jp/tags/canvas/" />
-    <meta property="og:title" content="Canvas" />
+    <meta property="og:url" content="https://code-house.jp/2016/08/11/gulpfavicons/" />
+    <meta property="og:title" content="[gulp] favicon編" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:url" content="https://code-house.jp/tags/canvas/" />
+    <meta name="twitter:url" content="https://code-house.jp/2016/08/11/gulpfavicons/" />
 
     
-        <meta property="og:description" content="Hello, I&#39;m a freelance software engineer." />
-        <meta property="og:image" content="https://code-house.jp/open-graph.png">
-        <meta property="twitter:image" content="https://code-house.jp/open-graph.png">
-        <meta property="og:type" content="blog" />
+        <meta property="og:description" content="gulpであらゆるサイズのfaviconを生成する" />
+        
+            <meta property="og:image" content="https://code-house.jp/open-graph.png">
+            <meta property="twitter:image" content="https://code-house.jp/open-graph.png">
+        
+        <meta property="og:type" content="article" />
     
 
 
     
-    <link href="https://code-house.jp/tags/canvas/index.xml" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
+    <link href="" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
     
     <script src="https://code-house.jp/js/jquery.min.js"></script>
     <script src="https://code-house.jp/js/main.min.js"></script>
 </head>
 
-    <body>
-        <div id="scriptHeader">
+  <body>
+    <div id="scriptHeader">
     <span class="mobile btn-mobile-menu">
             <i class="fa fa-bars btn-mobile-menu__icon"></i>
             <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
@@ -183,27 +185,161 @@
     </header>
 </noscript>
 
-        <div class="content-wrapper">
-            <div class="content-wrapper__inner">
-                <section id="main">
-                    <div class="tags_list">
-                    <div class="tags_title"><span>Canvas</span></div>
-                    </div>
-                    <ul id="list">
-                        
-                        <li>
-                            2016-08-10
-                            <a href="https://code-house.jp/work/2016/backbonegraph">NODE.JS BACKBONE-GRAPH</a>
-                        </li>
-                        
-                    </ul>
-                    <hr>
-                    <a href="https://code-house.jp/tags">Tags</a>
-                </section>
-            </div>
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>[gulp] favicon編</h1>
+          
+          <div class="tags_list">
+             <div class="tags_item"><a href="https://code-house.jp/tags/node/">node</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/gulp/">gulp</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/favicon/">favicon</a></div>
+          </div>
+          
+          <p class="post-date">2016-08-11</p>
+          
+
+<h2 id="gulpを使ったfavicon生成">gulpを使ったfavicon生成</h2>
+
+<p>gulpの記事第三弾は、簡単なところでfaviconの生成について説明する。gulp自体の設定については下記の記事参照。</p>
+
+<blockquote>
+<p><a href="https://code-house.jp/post/gulp/gulpsetting/">gulpの初期設定</a></p>
+</blockquote>
+
+<h2 id="フォルダの構成">フォルダの構成</h2>
+
+<pre><code>project_folder
+├── 📁app
+├── 📁gulp
+│   ├── config.coffee
+│   └── 📁tasks
+│       ├── favicons.coffee
+│            :
+├── gulpfile.coffee
+├── 📁node_modules
+├── package.json
+└── 📁src
+    └── 📁images
+        └── favicon.png       &lt;-元ファイル
+</code></pre>
+
+<h3 id="src-images-favicon-png">src/images/favicon.png</h3>
+
+<p>ここに変換元となる<code>favicon.png</code>を置いておく。元ファイルは1024 x 1024で作成している。</p>
+
+<h3 id="app">app</h3>
+
+<p>変換後のファイルは、document rootに置く必要があるので、<code>app</code>直下に出力する。</p>
+
+<h2 id="変換スクリプト">変換スクリプト</h2>
+
+<h3 id="インストールするnpmモジュール">インストールするnpmモジュール</h3>
+
+<p>スクリプトの実行に必要なnpmモジュールをインストールしておく。</p>
+
+<pre><code>npm i gulp-favicons -D`
+</code></pre>
+
+<h3 id="favicons-coffee">favicons.coffee</h3>
+
+<h5 id="gulp-taks-favicons-coffee">gulp/taks/favicons.coffee</h5>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #cb4b16">gulp = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp&#39;</span><span style="color: #657b83">)</span>
+<span style="color: #cb4b16">favicons = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp-favicons&#39;</span><span style="color: #657b83">)</span>
+<span style="color: #cb4b16">config = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;../config&#39;</span><span style="color: #657b83">)</span>
+
+<span style="color: #657b83">gulp.task</span> <span style="color: #2aa198">&#39;favicons&#39;</span><span style="color: #657b83">,</span> <span style="color: #268bd2">-&gt;</span>
+  <span style="color: #657b83">gulp.src(config.src</span> <span style="color: #657b83">+</span> <span style="color: #2aa198">&#39;/images/favicon.png&#39;</span><span style="color: #657b83">)</span>
+  <span style="color: #657b83">.pipe(favicons({</span>
+    <span style="color: #cb4b16">appName: </span><span style="color: #2aa198">&quot;Site name&quot;</span><span style="color: #657b83">,</span>
+    <span style="color: #cb4b16">appDescription: </span><span style="color: #2aa198">&quot;Site description&quot;</span><span style="color: #657b83">,</span>
+    <span style="color: #cb4b16">developerName: </span><span style="color: #2aa198">&quot;developer name&quot;</span><span style="color: #657b83">,</span>
+    <span style="color: #cb4b16">developerURL: </span><span style="color: #2aa198">&quot;http://developerurl/&quot;</span><span style="color: #657b83">,</span>
+    <span style="color: #cb4b16">background: </span><span style="color: #2aa198">&quot;#ffffff&quot;</span><span style="color: #657b83">,</span>
+    <span style="color: #cb4b16">path: </span><span style="color: #2aa198">&quot;/&quot;</span><span style="color: #657b83">,</span>
+    <span style="color: #cb4b16">url: </span><span style="color: #2aa198">&quot;http://siteurl/&quot;</span><span style="color: #657b83">,</span>
+    <span style="color: #cb4b16">display: </span><span style="color: #2aa198">&quot;standalone&quot;</span><span style="color: #657b83">,</span>
+    <span style="color: #cb4b16">orientation: </span><span style="color: #2aa198">&quot;portrait&quot;</span><span style="color: #657b83">,</span>
+    <span style="color: #cb4b16">version: </span><span style="color: #2aa198">1.0</span><span style="color: #657b83">,</span>
+    <span style="color: #cb4b16">logging: </span><span style="color: #859900">false</span><span style="color: #657b83">,</span>
+    <span style="color: #cb4b16">online: </span><span style="color: #859900">false</span><span style="color: #657b83">,</span>
+    <span style="color: #cb4b16">html: </span><span style="color: #2aa198">&quot;favicons.html&quot;</span><span style="color: #657b83">,</span>
+    <span style="color: #cb4b16">pipeHTML: </span><span style="color: #859900">true</span><span style="color: #657b83">,</span>
+    <span style="color: #cb4b16">replace: </span><span style="color: #859900">true</span>    
+  <span style="color: #657b83">}))</span>
+  <span style="color: #657b83">.pipe(gulp.dest(config.dest))</span>
+</pre></div>
+</td></tr></table>
+<ul>
+<li><code>favicons</code>の設定は上記の様に設定すれば十分と思う。</li>
+<li><code>html</code>を設定することで、<code>&lt;head&gt;</code>タグに書く要素を出力してくれる。
+
+<ul>
+<li>ただし、Open graphなど画像の<code>meta</code>要素しか出力してなかったりするので、注意が必要。</li>
+</ul></li>
+</ul>
+
+<h3 id="favicons実行">favicons実行</h3>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>$ gulp favicons
+
+<span style="color: #657b83">[</span>hh:mm:ss<span style="color: #657b83">]</span> Requiring external module coffee-script/register
+<span style="color: #657b83">(</span>node:46893<span style="color: #657b83">)</span> fs: re-evaluating native module sources is not supported. If you are using the graceful-fs module, please update it to a more recent version.
+<span style="color: #657b83">[</span>hh:mm:ss<span style="color: #657b83">]</span> Using gulpfile project_folder/gulpfile.coffee
+<span style="color: #657b83">[</span>hh:mm:ss<span style="color: #657b83">]</span> Starting <span style="color: #2aa198">&#39;favicons&#39;</span>...
+<span style="color: #657b83">[</span>hh:mm:ss<span style="color: #657b83">]</span> Finished <span style="color: #2aa198">&#39;favicons&#39;</span> after <span style="color: #93a1a1; font-style: italic">### ms</span>
+</pre></div>
+</td></tr></table>
+<ul>
+<li>手元のmac book airで14秒ほどかかった。結構時間がかかるので、favicon変更時のみ手動で行うなどした方がいいかもしれない。</li>
+</ul>
+
         </div>
-    </body>
-    <script>
+        <div class="sharing">
+<a href="https://twitter.com/intent/tweet?status=%5bgulp%5d%20favicon%e7%b7%a8-https%3a%2f%2fcode-house.jp%2f2016%2f08%2f11%2fgulpfavicons%2f" target="_blank" title="Follow me on Twitter" class="twitter">
+<span class="fa fa-twitter-square fa-2x"></span></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f11%2fgulpfavicons%2f" target="_blank" title="Join me on Facebook" class="facebook">
+<span class="fa fa-facebook-square fa-2x"></span></a>
+<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f11%2fgulpfavicons%2f" target="_blank" title="Google+" class="googleplus">
+<span class="fa fa-google-plus-square fa-2x"></span></a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f11%2fgulpfavicons%2f&title=%5bgulp%5d%20favicon%e7%b7%a8" target="_blank" title="LinkedIn" class="linkedin">
+<span class="fa fa-linkedin-square fa-2x"></span></a>
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

@@ -7,7 +7,26 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Tue, 09 Aug 2016 13:38:22 &#43;0900</updated>
+    <updated>Thu, 11 Aug 2016 11:45:57 &#43;0900</updated>
+    
+    <item>
+      <title>[gulp] favicon編</title>
+      <link>https://code-house.jp/2016/08/11/gulpfavicons/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/11/gulpfavicons/</guid>
+      <description>
+        &lt;h2 id=&#34;gulpを使ったfavicon生成&#34;&gt;gulpを使ったfavicon生成&lt;/h2&gt;
+
+&lt;p&gt;gulpの記事第三弾は、簡単なところでfaviconの生成について説明する。gulp自体の設定については下記の記事参照。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+        <a href='https://code-house.jp/2016/08/11/gulpfavicons/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>Hugoの記事について</title>
