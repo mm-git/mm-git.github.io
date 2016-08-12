@@ -7,10 +7,29 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Tue, 09 Aug 2016 13:38:22 &#43;0900</updated>
+    <updated>Fri, 12 Aug 2016 14:30:12 &#43;0900</updated>
     
     <item>
-      <title>Hugoの記事について</title>
+      <title>[Hugo] テーマのデサイン変更　準備編</title>
+      <link>https://code-house.jp/2016/08/12/hugopreparedesign/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/12/hugopreparedesign/</guid>
+      <description>
+        &lt;h2 id=&#34;ベーステーマのデザイン調整&#34;&gt;ベーステーマのデザイン調整&lt;/h2&gt;
+
+&lt;p&gt;このサイトは&lt;code&gt;hugo-uno&lt;/code&gt;というベーステーマを元に変更を行っている。デサインを変更するための準備について説明する。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/fredrikloch/hugo-uno&#34;&gt;fredrikloch/hugo-uno: A responsive hugo theme with awesome font&amp;rsquo;s, charts and lightbox galleries&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+        <a href='https://code-house.jp/2016/08/12/hugopreparedesign/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
+    
+    <item>
+      <title>[Hugo] Hugoの記事について</title>
       <link>https://code-house.jp/2016/08/09/hugocontent/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
@@ -31,7 +50,7 @@
     </item>
     
     <item>
-      <title>github pagesについて</title>
+      <title>[Hugo] github pagesについて</title>
       <link>https://code-house.jp/2016/07/26/githubpages/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
@@ -53,7 +72,7 @@
     </item>
     
     <item>
-      <title>Hugoをinstallする</title>
+      <title>[Hugo] Hugoをinstallする</title>
       <link>https://code-house.jp/2016/07/26/hugoinsatallation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
