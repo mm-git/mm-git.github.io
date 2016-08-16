@@ -1,0 +1,451 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head prefix="og: http://ogp.me/ns#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> [Hugo] ページネーションを追加する </title>
+    
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/lightGallery.css" />
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/solarizedlight.css" />
+    
+    <link rel="apple-touch-icon" sizes="57x57" href="https://code-house.jp/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://code-house.jp/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://code-house.jp/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://code-house.jp/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://code-house.jp/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://code-house.jp/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://code-house.jp/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://code-house.jp/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://code-house.jp/apple-touch-icon-180x180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="logo">
+<link rel="icon" type="image/png" sizes="228x228" href="https://code-house.jp/coast-228x228.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://code-house.jp/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://code-house.jp/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://code-house.jp/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="230x230" href="https://code-house.jp/favicon-230x230.png">
+<link rel="shortcut icon" href="https://code-house.jp/favicon.ico">
+<link rel="yandex-tableau-widget" href="https://code-house.jp/yandex-browser-manifest.json">
+<meta name="msapplication-TileColor" content="#666666">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<link rel="icon" type="image/png" sizes="192x192" href="https://code-house.jp/android-chrome-192x192.png">
+<link rel="manifest" href="https://code-house.jp/manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#666666">
+<meta name="application-name" content="logo">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="https://code-house.jp/apple-touch-startup-image-320x460.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-640x920.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-640x1096.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-750x1294.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="https://code-house.jp/apple-touch-startup-image-1182x2208.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="https://code-house.jp/apple-touch-startup-image-1242x2148.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="https://code-house.jp/apple-touch-startup-image-748x1024.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="https://code-house.jp/apple-touch-startup-image-768x1004.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1496x2048.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1536x2008.png">
+    
+        <meta property="og:site_name" content="CODE HOUSE" />
+    <meta property="og:url" content="https://code-house.jp/2016/08/16/hugopagination/" />
+    <meta property="og:title" content="[Hugo] ページネーションを追加する" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content="https://code-house.jp/2016/08/16/hugopagination/" />
+
+    
+        <meta property="og:description" content="Hugoにblog一覧のページを追加する。５記事毎にページを切り替えるようにしてみる。" />
+        
+            <meta property="og:image" content="https://code-house.jp/open-graph.png">
+            <meta property="twitter:image" content="https://code-house.jp/open-graph.png">
+        
+        <meta property="og:type" content="article" />
+    
+
+
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
+    
+    <script src="https://code-house.jp/js/jquery.min.js"></script>
+    <script src="https://code-house.jp/js/main.min.js"></script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed">
+    
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content">
+                
+                <a href="https://code-house.jp" title="link to homepage for CODE HOUSE">
+                    <img src="https://code-house.jp/images/codehouse_logo.png" width="100" alt="CODE HOUSE logo" class="panel-cover__logo" />
+                </a>
+                
+                <h1 class="panel-cover__title panel-title">
+                    <a href="https://code-house.jp"  title="link to homepage for CODE HOUSE">CODE HOUSE</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">Hello, I&#39;m a freelance software engineer.</p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="https://code-house.jp/work" title="link to CODE HOUSE work" class="blog-button">Work</a> </li>
+                            <li class="navigation__item"><a href="https://code-house.jp/blog" title="link to CODE HOUSE blog" class="blog-button">Blog</a> </li>
+
+                            
+                            
+                        </ul>
+                    </nav>
+                    <br>
+                    <nav class="cover-navigation navigation--social">
+    <ul class="navigation">   
+        
+        <li class="navigation__item">
+            <a href="https://github.com/mm-git" title="mm-git on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.linkedin.com/in/meguro/en" title="Linkedin"> <i class='fa fa-linkedin'></i> <span class="label">Linkedin</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.facebook.com/" title=" on facebook"> <i class='fa fa-facebook'></i> <span class="label">facebook</span> </a>
+        </li>  
+    </ul>
+</nav>
+
+                </div>
+                <p class="panel-cover__copyright">Powered by Hugo. Copyright © 2016 code-house.jp</p>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="https://code-house.jp" title="link to homepage for CODE HOUSE"> <img src="https://code-house.jp/images/codehouse_logo.png" width="80" alt="CODE HOUSE logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="https://code-house.jp"  title="link to homepage for CODE HOUSE">CODE HOUSE</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  Hello, I&#39;m a freelance software engineer.  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="https://code-house.jp/work" title="link to CODE HOUSE work" class="blog-button">Work</a> </li>
+                                <li class="navigation__item"><a href="https://code-house.jp/blog" title="link to CODE HOUSE blog" class="blog-button">Blog</a> </li>
+                                
+                                
+                            </ul>
+                        </nav>
+                        <br><nav class="cover-navigation navigation--social">
+    <ul class="navigation">   
+        
+        <li class="navigation__item">
+            <a href="https://github.com/mm-git" title="mm-git on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.linkedin.com/in/meguro/en" title="Linkedin"> <i class='fa fa-linkedin'></i> <span class="label">Linkedin</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.facebook.com/" title=" on facebook"> <i class='fa fa-facebook'></i> <span class="label">facebook</span> </a>
+        </li>  
+    </ul>
+</nav>
+
+                    </div>
+                    <p class="panel-cover__copyright">Powered by Hugo. Copyright © 2016 code-house.jp</p>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>[Hugo] ページネーションを追加する</h1>
+          
+          <div class="tags_list">
+             <div class="tags_item"><a href="https://code-house.jp/tags/hugo/">hugo</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/html/">html</a></div>
+          </div>
+          
+          <p class="post-date">2016-08-16</p>
+          
+
+<h2 id="ブログ一覧ページの追加">ブログ一覧ページの追加</h2>
+
+<p>このサイトは<code>hugo-uno</code>というベーステーマを元に作成している。しかし、このテーマはトップページに最新の記事を１０個だけ表示するようになっていた。また、<code>index.html#blog</code>というハッシュを付けた場合に一覧を表示するようになっている(カバーページと一覧ページを同一のhtmlで切り替えて表示するようになている)。</p>
+
+<p>これを下記のように変更したいのだが、これがなかなかわかりにくくて、特に下記の★の２つはだいぶ調べるのに時間がかかった。最終的には対応できたのでこれを記事にしておきたいと思う。</p>
+
+<ul>
+<li>rootのindex.htmlはカバーページ専用とする。
+
+<ul>
+<li>この変更についてはこの記事では説明しない。変更点は<a href="https://github.com/mm-git/hugo">mm-git/hugo</a>参照。<code>layouts/index.html</code>, <code>static/js/main.js</code>あたりを変更している。</li>
+</ul></li>
+<li><strong><code>blog</code>、<code>work</code>といったセクションごとに、記事の一覧を作成する。★</strong></li>
+<li><strong><code>blog</code>は５記事毎にページを切り替えるようにする。★</strong></li>
+<li><code>work</code>は同一ページに全一覧を載せる。</li>
+</ul>
+
+<h2 id="blog一覧ページの作成">blog一覧ページの作成</h2>
+
+<p><strong>まず最初のハマりポイント</strong>。あるセクションごの一覧ページを作成する場合、下記のようにする。(わかれば簡単なのだが・・)</p>
+
+<ol>
+<li><code>layouts/section</code>フォルダに<code>セクション名.html</code>というファイルを作成する。</li>
+<li><code>layouts/セクション名</code>フォルダに、<code>summary.html</code>というファイルを作成する。</li>
+<li>ファイル変更後、hugo serverを起動させて確認する。<code>http://baseurl/セクション名/</code>で一覧が表示される。</li>
+</ol>
+
+<p>※<code>blog</code>セクションの場合、<code>layouts/blog/summary.html</code>、<code>layouts/section/blog.html</code>を作成</p>
+
+<h3 id="layouts-section-blog-html">layouts/section/blog.html</h3>
+
+<h5 id="layouts-section-blog-html-1">layouts/section/blog.html</h5>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>:
+<span style="color: #657b83">&lt;</span><span style="color: #859900">section</span> <span style="color: #657b83">id=</span><span style="color: #2aa198">&quot;main&quot;</span><span style="color: #657b83">&gt;</span>
+    {{ $paginator := .Paginate (where .Data.Pages &quot;Type&quot; &quot;blog&quot;) 5 }}
+    
+    <span style="color: #657b83">&lt;</span><span style="color: #859900">div</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;article_list&quot;</span><span style="color: #657b83">&gt;</span>
+        {{ range $paginator.Pages }}
+            {{ .Render &quot;summary&quot; }}
+        {{ end }}
+        :
+    <span style="color: #657b83">&lt;/</span><span style="color: #859900">div</span><span style="color: #657b83">&gt;</span>
+<span style="color: #657b83">&lt;/</span><span style="color: #859900">section</span><span style="color: #657b83">&gt;</span>
+:
+</pre></div>
+</td></tr></table>
+<ul>
+<li>上記は、blog.htmlの一部。記事一覧とページ機能の部分のみ抜粋。</li>
+<li>このファイルを元にして、<code>public/blog/index.html</code>が作成される。
+
+<ul>
+<li><code>public/blog/index.html</code>は一覧の1ページ目のhtmlファイルとなっている。</li>
+</ul></li>
+<li><strong>２つめのハマりポイント</strong>。あるセクションごとに、かつ５ページごとにページ一覧作成するには、3行目の<code>.Paginate</code>関数のようにする。
+
+<ul>
+<li><code>.Paginate</code>関数の結果を<code>$paginator</code>に代入しておくのがポイント。</li>
+<li><code>html</code>のどこかに<code>.Paginate</code>があれば、<code>public/blog/page/</code>にページごとの<code>index.html</code>が作成される。
+
+<ul>
+<li><code>public/blog/page/1/index.html</code>、<code>public/blog/page/2/index.html</code>..のように<code>index.html</code>が作成される。</li>
+<li><code>public/blog/page/1/index.html</code>については、<code>public/blog/index.html</code>へリダイレクトされるようになっている。</li>
+</ul></li>
+</ul></li>
+<li>6〜7行目で、各記事のサマリーを作成している。
+
+<ul>
+<li><code>$paginator</code>には<code>.Paginate</code>関数で絞られた最大５記事のデータが配列で入っている。</li>
+<li><code>$paginator.Pages</code>でループさせることで、各記事のサマリを作成している。</li>
+<li><code>.Render &quot;summary&quot;</code>により、<code>layouts/blog/summary.html</code>の内容をここに出力する。</li>
+</ul></li>
+</ul>
+
+<h3 id="layouts-blog-summary-html">layouts/blog/summary.html</h3>
+
+<h5 id="layouts-blog-summary-html-1">layouts/blog/summary.html</h5>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #657b83">&lt;</span><span style="color: #859900">article</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;summary_post summary_link&quot;</span> <span style="color: #657b83">onClick=</span><span style="color: #2aa198">&quot;document.location.href = &#39;{{ .Permalink }}&#39;&quot;</span><span style="color: #657b83">&gt;</span>
+<span style="color: #657b83">&lt;</span><span style="color: #859900">header</span><span style="color: #657b83">&gt;</span>
+<span style="color: #657b83">&lt;</span><span style="color: #859900">h2</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;summary-title&quot;</span><span style="color: #657b83">&gt;</span>{{ .Title }} {{ if .Draft }}:: DRAFT{{end}} <span style="color: #657b83">&lt;/</span><span style="color: #859900">h2</span><span style="color: #657b83">&gt;</span>
+<span style="color: #657b83">&lt;</span><span style="color: #859900">div</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;post-meta&quot;</span><span style="color: #657b83">&gt;</span>{{ .Date.Format &quot;2006-01-02&quot; }} - Read in {{ .ReadingTime }} Min <span style="color: #657b83">&lt;/</span><span style="color: #859900">div</span><span style="color: #657b83">&gt;</span>
+<span style="color: #657b83">&lt;/</span><span style="color: #859900">header</span><span style="color: #657b83">&gt;</span>
+<span style="color: #657b83">&lt;</span><span style="color: #859900">div</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;summary&quot;</span><span style="color: #657b83">&gt;</span>
+    {{ .Description }}
+<span style="color: #657b83">&lt;/</span><span style="color: #859900">div</span><span style="color: #657b83">&gt;</span>
+<span style="color: #657b83">&lt;</span><span style="color: #859900">footer</span><span style="color: #657b83">&gt;</span>
+<span style="color: #657b83">&lt;/</span><span style="color: #859900">footer</span><span style="color: #657b83">&gt;</span>
+<span style="color: #657b83">&lt;/</span><span style="color: #859900">article</span><span style="color: #657b83">&gt;</span>
+</pre></div>
+</td></tr></table>
+<ul>
+<li>記事の内容にアクセスするには、<code>.Permalink</code>、<code>.Title</code>などの変数を用いる。
+
+<ul>
+<li><a href="https://gohugo.io/templates/variables/">Hugo - Template Variables</a>の<code>Page Variables</code>に一覧がある。</li>
+</ul></li>
+</ul>
+
+<h3 id="public-フォルダの出力例">public フォルダの出力例</h3>
+
+<pre><code>public
+└──blog
+   ├── index.html
+   ├── index.xml
+   └── page
+       ├── 1
+       │   └── index.html
+       └── 2
+           └── index.html
+</code></pre>
+
+<h2 id="work一覧ページの作成">work一覧ページの作成</h2>
+
+<p><code>blog</code>のページ一覧と同様に下記ファイルを作成する。</p>
+
+<ul>
+<li><code>layouts/section/work.html</code></li>
+<li><code>layouts/work/summary.html</code></li>
+</ul>
+
+<h3 id="layouts-section-work-html">layouts/section/work.html</h3>
+
+<h5 id="layouts-section-work-html-1">layouts/section/work.html</h5>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>:
+<span style="color: #657b83">&lt;</span><span style="color: #859900">section</span> <span style="color: #657b83">id=</span><span style="color: #2aa198">&quot;main&quot;</span><span style="color: #657b83">&gt;</span>
+    <span style="color: #657b83">&lt;</span><span style="color: #859900">div</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;article_list&quot;</span><span style="color: #657b83">&gt;</span>
+        {{ range .Data.Pages }}
+            {{ if eq .Type &quot;work&quot; }}
+                {{ .Render &quot;summary&quot;}}
+            {{ end }}
+        {{ end }}
+    <span style="color: #657b83">&lt;/</span><span style="color: #859900">div</span><span style="color: #657b83">&gt;</span>
+<span style="color: #657b83">&lt;/</span><span style="color: #859900">section</span><span style="color: #657b83">&gt;</span>
+:
+</pre></div>
+</td></tr></table>
+<ul>
+<li>上記は、work.htmlの一部。記事一覧とページ機能の部分のみ抜粋。</li>
+<li>このファイルを元にして、<code>public/work/index.html</code>が作成される。</li>
+<li>4〜6行目で、各記事のサマリーを作成している。
+
+<ul>
+<li><code>.Data.Pages</code>で全ての記事をループさせ、そのうちタイプが<code>work</code>のものだけ、各記事のサマリを作成している。</li>
+<li><code>.Render &quot;summary&quot;</code>により、<code>layouts/work/summary.html</code>の内容をここに出力する。</li>
+</ul></li>
+</ul>
+
+<h3 id="layouts-work-summary-html">layouts/work/summary.html</h3>
+
+<h5 id="layouts-work-summary-html-1">layouts/work/summary.html</h5>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #657b83">&lt;</span><span style="color: #859900">article</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;summary_post summary_link sumary_work&quot;</span> <span style="color: #657b83">onClick=</span><span style="color: #2aa198">&quot;document.location.href = &#39;{{ .Permalink }}&#39;&quot;</span><span style="color: #657b83">&gt;</span>
+<span style="color: #657b83">&lt;</span><span style="color: #859900">header</span><span style="color: #657b83">&gt;</span>
+<span style="color: #657b83">&lt;/</span><span style="color: #859900">header</span><span style="color: #657b83">&gt;</span>
+<span style="color: #657b83">&lt;</span><span style="color: #859900">footer</span><span style="color: #657b83">&gt;</span>
+<span style="color: #657b83">&lt;/</span><span style="color: #859900">footer</span><span style="color: #657b83">&gt;</span>
+<span style="color: #657b83">&lt;</span><span style="color: #859900">div</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;post_image_frame&quot;</span><span style="color: #657b83">&gt;</span>
+    {{ if .Params.landscape }}
+    <span style="color: #657b83">&lt;</span><span style="color: #859900">img</span> <span style="color: #657b83">src=</span><span style="color: #2aa198">&quot;{{ .Params.image }}&quot;</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;post_image post_image_landscape&quot;</span><span style="color: #657b83">&gt;</span>
+    {{ else }}
+    <span style="color: #657b83">&lt;</span><span style="color: #859900">img</span> <span style="color: #657b83">src=</span><span style="color: #2aa198">&quot;{{ .Params.image }}&quot;</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;post_image&quot;</span><span style="color: #657b83">&gt;</span>
+    {{ end }}
+<span style="color: #657b83">&lt;/</span><span style="color: #859900">div</span><span style="color: #657b83">&gt;</span>
+<span style="color: #657b83">&lt;/</span><span style="color: #859900">article</span><span style="color: #657b83">&gt;</span>
+</pre></div>
+</td></tr></table>
+<ul>
+<li><code>blog</code>一覧では、記事のタイトル、説明文を表示していたが、<code>work</code>では画像のみを表示している。</li>
+<li>本サイトではwork記事の.mdファイルフロントマターに、<code>image</code>と<code>landscape</code>を設定するようにしている。</li>
+<li>記事のフロントマターは、<code>.Params.image</code>のようにすることでアクセスできる。</li>
+<li>上記のようにすることで、記事のフロントマターで設定した画像が記事一覧に表示される。</li>
+</ul>
+
+<h3 id="public-フォルダの出力例-1">public フォルダの出力例</h3>
+
+<pre><code>public
+└──work
+   ├── index.html
+   └── index.xml
+</code></pre>
+
+        </div>
+        <div class="sharing">
+<a href="https://twitter.com/intent/tweet?status=%5bHugo%5d%20%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%8d%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e8%bf%bd%e5%8a%a0%e3%81%99%e3%82%8b-https%3a%2f%2fcode-house.jp%2f2016%2f08%2f16%2fhugopagination%2f" target="_blank" title="Follow me on Twitter" class="twitter">
+<span class="fa fa-twitter-square fa-2x"></span></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f16%2fhugopagination%2f" target="_blank" title="Join me on Facebook" class="facebook">
+<span class="fa fa-facebook-square fa-2x"></span></a>
+<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f16%2fhugopagination%2f" target="_blank" title="Google+" class="googleplus">
+<span class="fa fa-google-plus-square fa-2x"></span></a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f16%2fhugopagination%2f&title=%5bHugo%5d%20%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%8d%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%82%92%e8%bf%bd%e5%8a%a0%e3%81%99%e3%82%8b" target="_blank" title="LinkedIn" class="linkedin">
+<span class="fa fa-linkedin-square fa-2x"></span></a>
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-81918210-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+</html>
