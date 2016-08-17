@@ -4,7 +4,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title> [gulp] sass編 </title>
+    <title> [gulp] coffee script編 </title>
     
     <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/uno.min.css" />
     <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/lightGallery.css" />
@@ -49,13 +49,13 @@
 <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1536x2008.png">
     
         <meta property="og:site_name" content="CODE HOUSE" />
-    <meta property="og:url" content="https://code-house.jp/2016/08/06/gulpsass/" />
-    <meta property="og:title" content="[gulp] sass編" />
+    <meta property="og:url" content="https://code-house.jp/2016/08/17/gulpcoffee/" />
+    <meta property="og:title" content="[gulp] coffee script編" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:url" content="https://code-house.jp/2016/08/06/gulpsass/" />
+    <meta name="twitter:url" content="https://code-house.jp/2016/08/17/gulpcoffee/" />
 
     
-        <meta property="og:description" content="sass記法で書かれた`.scss`ファイルを、`.css`に変換し圧縮して`.min.css`ファイルにも変換する。" />
+        <meta property="og:description" content="coffeescriptのファイルをwebpackを使ってjsファイルに変換する。" />
         
             <meta property="og:image" content="https://code-house.jp/open-graph.png">
             <meta property="twitter:image" content="https://code-house.jp/open-graph.png">
@@ -188,51 +188,49 @@
     <div class="content-wrapper">
       <div class="content-wrapper__inner">
         <div class="post">
-          <h1>[gulp] sass編</h1>
+          <h1>[gulp] coffee script編</h1>
           
           <div class="tags_list">
-             <div class="tags_item"><a href="https://code-house.jp/tags/node/">node</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/gulp/">gulp</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/sass/">sass</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/css/">css</a></div>
+             <div class="tags_item"><a href="https://code-house.jp/tags/node/">node</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/gulp/">gulp</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/coffeescript/">coffeescript</a></div>
           </div>
           
-          <p class="post-date">2016-08-06</p>
+          <p class="post-date">2016-08-17</p>
           
 
-<h2 id="gulp-を使った-sass-css-min-css変換">gulp を使った sass→css, min.css変換</h2>
+<h2 id="gulp-を使った-coffee-js-min-js変換">gulp を使った coffee→js, min.js変換</h2>
 
-<p><a href="http://sass-lang.com/"><img title="Sass: Syntactically Awesome Style Sheets" src="http://capture.heartrails.com/200x150/cool?http://sass-lang.com/" alt="http://sass-lang.com/" width="200" height="150" /></a></p>
-
-<p>今回gulpのスクリプトで<code>.scss</code>を<code>.css</code>及び<code>.min.css</code>に変換してみる。gulp自体の設定については下記の記事参照。</p>
+<p>gulpのスクリプト編の続きです。<code>.coffee</code>を<code>.js</code>及び<code>.min.js</code>に変換してみる。変換にはwebpackを使います。gulp自体の設定については下記の記事参照。</p>
 
 <blockquote>
 <p><a href="https://code-house.jp/post/gulp/gulpsetting/">gulpの初期設定</a></p>
 </blockquote>
 
-<h2 id="フォルダの構成">フォルダの構成</h2>
+<h2 id="フォルダ構成">フォルダ構成</h2>
 
-<p>以下はあるプロジェクトフォルダである。前回の物に<code>app</code>、｀src｀フォルダを追加した。</p>
+<p>以下はあるプロジェクトフォルダである。`</p>
 
 <pre><code>project_folder
-├── 📁app           &lt;--追加
-│   └── 📁css
+├── 📁app
+│   └── 📁js
 ├── 📁gulp
 │   ├── config.coffee
 │   └── 📁tasks
-│       ├── sass.coffee
+│       ├── coffee.coffee
 │            :
 ├── gulpfile.coffee
 ├── 📁node_modules
 ├── package.json
-└── 📁src           &lt;--追加
-    └── 📁scss
+└── 📁src
+    └── 📁coffee
 </code></pre>
 
-<h3 id="src-sass-フォルダ">src/sass フォルダ</h3>
+<h3 id="src-coffee-フォルダ">src/coffee フォルダ</h3>
 
-<p>ここに、変換元となる<code>.scss</code>ファイルを置いておく。なお、<code>_</code>で始まるファイルは、他の<code>.scss</code>から<code>@import</code>で読み込まれるファイルなので、直接は変換しないものとする。</p>
+<p>ここに、変換元となる<code>.coffee</code>ファイルを置いておく。</p>
 
-<h3 id="app-css-フォルダ">app/css フォルダ</h3>
+<h3 id="app-js-フォルダ">app/js フォルダ</h3>
 
-<p>ここに変換した<code>.css</code>及び<code>.min.css</code>を置く。</p>
+<p>ここに変換した<code>.js</code>及び<code>.min.js</code>を置く。</p>
 
 <h2 id="変換スクリプト">変換スクリプト</h2>
 
@@ -240,12 +238,12 @@
 
 <p>スクリプトの実行に必要なnpmモジュールをインストールしておく。</p>
 
-<pre><code>npm i fs gulp-sass gulp-autoprefixer gulp-cssmin gulp-rename gulp-plumber -D`
+<pre><code>npm i fs gulp-webpack webpack gulp-uglify gulp-rename gulp-plumber coffee-loader -D`
 </code></pre>
 
-<h3 id="sass-coffee">sass.coffee</h3>
+<h3 id="coffee-coffee">coffee.coffee</h3>
 
-<h5 id="gulp-tasks-sass-coffee">gulp/tasks/sass.coffee</h5>
+<h5 id="gulp-tasks-coffee-coffee">gulp/tasks/coffee.coffee</h5>
 <table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
  2
  3
@@ -277,75 +275,115 @@
 29
 30
 31
-32</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #cb4b16">fs = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;fs&#39;</span><span style="color: #657b83">)</span>
-<span style="color: #cb4b16">gulp = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp&#39;</span><span style="color: #657b83">)</span>
-<span style="color: #cb4b16">sass = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp-sass&#39;</span><span style="color: #657b83">)</span>
-<span style="color: #cb4b16">autoprefixer = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp-autoprefixer&#39;</span><span style="color: #657b83">)</span>
-<span style="color: #cb4b16">cssmin = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp-cssmin&#39;</span><span style="color: #657b83">)</span>
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #cb4b16">gulp = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp&#39;</span><span style="color: #657b83">)</span>
+<span style="color: #cb4b16">gulp_webpack = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp-webpack&#39;</span><span style="color: #657b83">)</span>
+<span style="color: #cb4b16">webpack = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;webpack&#39;</span><span style="color: #657b83">)</span>
+<span style="color: #cb4b16">uglify = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp-uglify&#39;</span><span style="color: #657b83">)</span>
 <span style="color: #cb4b16">rename = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp-rename&#39;</span><span style="color: #657b83">)</span>
 <span style="color: #cb4b16">plumber = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp-plumber&#39;</span><span style="color: #657b83">)</span>
 <span style="color: #cb4b16">config = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;../config&#39;</span><span style="color: #657b83">)</span>
 
-<span style="color: #657b83">gulp.task</span> <span style="color: #2aa198">&#39;sass&#39;</span><span style="color: #657b83">,</span> <span style="color: #268bd2">-&gt;</span>
-  <span style="color: #cb4b16">sassFiles = </span><span style="color: #657b83">fs.readdirSync(config.src</span> <span style="color: #657b83">+</span> <span style="color: #2aa198">&#39;/scss&#39;</span><span style="color: #657b83">)</span>
-  <span style="color: #cb4b16">baseFiles = </span><span style="color: #657b83">sassFiles.filter(</span><span style="color: #268bd2">(file) -&gt;</span>
-    <span style="color: #859900">return</span> <span style="color: #657b83">fs.statSync(config.src</span> <span style="color: #657b83">+</span> <span style="color: #2aa198">&#39;/scss/&#39;</span> <span style="color: #657b83">+</span> <span style="color: #657b83">file).isFile()</span> <span style="color: #657b83">&amp;&amp;</span> <span style="color: #2aa198">/.*\.scss$/</span><span style="color: #657b83">.test(file)</span> <span style="color: #657b83">&amp;&amp;</span> <span style="color: #657b83">file.charAt(</span><span style="color: #2aa198">0</span><span style="color: #657b83">)</span> <span style="color: #657b83">!=</span> <span style="color: #2aa198">&quot;_&quot;</span>
-  <span style="color: #657b83">)</span>
-  <span style="color: #657b83">.map(</span><span style="color: #268bd2">(file) -&gt;</span>
-    <span style="color: #859900">return</span> <span style="color: #657b83">config.src</span> <span style="color: #657b83">+</span> <span style="color: #2aa198">&#39;/scss/&#39;</span> <span style="color: #657b83">+</span> <span style="color: #657b83">file</span>
-  <span style="color: #657b83">)</span>
+<span style="color: #cb4b16">webpackConfig =</span>
+  <span style="color: #cb4b16">entry:</span>
+    <span style="color: #cb4b16">main: </span><span style="color: #657b83">config.src</span> <span style="color: #657b83">+</span> <span style="color: #2aa198">&#39;/coffee/main.coffee&#39;</span>
+  <span style="color: #cb4b16">output:</span>
+    <span style="color: #cb4b16">filename: </span><span style="color: #2aa198">&#39;[name].js&#39;</span>
+  <span style="color: #cb4b16">module:</span>
+    <span style="color: #cb4b16">loaders: </span><span style="color: #657b83">[</span>
+      <span style="color: #657b83">{</span><span style="color: #cb4b16">test: </span><span style="color: #2aa198">/\.coffee$/</span><span style="color: #657b83">,</span> <span style="color: #cb4b16">loader: </span><span style="color: #2aa198">&quot;coffee-loader&quot;</span><span style="color: #657b83">}</span>
+    <span style="color: #657b83">]</span>
+  <span style="color: #cb4b16">resolve:</span>
+    <span style="color: #cb4b16">extensions: </span><span style="color: #657b83">[</span><span style="color: #2aa198">&#39;&#39;</span><span style="color: #657b83">,</span> <span style="color: #2aa198">&#39;.js&#39;</span><span style="color: #657b83">,</span> <span style="color: #2aa198">&#39;.coffee&#39;</span><span style="color: #657b83">]</span>
+  <span style="color: #cb4b16">resolveLoader:</span>
+    <span style="color: #cb4b16">moduleDirectories: </span><span style="color: #657b83">[</span><span style="color: #2aa198">&#39;../../node_modules&#39;</span><span style="color: #657b83">]</span>
+  <span style="color: #657b83">plugins:[</span>
+    <span style="color: #859900">new</span> <span style="color: #657b83">webpack.ProvidePlugin({</span>
+      <span style="color: #cb4b16">jQuery: </span><span style="color: #2aa198">&quot;jquery&quot;</span><span style="color: #657b83">,</span>
+      <span style="color: #cb4b16">$: </span><span style="color: #2aa198">&quot;jquery&quot;</span><span style="color: #657b83">,</span>
+      <span style="color: #cb4b16">jquery: </span><span style="color: #2aa198">&quot;jquery&quot;</span>
+      <span style="color: #cb4b16">__: </span><span style="color: #2aa198">&quot;underscore&quot;</span>
+      <span style="color: #cb4b16">Backbone: </span><span style="color: #2aa198">&quot;backbone&quot;</span>
+    <span style="color: #657b83">})</span>
+  <span style="color: #657b83">]</span>
+  <span style="color: #cb4b16">stats:</span>
+    <span style="color: #cb4b16">colors: </span><span style="color: #859900">true</span><span style="color: #657b83">,</span>
+    <span style="color: #cb4b16">modules: </span><span style="color: #859900">true</span><span style="color: #657b83">,</span>
+    <span style="color: #cb4b16">reasons: </span><span style="color: #859900">true</span><span style="color: #657b83">,</span>
+    <span style="color: #cb4b16">errorDetails: </span><span style="color: #859900">true</span>
 
-  <span style="color: #657b83">gulp.src(baseFiles)</span>
+<span style="color: #657b83">gulp.task</span> <span style="color: #2aa198">&#39;coffee&#39;</span><span style="color: #657b83">,</span> <span style="color: #268bd2">-&gt;</span>
+  <span style="color: #657b83">gulp.src(config.src)</span>
   <span style="color: #657b83">.pipe(plumber({</span>
     <span style="color: #cb4b16">errorHandler: </span><span style="color: #268bd2">(err) -&gt;</span>
       <span style="color: #657b83">console.log(err.messageFormatted);</span>
       <span style="color: #657b83">@emit(</span><span style="color: #2aa198">&#39;end&#39;</span><span style="color: #657b83">)</span>
   <span style="color: #657b83">}))</span>
-  <span style="color: #657b83">.pipe(sass())</span>
-  <span style="color: #657b83">.pipe(autoprefixer())</span>
-  <span style="color: #657b83">.pipe(gulp.dest(config.dest</span> <span style="color: #657b83">+</span> <span style="color: #2aa198">&#39;/css&#39;</span><span style="color: #657b83">))</span>
-  <span style="color: #657b83">.pipe(cssmin())</span>
+  <span style="color: #657b83">.pipe(gulp_webpack(webpackConfig))</span>
+  <span style="color: #657b83">.pipe(gulp.dest(config.dest</span> <span style="color: #657b83">+</span> <span style="color: #2aa198">&#39;/js&#39;</span><span style="color: #657b83">))</span>
+  <span style="color: #657b83">.pipe(uglify())</span>
   <span style="color: #657b83">.pipe(rename({</span>
-    <span style="color: #cb4b16">extname: </span><span style="color: #2aa198">&#39;.min.css&#39;</span>
+    <span style="color: #cb4b16">extname: </span><span style="color: #2aa198">&#39;.min.js&#39;</span>
   <span style="color: #657b83">}))</span>
-  <span style="color: #657b83">.pipe(gulp.dest(config.dest</span> <span style="color: #657b83">+</span> <span style="color: #2aa198">&#39;/css&#39;</span><span style="color: #657b83">))</span>
+  <span style="color: #657b83">.pipe(gulp.dest(config.dest</span> <span style="color: #657b83">+</span> <span style="color: #2aa198">&#39;/js&#39;</span><span style="color: #657b83">))</span>
 </pre></div>
 </td></tr></table>
 <ul>
-<li>最初に<code>src/scss</code>フォルダにある、<code>.scss</code>ファイルで<code>_</code>から始まらないファイルの一覧を作成している。</li>
-<li><code>.pipe(plumber({ ...</code>の部分は、sassの処理でエラーがあっても、処理を継続できるようにしてる。</li>
-<li><code>sass()</code>と<code>autoprefixer()</code>(-moz-とか-webkit-とかを自動追加する処理)だけ行って、<code>.css</code>を保存。</li>
-<li>圧縮してから、<code>.min.css</code>も保存。</li>
-<li>上記の例では<code>.map</code>ファイルは作成していません。</li>
+<li><code>webpackConfig.entry:</code>に変換したいcoffeescriptを記載していく。(coffeescript内でrequireされるファイルは記載しない。あくまでルートとなるファイルのみ書く)</li>
+<li><code>webpackConfig.plugins</code>に書かれたモジュールは、coffeescript内でrequireを書く必要がない。(requireされたものとして扱われる)</li>
+<li><code>.pipe(gulp_webpack(webpackConfig))</code>の部分で<code>.coffee</code>を<code>.js</code>に変換している。</li>
 </ul>
 
-<h3 id="sass実行">sass実行</h3>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>$ gulp sass
-
-<span style="color: #657b83">[</span>hh:mm:ss<span style="color: #657b83">]</span> Requiring external module coffee-script/register
+<h3 id="coffee実行">coffee実行</h3>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #657b83">[</span>hh:mm:ss<span style="color: #657b83">]</span> Requiring external module coffee-script/register
 <span style="color: #657b83">(</span>node:46893<span style="color: #657b83">)</span> fs: re-evaluating native module sources is not supported. If you are using the graceful-fs module, please update it to a more recent version.
 <span style="color: #657b83">[</span>hh:mm:ss<span style="color: #657b83">]</span> Using gulpfile project_folder/gulpfile.coffee
-<span style="color: #657b83">[</span>hh:mm:ss<span style="color: #657b83">]</span> Starting <span style="color: #2aa198">&#39;sass&#39;</span>...
-<span style="color: #657b83">[</span>hh:mm:ss<span style="color: #657b83">]</span> Finished <span style="color: #2aa198">&#39;sass&#39;</span> after <span style="color: #93a1a1; font-style: italic">### ms</span>
+<span style="color: #657b83">[</span>hh:mm:ss<span style="color: #657b83">]</span> Starting <span style="color: #2aa198">&#39;coffee&#39;</span>...
+<span style="color: #657b83">[</span>hh:mm:ss<span style="color: #657b83">]</span> Version: webpack 1.13.1
+  Asset    Size  Chunks             Chunk Names
+main.js  <span style="color: #2aa198">485</span> kB       <span style="color: #2aa198">0</span>  <span style="color: #657b83">[</span>emitted<span style="color: #657b83">]</span>  main
+   <span style="color: #657b83">[</span>0<span style="color: #657b83">]</span> ./src/coffee/main.coffee <span style="color: #2aa198">234</span> bytes <span style="color: #657b83">{</span>0<span style="color: #657b83">}</span> <span style="color: #657b83">[</span>built<span style="color: #657b83">]</span>
+:
+:
+<span style="color: #657b83">[</span>hh:mm:ss<span style="color: #657b83">]</span> Finished <span style="color: #2aa198">&#39;coffee&#39;</span> after <span style="color: #93a1a1; font-style: italic">#.## s</span>
 </pre></div>
 </td></tr></table>
-<p>手元のnodeはv6.3.0ですが、fsに関するメッセージがでています。何か対処が必要かもしれませんが、sassの変換自体はこれで行えます。</p>
-
         </div>
         <div class="sharing">
-<a href="https://twitter.com/intent/tweet?status=%5bgulp%5d%20sass%e7%b7%a8-https%3a%2f%2fcode-house.jp%2f2016%2f08%2f06%2fgulpsass%2f" target="_blank" title="Follow me on Twitter" class="twitter">
+<a href="https://twitter.com/intent/tweet?status=%5bgulp%5d%20coffee%20script%e7%b7%a8-https%3a%2f%2fcode-house.jp%2f2016%2f08%2f17%2fgulpcoffee%2f" target="_blank" title="Follow me on Twitter" class="twitter">
 <span class="fa fa-twitter-square fa-2x"></span></a>
-<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f06%2fgulpsass%2f" target="_blank" title="Join me on Facebook" class="facebook">
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f17%2fgulpcoffee%2f" target="_blank" title="Join me on Facebook" class="facebook">
 <span class="fa fa-facebook-square fa-2x"></span></a>
-<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f06%2fgulpsass%2f" target="_blank" title="Google+" class="googleplus">
+<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f17%2fgulpcoffee%2f" target="_blank" title="Google+" class="googleplus">
 <span class="fa fa-google-plus-square fa-2x"></span></a>
-<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f06%2fgulpsass%2f&title=%5bgulp%5d%20sass%e7%b7%a8" target="_blank" title="LinkedIn" class="linkedin">
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f17%2fgulpcoffee%2f&title=%5bgulp%5d%20coffee%20script%e7%b7%a8" target="_blank" title="LinkedIn" class="linkedin">
 <span class="fa fa-linkedin-square fa-2x"></span></a>
 </div>
         
