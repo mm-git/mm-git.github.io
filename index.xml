@@ -7,7 +7,33 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Thu, 18 Aug 2016 08:01:36 &#43;0900</updated>
+    <updated>Fri, 19 Aug 2016 15:16:45 &#43;0900</updated>
+    
+    <item>
+      <title>[Hugo] タグを追加する</title>
+      <link>https://code-house.jp/2016/08/19/hugotaxonomy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/19/hugotaxonomy/</guid>
+      <description>
+        &lt;h2 id=&#34;タグ一覧ページと記事の先頭にタグを追加&#34;&gt;タグ一覧ページと記事の先頭にタグを追加&lt;/h2&gt;
+
+&lt;p&gt;Hugoの記事は、markdownファイルの先頭に下記の様に書くことで、その記事にタグを付けることができる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tags = [&amp;quot;Hugo&amp;quot;, &amp;quot;html&amp;quot;, ...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ただしこれらの一覧を表示したり、記事の先頭にタグを表示したりするには、layoutsフォルダ以下のテンプレートを追加、作成しないといけない。最終的には下記の様に対応を行ったが、これもなかなかわかりにくかったので記事にしておく。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;http://baseurl/tags&lt;/code&gt;でタグ一覧ページを表示する。&lt;/li&gt;
+&lt;li&gt;例えば&lt;code&gt;Hugo&lt;/code&gt;に関する記事の場合、&lt;code&gt;http://baseurl/tags/hugo&lt;/code&gt;でその一覧を表示する。&lt;/li&gt;
+&lt;li&gt;各記事の先頭にタグを表示する。&lt;/li&gt;
+&lt;/ul&gt;
+
+        <a href='https://code-house.jp/2016/08/19/hugotaxonomy/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>[GoogleMaps] Node.jsを使ったgoogle mapの初期化</title>
@@ -315,24 +341,6 @@ nodeアプリやモジュールの作成でgulpを使う場合の初期設定に
 &lt;/ul&gt;
 
         <a href='https://code-house.jp/2016/07/26/githubpages/' class="read-more"><nobr>Read more →</nobr></a>
-      </description>
-    </item>
-    
-    <item>
-      <title>[Hugo] Hugoをinstallする</title>
-      <link>https://code-house.jp/2016/07/26/hugoinsatallation/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>https://code-house.jp/2016/07/26/hugoinsatallation/</guid>
-      <description>
-        &lt;h2 id=&#34;hugoの導入&#34;&gt;Hugoの導入&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;&lt;img title=&#34;Hugo :: A fast and modern static website engine&#34; src=&#34;http://capture.heartrails.com/200x150/cool?https://gohugo.io/&#34; alt=&#34;https://gohugo.io/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;githubでは、github pagesという仕組みを利用して、自分のサイトを公開する機能がある。簡単にいうと、リポジトリに登録したファイルがそのままサイトとして公開されるようになっている。
-リポジトリに登録するファイルを自動生成して公開する仕組みにどんなものがあるのか調べていると、JekyllやHugoといったものが見つかった。Hugoというのが動作としては速いらしいということで、今回Hugoを使ってこのサイトを作成してみた。&lt;/p&gt;
-
-        <a href='https://code-house.jp/2016/07/26/hugoinsatallation/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     
