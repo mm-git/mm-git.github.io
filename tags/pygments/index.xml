@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>CODE HOUSE </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>https://code-house.jp/tags/pygments/</link>
+    <language>ja_jp</language>
+    
+    <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
+    <updated>Sat, 20 Aug 2016 19:30:57 &#43;0900</updated>
+    
+    <item>
+      <title>[Hugo] Syntax highlight</title>
+      <link>https://code-house.jp/2016/08/20/hugosyntaxhighlight/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/20/hugosyntaxhighlight/</guid>
+      <description>
+        &lt;h2 id=&#34;hugoでソースコードを綺麗に表示する&#34;&gt;Hugoでソースコードを綺麗に表示する&lt;/h2&gt;
+
+&lt;p&gt;このサイトは特にたくさんのソースコードを記事に載せているが、ソースコードを綺麗に色付きで表示するには、HugoのSyntax hightlight機能を有効にする必要がある。しかし、&lt;strong&gt;Syntax Highlight機能をONにするだけで簡単に実現できなかった&lt;/strong&gt;ので記事にしておこうと思う。
+さらに、Syntax Highlightの配色として&lt;strong&gt;Solarized&lt;/strong&gt;を使いたかったのだが、これがそのままでは未対応だった。少し工夫が必要だったのでそれも書いておく。&lt;/p&gt;
+
+&lt;p&gt;公式の情報は下記の通り。Hugo V0.15以降で対応しているようだ。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://hugodocs.netlify.com/extras/highlighting/&#34;&gt;Hugo – Syntax Highlighting&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;参考になった記事&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://qiita.com/hfm/items/3df99e0f94162d454f7a&#34;&gt;hugo で Fence Code Blocks (```)を有効化する - Qiita&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+        <a href='https://code-house.jp/2016/08/20/hugosyntaxhighlight/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
+    
+  </channel>
+</rss>
