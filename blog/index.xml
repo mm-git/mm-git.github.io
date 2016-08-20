@@ -18,6 +18,8 @@
       <description>
         &lt;h2 id=&#34;hugoでソースコードを綺麗に表示する&#34;&gt;Hugoでソースコードを綺麗に表示する&lt;/h2&gt;
 
+&lt;p&gt;&lt;img src=&#34;https://goo.gl/H565BV&#34; width=&#34;50%&#34;&gt;&lt;/p&gt;
+
 &lt;p&gt;このサイトは特にたくさんのソースコードを記事に載せているが、ソースコードを綺麗に色付きで表示するには、HugoのSyntax hightlight機能を有効にする必要がある。しかし、&lt;strong&gt;Syntax Highlight機能をONにするだけで簡単に実現できなかった&lt;/strong&gt;ので記事にしておこうと思う。
 さらに、Syntax Highlightの配色として&lt;strong&gt;Solarized&lt;/strong&gt;を使いたかったのだが、これがそのままでは未対応だった。少し工夫が必要だったのでそれも書いておく。&lt;/p&gt;
 
