@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>CODE HOUSE </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>https://code-house.jp/tags/imagemin/</link>
+    <language>ja_jp</language>
+    
+    <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
+    <updated>Sun, 21 Aug 2016 18:21:25 &#43;0900</updated>
+    
+    <item>
+      <title>[gulp] 画像サイズを減らす</title>
+      <link>https://code-house.jp/2016/08/21/gulpimagemin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/21/gulpimagemin/</guid>
+      <description>
+        &lt;h2 id=&#34;gulpを使って画像のサイズを減らす&#34;&gt;gulpを使って画像のサイズを減らす&lt;/h2&gt;
+
+&lt;p&gt;今回のgulpスクリプトは画像ファイルのサイズ圧縮である。サイトの表示速度アップのために画像の見た目はあまり変わらないままにサイズを減らしてみる。なお今回の記事、&lt;strong&gt;単に&lt;code&gt;gulp-imagemin&lt;/code&gt;を使っているだけ&lt;/strong&gt;である。特に圧縮率を変更したりはしていないので、あまり参考にならないかもしれない。&lt;/p&gt;
+
+&lt;p&gt;gulp自体の設定については下記の記事参照。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+        <a href='https://code-house.jp/2016/08/21/gulpimagemin/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
+    
+  </channel>
+</rss>

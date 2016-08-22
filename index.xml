@@ -7,7 +7,28 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Sat, 20 Aug 2016 19:30:57 &#43;0900</updated>
+    <updated>Sun, 21 Aug 2016 18:21:25 &#43;0900</updated>
+    
+    <item>
+      <title>[gulp] 画像サイズを減らす</title>
+      <link>https://code-house.jp/2016/08/21/gulpimagemin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/21/gulpimagemin/</guid>
+      <description>
+        &lt;h2 id=&#34;gulpを使って画像のサイズを減らす&#34;&gt;gulpを使って画像のサイズを減らす&lt;/h2&gt;
+
+&lt;p&gt;今回のgulpスクリプトは画像ファイルのサイズ圧縮である。サイトの表示速度アップのために画像の見た目はあまり変わらないままにサイズを減らしてみる。なお今回の記事、&lt;strong&gt;単に&lt;code&gt;gulp-imagemin&lt;/code&gt;を使っているだけ&lt;/strong&gt;である。特に圧縮率を変更したりはしていないので、あまり参考にならないかもしれない。&lt;/p&gt;
+
+&lt;p&gt;gulp自体の設定については下記の記事参照。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+        <a href='https://code-house.jp/2016/08/21/gulpimagemin/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>[Hugo] Syntax highlight</title>
@@ -327,28 +348,6 @@ nodeアプリやモジュールの作成でgulpを使う場合の初期設定に
 &lt;/ul&gt;
 
         <a href='https://code-house.jp/2016/08/02/pngtosvg/' class="read-more"><nobr>Read more →</nobr></a>
-      </description>
-    </item>
-    
-    <item>
-      <title>Google PhotoをBlogに貼り付ける</title>
-      <link>https://code-house.jp/2016/07/27/googlephoto/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>https://code-house.jp/2016/07/27/googlephoto/</guid>
-      <description>
-        &lt;h2 id=&#34;google-photo&#34;&gt;Google Photo&lt;/h2&gt;
-
-&lt;p&gt;Blogに画像を貼り付ける場合、２つの方法が考えられる。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;記事と一緒に画像もアップロードする&lt;/li&gt;
-&lt;li&gt;画像の置き場を別に用意し記事からリンクする&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;このサイトはgithub pagesを利用している。そのため、記事と一緒に画像もアップロードするとその分リポジトリの容量が増えてしまう。これはあまり好ましいと思えないので別に画像の置き場を用意する方法を採用する。なお、画像の置き場としてはgoogle photoを利用してみる。&lt;/p&gt;
-
-        <a href='https://code-house.jp/2016/07/27/googlephoto/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     

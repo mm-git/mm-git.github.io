@@ -1,11 +1,11 @@
-    <!DOCTYPE html>
+  <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja-jp">
 <head prefix="og: http://ogp.me/ns#">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <link rel="alternate" hreflang="ja" href="https://code-house.jp">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title> Node </title>
+    <title> [gulp] 画像サイズを減らす </title>
     
     <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/uno.min.css" />
     <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/lightGallery.css" />
@@ -50,21 +50,23 @@
 <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1536x2008.png">
     
         <meta property="og:site_name" content="CODE HOUSE" />
-    <meta property="og:url" content="https://code-house.jp/tags/node/" />
-    <meta property="og:title" content="Node" />
+    <meta property="og:url" content="https://code-house.jp/2016/08/21/gulpimagemin/" />
+    <meta property="og:title" content="[gulp] 画像サイズを減らす" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:url" content="https://code-house.jp/tags/node/" />
+    <meta name="twitter:url" content="https://code-house.jp/2016/08/21/gulpimagemin/" />
 
     
-        <meta property="og:description" content="Hello, I&#39;m a freelance software engineer." />
-        <meta property="og:image" content="https://code-house.jp/open-graph.png">
-        <meta property="twitter:image" content="https://code-house.jp/open-graph.png">
-        <meta property="og:type" content="blog" />
+        <meta property="og:description" content="gulpで画像ファイルのサイズを減らしてみる。" />
+        
+            <meta property="og:image" content="https://code-house.jp/open-graph.png">
+            <meta property="twitter:image" content="https://code-house.jp/open-graph.png">
+        
+        <meta property="og:type" content="article" />
     
 
 
     
-    <link href="https://code-house.jp/tags/node/index.xml" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
+    <link href="" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
     
     <script src="https://code-house.jp/js/jquery.min.js"></script>
     <script src="https://code-house.jp/js/main.min.js"></script>
@@ -80,8 +82,8 @@
     </script>
 </head>
 
-    <body>
-        <div id="scriptHeader">
+  <body>
+    <div id="scriptHeader">
     <span class="mobile btn-mobile-menu">
             <i class="fa fa-bars btn-mobile-menu__icon"></i>
             <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
@@ -194,53 +196,143 @@
     </header>
 </noscript>
 
-        <div class="content-wrapper">
-            <div class="content-wrapper__inner">
-                <section id="main">
-                    <div class="tags_list">
-                    <div class="tags_title"><span>Node</span></div>
-                    </div>
-                    <ul id="list">
-                        
-                        <li>
-                            2016-08-21
-                            <a href="https://code-house.jp/2016/08/21/gulpimagemin/">[gulp] 画像サイズを減らす</a>
-                        </li>
-                        
-                        <li>
-                            2016-08-18
-                            <a href="https://code-house.jp/2016/08/18/mapinitialize/">[GoogleMaps] Node.jsを使ったgoogle mapの初期化</a>
-                        </li>
-                        
-                        <li>
-                            2016-08-17
-                            <a href="https://code-house.jp/2016/08/17/gulpcoffee/">[gulp] coffee script編</a>
-                        </li>
-                        
-                        <li>
-                            2016-08-11
-                            <a href="https://code-house.jp/2016/08/11/gulpfavicons/">[gulp] favicon編</a>
-                        </li>
-                        
-                        <li>
-                            2016-08-10
-                            <a href="https://code-house.jp/work/2016/backbonegraph">NODE.JS BACKBONE-GRAPH</a>
-                        </li>
-                        
-                        <li>
-                            2016-08-06
-                            <a href="https://code-house.jp/2016/08/06/gulpsass/">[gulp] sass編</a>
-                        </li>
-                        
-                        <li>
-                            2016-08-02
-                            <a href="https://code-house.jp/2016/08/02/gulpsetting/">gulpの初期設定</a>
-                        </li>
-                        
-                    </ul>
-                    <hr>
-                    <a href="https://code-house.jp/tags">Tags</a>
-                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>[gulp] 画像サイズを減らす</h1>
+          
+          <div class="tags_list">
+             <div class="tags_item"><a href="https://code-house.jp/tags/node/">node</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/gulp/">gulp</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/imagemin/">imagemin</a></div>
+          </div>
+          
+          <p class="post-date">2016-08-21</p>
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle articletopads"
+     style="display:inline-block;width:320px;height:100px;"
+     data-ad-client="ca-pub-4546185375369746"
+     data-ad-slot="7603089718"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+          
+
+<h2 id="gulpを使って画像のサイズを減らす">gulpを使って画像のサイズを減らす</h2>
+
+<p>今回のgulpスクリプトは画像ファイルのサイズ圧縮である。サイトの表示速度アップのために画像の見た目はあまり変わらないままにサイズを減らしてみる。なお今回の記事、<strong>単に<code>gulp-imagemin</code>を使っているだけ</strong>である。特に圧縮率を変更したりはしていないので、あまり参考にならないかもしれない。</p>
+
+<p>gulp自体の設定については下記の記事参照。</p>
+
+<blockquote>
+<p><a href="https://code-house.jp/post/gulp/gulpsetting/">gulpの初期設定</a></p>
+</blockquote>
+
+<h2 id="フォルダの構成">フォルダの構成</h2>
+
+<p>以下はあるプロジェクトフォルダである。今までの記事と同様に、<code>src/images</code>の画像ファイルをサイズ縮小して、<code>app/images</code>に出力してみる。</p>
+
+<pre><code>project_folder
+├── 📁app
+│   └── 📁images
+├── 📁gulp
+│   ├── config.coffee
+│   └── 📁tasks
+│       ├── imagemin.coffee
+│            :
+├── gulpfile.coffee
+├── 📁node_modules
+├── package.json
+└── 📁src
+    └── 📁images
+</code></pre>
+
+<h2 id="画像圧縮スクリプト">画像圧縮スクリプト</h2>
+
+<h3 id="インストールするnpmモジュール">インストールするnpmモジュール</h3>
+
+<p>スクリプトの実行に必要なnpmモジュールをインストールしておく。</p>
+
+<pre><code>npm i fs gulp-imagemin gulp-plumber -D`
+</code></pre>
+
+<h3 id="gulp-tasks-imagemin-coffee">gulp/tasks/imagemin.coffee</h3>
+
+<h5 id="gulp-tasks-imagemin-coffee-1">gulp/tasks.imagemin.coffee</h5>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #cb4b16">fs = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;fs&#39;</span><span style="color: #657b83">)</span>
+<span style="color: #cb4b16">gulp = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp&#39;</span><span style="color: #657b83">)</span>
+<span style="color: #cb4b16">imagemin = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp-imagemin&#39;</span><span style="color: #657b83">)</span>
+<span style="color: #cb4b16">plumber = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp-plumber&#39;</span><span style="color: #657b83">)</span>
+<span style="color: #cb4b16">config = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;../config&#39;</span><span style="color: #657b83">)</span>
+
+<span style="color: #657b83">gulp.task</span> <span style="color: #2aa198">&#39;imagemin&#39;</span><span style="color: #657b83">,</span> <span style="color: #268bd2">-&gt;</span>
+  <span style="color: #cb4b16">files = </span><span style="color: #657b83">fs.readdirSync(config.src</span> <span style="color: #657b83">+</span> <span style="color: #2aa198">&#39;/images&#39;</span><span style="color: #657b83">)</span>
+  <span style="color: #cb4b16">baseFiles = </span><span style="color: #657b83">files.filter(</span><span style="color: #268bd2">(file) -&gt;</span>
+    <span style="color: #859900">return</span> <span style="color: #657b83">fs.statSync(config.src</span> <span style="color: #657b83">+</span> <span style="color: #2aa198">&#39;/images/&#39;</span> <span style="color: #657b83">+</span> <span style="color: #657b83">file).isFile()</span> <span style="color: #657b83">&amp;&amp;</span> <span style="color: #2aa198">/.*\.png$/</span><span style="color: #657b83">.test(file)</span> <span style="color: #657b83">&amp;&amp;</span> <span style="color: #657b83">file</span> <span style="color: #657b83">!=</span> <span style="color: #2aa198">&#39;favicon.png&#39;</span>
+  <span style="color: #657b83">)</span>
+  <span style="color: #657b83">.map(</span><span style="color: #268bd2">(file) -&gt;</span>
+    <span style="color: #859900">return</span> <span style="color: #657b83">config.src</span> <span style="color: #657b83">+</span> <span style="color: #2aa198">&#39;/images/&#39;</span> <span style="color: #657b83">+</span> <span style="color: #657b83">file</span>
+  <span style="color: #657b83">)</span>
+
+  <span style="color: #657b83">gulp.src(baseFiles)</span>
+  <span style="color: #657b83">.pipe(plumber({</span>
+    <span style="color: #cb4b16">errorHandler: </span><span style="color: #268bd2">(err) -&gt;</span>
+      <span style="color: #657b83">console.log(err.messageFormatted);</span>
+      <span style="color: #657b83">@emit(</span><span style="color: #2aa198">&#39;end&#39;</span><span style="color: #657b83">)</span>
+  <span style="color: #657b83">}))</span>
+  <span style="color: #657b83">.pipe(imagemin())</span>
+  <span style="color: #657b83">.pipe(gulp.dest(config.dest</span> <span style="color: #657b83">+</span> <span style="color: #2aa198">&#39;/images&#39;</span><span style="color: #657b83">))</span>
+</pre></div>
+</td></tr></table>
+<ul>
+<li>上記の例では、最初に<code>src/images</code>にある、pngファイルの一覧を作成している。</li>
+<li>また、imagesに<code>favicon.png</code>がある場合は除外している。
+
+<ul>
+<li>faviconは別途、<a href="https://code-house.jp/2016/08/11/gulpfavicons/">[gulp] favicon編</a>で変換している。</li>
+</ul></li>
+</ul>
+
+<h3 id="imagemin実行">imagemin実行</h3>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>$ gulp imagemin
+
+<span style="color: #657b83">[</span>hh:mm:ss<span style="color: #657b83">]</span> Requiring external module coffee-script/register
+<span style="color: #657b83">(</span>node:93202<span style="color: #657b83">)</span> fs: re-evaluating native module sources is not supported. If you are using the graceful-fs module, please update it to a more recent version.
+<span style="color: #657b83">[</span>hh:mm:ss<span style="color: #657b83">]</span> Using gulpfile project_folder/gulpfile.coffee
+<span style="color: #657b83">[</span>hh:mm:ss<span style="color: #657b83">]</span> Starting <span style="color: #2aa198">&#39;imagemin&#39;</span>...
+<span style="color: #657b83">[</span>hh:mm:ss<span style="color: #657b83">]</span> Finished <span style="color: #2aa198">&#39;imagemin&#39;</span> after <span style="color: #93a1a1; font-style: italic">### ms</span>
+<span style="color: #657b83">[</span>hh:mm:ss<span style="color: #657b83">]</span> gulp-imagemin: Minified <span style="color: #93a1a1; font-style: italic">## images (saved ###.## kB - ##.#%)</span>
+</pre></div>
+</td></tr></table>
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <ins class="adsbygoogle"
      style="display:block"
@@ -250,9 +342,24 @@
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-                </section>
-            </div>
         </div>
-    </body>
-    
+        <div class="sharing">
+<a href="https://twitter.com/intent/tweet?status=%5bgulp%5d%20%e7%94%bb%e5%83%8f%e3%82%b5%e3%82%a4%e3%82%ba%e3%82%92%e6%b8%9b%e3%82%89%e3%81%99-https%3a%2f%2fcode-house.jp%2f2016%2f08%2f21%2fgulpimagemin%2f" target="_blank" title="Follow me on Twitter" class="twitter">
+<span class="fa fa-twitter-square fa-2x"></span></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f21%2fgulpimagemin%2f" target="_blank" title="Join me on Facebook" class="facebook">
+<span class="fa fa-facebook-square fa-2x"></span></a>
+<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f21%2fgulpimagemin%2f" target="_blank" title="Google+" class="googleplus">
+<span class="fa fa-google-plus-square fa-2x"></span></a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f21%2fgulpimagemin%2f&title=%5bgulp%5d%20%e7%94%bb%e5%83%8f%e3%82%b5%e3%82%a4%e3%82%ba%e3%82%92%e6%b8%9b%e3%82%89%e3%81%99" target="_blank" title="LinkedIn" class="linkedin">
+<span class="fa fa-linkedin-square fa-2x"></span></a>
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
 </html>

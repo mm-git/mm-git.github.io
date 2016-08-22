@@ -7,7 +7,28 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Sat, 20 Aug 2016 19:30:57 &#43;0900</updated>
+    <updated>Sun, 21 Aug 2016 18:21:25 &#43;0900</updated>
+    
+    <item>
+      <title>[gulp] 画像サイズを減らす</title>
+      <link>https://code-house.jp/2016/08/21/gulpimagemin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/21/gulpimagemin/</guid>
+      <description>
+        &lt;h2 id=&#34;gulpを使って画像のサイズを減らす&#34;&gt;gulpを使って画像のサイズを減らす&lt;/h2&gt;
+
+&lt;p&gt;今回のgulpスクリプトは画像ファイルのサイズ圧縮である。サイトの表示速度アップのために画像の見た目はあまり変わらないままにサイズを減らしてみる。なお今回の記事、&lt;strong&gt;単に&lt;code&gt;gulp-imagemin&lt;/code&gt;を使っているだけ&lt;/strong&gt;である。特に圧縮率を変更したりはしていないので、あまり参考にならないかもしれない。&lt;/p&gt;
+
+&lt;p&gt;gulp自体の設定については下記の記事参照。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+        <a href='https://code-house.jp/2016/08/21/gulpimagemin/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>[Hugo] Syntax highlight</title>
@@ -342,24 +363,6 @@ nodeアプリやモジュールの作成でgulpを使う場合の初期設定に
 &lt;/ul&gt;
 
         <a href='https://code-house.jp/2016/07/26/githubpages/' class="read-more"><nobr>Read more →</nobr></a>
-      </description>
-    </item>
-    
-    <item>
-      <title>[Hugo] Hugoをinstallする</title>
-      <link>https://code-house.jp/2016/07/26/hugoinsatallation/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>https://code-house.jp/2016/07/26/hugoinsatallation/</guid>
-      <description>
-        &lt;h2 id=&#34;hugoの導入&#34;&gt;Hugoの導入&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;&lt;img title=&#34;Hugo :: A fast and modern static website engine&#34; src=&#34;http://capture.heartrails.com/200x150/cool?https://gohugo.io/&#34; alt=&#34;https://gohugo.io/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;githubでは、github pagesという仕組みを利用して、自分のサイトを公開する機能がある。簡単にいうと、リポジトリに登録したファイルがそのままサイトとして公開されるようになっている。
-リポジトリに登録するファイルを自動生成して公開する仕組みにどんなものがあるのか調べていると、JekyllやHugoといったものが見つかった。Hugoというのが動作としては速いらしいということで、今回Hugoを使ってこのサイトを作成してみた。&lt;/p&gt;
-
-        <a href='https://code-house.jp/2016/07/26/hugoinsatallation/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     
