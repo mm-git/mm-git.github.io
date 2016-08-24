@@ -1,0 +1,448 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja-jp">
+<head prefix="og: http://ogp.me/ns#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="alternate" hreflang="ja" href="https://code-house.jp">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> [Hugo] werckerを使って記事の公開を自動化する１ </title>
+    
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/lightGallery.css" />
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/solarizedlight.css" />
+    
+    <link rel="apple-touch-icon" sizes="57x57" href="https://code-house.jp/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://code-house.jp/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://code-house.jp/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://code-house.jp/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://code-house.jp/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://code-house.jp/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://code-house.jp/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://code-house.jp/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://code-house.jp/apple-touch-icon-180x180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="logo">
+<link rel="icon" type="image/png" sizes="228x228" href="https://code-house.jp/coast-228x228.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://code-house.jp/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://code-house.jp/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://code-house.jp/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="230x230" href="https://code-house.jp/favicon-230x230.png">
+<link rel="shortcut icon" href="https://code-house.jp/favicon.ico">
+<link rel="yandex-tableau-widget" href="https://code-house.jp/yandex-browser-manifest.json">
+<meta name="msapplication-TileColor" content="#666666">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<link rel="icon" type="image/png" sizes="192x192" href="https://code-house.jp/android-chrome-192x192.png">
+<link rel="manifest" href="https://code-house.jp/manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#666666">
+<meta name="application-name" content="logo">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="https://code-house.jp/apple-touch-startup-image-320x460.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-640x920.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-640x1096.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-750x1294.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="https://code-house.jp/apple-touch-startup-image-1182x2208.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="https://code-house.jp/apple-touch-startup-image-1242x2148.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="https://code-house.jp/apple-touch-startup-image-748x1024.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="https://code-house.jp/apple-touch-startup-image-768x1004.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1496x2048.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1536x2008.png">
+    
+        <meta property="og:site_name" content="CODE HOUSE" />
+    <meta property="og:url" content="https://code-house.jp/2016/08/24/hugowercker/" />
+    <meta property="og:title" content="[Hugo] werckerを使って記事の公開を自動化する１" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content="https://code-house.jp/2016/08/24/hugowercker/" />
+
+    
+        <meta property="og:description" content="Hugoの記事をgituhubにpushすると、自動で記事が公開されるようにしてみる。自動化にはwerckerを使う。" />
+        
+            <meta property="og:image" content="https://code-house.jp/open-graph.png">
+            <meta property="twitter:image" content="https://code-house.jp/open-graph.png">
+        
+        <meta property="og:type" content="article" />
+    
+
+
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
+    
+    <script src="https://code-house.jp/js/jquery.min.js"></script>
+    <script src="https://code-house.jp/js/main.min.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-81918210-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed">
+    
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content">
+                
+                <a href="https://code-house.jp" title="link to homepage for CODE HOUSE">
+                    <img src="https://code-house.jp/images/codehouse_logo.png" width="100" alt="CODE HOUSE logo" class="panel-cover__logo" />
+                </a>
+                
+                <h1 class="panel-cover__title panel-title">
+                    <a href="https://code-house.jp"  title="link to homepage for CODE HOUSE">CODE HOUSE</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">Hello, I&#39;m a freelance software engineer.</p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="https://code-house.jp/work" title="link to CODE HOUSE work" class="blog-button">Work</a> </li>
+                            <li class="navigation__item"><a href="https://code-house.jp/blog" title="link to CODE HOUSE blog" class="blog-button">Blog</a> </li>
+
+                            
+                            
+                        </ul>
+                    </nav>
+                    <br>
+                    <nav class="cover-navigation navigation--social">
+    <ul class="navigation">   
+        
+        <li class="navigation__item">
+            <a href="https://github.com/mm-git" title="mm-git on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.linkedin.com/in/meguro/en" title="Linkedin"> <i class='fa fa-linkedin'></i> <span class="label">Linkedin</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.facebook.com/" title=" on facebook"> <i class='fa fa-facebook'></i> <span class="label">facebook</span> </a>
+        </li>  
+    </ul>
+</nav>
+
+                </div>
+                <p> </p>
+                <p class="sponsorlink">スポンサーリンク</p>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4546185375369746"
+     data-ad-slot="2436030113"
+     data-ad-format="auto"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+                <p class="panel-cover__copyright">Powered by Hugo. Copyright © 2016 code-house.jp</p>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="https://code-house.jp" title="link to homepage for CODE HOUSE"> <img src="https://code-house.jp/images/codehouse_logo.png" width="80" alt="CODE HOUSE logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="https://code-house.jp"  title="link to homepage for CODE HOUSE">CODE HOUSE</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  Hello, I&#39;m a freelance software engineer.  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="https://code-house.jp/work" title="link to CODE HOUSE work" class="blog-button">Work</a> </li>
+                                <li class="navigation__item"><a href="https://code-house.jp/blog" title="link to CODE HOUSE blog" class="blog-button">Blog</a> </li>
+                                
+                                
+                            </ul>
+                        </nav>
+                        <br><nav class="cover-navigation navigation--social">
+    <ul class="navigation">   
+        
+        <li class="navigation__item">
+            <a href="https://github.com/mm-git" title="mm-git on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.linkedin.com/in/meguro/en" title="Linkedin"> <i class='fa fa-linkedin'></i> <span class="label">Linkedin</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.facebook.com/" title=" on facebook"> <i class='fa fa-facebook'></i> <span class="label">facebook</span> </a>
+        </li>  
+    </ul>
+</nav>
+
+                    </div>
+                    <p class="panel-cover__copyright">Powered by Hugo. Copyright © 2016 code-house.jp</p>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>[Hugo] werckerを使って記事の公開を自動化する１</h1>
+          
+          <div class="tags_list">
+             <div class="tags_item"><a href="https://code-house.jp/tags/hugo/">Hugo</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/git/">git</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/github/">github</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/wercker/">wercker</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/docker/">docker</a></div>
+          </div>
+          
+          <p class="post-date">2016-08-24</p>
+          <p class="sponsorlink">スポンサーリンク</p>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4546185375369746"
+     data-ad-slot="5529097310"
+     data-ad-format="auto"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+          
+
+<h2 id="hugoの記事を公開する">Hugoの記事を公開する</h2>
+
+<p>下記の記事にも書いた通り、hugoの記事は下記の手順で公開している。</p>
+
+<ol>
+<li>Hugoの元になるプロジェクトは<a href="https://github.com/mm-git/hugo">mm-git/hugo</a>にpushする。(以下元プロジェクトと呼ぶ)</li>
+<li>pushを検出して自動で<code>Hugo</code>コマンドを実行し、<code>public</code>フォルダを作成する。</li>
+<li><code>public</code>フォルダを公開プロジェクト<a href="https://github.com/mm-git/mm-git.github.io">mm-git/mm-git.github.io</a>にpushする。</li>
+<li>記事が自動的に公開される。</li>
+</ol>
+
+<blockquote>
+<p><a href="https://vode-house.jp/2016/07/26/githubpages/">[Hugo] github pagesについて</a></p>
+</blockquote>
+
+<p>今回の記事は、<strong>hugoコマンドの実行をどうやって自動化するか</strong>について書いている。自動化には<a href="http://wercker.com/">Wercker</a>を利用してみる。
+なお、この<a href="http://wercker.com/">Wercker</a>だが、最近仕様が変わったようで、公式の情報やネットで見つかる情報が古かったりしてハマった。下記の記事が参考になった。</p>
+
+<blockquote>
+<p><a href="https://blog.nabetama.com/post/2016-05-12-30/">Hugo, github pages, werckerで自動デプロイ 2016/05/12版 · blog.nabetama.com</a></p>
+</blockquote>
+
+<h2 id="werckerの使い方">werckerの使い方</h2>
+
+<ol>
+<li>werckerにアカウント作成。
+
+<ul>
+<li>githubアカウントでログイン可能。今回の記事では特に説明しません。</li>
+</ul></li>
+<li>元プロジェクトに<code>wercker.yml</code>を追加。</li>
+<li>githubで記事push用のPersonal access tokenを作成。</li>
+<li>werckerでapplicationを登録。</li>
+<li>werckerでdeployのworkflowを追加。</li>
+<li>元プロジェクトをpush。</li>
+</ol>
+
+<h3 id="wercker-yml">wercker.yml</h3>
+
+<h5 id="wercker-yml-1">wercker.yml</h5>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #657b83">box:</span> <span style="color: #657b83">python:2.7-slim</span>
+<span style="color: #657b83">build:</span>
+  <span style="color: #657b83">steps:</span>
+    <span style="color: #657b83">-</span> <span style="color: #657b83">install-packages:</span>
+        <span style="color: #657b83">packages:</span> <span style="color: #657b83">git</span>
+    <span style="color: #657b83">-</span> <span style="color: #657b83">pip-install:</span>
+        <span style="color: #657b83">requirements_file:</span> <span style="color: #2aa198">&quot;&quot;</span>
+        <span style="color: #657b83">packages_list:</span> <span style="color: #2aa198">&quot;pygments-style-solarized&quot;</span>
+    <span style="color: #657b83">-</span> <span style="color: #657b83">script:</span>
+        <span style="color: #657b83">name:</span> <span style="color: #657b83">initialize git submodules</span>
+        <span style="color: #657b83">code:</span> <span style="color: #657b83">git submodule update --init</span>
+    <span style="color: #657b83">-</span> <span style="color: #657b83">arjen/hugo-build:</span>
+        <span style="color: #657b83">theme:</span> <span style="color: #657b83">hugo-uno</span>
+        <span style="color: #657b83">flags:</span> <span style="color: #657b83">--buildDrafts=false -v</span>
+<span style="color: #657b83">deploy:</span>
+  <span style="color: #657b83">steps:</span>
+    <span style="color: #657b83">-</span> <span style="color: #657b83">install-packages:</span>
+        <span style="color: #657b83">packages:</span> <span style="color: #657b83">git ssh-client</span>
+    <span style="color: #657b83">-</span> <span style="color: #657b83">leipert/git-push:</span>
+        <span style="color: #657b83">gh_oauth:</span> <span style="color: #657b83">$GIT_TOKEN</span>
+        <span style="color: #657b83">repo:</span> <span style="color: #657b83">mm-git/mm-git.github.io</span>
+        <span style="color: #657b83">branch:</span> <span style="color: #657b83">master</span>
+        <span style="color: #657b83">basedir:</span> <span style="color: #657b83">public</span>
+</pre></div>
+</td></tr></table>
+<h4 id="box">Box</h4>
+
+<ul>
+<li>boxには<a href="https://hub.docker.com/">https://hub.docker.com</a>にあるboxを指定する。
+
+<ul>
+<li><code>pip install</code>を使いたいので、boxは<code>python:2.7-slim</code>にしてみた。</li>
+<li>少し前まで、wercker directoryにあるboxを使えたようだが現在は使えないみたい。</li>
+<li>Stack Overflowにも同じ質問があったので、回答してみた。</li>
+</ul></li>
+</ul>
+
+<blockquote>
+<p><a href="http://stackoverflow.com/questions/37010592/wercker-error-404-during-setup-environment/38775408#38775408">Wercker error 404 during setup environment - Stack Overflow</a></p>
+</blockquote>
+
+<h4 id="build">build</h4>
+
+<ul>
+<li>gitやsshなど基本的なものはインストールが必要。<code>- install-packages</code>の部分に記載する。</li>
+<li><code>- pip-install</code>の部分に、Pythonのインストールパッケージを記載する。このboxは<code>Pygments</code>はインストール済みみたいなので、<code>pygments-style-solarized</code>のみインストールしている。
+
+<ul>
+<li>Pygmentsについては、<a href="http://10.0.1.9:1313/2016/08/20/hugosyntaxhighlight/">[Hugo] Syntax highlight</a>参照。</li>
+</ul></li>
+<li><code>hugo</code>のビルドの前に行いたい処理は、<code>- script</code>に書く。上記では、Hugoのテーマをsubmoduleにしているので、その更新処理を行っている。</li>
+<li><code>hugo</code>のビルドはwerckerに登録されているstepを利用する。<a href="https://app.wercker.com/applications/54a7744c6b3ba8733de4dcde/tab/details/">arjen/hugo-build</a>というのがそのステップ名。</li>
+</ul>
+
+<h4 id="deploy">deploy</h4>
+
+<ul>
+<li>buildで作成したpublicフォルダのpushについては、deployのセクションに書く</li>
+<li>githubへのpushもwerckerに登録されているstepを利用する。<a href="https://app.wercker.com/applications/53f202b50705e3656b000033/tab/details/">leipert/git-push</a> がそのステップ。</li>
+<li>githubへpushするためのtokenは<code>$GIT_TOKEN</code>の様に変数にしておく。(これで<code>wercker.yml</code>が公開レポジトリにpushされても問題ない)</li>
+</ul>
+
+<h3 id="personal-access-tokenを作成">Personal access tokenを作成</h3>
+
+<p>werckerからgithubのレポジトリにpushできるように、github上でpush専用のaccess tokenを作成する。</p>
+
+<ol>
+<li>githubの<strong>アカウントのSettings</strong>を選択。(レポジトリのSettingではない)</li>
+<li>Personal access tokensを選択。</li>
+<li><code>Generate new token</code>ボタンを押す。
+
+<ul>
+<li>githubのパスワード確認があるかもしれない。</li>
+</ul></li>
+<li>次の画面で、tokenの名前を入力する(名前は何でも良い)。<code>public_repo</code>にチェックを付けて、下の<code>Generate token</code>ボタンを押す。
+<br><img src="https://goo.gl/1a5m50" alt="Personal access tokens" style="border:1px solid #000;"></li>
+<li>次の画面でtokenが表示される。<strong>tokenが表示されるのはこの時１回きりなので、忘れずにコピーしておく。</strong></li>
+</ol>
+
+<h3 id="werckerでapplicationを登録">werckerでapplicationを登録</h3>
+
+<ol>
+<li>画面上部の<code>+ Create ▼</code>ボタンをクリックし、<code>application</code>を選択する。</li>
+<li><code>① Choose a repository</code>で元プロジェクトのレポジトリを選択する。
+
+<ul>
+<li>githubでアカウントでログインしていれば、githubに接続済みのはず。</li>
+</ul></li>
+<li><code>② Configure access</code>では<code>wercker will checkout the code without using an SSH key</code>を選択したままでOK。</li>
+<li><code>③ Awesome! You are all done!</code>では、Buildの様子などを他人に見られたくなければそのままでFinishを押す。</li>
+</ol>
+
+<h3 id="werckerでdeployのworkflowを追加">werckerでdeployのworkflowを追加</h3>
+
+<ol>
+<li>werckerで登録したapplicationを選択する。
+
+<ul>
+<li>画面上部の`Applications(w)を押すと、作成済みのApplication一覧が表示される。その中から先ほど作成したものを選択する。</li>
+</ul></li>
+<li><code>workflow</code>タブを選択する。</li>
+<li>画面中程の<code>Add new pipeline</code>を押す。</li>
+<li>下記のように入力する。特に<code>YML Pipeline name</code>は、wercker.ymlのpipeline名と合わせておく必要がある。<code>Hook type</code>はDefaultのままでOK。
+<br><img src="https://goo.gl/RZJQD4" alt="Wercker pipeline" style="border:1px solid #000;"></li>
+<li>次の画面で<code>Environment variable</code>を入力する。キーは<code>GIT_TOKEN</code>(wercker.ymlに書いた変数名)。値は、githubで登録しておいたPersonal access tokenを入力する。誰にも見られないように<strong><code>Protected</code>のチェックを忘れない</strong>ようにする。最後にAddボタンを押す。
+<br><img src="https://goo.gl/Z2ZCXE" alt="Wercker token" style="border:1px solid #000;"></li>
+<li><code>workflow</code>の画面に戻る。<code>build</code>の横の<code>+</code>ボタンを押して、先ほど作成した<code>deploy</code>を追加する。branchは<code>master</code>にする。下記の様になればOK。
+<br><img src="https://goo.gl/K1eyt1" alt="Wercker token" style="border:1px solid #000;"></li>
+</ol>
+
+<p>※この画面は何度かデザインが変更されているので、上記の説明は当てはまらないところがあるかもしれない。</p>
+
+<h3 id="元プロジェクトをpush">元プロジェクトをpush</h3>
+
+<p>上記の設定で問題がなければ、元プロジェクトのpushをトリガにwerckerでのHugoのビルドと記事のデプロイが行われる。</p>
+
+<h2 id="終わりに">終わりに</h2>
+
+<p>今回の<code>wercker.yml</code>だと、元プロジェクトのpushから記事が配信されるまでに結構な時間がかかる(数分〜十数分)。現状はこれをもう少し短縮できているので、別途記事に書きたいと思う。
+また、wercker.ymlが正しいかどうかをローカル環境で確認する方法についても書く予定である。</p>
+
+          <p class="sponsorlink">スポンサーリンク</p>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4546185375369746"
+     data-ad-slot="2436030113"
+     data-ad-format="auto"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </div>
+        <div class="sharing">
+<a href="https://twitter.com/intent/tweet?status=%5bHugo%5d%20wercker%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e8%a8%98%e4%ba%8b%e3%81%ae%e5%85%ac%e9%96%8b%e3%82%92%e8%87%aa%e5%8b%95%e5%8c%96%e3%81%99%e3%82%8b%ef%bc%91-https%3a%2f%2fcode-house.jp%2f2016%2f08%2f24%2fhugowercker%2f" target="_blank" title="Follow me on Twitter" class="twitter">
+<span class="fa fa-twitter-square fa-2x"></span></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f24%2fhugowercker%2f" target="_blank" title="Join me on Facebook" class="facebook">
+<span class="fa fa-facebook-square fa-2x"></span></a>
+<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f24%2fhugowercker%2f" target="_blank" title="Google+" class="googleplus">
+<span class="fa fa-google-plus-square fa-2x"></span></a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f24%2fhugowercker%2f&title=%5bHugo%5d%20wercker%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e8%a8%98%e4%ba%8b%e3%81%ae%e5%85%ac%e9%96%8b%e3%82%92%e8%87%aa%e5%8b%95%e5%8c%96%e3%81%99%e3%82%8b%ef%bc%91" target="_blank" title="LinkedIn" class="linkedin">
+<span class="fa fa-linkedin-square fa-2x"></span></a>
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

@@ -7,7 +7,40 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Sun, 21 Aug 2016 18:21:25 &#43;0900</updated>
+    <updated>Wed, 24 Aug 2016 12:51:32 &#43;0900</updated>
+    
+    <item>
+      <title>[Hugo] werckerを使って記事の公開を自動化する１</title>
+      <link>https://code-house.jp/2016/08/24/hugowercker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/24/hugowercker/</guid>
+      <description>
+        &lt;h2 id=&#34;hugoの記事を公開する&#34;&gt;Hugoの記事を公開する&lt;/h2&gt;
+
+&lt;p&gt;下記の記事にも書いた通り、hugoの記事は下記の手順で公開している。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Hugoの元になるプロジェクトは&lt;a href=&#34;https://github.com/mm-git/hugo&#34;&gt;mm-git/hugo&lt;/a&gt;にpushする。(以下元プロジェクトと呼ぶ)&lt;/li&gt;
+&lt;li&gt;pushを検出して自動で&lt;code&gt;Hugo&lt;/code&gt;コマンドを実行し、&lt;code&gt;public&lt;/code&gt;フォルダを作成する。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;public&lt;/code&gt;フォルダを公開プロジェクト&lt;a href=&#34;https://github.com/mm-git/mm-git.github.io&#34;&gt;mm-git/mm-git.github.io&lt;/a&gt;にpushする。&lt;/li&gt;
+&lt;li&gt;記事が自動的に公開される。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://vode-house.jp/2016/07/26/githubpages/&#34;&gt;[Hugo] github pagesについて&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;今回の記事は、&lt;strong&gt;hugoコマンドの実行をどうやって自動化するか&lt;/strong&gt;について書いている。自動化には&lt;a href=&#34;http://wercker.com/&#34;&gt;Wercker&lt;/a&gt;を利用してみる。
+なお、この&lt;a href=&#34;http://wercker.com/&#34;&gt;Wercker&lt;/a&gt;だが、最近仕様が変わったようで、公式の情報やネットで見つかる情報が古かったりしてハマった。下記の記事が参考になった。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.nabetama.com/post/2016-05-12-30/&#34;&gt;Hugo, github pages, werckerで自動デプロイ 2016/05/12版 · blog.nabetama.com&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+        <a href='https://code-house.jp/2016/08/24/hugowercker/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>[gulp] 画像サイズを減らす</title>
@@ -341,28 +374,6 @@ nodeアプリやモジュールの作成でgulpを使う場合の初期設定に
 &lt;p&gt;このサイトはgithub pagesを利用している。そのため、記事と一緒に画像もアップロードするとその分リポジトリの容量が増えてしまう。これはあまり好ましいと思えないので別に画像の置き場を用意する方法を採用する。なお、画像の置き場としてはgoogle photoを利用してみる。&lt;/p&gt;
 
         <a href='https://code-house.jp/2016/07/27/googlephoto/' class="read-more"><nobr>Read more →</nobr></a>
-      </description>
-    </item>
-    
-    <item>
-      <title>[Hugo] github pagesについて</title>
-      <link>https://code-house.jp/2016/07/26/githubpages/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>https://code-house.jp/2016/07/26/githubpages/</guid>
-      <description>
-        &lt;h2 id=&#34;github-pagesについて&#34;&gt;github pagesについて&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://pages.github.com/&#34;&gt;&lt;img title=&#34;github pages&#34; src=&#34;http://capture.heartrails.com/200x150/cool?https://pages.github.com/&#34; alt=&#34;https://pages.github.com/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;リポジトリの内容をそのままwebとして公開できるgithub pagesについて調べてみた。github pagesには次の２つがあるようだ。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;User site&lt;/li&gt;
-&lt;li&gt;Project site&lt;/li&gt;
-&lt;/ul&gt;
-
-        <a href='https://code-house.jp/2016/07/26/githubpages/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     
