@@ -7,7 +7,34 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Wed, 24 Aug 2016 12:51:32 &#43;0900</updated>
+    <updated>Thu, 25 Aug 2016 08:21:43 &#43;0900</updated>
+    
+    <item>
+      <title>[gulp] ローカルサーバー編</title>
+      <link>https://code-house.jp/2016/08/25/gulpserver/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/25/gulpserver/</guid>
+      <description>
+        &lt;h2 id=&#34;gulpを使ってローカルサーバーを起動してみる&#34;&gt;gulpを使ってローカルサーバーを起動してみる&lt;/h2&gt;
+
+&lt;p&gt;今回はgulpを使って、ローカル環境でサイトの表示を確認してみる。具体的には下記のようなテスト環境が実行できるようにしてみる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;プロジェクトの&lt;code&gt;app&lt;/code&gt;フォルダを公開フォルダとしてサーバを起動する。&lt;/li&gt;
+&lt;li&gt;サイトにはphpファイルが含まれている。phpも動くサーバを起動する。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;src&lt;/code&gt;フォルダのcoffeeファイルやscssファイルを更新したら、ブラウザを自動でReloadさせる。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上記を実現するのに、この記事では&lt;strong&gt;&lt;code&gt;browser-sync&lt;/code&gt;、&lt;code&gt;gulp-connect-php&lt;/code&gt;&lt;/strong&gt;を利用する。なお、gulp自体の設定については下記の記事参照。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+        <a href='https://code-house.jp/2016/08/25/gulpserver/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>[Hugo] werckerを使って記事の公開を自動化する１</title>
@@ -352,28 +379,6 @@ nodeアプリやモジュールの作成でgulpを使う場合の初期設定に
 &lt;/ul&gt;
 
         <a href='https://code-house.jp/2016/08/02/pngtosvg/' class="read-more"><nobr>Read more →</nobr></a>
-      </description>
-    </item>
-    
-    <item>
-      <title>Google PhotoをBlogに貼り付ける</title>
-      <link>https://code-house.jp/2016/07/27/googlephoto/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>https://code-house.jp/2016/07/27/googlephoto/</guid>
-      <description>
-        &lt;h2 id=&#34;google-photo&#34;&gt;Google Photo&lt;/h2&gt;
-
-&lt;p&gt;Blogに画像を貼り付ける場合、２つの方法が考えられる。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;記事と一緒に画像もアップロードする&lt;/li&gt;
-&lt;li&gt;画像の置き場を別に用意し記事からリンクする&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;このサイトはgithub pagesを利用している。そのため、記事と一緒に画像もアップロードするとその分リポジトリの容量が増えてしまう。これはあまり好ましいと思えないので別に画像の置き場を用意する方法を採用する。なお、画像の置き場としてはgoogle photoを利用してみる。&lt;/p&gt;
-
-        <a href='https://code-house.jp/2016/07/27/googlephoto/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     

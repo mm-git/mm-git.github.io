@@ -7,7 +7,34 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Wed, 24 Aug 2016 12:51:32 &#43;0900</updated>
+    <updated>Thu, 25 Aug 2016 08:21:43 &#43;0900</updated>
+    
+    <item>
+      <title>[gulp] ローカルサーバー編</title>
+      <link>https://code-house.jp/2016/08/25/gulpserver/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/25/gulpserver/</guid>
+      <description>
+        &lt;h2 id=&#34;gulpを使ってローカルサーバーを起動してみる&#34;&gt;gulpを使ってローカルサーバーを起動してみる&lt;/h2&gt;
+
+&lt;p&gt;今回はgulpを使って、ローカル環境でサイトの表示を確認してみる。具体的には下記のようなテスト環境が実行できるようにしてみる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;プロジェクトの&lt;code&gt;app&lt;/code&gt;フォルダを公開フォルダとしてサーバを起動する。&lt;/li&gt;
+&lt;li&gt;サイトにはphpファイルが含まれている。phpも動くサーバを起動する。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;src&lt;/code&gt;フォルダのcoffeeファイルやscssファイルを更新したら、ブラウザを自動でReloadさせる。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上記を実現するのに、この記事では&lt;strong&gt;&lt;code&gt;browser-sync&lt;/code&gt;、&lt;code&gt;gulp-connect-php&lt;/code&gt;&lt;/strong&gt;を利用する。なお、gulp自体の設定については下記の記事参照。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+        <a href='https://code-house.jp/2016/08/25/gulpserver/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>[Hugo] werckerを使って記事の公開を自動化する１</title>
@@ -324,29 +351,6 @@
 &lt;p&gt;今回、werckerの処理を高速化するためにdockerにimageを登録してみたので、その手順を書いておく。なお、下記はgithubを使う場合で説明している。Bitbucketでも手順はほぼ同じと思われる。&lt;/p&gt;
 
         <a href='https://code-house.jp/2016/08/05/dockerhub/' class="read-more"><nobr>Read more →</nobr></a>
-      </description>
-    </item>
-    
-    <item>
-      <title>gulpの初期設定</title>
-      <link>https://code-house.jp/2016/08/02/gulpsetting/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>https://code-house.jp/2016/08/02/gulpsetting/</guid>
-      <description>
-        &lt;h2 id=&#34;gulpの初期設定&#34;&gt;gulpの初期設定&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://gulpjs.com/&#34;&gt;&lt;img title=&#34;gulp.js - the streaming build system&#34; src=&#34;http://capture.heartrails.com/200x150/cool?http://gulpjs.com/&#34; alt=&#34;http://gulpjs.com/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;少し前まではgruntを使って、webサイトのファイルなどを動的に生成していた。しかしgulpの方が設定やgulpスクリプトがすっきり書けるということでgulpに移行した。
-nodeアプリやモジュールの作成でgulpを使う場合の初期設定について書いてみる。なお下記を前提とする。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;設定、スクリプトはcoffeescriptで書く。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;node init&lt;/code&gt;などnode.jsの初期化は完了しているものとする。&lt;/li&gt;
-&lt;/ul&gt;
-
-        <a href='https://code-house.jp/2016/08/02/gulpsetting/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     
