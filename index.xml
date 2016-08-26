@@ -7,7 +7,23 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Thu, 25 Aug 2016 08:21:43 &#43;0900</updated>
+    <updated>Fri, 26 Aug 2016 15:18:08 &#43;0900</updated>
+    
+    <item>
+      <title>[Hugo] werckerを使って記事の公開を自動化する２[高速化]</title>
+      <link>https://code-house.jp/2016/08/26/hugowercker2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/26/hugowercker2/</guid>
+      <description>
+        &lt;h2 id=&#34;hugo記事公開を高速化する&#34;&gt;Hugo記事公開を高速化する&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://code-house.jp/2016/08/24/hugowercker/&#34;&gt;前回の記事&lt;/a&gt;では、標準でよういされているdockerのboxイメージを利用して、werckerを使って記事を公開していた。しかし、記事の公開までに&lt;strong&gt;５〜７分ぐらいの時間がかかっていた。&lt;/strong&gt;これは非常にもどかしい。
+今回の記事では、独自のdockerイメージを使うことで高速化を行ってみる。&lt;/p&gt;
+
+        <a href='https://code-house.jp/2016/08/26/hugowercker2/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>[gulp] ローカルサーバー編</title>
@@ -325,32 +341,6 @@
 &lt;/blockquote&gt;
 
         <a href='https://code-house.jp/2016/08/06/gulpsass/' class="read-more"><nobr>Read more →</nobr></a>
-      </description>
-    </item>
-    
-    <item>
-      <title>docker hubにboxを登録する</title>
-      <link>https://code-house.jp/2016/08/05/dockerhub/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>https://code-house.jp/2016/08/05/dockerhub/</guid>
-      <description>
-        &lt;h2 id=&#34;docker-hub&#34;&gt;docker hub&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://hub.docker.com/&#34;&gt;&lt;img title=&#34;Untitled&#34; src=&#34;http://capture.heartrails.com/200x150/cool/1470414919790?https://hub.docker.com/&#34; alt=&#34;https://hub.docker.com/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;最近名前をよく聞くようになったdocker。Docker hubは、dockerで使うimageをクラウド上に置いておくことができる場所だ。ざっくり説明すると、&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;自分が作ったimageを世界に公開することもできるし、プライベートなimageも置くことができる。&lt;/li&gt;
-&lt;li&gt;2016-08-05現在、無料のプランだと、プライベートなimageは１つまで。並列処理でビルドできるimageは1つだけ。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;といった感じである。&lt;/p&gt;
-
-&lt;p&gt;今回、werckerの処理を高速化するためにdockerにimageを登録してみたので、その手順を書いておく。なお、下記はgithubを使う場合で説明している。Bitbucketでも手順はほぼ同じと思われる。&lt;/p&gt;
-
-        <a href='https://code-house.jp/2016/08/05/dockerhub/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     

@@ -1,11 +1,11 @@
-    <!DOCTYPE html>
+  <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja-jp">
 <head prefix="og: http://ogp.me/ns#">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <link rel="alternate" hreflang="ja" href="https://code-house.jp">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title> Wercker </title>
+    <title> [Hugo] werckerを使って記事の公開を自動化する２[高速化] </title>
     
     <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/uno.min.css" />
     <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/lightGallery.css" />
@@ -50,21 +50,23 @@
 <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1536x2008.png">
     
         <meta property="og:site_name" content="CODE HOUSE" />
-    <meta property="og:url" content="https://code-house.jp/tags/wercker/" />
-    <meta property="og:title" content="Wercker" />
+    <meta property="og:url" content="https://code-house.jp/2016/08/26/hugowercker2/" />
+    <meta property="og:title" content="[Hugo] werckerを使って記事の公開を自動化する２[高速化]" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:url" content="https://code-house.jp/tags/wercker/" />
+    <meta name="twitter:url" content="https://code-house.jp/2016/08/26/hugowercker2/" />
 
     
-        <meta property="og:description" content="Hello, I&#39;m a freelance software engineer." />
-        <meta property="og:image" content="https://code-house.jp/open-graph.png">
-        <meta property="twitter:image" content="https://code-house.jp/open-graph.png">
-        <meta property="og:type" content="blog" />
+        <meta property="og:description" content="Hugoの記事をwerckerで自動公開するようにしたが更新に時間がかかる。独自のdockerイメージを作って高速化してみる" />
+        
+            <meta property="og:image" content="https://code-house.jp/open-graph.png">
+            <meta property="twitter:image" content="https://code-house.jp/open-graph.png">
+        
+        <meta property="og:type" content="article" />
     
 
 
     
-    <link href="https://code-house.jp/tags/wercker/index.xml" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
+    <link href="" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
     
     <script src="https://code-house.jp/js/jquery.min.js"></script>
     <script src="https://code-house.jp/js/main.min.js"></script>
@@ -80,8 +82,8 @@
     </script>
 </head>
 
-    <body>
-        <div id="scriptHeader">
+  <body>
+    <div id="scriptHeader">
     <span class="mobile btn-mobile-menu">
             <i class="fa fa-bars btn-mobile-menu__icon"></i>
             <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
@@ -206,28 +208,149 @@
     </header>
 </noscript>
 
-        <div class="content-wrapper">
-            <div class="content-wrapper__inner">
-                <section id="main">
-                    <div class="tags_list">
-                    <div class="tags_title"><span>Wercker</span></div>
-                    </div>
-                    <ul id="list">
-                        
-                        <li>
-                            2016-08-26
-                            <a href="https://code-house.jp/2016/08/26/hugowercker2/">[Hugo] werckerを使って記事の公開を自動化する２[高速化]</a>
-                        </li>
-                        
-                        <li>
-                            2016-08-24
-                            <a href="https://code-house.jp/2016/08/24/hugowercker/">[Hugo] werckerを使って記事の公開を自動化する１</a>
-                        </li>
-                        
-                    </ul>
-                    <hr>
-                    <a href="https://code-house.jp/tags">Tags</a>
-                    <p class="sponsorlink">スポンサーリンク</p>
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>[Hugo] werckerを使って記事の公開を自動化する２[高速化]</h1>
+          
+          <div class="tags_list">
+             <div class="tags_item"><a href="https://code-house.jp/tags/hugo/">Hugo</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/git/">git</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/github/">github</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/wercker/">wercker</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/docker/">docker</a></div>
+          </div>
+          
+          <p class="post-date">2016-08-26</p>
+          <p class="sponsorlink">スポンサーリンク</p>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4546185375369746"
+     data-ad-slot="5529097310"
+     data-ad-format="auto"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+          
+
+<h2 id="hugo記事公開を高速化する">Hugo記事公開を高速化する</h2>
+
+<p><a href="https://code-house.jp/2016/08/24/hugowercker/">前回の記事</a>では、標準でよういされているdockerのboxイメージを利用して、werckerを使って記事を公開していた。しかし、記事の公開までに<strong>５〜７分ぐらいの時間がかかっていた。</strong>これは非常にもどかしい。
+今回の記事では、独自のdockerイメージを使うことで高速化を行ってみる。</p>
+
+<h2 id="前回のwercker-yml">前回のwercker.yml</h2>
+
+<h3 id="wercker-yml">wercker.yml</h3>
+
+<h5 id="wercker-yml-1">wercker.yml</h5>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #657b83">box:</span> <span style="color: #657b83">python:2.7-slim</span>
+<span style="color: #657b83">build:</span>
+  <span style="color: #657b83">steps:</span>
+    <span style="color: #657b83">-</span> <span style="color: #657b83">install-packages:</span>
+        <span style="color: #657b83">packages:</span> <span style="color: #657b83">git</span>
+    <span style="color: #657b83">-</span> <span style="color: #657b83">pip-install:</span>
+        <span style="color: #657b83">requirements_file:</span> <span style="color: #2aa198">&quot;&quot;</span>
+        <span style="color: #657b83">packages_list:</span> <span style="color: #2aa198">&quot;pygments-style-solarized&quot;</span>
+    <span style="color: #657b83">-</span> <span style="color: #657b83">script:</span>
+        <span style="color: #657b83">name:</span> <span style="color: #657b83">initialize git submodules</span>
+        <span style="color: #657b83">code:</span> <span style="color: #657b83">git submodule update --init</span>
+    <span style="color: #657b83">-</span> <span style="color: #657b83">arjen/hugo-build:</span>
+        <span style="color: #657b83">theme:</span> <span style="color: #657b83">hugo-uno</span>
+        <span style="color: #657b83">flags:</span> <span style="color: #657b83">--buildDrafts=false -v</span>
+<span style="color: #657b83">deploy:</span>
+  <span style="color: #657b83">steps:</span>
+    <span style="color: #657b83">-</span> <span style="color: #657b83">install-packages:</span>
+        <span style="color: #657b83">packages:</span> <span style="color: #657b83">git ssh-client</span>
+    <span style="color: #657b83">-</span> <span style="color: #657b83">leipert/git-push:</span>
+        <span style="color: #657b83">gh_oauth:</span> <span style="color: #657b83">$GIT_TOKEN</span>
+        <span style="color: #657b83">repo:</span> <span style="color: #657b83">mm-git/mm-git.github.io</span>
+        <span style="color: #657b83">branch:</span> <span style="color: #657b83">master</span>
+        <span style="color: #657b83">basedir:</span> <span style="color: #657b83">public</span>
+</pre></div>
+</td></tr></table>
+<h3 id="なぜ遅いか">なぜ遅いか？</h3>
+
+<ul>
+<li>Hugoの記事をビルドするたびに、<code>git</code>、<code>ssh</code>、<code>pygments-style-solarized</code>をインストールしているため。
+
+<ul>
+<li>それでも上記は、<code>apt-get update</code>が無いだけだいぶマシである。</li>
+<li><code>Python 2.7</code>までインストールしていたら、もっとかかっていただろう。</li>
+</ul></li>
+</ul>
+
+<h2 id="高速化">高速化</h2>
+
+<h3 id="独自のdocker-boxを作成する">独自のdocker boxを作成する。</h3>
+
+<p><code>git</code>、<code>ssh</code>、<code>pygments-style-solarized</code>がインストール済みのdocker boxを作成してみる。werckerで利用するには、docker boxがdocker hubに登録されている必要がある。docker boxの作り方は下記の記事を参照。</p>
+
+<blockquote>
+<p><a href="https://code-house.jp/2016/08/05/dockerhub/">docker hubにboxを登録する</a></p>
+</blockquote>
+
+<h3 id="独自docker-boxを使ったwercker-yml">独自docker boxを使ったwercker.yml</h3>
+
+<h5 id="wercker-yml-2">wercker.yml</h5>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #657b83">box:</span> <span style="color: #657b83">mmgit/hugo-box</span>
+<span style="color: #657b83">build:</span>
+  <span style="color: #657b83">steps:</span>
+    <span style="color: #657b83">-</span> <span style="color: #657b83">script:</span>
+        <span style="color: #657b83">name:</span> <span style="color: #657b83">initialize git submodules</span>
+        <span style="color: #657b83">code:</span> <span style="color: #657b83">git submodule update --init</span>
+    <span style="color: #657b83">-</span> <span style="color: #657b83">arjen/hugo-build:</span>
+        <span style="color: #657b83">theme:</span> <span style="color: #657b83">hugo-uno</span>
+        <span style="color: #657b83">flags:</span> <span style="color: #657b83">--buildDrafts=false -v</span>
+<span style="color: #657b83">deploy:</span>
+  <span style="color: #657b83">steps:</span>
+    <span style="color: #657b83">-</span> <span style="color: #657b83">leipert/git-push:</span>
+        <span style="color: #657b83">gh_oauth:</span> <span style="color: #657b83">$GIT_TOKEN</span>
+        <span style="color: #657b83">repo:</span> <span style="color: #657b83">mm-git/mm-git.github.io</span>
+        <span style="color: #657b83">branch:</span> <span style="color: #657b83">master</span>
+        <span style="color: #657b83">basedir:</span> <span style="color: #657b83">public</span>
+</pre></div>
+</td></tr></table>
+<ul>
+<li>必要なものがインストールされたboxを使うことで、<strong>体感的には１〜２分で記事が配信されるようになった。</strong></li>
+<li>wercker.ymlもhugoのビルドとデプロイのみの記述になり、非常にスッキリした。</li>
+</ul>
+
+          <p class="sponsorlink">スポンサーリンク</p>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <ins class="adsbygoogle"
@@ -238,9 +361,24 @@
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-                </section>
-            </div>
         </div>
-    </body>
-    
+        <div class="sharing">
+<a href="https://twitter.com/intent/tweet?status=%5bHugo%5d%20wercker%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e8%a8%98%e4%ba%8b%e3%81%ae%e5%85%ac%e9%96%8b%e3%82%92%e8%87%aa%e5%8b%95%e5%8c%96%e3%81%99%e3%82%8b%ef%bc%92%5b%e9%ab%98%e9%80%9f%e5%8c%96%5d-https%3a%2f%2fcode-house.jp%2f2016%2f08%2f26%2fhugowercker2%2f" target="_blank" title="Follow me on Twitter" class="twitter">
+<span class="fa fa-twitter-square fa-2x"></span></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f26%2fhugowercker2%2f" target="_blank" title="Join me on Facebook" class="facebook">
+<span class="fa fa-facebook-square fa-2x"></span></a>
+<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f26%2fhugowercker2%2f" target="_blank" title="Google+" class="googleplus">
+<span class="fa fa-google-plus-square fa-2x"></span></a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f26%2fhugowercker2%2f&title=%5bHugo%5d%20wercker%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e8%a8%98%e4%ba%8b%e3%81%ae%e5%85%ac%e9%96%8b%e3%82%92%e8%87%aa%e5%8b%95%e5%8c%96%e3%81%99%e3%82%8b%ef%bc%92%5b%e9%ab%98%e9%80%9f%e5%8c%96%5d" target="_blank" title="LinkedIn" class="linkedin">
+<span class="fa fa-linkedin-square fa-2x"></span></a>
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
 </html>

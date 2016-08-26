@@ -7,7 +7,23 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Thu, 25 Aug 2016 08:21:43 &#43;0900</updated>
+    <updated>Fri, 26 Aug 2016 15:18:08 &#43;0900</updated>
+    
+    <item>
+      <title>[Hugo] werckerを使って記事の公開を自動化する２[高速化]</title>
+      <link>https://code-house.jp/2016/08/26/hugowercker2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/26/hugowercker2/</guid>
+      <description>
+        &lt;h2 id=&#34;hugo記事公開を高速化する&#34;&gt;Hugo記事公開を高速化する&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://code-house.jp/2016/08/24/hugowercker/&#34;&gt;前回の記事&lt;/a&gt;では、標準でよういされているdockerのboxイメージを利用して、werckerを使って記事を公開していた。しかし、記事の公開までに&lt;strong&gt;５〜７分ぐらいの時間がかかっていた。&lt;/strong&gt;これは非常にもどかしい。
+今回の記事では、独自のdockerイメージを使うことで高速化を行ってみる。&lt;/p&gt;
+
+        <a href='https://code-house.jp/2016/08/26/hugowercker2/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>[gulp] ローカルサーバー編</title>
@@ -345,40 +361,6 @@ nodeアプリやモジュールの作成でgulpを使う場合の初期設定に
 &lt;/ul&gt;
 
         <a href='https://code-house.jp/2016/08/02/gulpsetting/' class="read-more"><nobr>Read more →</nobr></a>
-      </description>
-    </item>
-    
-    <item>
-      <title>透過pngをsvgに変換する</title>
-      <link>https://code-house.jp/2016/08/02/pngtosvg/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>https://code-house.jp/2016/08/02/pngtosvg/</guid>
-      <description>
-        &lt;h2 id=&#34;透過pngをsvg画像に変換する&#34;&gt;透過PNGをSVG画像に変換する。&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://goo.gl/I4cpTw&#34; width=&#34;200&#34; height=&#34;150&#34;&gt;&lt;sub style=&#34;font-size:0.5em&#34;&gt;絵が下手すぎる・・・&lt;/sub&gt;&lt;/p&gt;
-
-&lt;p&gt;pngをsvgに変換する。世の中そんなツールは出回ってそうなので簡単にできるかと思っていたが、以外にもハマりどころが多かったのでメモ。前提として、下記のことを達成することを目的とする。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;元になるpng画像はモノトーンの透過画像である。&lt;/li&gt;
-&lt;li&gt;png画像は、あるフォルダの複数のサブフォルダの中に複数存在する。&lt;/li&gt;
-&lt;li&gt;svg画像は別のフォルダに出力する。この時元のフォルダの構造をそのまま維持する。&lt;/li&gt;
-&lt;li&gt;上記をshell scriptでちゃちゃっと実行する。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;ハマったこと&#34;&gt;ハマったこと&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;findでファイルを探すもファイルが多い場合。&lt;/li&gt;
-&lt;li&gt;xargsでshell functionはそのままでは実行できない。&lt;/li&gt;
-&lt;li&gt;folder構造を維持するには？&lt;/li&gt;
-&lt;li&gt;透過pngをsvgに変換する方法&lt;/li&gt;
-&lt;li&gt;osxで\を入力しようとしたら¥になる？&lt;/li&gt;
-&lt;/ul&gt;
-
-        <a href='https://code-house.jp/2016/08/02/pngtosvg/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     
