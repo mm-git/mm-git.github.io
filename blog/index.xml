@@ -7,7 +7,22 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Fri, 26 Aug 2016 15:18:08 &#43;0900</updated>
+    <updated>Mon, 29 Aug 2016 16:18:22 &#43;0900</updated>
+    
+    <item>
+      <title>[GoogleMap] 表示のしくみ</title>
+      <link>https://code-house.jp/2016/08/29/maptilenumber/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/29/maptilenumber/</guid>
+      <description>
+        &lt;h2 id=&#34;オンライン地図表示のしくみ&#34;&gt;オンライン地図表示のしくみ&lt;/h2&gt;
+
+&lt;p&gt;Google Map、Open Streat map。世の中にはいろいろな地図がある。これらの地図の多くは、小さな正方形の地図画像を並べて敷きつめることによって大きな地図を表示している。とまあ、このようなことは今更記事にしなくても調べればわかる話ではあるのだけど。しかし、今後このブログで書くであろう地図に関する記事の前準備としてメモの意味合いもこめて書いておきたいなあと思う。&lt;/p&gt;
+
+        <a href='https://code-house.jp/2016/08/29/maptilenumber/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>[Hugo] werckerを使って記事の公開を自動化する２[高速化]</title>
@@ -338,29 +353,6 @@
 &lt;p&gt;今回、werckerの処理を高速化するためにdockerにimageを登録してみたので、その手順を書いておく。なお、下記はgithubを使う場合で説明している。Bitbucketでも手順はほぼ同じと思われる。&lt;/p&gt;
 
         <a href='https://code-house.jp/2016/08/05/dockerhub/' class="read-more"><nobr>Read more →</nobr></a>
-      </description>
-    </item>
-    
-    <item>
-      <title>gulpの初期設定</title>
-      <link>https://code-house.jp/2016/08/02/gulpsetting/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>https://code-house.jp/2016/08/02/gulpsetting/</guid>
-      <description>
-        &lt;h2 id=&#34;gulpの初期設定&#34;&gt;gulpの初期設定&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://gulpjs.com/&#34;&gt;&lt;img title=&#34;gulp.js - the streaming build system&#34; src=&#34;http://capture.heartrails.com/200x150/cool?http://gulpjs.com/&#34; alt=&#34;http://gulpjs.com/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;少し前まではgruntを使って、webサイトのファイルなどを動的に生成していた。しかしgulpの方が設定やgulpスクリプトがすっきり書けるということでgulpに移行した。
-nodeアプリやモジュールの作成でgulpを使う場合の初期設定について書いてみる。なお下記を前提とする。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;設定、スクリプトはcoffeescriptで書く。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;node init&lt;/code&gt;などnode.jsの初期化は完了しているものとする。&lt;/li&gt;
-&lt;/ul&gt;
-
-        <a href='https://code-house.jp/2016/08/02/gulpsetting/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     

@@ -1,0 +1,387 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja-jp">
+<head prefix="og: http://ogp.me/ns#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="alternate" hreflang="ja" href="https://code-house.jp">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> [GoogleMap] 表示のしくみ </title>
+    
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/lightGallery.css" />
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/solarizedlight.min.css" />
+    
+    <link rel="apple-touch-icon" sizes="57x57" href="https://code-house.jp/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://code-house.jp/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://code-house.jp/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://code-house.jp/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://code-house.jp/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://code-house.jp/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://code-house.jp/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://code-house.jp/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://code-house.jp/apple-touch-icon-180x180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="logo">
+<link rel="icon" type="image/png" sizes="228x228" href="https://code-house.jp/coast-228x228.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://code-house.jp/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://code-house.jp/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://code-house.jp/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="230x230" href="https://code-house.jp/favicon-230x230.png">
+<link rel="shortcut icon" href="https://code-house.jp/favicon.ico">
+<link rel="yandex-tableau-widget" href="https://code-house.jp/yandex-browser-manifest.json">
+<meta name="msapplication-TileColor" content="#666666">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<link rel="icon" type="image/png" sizes="192x192" href="https://code-house.jp/android-chrome-192x192.png">
+<link rel="manifest" href="https://code-house.jp/manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#666666">
+<meta name="application-name" content="logo">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="https://code-house.jp/apple-touch-startup-image-320x460.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-640x920.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-640x1096.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-750x1294.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="https://code-house.jp/apple-touch-startup-image-1182x2208.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="https://code-house.jp/apple-touch-startup-image-1242x2148.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="https://code-house.jp/apple-touch-startup-image-748x1024.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="https://code-house.jp/apple-touch-startup-image-768x1004.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1496x2048.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1536x2008.png">
+    
+        <meta property="og:site_name" content="CODE HOUSE" />
+    <meta property="og:url" content="https://code-house.jp/2016/08/29/maptilenumber/" />
+    <meta property="og:title" content="[GoogleMap] 表示のしくみ" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content="https://code-house.jp/2016/08/29/maptilenumber/" />
+
+    
+        <meta property="og:description" content="Google Map/Open street map。これらは256×256の画像をタイル上に並べることで地図の表示を実現している。この記事では座標からタイルの番号を求める方法について書く" />
+        
+            <meta property="og:image" content="https://code-house.jp/open-graph.png">
+            <meta property="twitter:image" content="https://code-house.jp/open-graph.png">
+        
+        <meta property="og:type" content="article" />
+    
+
+
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
+    
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      showMathMenu: false,
+      displayAlign: "left",
+      HTML: ["input/TeX", "output/HTML-CSS"],
+      "HTML-CSS": {
+        styles: {
+          ".MathJax_Display": {
+            margin:0
+          }
+        }
+      }
+    });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-81918210-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    
+    <header class="panel-cover panel-cover--collapsed">
+    
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content">
+                
+                <a href="https://code-house.jp" title="link to homepage for CODE HOUSE">
+                    <img src="https://code-house.jp/images/codehouse_logo.png" width="100" alt="CODE HOUSE logo" class="panel-cover__logo" />
+                </a>
+                
+                <p class="panel-cover__title panel-title">
+                    <a href="https://code-house.jp"  title="link to homepage for CODE HOUSE">CODE HOUSE</a>
+                </p>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">Hello, I&#39;m a freelance software engineer.</p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-n avigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="https://code-house.jp/work" title="link to CODE HOUSE work" class="blog-button">Work</a> </li>
+                            <li class="navigation__item"><a href="https://code-house.jp/blog" title="link to CODE HOUSE blog" class="blog-button">Blog</a> </li>
+
+                            
+                            
+                        </ul>
+                    </nav>
+                    <br>
+                    <nav class="cover-navigation navigation--social">
+    <ul class="navigation">   
+        
+        <li class="navigation__item">
+            <a href="https://github.com/mm-git" title="mm-git on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.linkedin.com/in/meguro/en" title="Linkedin"> <i class='fa fa-linkedin'></i> <span class="label">Linkedin</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.facebook.com/" title=" on facebook"> <i class='fa fa-facebook'></i> <span class="label">facebook</span> </a>
+        </li>  
+    </ul>
+</nav>
+
+                </div>
+                
+                <p class="panel-cover__copyright">Powered by Hugo. Copyright © 2016 code-house.jp</p>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="https://code-house.jp" title="link to homepage for CODE HOUSE"> <img src="https://code-house.jp/images/codehouse_logo.png" width="80" alt="CODE HOUSE logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="https://code-house.jp"  title="link to homepage for CODE HOUSE">CODE HOUSE</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  Hello, I&#39;m a freelance software engineer.  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="https://code-house.jp/work" title="link to CODE HOUSE work" class="blog-button">Work</a> </li>
+                                <li class="navigation__item"><a href="https://code-house.jp/blog" title="link to CODE HOUSE blog" class="blog-button">Blog</a> </li>
+                                
+                                
+                            </ul>
+                        </nav>
+                        <br><nav class="cover-navigation navigation--social">
+    <ul class="navigation">   
+        
+        <li class="navigation__item">
+            <a href="https://github.com/mm-git" title="mm-git on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.linkedin.com/in/meguro/en" title="Linkedin"> <i class='fa fa-linkedin'></i> <span class="label">Linkedin</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.facebook.com/" title=" on facebook"> <i class='fa fa-facebook'></i> <span class="label">facebook</span> </a>
+        </li>  
+    </ul>
+</nav>
+
+                    </div>
+                    <p class="panel-cover__copyright">Powered by Hugo. Copyright © 2016 code-house.jp</p>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>[GoogleMap] 表示のしくみ</h1>
+          
+          <div class="tags_list">
+             <div class="tags_item"><a href="https://code-house.jp/tags/google/">google</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/map/">map</a></div>
+          </div>
+          
+          <p class="post-date">2016-08-29</p>
+          
+          
+
+<h2 id="オンライン地図表示のしくみ">オンライン地図表示のしくみ</h2>
+
+<p>Google Map、Open Streat map。世の中にはいろいろな地図がある。これらの地図の多くは、小さな正方形の地図画像を並べて敷きつめることによって大きな地図を表示している。とまあ、このようなことは今更記事にしなくても調べればわかる話ではあるのだけど。しかし、今後このブログで書くであろう地図に関する記事の前準備としてメモの意味合いもこめて書いておきたいなあと思う。</p>
+
+<h2 id="小さな地図-256-256ピクセルのタイル">小さな地図 256×256ピクセルのタイル</h2>
+
+<p>世の中にあるいろいろな地図。そのうち少なくともgoogle mapとOpen streat mapは、小さな256×256ピクセルの正方形の画像を並べて表示することで大きな地図を表示している。最も縮小表示した地図。それは、256×256の小さな画像の中に世界が収まっている。画像の中心、つまり世界の中心は緯度、経度共に0度となっており、ちょうど下記のような画像になる。</p>
+
+<p><img src="http://tile.openstreetmap.org/0/0/0.png">
+<sub style="font-size:0.8em">※画像はopenstreetmap.orgのものを掲載しています。</sub></p>
+
+<p>もう一段階地図を拡大してみよう。今度は、先ほどの画像の左上の１／４の世界がちょうど256×256ピクセルの正方形の画像に収まっている。世界の中心、緯度、経度共に0度は下記画像の右下の角になる。</p>
+
+<p><img src="http://tile.openstreetmap.org/1/0/0.png">
+<sub style="font-size:0.8em">※画像はopenstreetmap.orgのものを掲載しています。</sub></p>
+
+<p>このようにして、地図を一段階拡大するたびに、地図は1/1、1/4、1/16・・、のように細かく分割されていく。このどれだけ拡大したかをズームレベルと呼んでいる。そして世界が256×256の画像に収まった時のズームレベルを０、1/4の時、つまり４つに分かれた時をズームレベル１のようにして、ズームレベルは１ずつ増えていく。</p>
+
+<h2 id="最大のズームレベル-それは">最大のズームレベル、それは？？</h2>
+
+<p>地図の画像数(分割数)が１つの時はズームレベル０。４つの時はズームレベル１。１６の時はズームレベル２。このズームレベル２までの法則を考えると、どうやら画像の分割数は４のズームレベル乗で計算できるようだ。</p>
+
+<ul>
+<li>$$4^0＝1$$</li>
+<li>$$4^1＝4$$</li>
+<li>$$4^2＝16$$</li>
+<li>$$4^3＝64$$</li>
+</ul>
+
+<p>　　:</p>
+
+<ul>
+<li>$$4^{10}＝1048576$$</li>
+</ul>
+
+<p>　　:</p>
+
+<ul>
+<li>$$4^{18}＝68719476736$$ <strong>ろっぴゃくはちじゅうななおく！</strong></li>
+<li>$$4^{19}＝274877906944$$ <strong>に、にせんななひゃくおくー！</strong></li>
+<li>$$4^{20}＝1.0995116e+12$$ <strong>???</strong></li>
+</ul>
+
+<p>google先生に計算してもらったところ、20乗になったところで<strong>e+</strong>とか人間の話せない言葉で回答されてしまいました。で、実際のところズームレベルは19が最大のようである。この分割数で大阪駅を表示した所、下記のようになる。これ以上必要ないぐらいに十分に拡大されてると思う。</p>
+
+<p><img src="http://tile.openstreetmap.org/19/459474/208197.png">
+<sub style="font-size:0.8em">※画像はopenstreetmap.orgのものを掲載しています。</sub></p>
+
+<h2 id="どの画像を表示するか">どの画像を表示するか？</h2>
+
+<p>先ほどの例だと、ズームレベル１９では約2700億個の画像に世界はバラバラに分割されてしまう。このバラバラの画像の中から一体どの画像を選べば目的の画像を表示できるのだろう？少し難しいが、少しだけ数学の時間である。<strong>みんなだいすき三角関数も出てくる。</strong></p>
+
+<h3 id="タイルの番号">タイルの番号</h3>
+
+<p>さて、数学の時間の前に。ズームレベル２の時、つまり世界が１６個に分割されてしまった場合を例に少し話をしたいと思う。16個に分割の場合、世界は４×４に並べて表示されることになる。このように並べて敷きつめることから、１つ１つの地図画像をタイルと呼んだりする。そしてこのタイルには番号が付けられている。左上のタイルを0-0番。その右を1-0番。その右を2-0番。0-0番の下は0-1番。その下は0-2番といったようになる。番号はそれぞれ、経度、緯度から求めることができる。</p>
+
+<h3 id="経度から経度方向のタイル番号を計算する">経度から経度方向のタイル番号を計算する</h3>
+
+<p>google map、Open streat mapなどの地図では、経度は東経をプラス、西経をマイナスで表す。つまり、-180度〜180度のようになる(細かく言うと、-180度と180度は同じなので、-180 &lt;= x &lt; 180となる)。この-180度〜180度の値から、経度方向のタイル番号を計算してみる。経度方向の計算は少し簡単で<strong>三角関数は出てこない。</strong></p>
+
+<ul>
+<li>ズームレベル0の場合、-180〜180度の世界が1つに分割されている。なので、求めるタイル番号は経度が何であっても0になる。</li>
+<li>ズームレベル1の場合、-180〜180度の世界が2つに分割されている。なので、求めるタイル番号は-180度から0度より小さい場合に0、0度から180度より小さい場合に1となる。</li>
+<li>ズームレベル2の場合、-180〜180度の世界が4つに分割されている。なので、求めるタイル番号は-180度から-90度より小さい場合に0、-90度から0度より小さい場合に1となる。(以下略)</li>
+</ul>
+
+<p>このようにして、ズームレベルに応じて-180〜180度の世界が幾つに分割されるか、からタイルの番号がわかる。式で書くと下記のようになる。</p>
+
+<p>$$経度のタイル番号 = \frac{経度 + 180}{360} \times 2 ^ {zoom}$$</p>
+
+<p>javascriptの関数だと下記のようになる。</p>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #93a1a1; font-style: italic">// lng: -180&lt;=lng&lt;180</span>
+<span style="color: #93a1a1; font-style: italic">// zoom: 0~19</span>
+<span style="color: #859900">var</span> <span style="color: #657b83">lngToTile</span> <span style="color: #657b83">=</span> <span style="color: #859900">function</span><span style="color: #657b83">(lng,</span> <span style="color: #657b83">zoom){</span>
+    <span style="color: #859900">return</span> <span style="color: #657b83">((lng</span> <span style="color: #657b83">+</span> <span style="color: #2aa198">180.0</span><span style="color: #657b83">)</span> <span style="color: #657b83">/</span> <span style="color: #2aa198">360.0</span><span style="color: #657b83">)</span> <span style="color: #657b83">*</span> <span style="color: #268bd2">Math</span><span style="color: #657b83">.pow(</span><span style="color: #2aa198">2</span><span style="color: #657b83">,</span> <span style="color: #657b83">zoom);</span>
+<span style="color: #657b83">};</span>
+</pre></div>
+</td></tr></table>
+<h3 id="緯度から緯度方向のタイル番号を計算する">緯度から緯度方向のタイル番号を計算する</h3>
+
+<p>緯度方向のタイル番号については、数式を見ても「お、おぅ・・」としか言えないぐらいよくわからない。メルカトル図法というのは見たことがあると思うが、北極や南極に近づくに従って地図が間延びしているあれである。このどれ位間延びしているのかを表す式があるのだが、ネットで探した所下記に詳しく書いてあった。(なるほど、わからん・・。)</p>
+
+<blockquote>
+<p><a href="http://www004.upp.so-net.ne.jp/s_honma/figure/mercator.htm">メルカトル図法</a></p>
+</blockquote>
+
+<p>とにかく、緯度に対してどれだけ地図が歪むかの式は下記のようである。</p>
+
+<p>$$y = \frac{\log(\tan(\frac{\pi}{4} + \frac{緯度}{2}))}{\pi}$$</p>
+
+<p>これをグラフに書くと下記のようになる。</p>
+
+<p><img src="https://goo.gl/5K4p3j"></p>
+
+<p>このグラフは、わざとyの範囲を-1〜1の間に絞ってある。というのも、緯度90度、-90度で計算すると結果が∞になるためである。また、google map、Open streat mapなどの地図では、ズームレベル０の場合にこの-1〜1の範囲が256ピクセルに収まるようにして、世界を正方形に保とうとしている。上記の式から、yが-1と1になる時の緯度を求めると、下記のようになる(この式は先程の逆関数だが、やはり難しい・・)。</p>
+
+<p>$$\frac{(2 \arctan(e ^ \pi) - \frac{\pi}{2}) \times 180}{\pi} = 85.051128779806589$$</p>
+
+<p>$$\frac{(2 \arctan(e ^ {-\pi}) - \frac{\pi}{2}) \times 180}{\pi} = -85.051128779806589$$</p>
+
+<p>つまり、ネット上の地図は北緯、南緯ともに85.051128779806589度以上の場所を切り捨てて、世界を表示している。</p>
+
+<p>この歪みを考慮して、ズームレベルにより世界が幾つに分割されるかを求めると、緯度方向のタイルの番号がわかる。式で書くと下記のようになる(下記の式は、-1〜1の範囲が1〜0の範囲になるように調整したものに、ズームレベルによる分割数を掛けている)。</p>
+
+<p>$$緯度のタイル番号 = \frac{(1 - \frac{\log(\tan(\frac{\pi}{4} + \frac{緯度}{2}))}{\pi})}{2} \times 2 ^ {zoom}$$</p>
+
+<p>javascriptの関数だと下記のようになる。</p>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #93a1a1; font-style: italic">// lat: -85.0511&lt;=lat&lt;85.0511</span>
+<span style="color: #93a1a1; font-style: italic">// zoom: 0~19</span>
+<span style="color: #859900">var</span> <span style="color: #657b83">latToTile</span> <span style="color: #657b83">=</span> <span style="color: #859900">function</span><span style="color: #657b83">(lat,</span> <span style="color: #657b83">zoom){</span>
+    <span style="color: #859900">return</span> <span style="color: #657b83">(</span><span style="color: #2aa198">1.0</span> <span style="color: #657b83">-</span> <span style="color: #268bd2">Math</span><span style="color: #657b83">.log(</span><span style="color: #268bd2">Math</span><span style="color: #657b83">.tan(lat</span> <span style="color: #657b83">*</span> <span style="color: #268bd2">Math</span><span style="color: #657b83">.PI</span> <span style="color: #657b83">/</span> <span style="color: #2aa198">360.0</span> <span style="color: #657b83">+</span> <span style="color: #268bd2">Math</span><span style="color: #657b83">.PI</span> <span style="color: #657b83">/</span> <span style="color: #2aa198">4</span><span style="color: #657b83">))</span> <span style="color: #657b83">/</span> <span style="color: #268bd2">Math</span><span style="color: #657b83">.PI)</span> <span style="color: #657b83">/</span> <span style="color: #2aa198">2</span> <span style="color: #657b83">*</span> <span style="color: #268bd2">Math</span><span style="color: #657b83">.pow(</span><span style="color: #2aa198">2</span><span style="color: #657b83">,</span> <span style="color: #657b83">zoom);</span>
+<span style="color: #657b83">};</span>
+</pre></div>
+</td></tr></table>
+<h2 id="大阪駅を表示してみる">大阪駅を表示してみる</h2>
+
+<h3 id="タイル番号計算">タイル番号計算</h3>
+
+<p>先程も表示した大阪駅。大阪駅を例にタイル番号を計算し表示してみる。大阪駅の座標は緯度34.702485、経度135.495951である。最大ズームの16で計算してみる。</p>
+
+<ul>
+<li>経度のタイル番号
+$$\frac{135.495951 + 180.0}{360.0} \times 2 ^ {16} ≒ 57434$$</li>
+<li>緯度のタイル番号
+$$y = \frac{\log(\tan(\frac{\pi}{4} + \frac{34.702485}{2}))}{\pi} = 0.20579021686571844$$
+$$\frac{1 - y}{2} \times 2 ^ {16} ≒ 26024$$</li>
+</ul>
+
+<h3 id="表示">表示</h3>
+
+<p>open streat mapの場合、<code>http://tile.openstreetmap.org/zoom/経度のタイル番号/緯度のタイル番号.png</code>でそのタイルを表示できる。
+つまり、大阪駅は<code>&lt;img src=&quot;http://tile.openstreetmap.org/16/57434/26024.png&quot;&gt;</code>となる。</p>
+
+<p><img src="http://tile.openstreetmap.org/16/57434/26024.png">
+<sub style="font-size:0.8em">※画像はopenstreetmap.orgのものを掲載しています。</sub></p>
+
+          
+        </div>
+        <div class="sharing">
+<a href="https://twitter.com/intent/tweet?status=%5bGoogleMap%5d%20%e8%a1%a8%e7%a4%ba%e3%81%ae%e3%81%97%e3%81%8f%e3%81%bf-https%3a%2f%2fcode-house.jp%2f2016%2f08%2f29%2fmaptilenumber%2f" target="_blank" title="Follow me on Twitter" class="twitter">
+<span class="fa fa-twitter-square fa-2x"></span></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f29%2fmaptilenumber%2f" target="_blank" title="Join me on Facebook" class="facebook">
+<span class="fa fa-facebook-square fa-2x"></span></a>
+<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f29%2fmaptilenumber%2f" target="_blank" title="Google+" class="googleplus">
+<span class="fa fa-google-plus-square fa-2x"></span></a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2f2016%2f08%2f29%2fmaptilenumber%2f&title=%5bGoogleMap%5d%20%e8%a1%a8%e7%a4%ba%e3%81%ae%e3%81%97%e3%81%8f%e3%81%bf" target="_blank" title="LinkedIn" class="linkedin">
+<span class="fa fa-linkedin-square fa-2x"></span></a>
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

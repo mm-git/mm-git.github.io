@@ -9,7 +9,7 @@
     
     <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/uno.min.css" />
     <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/lightGallery.css" />
-    <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/solarizedlight.css" />
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/solarizedlight.min.css" />
     
     <link rel="apple-touch-icon" sizes="57x57" href="https://code-house.jp/apple-touch-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="https://code-house.jp/apple-touch-icon-60x60.png">
@@ -66,9 +66,22 @@
     
     <link href="https://code-house.jp/tags/google/index.xml" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
     
-    <script src="https://code-house.jp/js/jquery.min.js"></script>
-    <script src="https://code-house.jp/js/main.min.js"></script>
-    <script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      showMathMenu: false,
+      displayAlign: "left",
+      HTML: ["input/TeX", "output/HTML-CSS"],
+      "HTML-CSS": {
+        styles: {
+          ".MathJax_Display": {
+            margin:0
+          }
+        }
+      }
+    });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>    <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -198,6 +211,11 @@
                     <div class="tags_title"><span>Google</span></div>
                     </div>
                     <ul id="list">
+                        
+                        <li>
+                            2016-08-29
+                            <a href="https://code-house.jp/2016/08/29/maptilenumber/">[GoogleMap] 表示のしくみ</a>
+                        </li>
                         
                         <li>
                             2016-08-18

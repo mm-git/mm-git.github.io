@@ -7,7 +7,22 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Thu, 18 Aug 2016 08:01:36 &#43;0900</updated>
+    <updated>Mon, 29 Aug 2016 16:18:22 &#43;0900</updated>
+    
+    <item>
+      <title>[GoogleMap] 表示のしくみ</title>
+      <link>https://code-house.jp/2016/08/29/maptilenumber/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/08/29/maptilenumber/</guid>
+      <description>
+        &lt;h2 id=&#34;オンライン地図表示のしくみ&#34;&gt;オンライン地図表示のしくみ&lt;/h2&gt;
+
+&lt;p&gt;Google Map、Open Streat map。世の中にはいろいろな地図がある。これらの地図の多くは、小さな正方形の地図画像を並べて敷きつめることによって大きな地図を表示している。とまあ、このようなことは今更記事にしなくても調べればわかる話ではあるのだけど。しかし、今後このブログで書くであろう地図に関する記事の前準備としてメモの意味合いもこめて書いておきたいなあと思う。&lt;/p&gt;
+
+        <a href='https://code-house.jp/2016/08/29/maptilenumber/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>[GoogleMaps] Node.jsを使ったgoogle mapの初期化</title>
