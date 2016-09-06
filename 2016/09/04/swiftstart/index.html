@@ -1,11 +1,11 @@
-    <!DOCTYPE html>
+  <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja-jp">
 <head prefix="og: http://ogp.me/ns#">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <link rel="alternate" hreflang="ja" href="https://code-house.jp">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title> Blogs </title>
+    <title> [swift]スマホアプリを作る </title>
     
     <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/uno.min.css" />
     <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/lightGallery.css" />
@@ -50,21 +50,23 @@
 <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1536x2008.png">
     
         <meta property="og:site_name" content="CODE HOUSE" />
-    <meta property="og:url" content="https://code-house.jp/blog/" />
-    <meta property="og:title" content="Blogs" />
+    <meta property="og:url" content="https://code-house.jp/2016/09/04/swiftstart/" />
+    <meta property="og:title" content="[swift]スマホアプリを作る" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:url" content="https://code-house.jp/blog/" />
+    <meta name="twitter:url" content="https://code-house.jp/2016/09/04/swiftstart/" />
 
     
-        <meta property="og:description" content="Hello, I&#39;m a freelance software engineer." />
-        <meta property="og:image" content="https://code-house.jp/open-graph.png">
-        <meta property="twitter:image" content="https://code-house.jp/open-graph.png">
-        <meta property="og:type" content="blog" />
+        <meta property="og:description" content="スマホアプリを作ってみたい。それは長年(といってもここ数年だが)の夢だった。まずはアプリの作るのに必要な項目には何があるのかをまとめてみた。" />
+        
+            <meta property="og:image" content="https://code-house.jp/open-graph.png">
+            <meta property="twitter:image" content="https://code-house.jp/open-graph.png">
+        
+        <meta property="og:type" content="article" />
     
 
 
     
-    <link href="https://code-house.jp/blog/index.xml" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
+    <link href="" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
     
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -93,8 +95,8 @@
     </script>
 </head>
 
-    <body>
-        <div id="scriptHeader">
+  <body>
+    <div id="scriptHeader">
     
     <header class="panel-cover panel-cover--collapsed">
     
@@ -204,69 +206,154 @@
     </header>
 </noscript>
 
-        <div class="content-wrapper">
-            <div class="content-wrapper__inner">
-                <section id="main">
-                    
-                    
-                    <div class="article_list">
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>[swift]スマホアプリを作る</h1>
+          
+          <div class="tags_list">
+             <div class="tags_item"><a href="https://code-house.jp/tags/swift/">swift</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/ios/">iOS</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/xcode/">xcode</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/application/">Application</a></div>
+          </div>
+          
+          <p class="post-date">2016-09-04</p>
+          
+          
 
-                        
+<h2 id="スマホアプリを作る">スマホアプリを作る</h2>
 
-                        
-                            <article class="summary_post summary_link" onClick="document.location.href = 'https:\/\/code-house.jp\/2016\/07\/26\/githubpages\/'">
-<header>
-<h2 class="summary-title">[Hugo] github pagesについて  </h2>
-<div class="post-meta">2016-07-26 - Read in 2 Min </div>
-</header>
-<div class="summary">
-    リポジトリの内容をそのままwebとして公開できるgithub pagesについて調べてみた。
-</div>
-<footer>
-</footer>
-</article>
+<p>今の様な形のスマホが世に現れて、もう10年が経とうとしている。スマホアプリを作るというと、もはや既にピークはとうに過ぎており今更感があるのだけど、それでもなお毎日のように新しいアプリがリリースされているのは事実なわけで、そういう意味ではまだギリギリ過渡期なのだと思う。本当はもっと前からスマホアプリを作ってみたかった。だからこのギリギリ過渡期のうちに、これが最後のチャンスだと思って何か作って見たいと思う。</p>
 
-                        
-                            <article class="summary_post summary_link" onClick="document.location.href = 'https:\/\/code-house.jp\/2016\/07\/26\/hugoinsatallation\/'">
-<header>
-<h2 class="summary-title">[Hugo] Hugoをinstallする  </h2>
-<div class="post-meta">2016-07-26 - Read in 2 Min </div>
-</header>
-<div class="summary">
-    githubでは、github pagesという仕組みを利用して、自分のサイトを公開する機能がある。今回Hugoを使ってこのサイトを作成してみた。
-</div>
-<footer>
-</footer>
-</article>
+<p>世の中には、スマホアプリの作り方の書籍や記事が溢れている。中には、「簡単にできる」、「◯◯日でできる」みたいに謳ったものもあるが、実際に本当に取り組もうとすると、あまりにも膨大な知識が必要であることにビビる。それに、アプリによってはサーバを用意したりなど、準備にも膨大な時間が必要である。漠然とスマホアプリの完成までに必要な知識、準備のステップの合計を100とすると、現段階では5前後では無いだろうかと思う。</p>
 
-                        
+<p>しかし、逆に考えると、それだけの新しいことを知ることができる。新しいことを始めることができるというのは、技術者にとってとても幸せなことであるとも思う。それに、この状態からどうのようにしてアプリを作っていくかを少しでも記事にできれば、同じようなことをしている人、またはしようとしている人にとっても何かしらの役に立つんじゃないかと思う。とはいうものの、実際にアプリを作り出すとそちらにばかり時間が取られて、なかなか記事を書いたりする時間がなくなったりするのだけど・・。</p>
 
-                        <article class="summary_post">
-                            <nav role="pagination">
-                                <div class="pagination__page-number">5 / 5</div>
-                                <div class="pagination__arrow">
-                                
-                                    <a href="https://code-house.jp/blog/page/4/">&lt;&lt;&lt;</a>
-                                
+<p>とりあえず、アプリを作成するにあたり何をする必要があるのかをざっくりとリストアップしてみた。今回はその項目をひたすら箇条書きしておく。なを、アプリはiPhoneまたはiPad向けのアプリとし、言語はswiftを使うものとする。</p>
 
-                                
-                                    <span class="disable_arrow">&gt;&gt;&gt;</span>
-                                
-                                </div>
-                            </nav>
-                            <div class="archive">
-                                <br>
-                                <a href="https://code-house.jp/tags/">Tags</a> /
-                                <a href="https://code-house.jp/archives/">Archive</a>
-                            </div>
-                        </article>
-                    </div>
-                    
-                </section>
-            </div>
+<h2 id="アプリ作成に必要な調査項目">アプリ作成に必要な調査項目</h2>
+
+<h3 id="swift-iosに関する知識">swift/iOSに関する知識</h3>
+
+<ul>
+<li>swiftの文法を理解する。
+
+<ul>
+<li>特に、Optional、Generics、Closure、Protocolなど</li>
+</ul></li>
+<li>Core dataの扱い方</li>
+<li>threadの作り方(Grand central dispach)</li>
+<li>iOS自体の状態遷移について
+
+<ul>
+<li>どういった動作や状態でどのコールバック関数が呼ばれるのか</li>
+<li>特にアプリの強制終了、電話の着信が合った場合など</li>
+</ul></li>
+<li>メモリの管理の仕方
+
+<ul>
+<li>特にARCとは何か？</li>
+<li>weakやunownedといった指定はどういいたものか？</li>
+</ul></li>
+<li>UIKit、SpriteKit、SceneKitなどそれぞれの描画方法
+
+<ul>
+<li>機会があればMetalも使ってみたい</li>
+</ul></li>
+<li>シーンの切替方法</li>
+<li>CocoaPodの使い方、CocoaPodの作成方法、仕組みなど</li>
+</ul>
+
+<p>swift、iOSに関することは書籍もたくさんあるし、調べればたいていのことは見つかる。<a href="https://www.safaribooksonline.com/">Safari Books Online</a>でも大量に情報があるので、調べ物にはほぼ困ることはない。</p>
+
+<h3 id="xcodeに関する知識">xcodeに関する知識</h3>
+
+<ul>
+<li>storyboardの使い方</li>
+<li>Auto layoutの使い方</li>
+<li>デバッグの仕方</li>
+<li>Profileの仕方</li>
+<li>UnitTestの方法</li>
+</ul>
+
+<p>デバッグ、Profileなどは少し情報が少ない感じ。最終的に製品として何かリリースするなら、メモリやリソース周りの状況をきっちり確認、最適化してリリースしたいところではあるが。</p>
+
+<h3 id="デザインパターン">デザインパターン</h3>
+
+<ul>
+<li>Singletonの作り方</li>
+<li>Observerパターンの作り方</li>
+<li>MVCパターンの作り方</li>
+</ul>
+
+<p>世の中の書籍や記事は、初期状態で作成されるUIViewControllerの派生クラスにひたすらコードを追加していく説明が圧倒的に多い。これをswift/iOSの場合はどのようなデザインパターンで実装するのが理想的か？といった情報は少ない気がする。</p>
+
+<h3 id="その他-全般的なこと">その他、全般的なこと</h3>
+
+<ul>
+<li>タッチ入力の検出方法
+
+<ul>
+<li>特にiPhone6/6s以降導入された、3Dタッチとは？</li>
+</ul></li>
+<li>サーバとの通信方法</li>
+<li>画像の表示方法
+
+<ul>
+<li>jpg、pngだけでなく、gif(動画含む)、svgはどうか？</li>
+</ul></li>
+<li>メニュー画面や設定画面など、Appleの規約に基づいた画面の作り方</li>
+<li>広告の表示の仕方</li>
+<li>アプリ内課金の仕方</li>
+<li>デバイス等へのアクセス
+
+<ul>
+<li>GPSデータの取得方法</li>
+<li>wifi/LTEなどの状況取得</li>
+<li>BlueTooth機器との接続</li>
+<li>指紋認証の方法</li>
+<li>カメラ、写真アクセス</li>
+</ul></li>
+<li>SNSとの連携</li>
+<li>バッジ表示</li>
+<li>通知</li>
+<li>アプリアイコンの作成</li>
+<li>アプリの審査の受け方、リリース方法</li>
+</ul>
+
+<p>このあたりは、作成したいアプリによって調べるべきことは様々である。これらをswift/iOSの場合にどうするかを調べる必要がある。情報量は多く、調べるのは難しくはないと思う。</p>
+
+<h3 id="サーバ側準備">サーバ側準備</h3>
+
+<ul>
+<li>アプリデータの準備</li>
+<li>データサーバの準備</li>
+<li>アプリによっては認証サーバの準備
+
+<ul>
+<li>サーバは何を使うか？ vps、heroku、AWS、azure、etc&hellip;</li>
+</ul></li>
+</ul>
+
+<p>サーバ側の話は特にswift/iOSに特化した話ではないが、iOSとの通信でなにか特殊なことがあるのかは調べる必要がある。</p>
+
+          
         </div>
-        <footer class="footer"></footer>
-
+        <div class="sharing">
+<a href="https://twitter.com/intent/tweet?status=%5bswift%5d%e3%82%b9%e3%83%9e%e3%83%9b%e3%82%a2%e3%83%97%e3%83%aa%e3%82%92%e4%bd%9c%e3%82%8b-https%3a%2f%2fcode-house.jp%2f2016%2f09%2f04%2fswiftstart%2f" target="_blank" title="Follow me on Twitter" class="twitter">
+<span class="fa fa-twitter-square fa-2x"></span></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2f2016%2f09%2f04%2fswiftstart%2f" target="_blank" title="Join me on Facebook" class="facebook">
+<span class="fa fa-facebook-square fa-2x"></span></a>
+<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2f2016%2f09%2f04%2fswiftstart%2f" target="_blank" title="Google+" class="googleplus">
+<span class="fa fa-google-plus-square fa-2x"></span></a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2f2016%2f09%2f04%2fswiftstart%2f&title=%5bswift%5d%e3%82%b9%e3%83%9e%e3%83%9b%e3%82%a2%e3%83%97%e3%83%aa%e3%82%92%e4%bd%9c%e3%82%8b" target="_blank" title="LinkedIn" class="linkedin">
+<span class="fa fa-linkedin-square fa-2x"></span></a>
+</div>
         
-    </body>
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
 </html>

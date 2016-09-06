@@ -1,0 +1,461 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja-jp">
+<head prefix="og: http://ogp.me/ns#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="alternate" hreflang="ja" href="https://code-house.jp">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> [swift] CoreDataをさぐりさぐり触ってみた </title>
+    
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/lightGallery.css" />
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/solarizedlight.min.css" />
+    
+    <link rel="apple-touch-icon" sizes="57x57" href="https://code-house.jp/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://code-house.jp/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://code-house.jp/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://code-house.jp/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://code-house.jp/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://code-house.jp/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://code-house.jp/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://code-house.jp/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://code-house.jp/apple-touch-icon-180x180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="logo">
+<link rel="icon" type="image/png" sizes="228x228" href="https://code-house.jp/coast-228x228.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://code-house.jp/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://code-house.jp/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://code-house.jp/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="230x230" href="https://code-house.jp/favicon-230x230.png">
+<link rel="shortcut icon" href="https://code-house.jp/favicon.ico">
+<link rel="yandex-tableau-widget" href="https://code-house.jp/yandex-browser-manifest.json">
+<meta name="msapplication-TileColor" content="#666666">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<link rel="icon" type="image/png" sizes="192x192" href="https://code-house.jp/android-chrome-192x192.png">
+<link rel="manifest" href="https://code-house.jp/manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#666666">
+<meta name="application-name" content="logo">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="https://code-house.jp/apple-touch-startup-image-320x460.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-640x920.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-640x1096.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-750x1294.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="https://code-house.jp/apple-touch-startup-image-1182x2208.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="https://code-house.jp/apple-touch-startup-image-1242x2148.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="https://code-house.jp/apple-touch-startup-image-748x1024.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="https://code-house.jp/apple-touch-startup-image-768x1004.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1496x2048.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1536x2008.png">
+    
+        <meta property="og:site_name" content="CODE HOUSE" />
+    <meta property="og:url" content="https://code-house.jp/2016/09/06/swiftcoredata/" />
+    <meta property="og:title" content="[swift] CoreDataをさぐりさぐり触ってみた" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content="https://code-house.jp/2016/09/06/swiftcoredata/" />
+
+    
+        <meta property="og:description" content="CoreDataはiOSでアプリのデータを保存するための仕組み。swiftの記事２つ目にしていきなり扱うようなネタではなさそうだが、しかし少しだけ調べたことについて書いてみようと思う。" />
+        
+            <meta property="og:image" content="https://code-house.jp/open-graph.png">
+            <meta property="twitter:image" content="https://code-house.jp/open-graph.png">
+        
+        <meta property="og:type" content="article" />
+    
+
+
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
+    
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      showMathMenu: false,
+      displayAlign: "left",
+      HTML: ["input/TeX", "output/HTML-CSS"],
+      "HTML-CSS": {
+        styles: {
+          ".MathJax_Display": {
+            margin:0
+          }
+        }
+      }
+    });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-81918210-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    
+    <header class="panel-cover panel-cover--collapsed">
+    
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content">
+                
+                <a href="https://code-house.jp" title="link to homepage for CODE HOUSE">
+                    <img src="https://code-house.jp/images/codehouse_logo.png" width="100" alt="CODE HOUSE logo" class="panel-cover__logo" />
+                </a>
+                
+                <p class="panel-cover__title panel-title">
+                    <a href="https://code-house.jp"  title="link to homepage for CODE HOUSE">CODE HOUSE</a>
+                </p>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">Hello, I&#39;m a freelance software engineer.</p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-n avigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="https://code-house.jp/work" title="link to CODE HOUSE work" class="blog-button">Work</a> </li>
+                            <li class="navigation__item"><a href="https://code-house.jp/blog" title="link to CODE HOUSE blog" class="blog-button">Blog</a> </li>
+
+                            
+                            
+                        </ul>
+                    </nav>
+                    <br>
+                    <nav class="cover-navigation navigation--social">
+    <ul class="navigation">   
+        
+        <li class="navigation__item">
+            <a href="https://github.com/mm-git" title="mm-git on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.linkedin.com/in/meguro/en" title="Linkedin"> <i class='fa fa-linkedin'></i> <span class="label">Linkedin</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.facebook.com/" title=" on facebook"> <i class='fa fa-facebook'></i> <span class="label">facebook</span> </a>
+        </li>  
+    </ul>
+</nav>
+
+                </div>
+                
+                <p class="panel-cover__copyright">Powered by Hugo. Copyright © 2016 code-house.jp</p>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="https://code-house.jp" title="link to homepage for CODE HOUSE"> <img src="https://code-house.jp/images/codehouse_logo.png" width="80" alt="CODE HOUSE logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="https://code-house.jp"  title="link to homepage for CODE HOUSE">CODE HOUSE</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  Hello, I&#39;m a freelance software engineer.  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="https://code-house.jp/work" title="link to CODE HOUSE work" class="blog-button">Work</a> </li>
+                                <li class="navigation__item"><a href="https://code-house.jp/blog" title="link to CODE HOUSE blog" class="blog-button">Blog</a> </li>
+                                
+                                
+                            </ul>
+                        </nav>
+                        <br><nav class="cover-navigation navigation--social">
+    <ul class="navigation">   
+        
+        <li class="navigation__item">
+            <a href="https://github.com/mm-git" title="mm-git on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.linkedin.com/in/meguro/en" title="Linkedin"> <i class='fa fa-linkedin'></i> <span class="label">Linkedin</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.facebook.com/" title=" on facebook"> <i class='fa fa-facebook'></i> <span class="label">facebook</span> </a>
+        </li>  
+    </ul>
+</nav>
+
+                    </div>
+                    <p class="panel-cover__copyright">Powered by Hugo. Copyright © 2016 code-house.jp</p>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>[swift] CoreDataをさぐりさぐり触ってみた</h1>
+          
+          <div class="tags_list">
+             <div class="tags_item"><a href="https://code-house.jp/tags/swift/">swift</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/ios/">iOS</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/xcode/">xcode</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/application/">Application</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/coredata/">CoreData</a></div>
+          </div>
+          
+          <p class="post-date">2016-09-06</p>
+          
+          
+
+<h2 id="coredata">CoreData？？</h2>
+
+<p>CoreDataは、簡単にいうとiOSでアプリを作った場合にそのデータを保存しておくための仕組みだ。例えばRPGゲームならキャラクターの能力やレベル等のデータを保存したり、メモ帳アプリならメモの内容を保存したりといった用途にCoreDataは使われる。なのでiOSでアプリを作成する場合、このCoreDataというのは避けては通れない道なのである。</p>
+
+<p>とは言うものの、iOSでのアプリ作成に必要な要素は他にもたくさんある。それらを置いといてswiftに関する記事２つ目にしていきなりCoreDataについて書くのはどうかとも思う。実際少しCoreDataのコードを書いて見たものの、まだ全然自分の中でベストプラクティスと思える状態にはなっていない。なので、この記事は現段階でCoreDataについて試行錯誤してみたという内容の記事である。</p>
+
+<h2 id="xcodeのデフォルトのコード">xcodeのデフォルトのコード</h2>
+
+<p>xcodeで新規にプロジェクトを作成する場合、&rsquo;Single Page Application&rsquo;など幾つかのテンプレートでは最初から下記の様にCoreDataにチェックを入れてプロジェクトを作成することで、CoreDataに対応したコードを生成してくれる。</p>
+
+<p><img src="http://goo.gl/E14aIi" width="50%"></p>
+
+<p>CoreDataに関するコードは、AppDelegateというclass内に追加された状態でプロジェクトは生成される。ところがである。このCoreDataに関するコードがAppDelegateに追加された状態というのは別に悪くは無いのだが、かといってベストでもないというのがいろいろ調べてわかってきた。<strong>xcode自らが生成するコードが非推奨ってどないやねん？？</strong></p>
+
+<p>こういった情報は下記の記事や書籍などで見受けられた。</p>
+
+<blockquote>
+<p><a href="http://qiita.com/yimajo/items/9935bb1896fc5d2ea8e5">やはりお前らのCoreDataの使い方も間違っている - Qiita</a></p>
+
+<p><a href="http://www.codebeaulieu.com/10/adding-core-data-using-swift-2">Adding Core Data to an existing project in Swift 2 | codebeaulieu</a></p>
+
+<p><a href="http://shop.oreilly.com/product/9781680501704.do">Core Data in Swift - O&rsquo;Reilly Media</a></p>
+</blockquote>
+
+<p>要するに、下記の様にしたほうがいいのでは？ということらしい。</p>
+
+<ul>
+<li>プロジェクト作成時に、<code>Use Core Data</code>のチェックは付けない。</li>
+<li>Core Dataに関するコードはAppDelegateクラスには直接書かない。別途クラスを用意する。</li>
+</ul>
+
+<p>私自身もCoreData自体は直接AppDelegateとは関係のないものなので、別のクラスで定義した方がすっきりすると思っていた。そう思いながらたどり着いたのが上記のようなサイトであった。</p>
+
+<h2 id="coredataの初期化クラスを書いてみた">CoreDataの初期化クラスを書いてみた</h2>
+
+<p>実は、appleのDeveloperサイトにもCoreDataを独立したクラスで書く方法が書いてある。</p>
+
+<blockquote>
+<p><a href="https://developer.apple.com/library/watchos/documentation/Cocoa/Conceptual/CoreData/InitializingtheCoreDataStack.html">Core Data Programming Guide: Initializing the Core Data Stack</a></p>
+</blockquote>
+
+<p>残念ながらxcodeが生成するコードはまだ上記のようにはなっていないようだ。なので、自分で上記をコピペするなどしてコードを書く必要がある。</p>
+
+<h5 id="datacontroller-swift">DataController.swift</h5>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #859900">import</span> <span style="color: #268bd2">UIKit</span>
+<span style="color: #859900">import</span> <span style="color: #268bd2">CoreData</span>
+
+<span style="color: #859900">class</span> <span style="color: #268bd2">DataController</span><span style="color: #657b83">:</span> <span style="color: #268bd2; font-weight: bold">NSObject</span> <span style="color: #657b83">{</span>
+    <span style="color: #859900">var</span> <span style="color: #cb4b16">managedObjectContext</span><span style="color: #657b83">:</span> <span style="color: #268bd2; font-weight: bold">NSManagedObjectContext</span>
+
+    <span style="color: #859900">class</span> <span style="color: #268bd2">var</span> <span style="color: #586e75">sharedInstance</span><span style="color: #657b83">:</span> <span style="color: #586e75">DataController</span> <span style="color: #657b83">{</span>
+        <span style="color: #859900">struct</span> <span style="color: #268bd2">Singleton</span> <span style="color: #657b83">{</span>
+            <span style="color: #859900">static</span> <span style="color: #859900">let</span> <span style="color: #cb4b16">instance</span><span style="color: #657b83">:</span> <span style="color: #586e75">DataController</span> <span style="color: #657b83">=</span> <span style="color: #586e75">DataController</span><span style="color: #657b83">()</span>
+        <span style="color: #657b83">}</span>
+        <span style="color: #859900">return</span> <span style="color: #586e75">Singleton</span><span style="color: #657b83">.</span><span style="color: #586e75">instance</span>
+    <span style="color: #657b83">}</span>
+
+    <span style="color: #859900">override</span> <span style="color: #859900">init</span><span style="color: #657b83">()</span> <span style="color: #657b83">{</span>
+        <span style="color: #93a1a1; font-style: italic">// This resource is the same name as your xcdatamodeld contained in your project.</span>
+        <span style="color: #586e75">guard</span> <span style="color: #859900">let</span> <span style="color: #cb4b16">modelURL</span> <span style="color: #657b83">=</span> <span style="color: #268bd2; font-weight: bold">NSBundle</span><span style="color: #657b83">.</span><span style="color: #586e75">mainBundle</span><span style="color: #657b83">().</span><span style="color: #586e75">URLForResource</span><span style="color: #657b83">(</span><span style="color: #2aa198">&quot;ModelName&quot;</span><span style="color: #657b83">,</span> <span style="color: #586e75">withExtension</span><span style="color: #657b83">:</span><span style="color: #2aa198">&quot;momd&quot;</span><span style="color: #657b83">)</span> <span style="color: #859900">else</span> <span style="color: #657b83">{</span>
+            <span style="color: #268bd2; font-weight: bold">fatalError</span><span style="color: #657b83">(</span><span style="color: #2aa198">&quot;Error loading model from bundle&quot;</span><span style="color: #657b83">)</span>
+        <span style="color: #657b83">}</span>
+        <span style="color: #93a1a1; font-style: italic">// The managed object model for the application. It is a fatal error for the application not to be able to find and load its model.</span>
+        <span style="color: #586e75">guard</span> <span style="color: #859900">let</span> <span style="color: #cb4b16">mom</span> <span style="color: #657b83">=</span> <span style="color: #268bd2; font-weight: bold">NSManagedObjectModel</span><span style="color: #657b83">(</span><span style="color: #586e75">contentsOfURL</span><span style="color: #657b83">:</span> <span style="color: #586e75">modelURL</span><span style="color: #657b83">)</span> <span style="color: #859900">else</span> <span style="color: #657b83">{</span>
+            <span style="color: #268bd2; font-weight: bold">fatalError</span><span style="color: #657b83">(</span><span style="color: #2aa198">&quot;Error initializing mom from: </span><span style="color: #cb4b16">\(</span><span style="color: #586e75">modelURL</span><span style="color: #cb4b16">)</span><span style="color: #2aa198">&quot;</span><span style="color: #657b83">)</span>
+        <span style="color: #657b83">}</span>
+        <span style="color: #859900">let</span> <span style="color: #cb4b16">psc</span> <span style="color: #657b83">=</span> <span style="color: #268bd2; font-weight: bold">NSPersistentStoreCoordinator</span><span style="color: #657b83">(</span><span style="color: #586e75">managedObjectModel</span><span style="color: #657b83">:</span> <span style="color: #586e75">mom</span><span style="color: #657b83">)</span>
+        <span style="color: #586e75">managedObjectContext</span> <span style="color: #657b83">=</span> <span style="color: #268bd2; font-weight: bold">NSManagedObjectContext</span><span style="color: #657b83">(</span><span style="color: #586e75">concurrencyType</span><span style="color: #657b83">:</span> <span style="color: #657b83">.</span><span style="color: #586e75">MainQueueConcurrencyType</span><span style="color: #657b83">)</span>
+        <span style="color: #586e75">managedObjectContext</span><span style="color: #657b83">.</span><span style="color: #586e75">persistentStoreCoordinator</span> <span style="color: #657b83">=</span> <span style="color: #586e75">psc</span>
+        <span style="color: #859900">let</span> <span style="color: #cb4b16">urls</span> <span style="color: #657b83">=</span> <span style="color: #268bd2; font-weight: bold">NSFileManager</span><span style="color: #657b83">.</span><span style="color: #586e75">defaultManager</span><span style="color: #657b83">().</span><span style="color: #586e75">URLsForDirectory</span><span style="color: #657b83">(.</span><span style="color: #586e75">DocumentDirectory</span><span style="color: #657b83">,</span> <span style="color: #586e75">inDomains</span><span style="color: #657b83">:</span> <span style="color: #657b83">.</span><span style="color: #586e75">UserDomainMask</span><span style="color: #657b83">)</span>
+        <span style="color: #859900">let</span> <span style="color: #cb4b16">docURL</span> <span style="color: #657b83">=</span> <span style="color: #586e75">urls</span><span style="color: #657b83">[</span><span style="color: #586e75">urls</span><span style="color: #657b83">.</span><span style="color: #586e75">endIndex</span><span style="color: #657b83">-</span><span style="color: #2aa198">1</span><span style="color: #657b83">]</span>
+        <span style="color: #93a1a1; font-style: italic">/* The directory the application uses to store the Core Data store file.</span>
+<span style="color: #93a1a1; font-style: italic">         This code uses a file named &quot;DataModel.sqlite&quot; in the application&#39;s documents directory.</span>
+<span style="color: #93a1a1; font-style: italic">         */</span>
+        <span style="color: #859900">let</span> <span style="color: #cb4b16">storeURL</span> <span style="color: #657b83">=</span> <span style="color: #586e75">docURL</span><span style="color: #657b83">.</span><span style="color: #586e75">URLByAppendingPathComponent</span><span style="color: #657b83">(</span><span style="color: #2aa198">&quot;Model.sqlite&quot;</span><span style="color: #657b83">)</span>
+        <span style="color: #859900">do</span> <span style="color: #657b83">{</span>
+            <span style="color: #586e75">try</span> <span style="color: #586e75">psc</span><span style="color: #657b83">.</span><span style="color: #586e75">addPersistentStoreWithType</span><span style="color: #657b83">(</span><span style="color: #586e75">NSSQLiteStoreType</span><span style="color: #657b83">,</span> <span style="color: #586e75">configuration</span><span style="color: #657b83">:</span> <span style="color: #859900">nil</span><span style="color: #657b83">,</span> <span style="color: #586e75">URL</span><span style="color: #657b83">:</span> <span style="color: #586e75">storeURL</span><span style="color: #657b83">,</span> <span style="color: #586e75">options</span><span style="color: #657b83">:</span> <span style="color: #859900">nil</span><span style="color: #657b83">)</span>
+        <span style="color: #657b83">}</span> <span style="color: #586e75">catch</span> <span style="color: #657b83">{</span>
+            <span style="color: #268bd2; font-weight: bold">fatalError</span><span style="color: #657b83">(</span><span style="color: #2aa198">&quot;Error migrating store: </span><span style="color: #cb4b16">\(</span><span style="color: #586e75">error</span><span style="color: #cb4b16">)</span><span style="color: #2aa198">&quot;</span><span style="color: #657b83">)</span>
+        <span style="color: #657b83">}</span>
+    <span style="color: #657b83">}</span>
+<span style="color: #657b83">}</span>
+</pre></div>
+</td></tr></table>
+<p>このコードは、appleのコードから少し変更をしている。しかし、下記の変更についてはまだまださぐりさぐりの状態である。</p>
+
+<h3 id="singletonパターンにしてみた">Singletonパターンにしてみた</h3>
+
+<p>appleのコードのままだと、DataController()を呼ぶたびにcontextを初期化してしまう。上記のようにすると、<code>let context = DataController.sharedInstance.managedObjectContext</code>の様にしてcontextにアクセスできる。そして、最初にこれを実行した時のみ<code>init()</code>が実行される。</p>
+
+<p>しかし実際にはiOSにおけるSingletonはまずい場合もあるようである。最終的には何か他の方法を模索する必要がありそう。(タイミングによっては、明示的にcontextを最初期化する状況があるのかもしれない)</p>
+
+<blockquote>
+<p><a href="http://stackoverflow.com/questions/30638999/ios-core-data-stack-as-singleton-with-main-nsmanagedobjectcontext">swift - iOS - Core Data Stack as singleton with main NSManagedObjectContext - Stack Overflow</a></p>
+</blockquote>
+
+<h3 id="sqliteの読み込みを別スレッドにしていない">sqliteの読み込みを別スレッドにしていない</h3>
+
+<p>appleのコードでは26行目以降のsqliteファイルを実際に読み込む処理をdispatch_async()を使って別スレッドとしていた。これは、sqliteファイルの読み込みには時間がかかる場合があるためで、起動時のメインスレッドの動作を阻害しないようにそのようになっている。</p>
+
+<p>一旦上記の様にしたのは、起動時に前回の状態を読み込む処理を書いているためである。そしてその処理は下記のようになっている。(多くのサイトで紹介されているようなよくあるコードである)</p>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #859900">func</span> <span style="color: #268bd2">fetchData</span><span style="color: #657b83">()</span> <span style="color: #657b83">{</span>
+    <span style="color: #859900">let</span> <span style="color: #cb4b16">context</span> <span style="color: #657b83">=</span> <span style="color: #586e75">DataController</span><span style="color: #657b83">.</span><span style="color: #586e75">sharedInstance</span><span style="color: #657b83">.</span><span style="color: #586e75">managedObjectContext</span>
+    <span style="color: #859900">let</span> <span style="color: #cb4b16">request</span> <span style="color: #657b83">=</span> <span style="color: #268bd2; font-weight: bold">NSFetchRequest</span><span style="color: #657b83">(</span><span style="color: #586e75">entityName</span><span style="color: #657b83">:</span> <span style="color: #2aa198">&quot;EntityName&quot;</span><span style="color: #657b83">)</span>
+    <span style="color: #586e75">request</span><span style="color: #657b83">.</span><span style="color: #586e75">returnsObjectsAsFaults</span> <span style="color: #657b83">=</span> <span style="color: #859900">false</span>
+    
+    <span style="color: #859900">do</span> <span style="color: #657b83">{</span>
+        <span style="color: #859900">let</span> <span style="color: #cb4b16">allData</span> <span style="color: #657b83">=</span> <span style="color: #586e75">try</span> <span style="color: #586e75">tileContext</span><span style="color: #657b83">.</span><span style="color: #586e75">executeFetchRequest</span><span style="color: #657b83">(</span><span style="color: #586e75">request</span><span style="color: #657b83">)</span> <span style="color: #859900">as</span><span style="color: #657b83">!</span> <span style="color: #657b83">[</span><span style="color: #586e75">EntityData</span><span style="color: #657b83">]</span>
+        <span style="color: #657b83">:</span>
+        <span style="color: #93a1a1; font-style: italic">// any operation</span>
+    <span style="color: #657b83">}</span> <span style="color: #586e75">catch</span> <span style="color: #657b83">{</span>
+        <span style="color: #268bd2; font-weight: bold">print</span><span style="color: #657b83">(</span><span style="color: #2aa198">&quot;Could not fetch </span><span style="color: #cb4b16">\(</span><span style="color: #586e75">error</span><span style="color: #cb4b16">)</span><span style="color: #2aa198">&quot;</span><span style="color: #657b83">)</span>
+    <span style="color: #657b83">}</span>
+<span style="color: #657b83">}</span>
+</pre></div>
+</td></tr></table>
+<p>あるアプリで、上記コードのDataControllerが最初に実行されるとする。するとDataControllerのinit()が初めて実行される。もしsqliteを読み込む処理が別スレッドであった場合、７行目のexecuteFetchRequest()を実行したタイミングでsqliteファイルの読み込みはおそらく完了していない。なので、allDataは空の配列となってしまう。つまり、sqliteの読み込みを別スレッドにすると、<strong>前回の状態を読み込むことができない</strong>のである。</p>
+
+<p>しかしこれは実に安直な対応である。おそらくsqliteの読み込みには時間がかかるので、別スレッドで実行するというappleが推奨している対応にする必要があると思う。なので、最終的には下記のような面倒な対応が必要と思われる。</p>
+
+<ul>
+<li>起動時に画面に初期化中がわかるメッセージ等を出しておく。</li>
+<li>起動時のメインスレッドで一度DataControllerを初期化処理を呼ぶ。</li>
+<li>sqliteの読み込み処理が別スレッドで実行される。完了したらメインスレッドに通知する。</li>
+<li>sqliteの読み込み完了を受けてから、上記の<code>fetchData()</code>を実行する。</li>
+<li><code>fetchData()</code>が完了したら、初期化中のメッセージ等を消して、アプリの正規のシーンへ移行する。</li>
+</ul>
+
+<h2 id="datacontrollerクラスの制約">DataControllerクラスの制約</h2>
+
+<p>上記のDataControllerには更に面倒な制約がある。contextを扱うのはメインスレッドに限られるという点である。これは下記の様に初期化しているためである。</p>
+
+<pre><code>managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+</code></pre>
+
+<p>つまりsqliteへの保存など、おそらく時間がかかるであろう処理も全てメインスレッドで行わなければならないのである。なので例えばデータの保存の処理は下記の様にしてみた。saveData()を呼ぶ直前まではバックグラウンドのスレッドで何かしらデータの処理をしている。しかし、contextはメインスレッドで扱う必要があるので、dispatch_async()のブロックでメインスレッドとして実行している。</p>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #859900">func</span> <span style="color: #268bd2">saveData</span><span style="color: #657b83">()</span> <span style="color: #657b83">{</span>
+    <span style="color: #586e75">dispatch_async</span><span style="color: #657b83">(</span><span style="color: #586e75">dispatch_get_main_queue</span><span style="color: #657b83">(),</span> <span style="color: #657b83">{</span>
+        <span style="color: #859900">let</span> <span style="color: #cb4b16">context</span><span style="color: #657b83">:</span> <span style="color: #268bd2; font-weight: bold">NSManagedObjectContext</span> <span style="color: #657b83">=</span> <span style="color: #586e75">DataController</span><span style="color: #657b83">.</span><span style="color: #586e75">sharedInstance</span><span style="color: #657b83">.</span><span style="color: #586e75">managedObjectContext</span>
+        <span style="color: #859900">let</span> <span style="color: #cb4b16">entity</span><span style="color: #657b83">:</span> <span style="color: #268bd2; font-weight: bold">NSEntityDescription</span><span style="color: #657b83">!</span> <span style="color: #657b83">=</span> <span style="color: #268bd2; font-weight: bold">NSEntityDescription</span><span style="color: #657b83">.</span><span style="color: #586e75">entityForName</span><span style="color: #657b83">(</span><span style="color: #2aa198">&quot;entityName&quot;</span><span style="color: #657b83">,</span> <span style="color: #586e75">inManagedObjectContext</span><span style="color: #657b83">:</span> <span style="color: #586e75">context</span><span style="color: #657b83">)</span>
+        <span style="color: #859900">let</span> <span style="color: #cb4b16">newData</span> <span style="color: #657b83">=</span> <span style="color: #586e75">EntityData</span><span style="color: #657b83">(</span><span style="color: #586e75">entity</span><span style="color: #657b83">:</span> <span style="color: #586e75">entity</span><span style="color: #657b83">,</span> <span style="color: #586e75">insertIntoManagedObjectContext</span><span style="color: #657b83">:</span> <span style="color: #586e75">context</span><span style="color: #657b83">)</span>
+        <span style="color: #586e75">newData</span><span style="color: #657b83">.</span><span style="color: #586e75">xx</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;xxx&quot;</span>
+        <span style="color: #859900">do</span><span style="color: #657b83">{</span>
+            <span style="color: #586e75">try</span> <span style="color: #586e75">context</span><span style="color: #657b83">.</span><span style="color: #586e75">save</span><span style="color: #657b83">()</span>
+        <span style="color: #657b83">}</span>
+        <span style="color: #586e75">catch</span><span style="color: #657b83">{</span>
+            <span style="color: #268bd2; font-weight: bold">fatalError</span><span style="color: #657b83">(</span><span style="color: #2aa198">&quot;Failed to save context: </span><span style="color: #cb4b16">\(</span><span style="color: #586e75">error</span><span style="color: #cb4b16">)</span><span style="color: #2aa198">&quot;</span><span style="color: #657b83">)</span>
+        <span style="color: #657b83">}</span>
+    <span style="color: #657b83">})</span>
+<span style="color: #657b83">}</span>
+</pre></div>
+</td></tr></table>
+<p>これを別スレッドで行うようににすることは可能である(<code>concurrencyType: .PrivateQueueConcurrencyType</code>を指定すればいい)。しかしその場合、データの保存完了とメインスレッドの間で何かしらの同期が必要な場合もあり、それはそれで本当に面倒である。</p>
+
+<p>このあたりのベストな解決方法は、もっと本格的にアプリを作成する時に検証したいと思う。</p>
+
+          
+        </div>
+        <div class="sharing">
+<a href="https://twitter.com/intent/tweet?status=%5bswift%5d%20CoreData%e3%82%92%e3%81%95%e3%81%90%e3%82%8a%e3%81%95%e3%81%90%e3%82%8a%e8%a7%a6%e3%81%a3%e3%81%a6%e3%81%bf%e3%81%9f-https%3a%2f%2fcode-house.jp%2f2016%2f09%2f06%2fswiftcoredata%2f" target="_blank" title="Follow me on Twitter" class="twitter">
+<span class="fa fa-twitter-square fa-2x"></span></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2f2016%2f09%2f06%2fswiftcoredata%2f" target="_blank" title="Join me on Facebook" class="facebook">
+<span class="fa fa-facebook-square fa-2x"></span></a>
+<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2f2016%2f09%2f06%2fswiftcoredata%2f" target="_blank" title="Google+" class="googleplus">
+<span class="fa fa-google-plus-square fa-2x"></span></a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2f2016%2f09%2f06%2fswiftcoredata%2f&title=%5bswift%5d%20CoreData%e3%82%92%e3%81%95%e3%81%90%e3%82%8a%e3%81%95%e3%81%90%e3%82%8a%e8%a7%a6%e3%81%a3%e3%81%a6%e3%81%bf%e3%81%9f" target="_blank" title="LinkedIn" class="linkedin">
+<span class="fa fa-linkedin-square fa-2x"></span></a>
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

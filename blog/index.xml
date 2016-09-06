@@ -7,7 +7,45 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Mon, 29 Aug 2016 16:18:22 &#43;0900</updated>
+    <updated>Tue, 06 Sep 2016 15:02:41 &#43;0900</updated>
+    
+    <item>
+      <title>[swift] CoreDataをさぐりさぐり触ってみた</title>
+      <link>https://code-house.jp/2016/09/06/swiftcoredata/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/09/06/swiftcoredata/</guid>
+      <description>
+        &lt;h2 id=&#34;coredata&#34;&gt;CoreData？？&lt;/h2&gt;
+
+&lt;p&gt;CoreDataは、簡単にいうとiOSでアプリを作った場合にそのデータを保存しておくための仕組みだ。例えばRPGゲームならキャラクターの能力やレベル等のデータを保存したり、メモ帳アプリならメモの内容を保存したりといった用途にCoreDataは使われる。なのでiOSでアプリを作成する場合、このCoreDataというのは避けては通れない道なのである。&lt;/p&gt;
+
+&lt;p&gt;とは言うものの、iOSでのアプリ作成に必要な要素は他にもたくさんある。それらを置いといてswiftに関する記事２つ目にしていきなりCoreDataについて書くのはどうかとも思う。実際少しCoreDataのコードを書いて見たものの、まだ全然自分の中でベストプラクティスと思える状態にはなっていない。なので、この記事は現段階でCoreDataについて試行錯誤してみたという内容の記事である。&lt;/p&gt;
+
+        <a href='https://code-house.jp/2016/09/06/swiftcoredata/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
+    
+    <item>
+      <title>[swift]スマホアプリを作る</title>
+      <link>https://code-house.jp/2016/09/04/swiftstart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/09/04/swiftstart/</guid>
+      <description>
+        &lt;h2 id=&#34;スマホアプリを作る&#34;&gt;スマホアプリを作る&lt;/h2&gt;
+
+&lt;p&gt;今の様な形のスマホが世に現れて、もう10年が経とうとしている。スマホアプリを作るというと、もはや既にピークはとうに過ぎており今更感があるのだけど、それでもなお毎日のように新しいアプリがリリースされているのは事実なわけで、そういう意味ではまだギリギリ過渡期なのだと思う。本当はもっと前からスマホアプリを作ってみたかった。だからこのギリギリ過渡期のうちに、これが最後のチャンスだと思って何か作って見たいと思う。&lt;/p&gt;
+
+&lt;p&gt;世の中には、スマホアプリの作り方の書籍や記事が溢れている。中には、「簡単にできる」、「◯◯日でできる」みたいに謳ったものもあるが、実際に本当に取り組もうとすると、あまりにも膨大な知識が必要であることにビビる。それに、アプリによってはサーバを用意したりなど、準備にも膨大な時間が必要である。漠然とスマホアプリの完成までに必要な知識、準備のステップの合計を100とすると、現段階では5前後では無いだろうかと思う。&lt;/p&gt;
+
+&lt;p&gt;しかし、逆に考えると、それだけの新しいことを知ることができる。新しいことを始めることができるというのは、技術者にとってとても幸せなことであるとも思う。それに、この状態からどうのようにしてアプリを作っていくかを少しでも記事にできれば、同じようなことをしている人、またはしようとしている人にとっても何かしらの役に立つんじゃないかと思う。とはいうものの、実際にアプリを作り出すとそちらにばかり時間が取られて、なかなか記事を書いたりする時間がなくなったりするのだけど・・。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、アプリを作成するにあたり何をする必要があるのかをざっくりとリストアップしてみた。今回はその項目をひたすら箇条書きしておく。なを、アプリはiPhoneまたはiPad向けのアプリとし、言語はswiftを使うものとする。&lt;/p&gt;
+
+        <a href='https://code-house.jp/2016/09/04/swiftstart/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>[GoogleMap] 表示のしくみ</title>
@@ -306,53 +344,6 @@
 &lt;/ul&gt;
 
         <a href='https://code-house.jp/2016/08/09/hugocontent/' class="read-more"><nobr>Read more →</nobr></a>
-      </description>
-    </item>
-    
-    <item>
-      <title>[gulp] sass編</title>
-      <link>https://code-house.jp/2016/08/06/gulpsass/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>https://code-house.jp/2016/08/06/gulpsass/</guid>
-      <description>
-        &lt;h2 id=&#34;gulp-を使った-sass-css-min-css変換&#34;&gt;gulp を使った sass→css, min.css変換&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://sass-lang.com/&#34;&gt;&lt;img title=&#34;Sass: Syntactically Awesome Style Sheets&#34; src=&#34;http://capture.heartrails.com/200x150/cool?http://sass-lang.com/&#34; alt=&#34;http://sass-lang.com/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;今回gulpのスクリプトで&lt;code&gt;.scss&lt;/code&gt;を&lt;code&gt;.css&lt;/code&gt;及び&lt;code&gt;.min.css&lt;/code&gt;に変換してみる。gulp自体の設定については下記の記事参照。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-        <a href='https://code-house.jp/2016/08/06/gulpsass/' class="read-more"><nobr>Read more →</nobr></a>
-      </description>
-    </item>
-    
-    <item>
-      <title>docker hubにboxを登録する</title>
-      <link>https://code-house.jp/2016/08/05/dockerhub/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>https://code-house.jp/2016/08/05/dockerhub/</guid>
-      <description>
-        &lt;h2 id=&#34;docker-hub&#34;&gt;docker hub&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://hub.docker.com/&#34;&gt;&lt;img title=&#34;Untitled&#34; src=&#34;http://capture.heartrails.com/200x150/cool/1470414919790?https://hub.docker.com/&#34; alt=&#34;https://hub.docker.com/&#34; width=&#34;200&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;最近名前をよく聞くようになったdocker。Docker hubは、dockerで使うimageをクラウド上に置いておくことができる場所だ。ざっくり説明すると、&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;自分が作ったimageを世界に公開することもできるし、プライベートなimageも置くことができる。&lt;/li&gt;
-&lt;li&gt;2016-08-05現在、無料のプランだと、プライベートなimageは１つまで。並列処理でビルドできるimageは1つだけ。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;といった感じである。&lt;/p&gt;
-
-&lt;p&gt;今回、werckerの処理を高速化するためにdockerにimageを登録してみたので、その手順を書いておく。なお、下記はgithubを使う場合で説明している。Bitbucketでも手順はほぼ同じと思われる。&lt;/p&gt;
-
-        <a href='https://code-house.jp/2016/08/05/dockerhub/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     
