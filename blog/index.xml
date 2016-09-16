@@ -7,7 +7,28 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Tue, 06 Sep 2016 15:02:41 &#43;0900</updated>
+    <updated>Fri, 16 Sep 2016 16:43:57 &#43;0900</updated>
+    
+    <item>
+      <title>[OSM] Open Street Map</title>
+      <link>https://code-house.jp/2016/09/16/osmsummary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/09/16/osmsummary/</guid>
+      <description>
+        &lt;h2 id=&#34;open-street-mapとは&#34;&gt;Open Street Mapとは&lt;/h2&gt;
+
+&lt;p&gt;最近、iOSのアプリを作ろうと躍起になっておりブログの更新どころではありませんでした。(10日もあいている！！このブログ最大の危機か？)さらに、iOSのアプリを作るはずが、何故かOpen Street Mapに没頭してました。なお、作りたいアプリは地図に関するアプリなので、Open Street Mapをいじり倒しているのは、脱線や現実逃避ではありません。&lt;/p&gt;
+
+&lt;p&gt;ところで、Open Street Mapとは？&lt;/p&gt;
+
+&lt;p&gt;世の中で一番有名な地図のサイトと言うと、おそらくGoogle Mapsのような気がする。他にも、Yahoo Mapsなど地図のサイトはある。これらの大手企業の地図とは違い、Open Street Mapというのは世界中の有志(英語でCartographer)により作成されている、オープンデータな地図のことである。アカウントを取得すれば誰でも編集ができるよううだ。地図のデータなんてのはGoogleにはかなわないだろうと思っていたのであるが、そんなことはない。調べていくほどにGoogle Mapsとはまた違った意味ですごい部分がたくさんあることに気がついたのである。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、Open Street Mapの改めて再認識した面白さについて軽く紹介したいと思う。&lt;/p&gt;
+
+        <a href='https://code-house.jp/2016/09/16/osmsummary/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>[swift] CoreDataをさぐりさぐり触ってみた</title>
@@ -323,27 +344,6 @@
 &lt;/blockquote&gt;
 
         <a href='https://code-house.jp/2016/08/11/gulpfavicons/' class="read-more"><nobr>Read more →</nobr></a>
-      </description>
-    </item>
-    
-    <item>
-      <title>[Hugo] Hugoの記事について</title>
-      <link>https://code-house.jp/2016/08/09/hugocontent/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>https://code-house.jp/2016/08/09/hugocontent/</guid>
-      <description>
-        &lt;h2 id=&#34;hugoでの記事について&#34;&gt;Hugoでの記事について&lt;/h2&gt;
-
-&lt;p&gt;今後のことも考えて、Hugoでの記事の追加の仕方について考えてみる。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;記事の追加の仕方とフォルダ構成&lt;/li&gt;
-&lt;li&gt;記事のPermalink&lt;/li&gt;
-&lt;li&gt;記事の書き方メモ&lt;/li&gt;
-&lt;/ul&gt;
-
-        <a href='https://code-house.jp/2016/08/09/hugocontent/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     

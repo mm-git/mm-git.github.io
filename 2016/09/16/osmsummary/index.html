@@ -1,10 +1,10 @@
-    <!DOCTYPE html>
+  <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja-jp">
 <head prefix="og: http://ogp.me/ns#">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title> Blogs </title>
+    <title> [OSM] Open Street Map </title>
     
     <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/uno.min.css" />
     <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/lightGallery.css" />
@@ -49,21 +49,23 @@
 <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1536x2008.png">
     
         <meta property="og:site_name" content="CODE HOUSE" />
-    <meta property="og:url" content="https://code-house.jp/blog/" />
-    <meta property="og:title" content="Blogs" />
+    <meta property="og:url" content="https://code-house.jp/2016/09/16/osmsummary/" />
+    <meta property="og:title" content="[OSM] Open Street Map" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:url" content="https://code-house.jp/blog/" />
+    <meta name="twitter:url" content="https://code-house.jp/2016/09/16/osmsummary/" />
 
     
-        <meta property="og:description" content="Hello, I&#39;m a freelance software engineer." />
-        <meta property="og:image" content="https://code-house.jp/open-graph.png">
-        <meta property="twitter:image" content="https://code-house.jp/open-graph.png">
-        <meta property="og:type" content="blog" />
+        <meta property="og:description" content="Open Street Mapが面白さを再発見し、最近いじり倒しています。どんなことができるのか軽く紹介。" />
+        
+            <meta property="og:image" content="https://code-house.jp/open-graph.png">
+            <meta property="twitter:image" content="https://code-house.jp/open-graph.png">
+        
+        <meta property="og:type" content="article" />
     
 
 
     
-    <link href="https://code-house.jp/blog/index.xml" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
+    <link href="" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
     
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -92,8 +94,8 @@
     </script>
 </head>
 
-    <body>
-        <div id="scriptHeader">
+  <body>
+    <div id="scriptHeader">
     
     <header class="panel-cover panel-cover--collapsed">
     
@@ -203,82 +205,141 @@
     </header>
 </noscript>
 
-        <div class="content-wrapper">
-            <div class="content-wrapper__inner">
-                <section id="main">
-                    
-                    
-                    <div class="article_list">
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>[OSM] Open Street Map</h1>
+          
+          <div class="tags_list">
+             <div class="tags_item"><a href="https://code-house.jp/tags/openstreetmap/">OpenStreetMap</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/map/">Map</a></div>
+          </div>
+          
+          <p class="post-date">2016-09-16</p>
+          
+          
 
-                        
+<h2 id="open-street-mapとは">Open Street Mapとは</h2>
 
-                        
-                            <article class="summary_post summary_link" onClick="document.location.href = 'https:\/\/code-house.jp\/2016\/07\/27\/googlephoto\/'">
-<header>
-<h2 class="summary-title">Google PhotoをBlogに貼り付ける  </h2>
-<div class="post-meta">2016-07-27 - Read in 3 Min </div>
-</header>
-<div class="summary">
-    Google Photoの画像をblogに表示する方法について書いてみる
-</div>
-<footer>
-</footer>
-</article>
+<p>最近、iOSのアプリを作ろうと躍起になっておりブログの更新どころではありませんでした。(10日もあいている！！このブログ最大の危機か？)さらに、iOSのアプリを作るはずが、何故かOpen Street Mapに没頭してました。なお、作りたいアプリは地図に関するアプリなので、Open Street Mapをいじり倒しているのは、脱線や現実逃避ではありません。</p>
 
-                        
-                            <article class="summary_post summary_link" onClick="document.location.href = 'https:\/\/code-house.jp\/2016\/07\/26\/githubpages\/'">
-<header>
-<h2 class="summary-title">[Hugo] github pagesについて  </h2>
-<div class="post-meta">2016-07-26 - Read in 2 Min </div>
-</header>
-<div class="summary">
-    リポジトリの内容をそのままwebとして公開できるgithub pagesについて調べてみた。
-</div>
-<footer>
-</footer>
-</article>
+<p>ところで、Open Street Mapとは？</p>
 
-                        
-                            <article class="summary_post summary_link" onClick="document.location.href = 'https:\/\/code-house.jp\/2016\/07\/26\/hugoinsatallation\/'">
-<header>
-<h2 class="summary-title">[Hugo] Hugoをinstallする  </h2>
-<div class="post-meta">2016-07-26 - Read in 2 Min </div>
-</header>
-<div class="summary">
-    githubでは、github pagesという仕組みを利用して、自分のサイトを公開する機能がある。今回Hugoを使ってこのサイトを作成してみた。
-</div>
-<footer>
-</footer>
-</article>
+<p>世の中で一番有名な地図のサイトと言うと、おそらくGoogle Mapsのような気がする。他にも、Yahoo Mapsなど地図のサイトはある。これらの大手企業の地図とは違い、Open Street Mapというのは世界中の有志(英語でCartographer)により作成されている、オープンデータな地図のことである。アカウントを取得すれば誰でも編集ができるよううだ。地図のデータなんてのはGoogleにはかなわないだろうと思っていたのであるが、そんなことはない。調べていくほどにGoogle Mapsとはまた違った意味ですごい部分がたくさんあることに気がついたのである。</p>
 
-                        
+<p>そんなわけで、Open Street Mapの改めて再認識した面白さについて軽く紹介したいと思う。</p>
 
-                        <article class="summary_post">
-                            <nav role="pagination">
-                                <div class="pagination__page-number">5 / 5</div>
-                                <div class="pagination__arrow">
-                                
-                                    <a href="https://code-house.jp/blog/page/4/">&lt;&lt;&lt;</a>
-                                
+<h2 id="open-street-mapをちら見する">Open Street Mapをちら見する</h2>
 
-                                
-                                    <span class="disable_arrow">&gt;&gt;&gt;</span>
-                                
-                                </div>
-                            </nav>
-                            <div class="archive">
-                                <br>
-                                <a href="https://code-house.jp/tags/">Tags</a> /
-                                <a href="https://code-house.jp/archives/">Archive</a>
-                            </div>
-                        </article>
-                    </div>
-                    
-                </section>
-            </div>
+<p>Open Street Mapの最大の魅力は、オープンなデータであるということである。これはどういうことかと言うと、例えばGoogle Mapsので地図を表示する場合、予めGoogleが用意した地図画像を表示している。地図の画像から何処に道路があって、どこにどんな建物があってというのが見てわかるが、あくまでその画像を見た人による判断でわかるだけである。</p>
+
+<p>Open Street Mapでも地図を表示する際は、予め用意した地図画像を表示しているのであるが、その道路や建物の情報は全て線や多角形(ポリゴン)の座標データとして公開されている。(Googleも同様の座標データを持っていると思われるが、非公開である)</p>
+
+<p>このデータがどれ程の物かは、Open Street Mapのサイトで確認することができるので少し見てみよう。</p>
+
+<h3 id="大阪付近を見てみる">大阪付近を見てみる</h3>
+
+<p>例えば大阪駅付近の、国道１号線と国道２号線の交差点「梅田新道」に関して、どのようなデータがあるのかを検索してみたのが下記である。</p>
+
+<p><a href="http://www.openstreetmap.org/query?lat=34.69832&amp;lon=135.50048#map=17/34.69895/135.50143">OpenStreetMap:大阪、梅田新道交差点</a></p>
+
+<p>画面の左に検索の結果が表示されている。信号機の名前、この交差点にまつわる国道(１号、２号、２５号、１７６号)だけでなく、地下鉄やJRまでもが結果にでているのがわかる。この結果にマウスカーソルを合わせると(クリックではなくマウスオーバー)、その情報が地図上に表示される。</p>
+
+<p><img src="https://goo.gl/d5eGwC" width="75%"></p>
+
+<p>画面右の<code>？</code>を選択した後、地図の好きな場所を選ぶと、同じようにその場所に関するデータを検索できる。(ある程度地図を拡大しないと機能しないので注意)</p>
+
+<h3 id="国道１号を見てみる">国道１号を見てみる</h3>
+
+<p>さらに、国道１号を選択してみる。国道１号に関する情報が表示される。画面の右に国道の名前、日本語だけでなく、英語名も表示されている。<code>highway=trunk</code>は国道を表している。そして<code>ref</code>は国道番号が設定されている。これは県道などの場合は県道番号になる。</p>
+
+<p><img src="https://goo.gl/EY9wSm" width="75%"></p>
+
+<blockquote>
+<p>highwayにどんなものが設定されるかは下記参照</p>
+
+<p><a href="http://wiki.openstreetmap.org/wiki/JA:Key:highway?uselang=ja">JA:Key:highway - OpenStreetMap Wiki</a></p>
+</blockquote>
+
+<p>海外では、いろんな道に名前がついていることが多いような気がする。しかし日本の場合、道路の名前というのはあまり一般的ではないような気がする。誰かに道を聞く場合も、どちらかと言うと番号で話した方が通じるような気がする。もちろん京都の様に通りの名前の方が有名な場合もあるし、地元の人しかわからない俗称で道路名が流通している場合もある。</p>
+
+<p>とにかく、昔からある道路の国道番号、県道番号を簡単に調べる方法がないものかと思っていた。しかし、Open Street Mapにはかなりのカバー率でデータが存在していることがわかり、これは何かに使えるのではと思った。</p>
+
+<p>さて上記の１号線であるが、線が東天満の交差点までで終わっている。Open Street Mapでは、このように１号線がかなりぶつ切りのデータとして登録されている。１号線全体のデータはこれらぶつ切りのデータをまとめたリレーションというデータにグルーピングされている。画面左の情報をスクロールすると、一番下にリレーション国道１号というのがある。(残念ながら、国道１号のデータは大きすぎてOpen Street Map上では表示することができない)</p>
+
+<h2 id="open-street-mapのデータを入手してみる">Open Street Mapのデータを入手してみる</h2>
+
+<p>これらの膨大なデータ。ちまちまと、Open Street Mapのサイトで取得するわけにも行かないし、そもそもOpen Street Map自体は高負荷を想定していない。なので、この膨大なデータをまとめて取得する方法を調べてみた。詳しくは下記にまとめてあった。</p>
+
+<blockquote>
+<p><a href="http://wiki.openstreetmap.org/wiki/JA:Planet.osm">JA:Planet.osm - OpenStreetMap Wiki</a></p>
+</blockquote>
+
+<p>全体の最新データを取得する場合は、下記から<code>Latest Weekly Planet PBF File</code>をダウンロードすればいいようだ。(ただし、滅茶苦茶でかい。2016年9月時点で33GB!!)</p>
+
+<blockquote>
+<p><a href="http://planet.osm.org/">Planet OSM</a></p>
+</blockquote>
+
+<p>上記のファイルは大きすぎて現実的ではない。特定の地域ごとのファイルが欲しい場合は下記からダウンロードする。</p>
+
+<blockquote>
+<p><a href="http://download.geofabrik.de/">download.geofabrik.de</a></p>
+</blockquote>
+
+<h3 id="ダウンロードしたデータの使い方">ダウンロードしたデータの使い方</h3>
+
+<p>上記のでダウンロードしたデータの使い方はいろいろあるようだが、いろいろ試したところ下記のような手順になる。</p>
+
+<ol>
+<li>ダウンロードしたデータが大きすぎる場合、特定の地域に分割する。(もしくは上記で地域ごとのデータをダウンロードする)
+
+<ul>
+<li>分割するツールには、osmconverter、osmosisというのがありそう。詳しくはまだ調べていない。</li>
+<li>osmconverterはCentOS6.5、macOSともにインストール、ビルドに断念した。</li>
+<li>osmosisはmacOSの場合、homebrewで簡単にインストールできた。</li>
+</ul></li>
+<li>データを簡単に扱えるようにデータベース化する。具体的にはPostgreSQLに入れてみる。
+
+<ul>
+<li>PostgreSQL上で、PostGISというデータが扱えるようにする。</li>
+<li>PostGISってのは、PostgreSQLのプラグインみたいなもの？？</li>
+<li>データベースへの変換には、osm2pgsqlというツールを使う。これもmacOSならhomebrewでインストールできた。</li>
+</ul></li>
+<li>PostgreSQLになったデータをいじってニヤニヤする。
+
+<ul>
+<li>どんなデータがあるのか、ここに来て具体的に見ることができるので楽しい瞬間。</li>
+</ul></li>
+</ol>
+
+<p>この後はデータを使って、いろんなことができそうである。例えば下記のようなことも可能なようである。</p>
+
+<ul>
+<li>独自のMap Serverを作る。これもいろいろな方法があるようだ。</li>
+<li>SVG形式のタイルデータを作成する。</li>
+</ul>
+
+<p>具体的に自分で試してみたことについては、更に詳しく別途記事にしたいと思う。</p>
+
+          
         </div>
-        <footer class="footer"></footer>
-
+        <div class="sharing">
+<a href="https://twitter.com/intent/tweet?status=%5bOSM%5d%20Open%20Street%20Map-https%3a%2f%2fcode-house.jp%2f2016%2f09%2f16%2fosmsummary%2f" target="_blank" title="Follow me on Twitter" class="twitter">
+<span class="fa fa-twitter-square fa-2x"></span></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2f2016%2f09%2f16%2fosmsummary%2f" target="_blank" title="Join me on Facebook" class="facebook">
+<span class="fa fa-facebook-square fa-2x"></span></a>
+<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2f2016%2f09%2f16%2fosmsummary%2f" target="_blank" title="Google+" class="googleplus">
+<span class="fa fa-google-plus-square fa-2x"></span></a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2f2016%2f09%2f16%2fosmsummary%2f&title=%5bOSM%5d%20Open%20Street%20Map" target="_blank" title="LinkedIn" class="linkedin">
+<span class="fa fa-linkedin-square fa-2x"></span></a>
+</div>
         
-    </body>
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
 </html>

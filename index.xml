@@ -7,7 +7,28 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Tue, 06 Sep 2016 15:02:41 &#43;0900</updated>
+    <updated>Fri, 16 Sep 2016 16:43:57 &#43;0900</updated>
+    
+    <item>
+      <title>[OSM] Open Street Map</title>
+      <link>https://code-house.jp/2016/09/16/osmsummary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/09/16/osmsummary/</guid>
+      <description>
+        &lt;h2 id=&#34;open-street-mapとは&#34;&gt;Open Street Mapとは&lt;/h2&gt;
+
+&lt;p&gt;最近、iOSのアプリを作ろうと躍起になっておりブログの更新どころではありませんでした。(10日もあいている！！このブログ最大の危機か？)さらに、iOSのアプリを作るはずが、何故かOpen Street Mapに没頭してました。なお、作りたいアプリは地図に関するアプリなので、Open Street Mapをいじり倒しているのは、脱線や現実逃避ではありません。&lt;/p&gt;
+
+&lt;p&gt;ところで、Open Street Mapとは？&lt;/p&gt;
+
+&lt;p&gt;世の中で一番有名な地図のサイトと言うと、おそらくGoogle Mapsのような気がする。他にも、Yahoo Mapsなど地図のサイトはある。これらの大手企業の地図とは違い、Open Street Mapというのは世界中の有志(英語でCartographer)により作成されている、オープンデータな地図のことである。アカウントを取得すれば誰でも編集ができるよううだ。地図のデータなんてのはGoogleにはかなわないだろうと思っていたのであるが、そんなことはない。調べていくほどにGoogle Mapsとはまた違った意味ですごい部分がたくさんあることに気がついたのである。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、Open Street Mapの改めて再認識した面白さについて軽く紹介したいと思う。&lt;/p&gt;
+
+        <a href='https://code-house.jp/2016/09/16/osmsummary/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>[swift] CoreDataをさぐりさぐり触ってみた</title>
@@ -316,25 +337,6 @@
       <description>
         CODE HOUSE LOGOを作成しました。githubにはCC BY-ND 4.0として登録しています。 mm-git/logos
         <a href='https://code-house.jp/work/2016/codehouselogo' class="read-more"><nobr>Read more →</nobr></a>
-      </description>
-    </item>
-    
-    <item>
-      <title>[gulp] favicon編</title>
-      <link>https://code-house.jp/2016/08/11/gulpfavicons/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>https://code-house.jp/2016/08/11/gulpfavicons/</guid>
-      <description>
-        &lt;h2 id=&#34;gulpを使ったfavicon生成&#34;&gt;gulpを使ったfavicon生成&lt;/h2&gt;
-
-&lt;p&gt;gulpの記事第三弾は、簡単なところでfaviconの生成について説明する。gulp自体の設定については下記の記事参照。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-        <a href='https://code-house.jp/2016/08/11/gulpfavicons/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     
