@@ -3,11 +3,11 @@
   <channel>
       <title>CODE HOUSE </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://code-house.jp/tags/imagemin/</link>
+    <link>https://code-house.jp/tags/imagemin/index.xml</link>
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Sun, 21 Aug 2016 18:21:25 &#43;0900</updated>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
     <item>
       <title>[gulp] 画像サイズを減らす</title>
@@ -26,6 +26,7 @@
 &lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/21/gulpimagemin/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>

@@ -4,7 +4,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title> [Hugo] Hugoをinstallする </title>
+    <title> [OSM] .osm.pbfファイルを読み込んでみる１ </title>
     
     <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/uno.min.css" />
     <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/lightGallery.css" />
@@ -49,13 +49,13 @@
 <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1536x2008.png">
     
         <meta property="og:site_name" content="CODE HOUSE" />
-    <meta property="og:url" content="https://code-house.jp/2016/07/26/hugoinsatallation/" />
-    <meta property="og:title" content="[Hugo] Hugoをinstallする" />
+    <meta property="og:url" content="https://code-house.jp/2016/10/18/osmpbf1/" />
+    <meta property="og:title" content="[OSM] .osm.pbfファイルを読み込んでみる１" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:url" content="https://code-house.jp/2016/07/26/hugoinsatallation/" />
+    <meta name="twitter:url" content="https://code-house.jp/2016/10/18/osmpbf1/" />
 
     
-        <meta property="og:description" content="githubでは、github pagesという仕組みを利用して、自分のサイトを公開する機能がある。今回Hugoを使ってこのサイトを作成してみた。" />
+        <meta property="og:description" content="osm.pbfファイルの中身はどうなっているのか？調べてみた。そして33Gものファイルをいかにして高速に読み込むのか？？？" />
         
             <meta property="og:image" content="https://code-house.jp/open-graph.png">
             <meta property="twitter:image" content="https://code-house.jp/open-graph.png">
@@ -208,72 +208,150 @@
     <div class="content-wrapper">
       <div class="content-wrapper__inner">
         <div class="post">
-          <h1>[Hugo] Hugoをinstallする</h1>
+          <h1>[OSM] .osm.pbfファイルを読み込んでみる１</h1>
           
           <div class="tags_list">
-             <div class="tags_item"><a href="https://code-house.jp/tags/hugo/">Hugo</a></div>
+             <div class="tags_item"><a href="https://code-house.jp/tags/openstreetmap/">OpenStreetMap</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/map/">Map</a></div>
           </div>
           
-          <p class="post-date">2016-07-26</p>
+          <p class="post-date">2016-10-18</p>
           
-          <h2 id="hugoの導入">Hugoの導入</h2>
+          
 
-<p><a href="https://gohugo.io/"><img title="Hugo :: A fast and modern static website engine" src="http://capture.heartrails.com/200x150/cool?https://gohugo.io/" alt="https://gohugo.io/" width="200" height="150" /></a></p>
+<h2 id="osm-pbfとは">.osm.pbfとは？</h2>
 
-<p>githubでは、github pagesという仕組みを利用して、自分のサイトを公開する機能がある。簡単にいうと、リポジトリに登録したファイルがそのままサイトとして公開されるようになっている。
-リポジトリに登録するファイルを自動生成して公開する仕組みにどんなものがあるのか調べていると、JekyllやHugoといったものが見つかった。Hugoというのが動作としては速いらしいということで、今回Hugoを使ってこのサイトを作成してみた。</p>
+<p><a href="https://code-house.jp/2016/09/16/osmsummary/">前回の記事(Open Street Map)</a>で、Open Street Mapにハマっていたわけですが、blogも更新が滞る中、より一層とハマっていました。今回の記事では、Open Street Mapのデータが全て詰まったファイルであるosm.pbfファイルについて書きたいと思う。</p>
 
-<p></p>
+<p>さて、このファイル。全世界のファイルとなると<strong>33Gを越えるサイズ</strong>で、そのまま扱うには実に厄介なサイズなのである。中身はzlibで圧縮されているようで単純に読み込んでメモリに展開すると、おそらく60Gを越えるのではないかと思う。なので現実的には少しずつ読み込んで何らかの処理をする(例えば、世界の電車の駅だけを抽出するとか)のであるが、33Gもデータがあると扱い方によってはものすごく時間のかかる処理になるのである。なので<strong>メモリを程々に使って</strong>(程々といっても数ギガのオーダー。64bitOSでないと扱えない)、そこそこ<strong>高速にデータを処理</strong>させる必要がある。結構データを扱うのに苦労しハマったので、その顛末について記事にしておく。</p>
 
-<h3 id="インストール">インストール</h3>
+<!--mote-->
 
-<p>私はmacで作業するのでhomebrewでインストールした。</p>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>brew install hugo
-hugo new site hugo
-<span style="color: #268bd2">cd</span> hugo
-git init
-</pre></div>
-</td></tr></table>
-<h3 id="テーマのインストール">テーマのインストール</h3>
+<h2 id="osm-pbfを扱うことのできるツールについて">.osm.pbfを扱うことのできるツールについて</h2>
 
-<p>テーマは themesフォルダ内に使用するテーマをgit cloneしてもいいのだけれど、下記のようにsubmoduleとして登録するようにしてみた。こうすることで、テーマ自体を自分のリポジトリに含めずに管理することができる。なお、テーマはhugo-unoを選択してみた。</p>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #268bd2">cd</span> themes
-git submodule add https://github.com/fredrikloch/hugo-uno hugo-uno
-<span style="color: #268bd2">cd</span> ..
-</pre></div>
-</td></tr></table>
-<p>※git initを実行していない、つまり親フォルダに .git フォルダが無いと、git submoduleできないので注意。</p>
+<p>.osm.pbfを扱うことのできるツールには下記のようなものがあった。しかしmacOS環境、windows環境共に想定する動作をしてくれないか、極めて時間がかかり使い物にならないという結果になった。おそらく、osm関連のツールはUbuntuあたりで扱うのが普通なのかもしれない。しかしUbuntu環境については今回は試していない。(Ubuntuなら苦労していなかったかもしれない・・)</p>
 
-<h3 id="最低限の設定">最低限の設定</h3>
+<h3 id="osmosis">osmosis</h3>
 
-<p>現状の設定は <a href="https://github.com/mm-git/hugo/blob/master/config.toml" title="mm-git/hugo/config.toml">mm-git/hugo/config.toml</a>を参照。
-とりあえずテーマの指定をconfig.tomlに追記</p>
+<blockquote>
+<p><a href="http://wiki.openstreetmap.org/wiki/Osmosis">Osmosis - OpenStreetMap Wiki</a></p>
+</blockquote>
 
-<pre><code>theme = &quot;hugo-uno&quot;    &lt;&lt; テーマをここで指定しておく
-</code></pre>
+<p>巨大な.osm.pbfファイルから、任意の範囲を抽出したり、任意のタグを抽出したりできるツール。似たようなものにosmconverterというものがあるようだが、maxOSだとbuildが必須で挫折した。(なんかmacOSでbuildして成功した経験があまりない。Ubuntuだと問題無さそうだが..)
+ただし自分の環境ではうまくいかなかった。</p>
 
-<h3 id="ローカルで表示">ローカルで表示</h3>
+<ul>
+<li>macOS
 
-<p>下記のようにしてserverを起動した後、localhost:1313にアクセスするとhugo-unoのテーマでページが表示されます。</p>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>hugo server
-</pre></div>
-</td></tr></table>
-<p><img title="hugo-uno" src="https://goo.gl/ynu35b" alt="hugo-uno" /></p>
+<ul>
+<li>インストールは<code>brew install osmosis</code>で簡単。</li>
+<li>osmosisの実行自体はかなり時間がかかるが終了する。しかし新たにできた.osm.pbfファイルが次に説明するosm2pgsqlで読み込めなかった。</li>
+</ul></li>
+<li>Windows
+
+<ul>
+<li>zipファイルを展開してどこか好きなところに置くタイプのインストーラ無しツール。</li>
+<li>ある処理をさせてみたがが完了する気配がない。そもそもこのツール処理がどれだけ進んでいるかよくわからない。一日以上かかりそうなので、諦めた。</li>
+</ul></li>
+</ul>
+
+<h3 id="osm2pgsql">osm2pgsql</h3>
+
+<blockquote>
+<p><a href="http://wiki.openstreetmap.org/wiki/Osm2pgsql">Osm2pgsql - OpenStreetMap Wiki</a></p>
+</blockquote>
+
+<p>.osm.pbfをPostgreSQLのデータベースに変換するツール。</p>
+
+<ul>
+<li><p>macOS</p>
+
+<ul>
+<li>インストールは<code>brew install osm2pgsql</code>で簡単。</li>
+<li>配布サイトからダウンロードした.osm.pbfからの変換は問題なかった。</li>
+<li>上記のosmosisで作成した.osm.pbfは読み込めなかった。</li>
+<li><strong>日本ぐらいのサイズなら、半日ほどで変換できた。</strong>(mac mini Mid2011)</li>
+<li>全世界のファイルを変換させようとしたが、びっくりするぐらいHDD容量を使ったので途中で諦めた。(150Gぐらいで諦めた)</li>
+</ul></li>
+
+<li><p>windows</p>
+
+<ul>
+<li>Cygwin環境のzipファイルがあるので、展開して好きなところに置く。(OSMに関して、Windowsは環境整えるのが大変)</li>
+<li>実行させてみたが、何故か途中でOSがクラッシュした。ツールは32bitアプリなのに対してデータが大きすぎるせいかもしれない。(ツールのせいではないかもしれないが..)</li>
+</ul></li>
+</ul>
+
+<h2 id="osm-pbfを直接読み込んでみる">.osm.pbfを直接読み込んでみる</h2>
+
+<p>上記のようにツールをいろいろ調べてみて、結果としてはデータ配布サイトからダウンロードした日本のデータをmacOSで扱うところだけが、唯一想定内の結果であった。(これだけで3日ほどハマった。ツラい・・)
+なので、全世界のデータをもっと自由に扱いたい場合、もう自分でプログラムを組んで直接データを読み込むしかないようである。というわけで、.osm.pbfのファイルのフォーマットについて調べてみた・・。</p>
+
+<blockquote>
+<p><a href="http://wiki.openstreetmap.org/wiki/PBF_Format">http://wiki.openstreetmap.org/wiki/PBF_Format</a></p>
+</blockquote>
+
+<p>・・・。なるほど、よくわからんなぁ。というわけで、もっとざっくりと説明すると、フィアル内は下記のような構造となっているようだ。</p>
+
+<p><img src="https://goo.gl/KEMGEs" width="75%"></p>
+
+<ul>
+<li><p>まずファイルの中身はgroupという大きな塊に分かれている。</p>
+
+<ul>
+<li>groupによりサイズは異なる。</li>
+<li>最初のgroupの先頭位置はおそらくファイルの最初の方(ヘッダ部分)に書かれている。</li>
+<li>各groupのサイズは各groupのヘッダに書かれている。</li>
+<li>よって、途中のgroupの先頭位置を見つけるには、最初のgroupの先頭位置に順にサイズを足していって見つける。(のだと思われる)</li>
+<li>各groupはzipで圧縮されている。zlibのuncompress()で展開する必要がある。</li>
+<li>zipを展開した後は、<a href="https://developers.google.com/protocol-buffers/">Google Protocol Buffers</a>というフォーマットでデータが格納されているようだ。
+<br /></li>
+</ul></li>
+
+<li><p>続いて各groupの中には、主にdense、way、relationの３つのいづれかのデータが格納されている。</p>
+
+<ul>
+<li>全世界のデータを見ると、各group内には30個前後のデータが格納されている。</li>
+<li>一方日本のデータのみを見ると、各group１個のデータが格納されている。</li>
+<li>各dense、way、relationの中には最大で8000個のデータが格納されている。
+<br /></li>
+</ul></li>
+
+<li><p>denseにはあらゆる座標のデータが格納されている。</p>
+
+<ul>
+<li>例えば、バス停などの場合は、座標のユニークなnode_id(osm_idと呼ばれ、osmファイルの中のあらゆる情報を一義的に示すユニークなid)、バス停の名前、座標(経度緯度)などのデータが格納されている。</li>
+<li>次に説明するwayで使われる経路上の各点もdenseに格納されている。</li>
+</ul></li>
+
+<li><p>wayにはあらゆる、線のデータが格納されている。</p>
+
+<ul>
+<li>最も大きなデータは道路のデータと思われる。道路の線のデータが格納されている。</li>
+<li>これら線のデータは、denseに格納されたnode_idの配列データという形で格納されている。</li>
+<li>つまりway自体には座標が直接格納されてなくて、denseへの参照となっている。<strong>これがosmデータを扱う上で非常に厄介</strong>である。</li>
+<li>その他、川、線路、県境、国境などデータは多岐にわたる。</li>
+</ul></li>
+
+<li><p>relationはwayなどのある固まりをまとめたデータである。</p>
+
+<ul>
+<li>例えば国道１号線など、way内にはいくつかのデータに分かれて格納されている。これらをまとめて国道１号線として扱えるように、wayに格納されたway_idの配列という形でrelationにデータが格納されている。
+<br /></li>
+</ul></li>
+</ul>
+
+<p>というわけで、上記をふまえて実際に.osm.pbfを読み込んでみるのだが、実際のコードについては次回に続く・・。</p>
+
           
         </div>
         <div class="sharing">
-<a href="https://twitter.com/intent/tweet?status=%5bHugo%5d%20Hugo%e3%82%92install%e3%81%99%e3%82%8b-https%3a%2f%2fcode-house.jp%2f2016%2f07%2f26%2fhugoinsatallation%2f" target="_blank" title="Follow me on Twitter" class="twitter">
+<a href="https://twitter.com/intent/tweet?status=%5bOSM%5d%20.osm.pbf%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e8%aa%ad%e3%81%bf%e8%be%bc%e3%82%93%e3%81%a7%e3%81%bf%e3%82%8b%ef%bc%91-https%3a%2f%2fcode-house.jp%2f2016%2f10%2f18%2fosmpbf1%2f" target="_blank" title="Follow me on Twitter" class="twitter">
 <span class="fa fa-twitter-square fa-2x"></span></a>
-<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2f2016%2f07%2f26%2fhugoinsatallation%2f" target="_blank" title="Join me on Facebook" class="facebook">
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2f2016%2f10%2f18%2fosmpbf1%2f" target="_blank" title="Join me on Facebook" class="facebook">
 <span class="fa fa-facebook-square fa-2x"></span></a>
-<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2f2016%2f07%2f26%2fhugoinsatallation%2f" target="_blank" title="Google+" class="googleplus">
+<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2f2016%2f10%2f18%2fosmpbf1%2f" target="_blank" title="Google+" class="googleplus">
 <span class="fa fa-google-plus-square fa-2x"></span></a>
-<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2f2016%2f07%2f26%2fhugoinsatallation%2f&title=%5bHugo%5d%20Hugo%e3%82%92install%e3%81%99%e3%82%8b" target="_blank" title="LinkedIn" class="linkedin">
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2f2016%2f10%2f18%2fosmpbf1%2f&title=%5bOSM%5d%20.osm.pbf%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%92%e8%aa%ad%e3%81%bf%e8%be%bc%e3%82%93%e3%81%a7%e3%81%bf%e3%82%8b%ef%bc%91" target="_blank" title="LinkedIn" class="linkedin">
 <span class="fa fa-linkedin-square fa-2x"></span></a>
 </div>
         

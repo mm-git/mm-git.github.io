@@ -3,11 +3,11 @@
   <channel>
       <title>CODE HOUSE </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://code-house.jp/tags/gulp/</link>
+    <link>https://code-house.jp/tags/gulp/index.xml</link>
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Thu, 25 Aug 2016 08:21:43 &#43;0900</updated>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
     <item>
       <title>[gulp] ローカルサーバー編</title>
@@ -32,6 +32,7 @@
 &lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/25/gulpserver/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -53,6 +54,7 @@
 &lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/21/gulpimagemin/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -72,6 +74,7 @@
 &lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/17/gulpcoffee/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -91,6 +94,7 @@
 &lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/11/gulpfavicons/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -112,6 +116,7 @@
 &lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/06/gulpsass/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -135,6 +140,7 @@ nodeアプリやモジュールの作成でgulpを使う場合の初期設定に
 &lt;li&gt;&lt;code&gt;node init&lt;/code&gt;などnode.jsの初期化は完了しているものとする。&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/02/gulpsetting/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>

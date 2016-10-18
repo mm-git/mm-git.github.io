@@ -3,11 +3,11 @@
   <channel>
       <title>CODE HOUSE </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://code-house.jp/tags/wercker/</link>
+    <link>https://code-house.jp/tags/wercker/index.xml</link>
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Fri, 26 Aug 2016 15:18:08 &#43;0900</updated>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
     <item>
       <title>[Hugo] werckerを使って記事の公開を自動化する２[高速化]</title>
@@ -21,6 +21,7 @@
 &lt;p&gt;&lt;a href=&#34;https://code-house.jp/2016/08/24/hugowercker/&#34;&gt;前回の記事&lt;/a&gt;では、標準でよういされているdockerのboxイメージを利用して、werckerを使って記事を公開していた。しかし、記事の公開までに&lt;strong&gt;５〜７分ぐらいの時間がかかっていた。&lt;/strong&gt;これは非常にもどかしい。
 今回の記事では、独自のdockerイメージを使うことで高速化を行ってみる。&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/26/hugowercker2/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -54,6 +55,7 @@
 &lt;p&gt;&lt;a href=&#34;https://blog.nabetama.com/post/2016-05-12-30/&#34;&gt;Hugo, github pages, werckerで自動デプロイ 2016/05/12版 · blog.nabetama.com&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/24/hugowercker/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>

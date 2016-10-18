@@ -3,11 +3,11 @@
   <channel>
       <title>CODE HOUSE </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://code-house.jp/tags/coffeescript/</link>
+    <link>https://code-house.jp/tags/coffeescript/index.xml</link>
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Thu, 18 Aug 2016 08:01:36 &#43;0900</updated>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
     <item>
       <title>[GoogleMaps] Node.jsを使ったgoogle mapの初期化</title>
@@ -31,6 +31,7 @@
 &lt;li&gt;google mapsの初期化を待ってから何かの処理する場合のスクリプトが&lt;strong&gt;簡潔に書ける&lt;/strong&gt;。&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/18/mapinitialize/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -50,6 +51,7 @@
 &lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/17/gulpcoffee/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>

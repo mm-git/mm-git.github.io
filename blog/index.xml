@@ -3,11 +3,23 @@
   <channel>
       <title>CODE HOUSE </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://code-house.jp/blog/</link>
+    <link>https://code-house.jp/blog/index.xml</link>
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Fri, 16 Sep 2016 16:43:57 &#43;0900</updated>
+    <updated>Tue, 18 Oct 2016 10:24:12 &#43;0900</updated>
+    
+    <item>
+      <title>[OSM] .osm.pbfファイルを読み込んでみる１</title>
+      <link>https://code-house.jp/2016/10/18/osmpbf1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/10/18/osmpbf1/</guid>
+      <description>
+        .osm.pbfとは？ 前回の記事(Open Street Map)で、Open Street Mapにハマっていたわけですが、blogも更新が滞る中、より一層とハマって
+        <a href='https://code-house.jp/2016/10/18/osmpbf1/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>[OSM] Open Street Map</title>
@@ -22,10 +34,11 @@
 
 &lt;p&gt;ところで、Open Street Mapとは？&lt;/p&gt;
 
-&lt;p&gt;世の中で一番有名な地図のサイトと言うと、おそらくGoogle Mapsのような気がする。他にも、Yahoo Mapsなど地図のサイトはある。これらの大手企業の地図とは違い、Open Street Mapというのは世界中の有志(英語でCartographer)により作成されている、オープンデータな地図のことである。アカウントを取得すれば誰でも編集ができるよううだ。地図のデータなんてのはGoogleにはかなわないだろうと思っていたのであるが、そんなことはない。調べていくほどにGoogle Mapsとはまた違った意味ですごい部分がたくさんあることに気がついたのである。&lt;/p&gt;
+&lt;p&gt;世の中で一番有名な地図のサイトと言うと、おそらくGoogle Mapsのような気がする。他にも、Yahoo Mapsなど地図のサイトはある。これらの大手企業の地図とは違い、Open Street Mapというのは世界中の有志(英語でCartographer)により作成されている、オープンデータな地図のことである。アカウントを取得すれば誰でも編集ができるよううだ。地図のデータなんてのはGoogleにはかなわないだろうと思っていたのであるが、そんなことはない。調べていくほどにGoogle Mapsとはまた違った意味でOpen Street Mapにはすごい部分がたくさんあることに気がついたのである。&lt;/p&gt;
 
 &lt;p&gt;そんなわけで、Open Street Mapの改めて再認識した面白さについて軽く紹介したいと思う。&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/09/16/osmsummary/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -43,6 +56,7 @@
 
 &lt;p&gt;とは言うものの、iOSでのアプリ作成に必要な要素は他にもたくさんある。それらを置いといてswiftに関する記事２つ目にしていきなりCoreDataについて書くのはどうかとも思う。実際少しCoreDataのコードを書いて見たものの、まだ全然自分の中でベストプラクティスと思える状態にはなっていない。なので、この記事は現段階でCoreDataについて試行錯誤してみたという内容の記事である。&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/09/06/swiftcoredata/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -64,6 +78,7 @@
 
 &lt;p&gt;とりあえず、アプリを作成するにあたり何をする必要があるのかをざっくりとリストアップしてみた。今回はその項目をひたすら箇条書きしておく。なを、アプリはiPhoneまたはiPad向けのアプリとし、言語はswiftを使うものとする。&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/09/04/swiftstart/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -79,6 +94,7 @@
 
 &lt;p&gt;Google Map、Open Streat map。世の中にはいろいろな地図がある。これらの地図の多くは、小さな正方形の地図画像を並べて敷きつめることによって大きな地図を表示している。とまあ、このようなことは今更記事にしなくても調べればわかる話ではあるのだけど。しかし、今後このブログで書くであろう地図に関する記事の前準備としてメモの意味合いもこめて書いておきたいなあと思う。&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/29/maptilenumber/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -95,6 +111,7 @@
 &lt;p&gt;&lt;a href=&#34;https://code-house.jp/2016/08/24/hugowercker/&#34;&gt;前回の記事&lt;/a&gt;では、標準でよういされているdockerのboxイメージを利用して、werckerを使って記事を公開していた。しかし、記事の公開までに&lt;strong&gt;５〜７分ぐらいの時間がかかっていた。&lt;/strong&gt;これは非常にもどかしい。
 今回の記事では、独自のdockerイメージを使うことで高速化を行ってみる。&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/26/hugowercker2/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -122,6 +139,7 @@
 &lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/25/gulpserver/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -155,6 +173,7 @@
 &lt;p&gt;&lt;a href=&#34;https://blog.nabetama.com/post/2016-05-12-30/&#34;&gt;Hugo, github pages, werckerで自動デプロイ 2016/05/12版 · blog.nabetama.com&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/24/hugowercker/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -176,6 +195,7 @@
 &lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/21/gulpimagemin/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -206,6 +226,7 @@
 &lt;p&gt;&lt;a href=&#34;http://qiita.com/hfm/items/3df99e0f94162d454f7a&#34;&gt;hugo で Fence Code Blocks (```)を有効化する - Qiita&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/20/hugosyntaxhighlight/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -232,6 +253,7 @@
 &lt;li&gt;各記事の先頭にタグを表示する。&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/19/hugotaxonomy/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -258,6 +280,7 @@
 &lt;li&gt;google mapsの初期化を待ってから何かの処理する場合のスクリプトが&lt;strong&gt;簡潔に書ける&lt;/strong&gt;。&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/18/mapinitialize/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -277,6 +300,7 @@
 &lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/17/gulpcoffee/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -305,6 +329,7 @@
 &lt;li&gt;&lt;code&gt;work&lt;/code&gt;は同一ページに全一覧を載せる。&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/16/hugopagination/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -324,26 +349,8 @@
 &lt;p&gt;&lt;a href=&#34;https://github.com/fredrikloch/hugo-uno&#34;&gt;fredrikloch/hugo-uno: A responsive hugo theme with awesome font&amp;rsquo;s, charts and lightbox galleries&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/12/hugopreparedesign/' class="read-more"><nobr>Read more →</nobr></a>
-      </description>
-    </item>
-    
-    <item>
-      <title>[gulp] favicon編</title>
-      <link>https://code-house.jp/2016/08/11/gulpfavicons/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>https://code-house.jp/2016/08/11/gulpfavicons/</guid>
-      <description>
-        &lt;h2 id=&#34;gulpを使ったfavicon生成&#34;&gt;gulpを使ったfavicon生成&lt;/h2&gt;
-
-&lt;p&gt;gulpの記事第三弾は、簡単なところでfaviconの生成について説明する。gulp自体の設定については下記の記事参照。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://code-house.jp/post/gulp/gulpsetting/&#34;&gt;gulpの初期設定&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-        <a href='https://code-house.jp/2016/08/11/gulpfavicons/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     

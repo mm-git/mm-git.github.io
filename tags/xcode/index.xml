@@ -3,11 +3,11 @@
   <channel>
       <title>CODE HOUSE </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://code-house.jp/tags/xcode/</link>
+    <link>https://code-house.jp/tags/xcode/index.xml</link>
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Tue, 06 Sep 2016 15:02:41 &#43;0900</updated>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
     <item>
       <title>[swift] CoreDataをさぐりさぐり触ってみた</title>
@@ -22,6 +22,7 @@
 
 &lt;p&gt;とは言うものの、iOSでのアプリ作成に必要な要素は他にもたくさんある。それらを置いといてswiftに関する記事２つ目にしていきなりCoreDataについて書くのはどうかとも思う。実際少しCoreDataのコードを書いて見たものの、まだ全然自分の中でベストプラクティスと思える状態にはなっていない。なので、この記事は現段階でCoreDataについて試行錯誤してみたという内容の記事である。&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/09/06/swiftcoredata/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -43,6 +44,7 @@
 
 &lt;p&gt;とりあえず、アプリを作成するにあたり何をする必要があるのかをざっくりとリストアップしてみた。今回はその項目をひたすら箇条書きしておく。なを、アプリはiPhoneまたはiPad向けのアプリとし、言語はswiftを使うものとする。&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/09/04/swiftstart/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>

@@ -3,7 +3,7 @@
   <channel>
       <title>CODE HOUSE </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://code-house.jp/work/</link>
+    <link>https://code-house.jp/work/index.xml</link>
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
@@ -34,6 +34,7 @@
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/mm-git/backbone-graph&#34;&gt;mm-git/backbone-graph&lt;/a&gt;&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/work/2016/backbonegraph' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>

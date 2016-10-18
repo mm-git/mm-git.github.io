@@ -3,11 +3,11 @@
   <channel>
       <title>CODE HOUSE </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://code-house.jp/tags/markdown/</link>
+    <link>https://code-house.jp/tags/markdown/index.xml</link>
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Tue, 09 Aug 2016 13:38:22 &#43;0900</updated>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
     <item>
       <title>[Hugo] Hugoの記事について</title>
@@ -26,6 +26,7 @@
 &lt;li&gt;記事の書き方メモ&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/09/hugocontent/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>

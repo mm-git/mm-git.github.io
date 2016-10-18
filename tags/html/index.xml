@@ -3,11 +3,11 @@
   <channel>
       <title>CODE HOUSE </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://code-house.jp/tags/html/</link>
+    <link>https://code-house.jp/tags/html/index.xml</link>
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Fri, 19 Aug 2016 15:16:45 &#43;0900</updated>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
     <item>
       <title>[Hugo] タグを追加する</title>
@@ -31,6 +31,7 @@
 &lt;li&gt;各記事の先頭にタグを表示する。&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/19/hugotaxonomy/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -59,6 +60,7 @@
 &lt;li&gt;&lt;code&gt;work&lt;/code&gt;は同一ページに全一覧を載せる。&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/16/hugopagination/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
@@ -78,6 +80,7 @@
 &lt;p&gt;&lt;a href=&#34;https://github.com/fredrikloch/hugo-uno&#34;&gt;fredrikloch/hugo-uno: A responsive hugo theme with awesome font&amp;rsquo;s, charts and lightbox galleries&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/12/hugopreparedesign/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
