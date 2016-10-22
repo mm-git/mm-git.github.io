@@ -1,10 +1,10 @@
-    <!DOCTYPE html>
+  <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja-jp">
 <head prefix="og: http://ogp.me/ns#">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title> Xcode </title>
+    <title> [OSM] osm.pbfを読み込む２ block編 </title>
     
     <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/uno.min.css" />
     <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/lightGallery.css" />
@@ -49,21 +49,23 @@
 <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1536x2008.png">
     
         <meta property="og:site_name" content="CODE HOUSE" />
-    <meta property="og:url" content="https://code-house.jp/tags/xcode/" />
-    <meta property="og:title" content="Xcode" />
+    <meta property="og:url" content="https://code-house.jp/2016/10/21/osmpbf2/" />
+    <meta property="og:title" content="[OSM] osm.pbfを読み込む２ block編" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:url" content="https://code-house.jp/tags/xcode/" />
+    <meta name="twitter:url" content="https://code-house.jp/2016/10/21/osmpbf2/" />
 
     
-        <meta property="og:description" content="Hello, I&#39;m a freelance software engineer." />
-        <meta property="og:image" content="https://code-house.jp/open-graph.png">
-        <meta property="twitter:image" content="https://code-house.jp/open-graph.png">
-        <meta property="og:type" content="blog" />
+        <meta property="og:description" content="osm.pbfを読み込む話の第二弾。33Gのファイルの世界を旅する話です。" />
+        
+            <meta property="og:image" content="https://code-house.jp/open-graph.png">
+            <meta property="twitter:image" content="https://code-house.jp/open-graph.png">
+        
+        <meta property="og:type" content="article" />
     
 
 
     
-    <link href="https://code-house.jp/tags/xcode/index.xml" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
+    <link href="" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
     
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -92,8 +94,8 @@
     </script>
 </head>
 
-    <body>
-        <div id="scriptHeader">
+  <body>
+    <div id="scriptHeader">
     
     <header class="panel-cover panel-cover--collapsed">
     
@@ -203,31 +205,122 @@
     </header>
 </noscript>
 
-        <div class="content-wrapper">
-            <div class="content-wrapper__inner">
-                <section id="main">
-                    <div class="tags_list">
-                    <div class="tags_title"><span>Xcode</span></div>
-                    </div>
-                    <ul id="list">
-                        
-                        <li>
-                            2016-09-06
-                            <a href="https://code-house.jp/2016/09/06/swiftcoredata/">[swift] CoreDataをさぐりさぐり触ってみた</a>
-                        </li>
-                        
-                        <li>
-                            2016-09-04
-                            <a href="https://code-house.jp/2016/09/04/swiftstart/">[swift]スマホアプリを作る</a>
-                        </li>
-                        
-                    </ul>
-                    <hr>
-                    <a href="https://code-house.jp/tags">Tags</a>
-                    
-                </section>
-            </div>
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>[OSM] osm.pbfを読み込む２ block編</h1>
+          
+          <div class="tags_list">
+             <div class="tags_item"><a href="https://code-house.jp/tags/openstreetmap/">OpenStreetMap</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/map/">Map</a></div>
+          </div>
+          
+          <p class="post-date">2016-10-21</p>
+          
+          <h2 id="宝を探すおっさんの話">宝を探すおっさんの話</h2>
+
+<p>あるところにおっさんが住んでいました。そんなおっさんの所に、ある手紙が届きました。<br>
+「宝探しの冒険にでませんか？今がその時です」<br>
+明らかに胡散臭い手紙です。その手紙にはさらにこう書いてあります。<br>
+「<strong>あなたの家から100m先の駅のロッカーに、宝物があります</strong>。鍵を同封しておきます」<br>
+本当に胡散臭いですが、行くだけなら害は無いだろうと、おっさんはその駅へと向かったのでした。</p>
+
+<p>駅のロッカーに着くと、おっさんは手紙に同封されていたキーでロッカーを開けました。なんと、100円玉と更に次の宝への手紙が入っていたのです。
+手紙にはこう書いてありました。<br>
+「<strong>次の宝は1500m先の隣の駅のロッカーです</strong>」</p>
+
+<p>このようにしておっさんは何千個ものロッカーを渡り歩き、数十万円を手にしましたとさ・・。</p>
+
+<p><sub style="font-size:0.8em">※この話はフィクションです</sub></p>
+
+<h2 id="osm-pbfファイルの話">osm.pbfファイルの話</h2>
+
+<p>さて、冒頭に変な話を書きました。おっさんは何千個ものロッカーを歩いて旅して、最終的に数十万を手に入れました。果たしてこれは割にあう話なのでしょうか？
+もしこれが一日で全てのロッカーを歩き回ったというのなら、割のいい話かもしれません。でも、実際におっさんは一年がかりで旅をしました。おっさんは苦労の割には時間の無駄だなぁと思ったようです。</p>
+
+<p>こんな話を書いたのは、osm.pbfの中身がこの話に似ている部分があるからです。つまり、ファイルの先頭に<strong>最初のデータの場所</strong>が書いてあります。そして最初のデータの先頭に、<strong>次のデータの場所</strong>が書いてあります。このようにosm.pbfもファイルの先頭からたどっていかないと、必要なデータにたどり着けないような構造になっているのです。</p>
+
+<p></p>
+
+<h2 id="osm-pbfの中身を読んでみる">osm.pbfの中身を読んでみる</h2>
+
+<h3 id="imposm">Imposm</h3>
+
+<p>osm.pbfのファイルを読み込むには<strong>pythonが便利</strong>です。pythonは今までほとんど触ったことがありませんでしたが、触れば触るほどにデータの解析などで非常に便利だと思いハマってしまいました。そもそも、osm.pbfを読み込むためのパッケージでちょうどいいのがpythonで見つかったというのが、今回pythonを使う理由です。</p>
+
+<blockquote>
+<p><a href="https://imposm.org/">Imposm</a></p>
+
+<p><a href="https://github.com/omniscale/imposm-parser">omniscale/imposm-parser - GitHub</a></p>
+</blockquote>
+
+<p>Imposmというのがそのパッケージです。osxかlinuxのみインストールできるようです。windowsはどう頑張ってもインストールできませんでした。また、pythonは2.7でないとインストールできません。osxの場合、多分下記のようにすればインストールできると思います。(インストールで少しハマったのですが、<code>pip install imposm</code>でエラーがでた場合、だいたい何が足りないのかががメッセージに出ると思います)</p>
+
+<h5 id="bash">bash</h5>
+
+<pre><code>brew install tokyo-cabinet
+pip install shaply
+pip install imposm
+</code></pre>
+
+<h3 id="ファイル内のデータを追いかけてみる">ファイル内のデータを追いかけてみる</h3>
+
+<h5 id="pbf-sample-py">pbf_sample.py</h5>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #cb4b16">from</span> <span style="color: #b58900">imposm.parser.pbf.parser</span> <span style="color: #cb4b16">import</span> <span style="color: #586e75">PBFFile</span><span style="color: #657b83">,</span> <span style="color: #586e75">PrimitiveBlockParser</span>
+
+<span style="color: #586e75">pbf</span> <span style="color: #657b83">=</span> <span style="color: #586e75">PBFFile</span><span style="color: #657b83">(</span><span style="color: #2aa198">&#39;osm.pbfファイル名&#39;</span><span style="color: #657b83">)</span>
+<span style="color: #859900">for</span> <span style="color: #586e75">block</span> <span style="color: #859900">in</span> <span style="color: #586e75">pbf</span><span style="color: #657b83">.</span><span style="color: #586e75">blob_offsets</span><span style="color: #657b83">():</span>
+    <span style="color: #586e75">blob_pos</span> <span style="color: #657b83">=</span> <span style="color: #586e75">block</span><span style="color: #657b83">[</span><span style="color: #2aa198">&#39;blob_pos&#39;</span><span style="color: #657b83">]</span>
+    <span style="color: #586e75">blob_size</span> <span style="color: #657b83">=</span> <span style="color: #586e75">block</span><span style="color: #657b83">[</span><span style="color: #2aa198">&#39;blob_size&#39;</span><span style="color: #657b83">]</span>
+
+    <span style="color: #586e75">block_parser</span> <span style="color: #657b83">=</span> <span style="color: #586e75">PrimitiveBlockParser</span><span style="color: #657b83">(</span><span style="color: #2aa198">&#39;osm.pbfファイル名&#39;</span><span style="color: #657b83">,</span> <span style="color: #586e75">blob_pos</span><span style="color: #657b83">,</span> <span style="color: #586e75">blob_size</span><span style="color: #657b83">)</span>
+    <span style="color: #93a1a1; font-style: italic"># 以下、読み込んだblockの処理</span>
+</pre></div>
+</td></tr></table>
+<ul>
+<li>ファイルの先頭で、PBFFile, PrimitiveBlockParserの２つをimportします。ほぼこの２つで、ファイル内の情報にアクセスできると思います。</li>
+<li>PBFFileはファイル内のデータの場所を順番に教えてくれます。実際のファイルの構造を知らなくてもOKです。</li>
+<li>PrimitiveBlockParserはファイル内のデータを読み込んでくれます。
+
+<ul>
+<li>ファイルのデータはzlibで圧縮されていますが、展開も勝手にしてくれます。</li>
+<li>さらに、データはGoogle Protocol Bufferという形式で格納されています。しかしこれも勝手に解釈してわかりやすいようにしてくれます。</li>
+<li>どのようなデータがあるのかは、dense、waysなどのメンバ変数に展開されるので、好きなようにデータを扱えます。</li>
+<li>また、nodes(), ways(), relations()など、そのデータ内にあるデータを全て順に(yieldで)返してくれる関数が用意されています。</li>
+</ul></li>
+</ul>
+
+<h2 id="さて準備は整った">さて準備は整った？？</h2>
+
+<p>そんなわけで、ファイルの中身さえ見ることができるようになれば、あとは順に読み込むだけ。<strong>簡単だ！</strong>私は、そう思いました。しかし、33Gのデータは巨大でした。単純に順番に読むだけでは馬鹿みたいな時間がかかったのです。ある処理をするのに最初に何も考えずに組んだプログラムの予想終了時間は約4000日。この巨大なファイルを読み込むには少し工夫が必要だったのです。</p>
+
+<p>さらに次回に続きます・・。</p>
+          
         </div>
-    </body>
-    
+        <div class="sharing">
+<a href="https://twitter.com/intent/tweet?status=%5bOSM%5d%20osm.pbf%e3%82%92%e8%aa%ad%e3%81%bf%e8%be%bc%e3%82%80%ef%bc%92%20block%e7%b7%a8-https%3a%2f%2fcode-house.jp%2f2016%2f10%2f21%2fosmpbf2%2f" target="_blank" title="Follow me on Twitter" class="twitter">
+<span class="fa fa-twitter-square fa-2x"></span></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2f2016%2f10%2f21%2fosmpbf2%2f" target="_blank" title="Join me on Facebook" class="facebook">
+<span class="fa fa-facebook-square fa-2x"></span></a>
+<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2f2016%2f10%2f21%2fosmpbf2%2f" target="_blank" title="Google+" class="googleplus">
+<span class="fa fa-google-plus-square fa-2x"></span></a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2f2016%2f10%2f21%2fosmpbf2%2f&title=%5bOSM%5d%20osm.pbf%e3%82%92%e8%aa%ad%e3%81%bf%e8%be%bc%e3%82%80%ef%bc%92%20block%e7%b7%a8" target="_blank" title="LinkedIn" class="linkedin">
+<span class="fa fa-linkedin-square fa-2x"></span></a>
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
 </html>

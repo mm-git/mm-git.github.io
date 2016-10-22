@@ -136,7 +136,7 @@
         </li>   
         
         <li class="navigation__item">
-            <a href="http://www.facebook.com/" title=" on facebook"> <i class='fa fa-facebook'></i> <span class="label">facebook</span> </a>
+            <a href="http://www.facebook.com/motoyasu.meguro" title="motoyasu.meguro on facebook"> <i class='fa fa-facebook'></i> <span class="label">facebook</span> </a>
         </li>  
     </ul>
 </nav>
@@ -191,7 +191,7 @@
         </li>   
         
         <li class="navigation__item">
-            <a href="http://www.facebook.com/" title=" on facebook"> <i class='fa fa-facebook'></i> <span class="label">facebook</span> </a>
+            <a href="http://www.facebook.com/motoyasu.meguro" title="motoyasu.meguro on facebook"> <i class='fa fa-facebook'></i> <span class="label">facebook</span> </a>
         </li>  
     </ul>
 </nav>
@@ -216,15 +216,13 @@
           
           <p class="post-date">2016-10-18</p>
           
-          
-
-<h2 id="osm-pbfとは">.osm.pbfとは？</h2>
+          <h2 id="osm-pbfとは">.osm.pbfとは？</h2>
 
 <p><a href="https://code-house.jp/2016/09/16/osmsummary/">前回の記事(Open Street Map)</a>で、Open Street Mapにハマっていたわけですが、blogも更新が滞る中、より一層とハマっていました。今回の記事では、Open Street Mapのデータが全て詰まったファイルであるosm.pbfファイルについて書きたいと思う。</p>
 
 <p>さて、このファイル。全世界のファイルとなると<strong>33Gを越えるサイズ</strong>で、そのまま扱うには実に厄介なサイズなのである。中身はzlibで圧縮されているようで単純に読み込んでメモリに展開すると、おそらく60Gを越えるのではないかと思う。なので現実的には少しずつ読み込んで何らかの処理をする(例えば、世界の電車の駅だけを抽出するとか)のであるが、33Gもデータがあると扱い方によってはものすごく時間のかかる処理になるのである。なので<strong>メモリを程々に使って</strong>(程々といっても数ギガのオーダー。64bitOSでないと扱えない)、そこそこ<strong>高速にデータを処理</strong>させる必要がある。結構データを扱うのに苦労しハマったので、その顛末について記事にしておく。</p>
 
-<!--mote-->
+<p></p>
 
 <h2 id="osm-pbfを扱うことのできるツールについて">.osm.pbfを扱うことのできるツールについて</h2>
 
@@ -287,7 +285,7 @@
 なので、全世界のデータをもっと自由に扱いたい場合、もう自分でプログラムを組んで直接データを読み込むしかないようである。というわけで、.osm.pbfのファイルのフォーマットについて調べてみた・・。</p>
 
 <blockquote>
-<p><a href="http://wiki.openstreetmap.org/wiki/PBF_Format">http://wiki.openstreetmap.org/wiki/PBF_Format</a></p>
+<p><a href="http://wiki.openstreetmap.org/wiki/PBF_Format">PBF Format - OpenStreetMap Wiki</a></p>
 </blockquote>
 
 <p>・・・。なるほど、よくわからんなぁ。というわけで、もっとざっくりと説明すると、フィアル内は下記のような構造となっているようだ。</p>
@@ -341,7 +339,6 @@
 </ul>
 
 <p>というわけで、上記をふまえて実際に.osm.pbfを読み込んでみるのだが、実際のコードについては次回に続く・・。</p>
-
           
         </div>
         <div class="sharing">

@@ -10,13 +10,54 @@
     <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
     
     <item>
+      <title>[OSM] osm.pbfを読み込む２ block編</title>
+      <link>https://code-house.jp/2016/10/21/osmpbf2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/10/21/osmpbf2/</guid>
+      <description>
+        &lt;h2 id=&#34;宝を探すおっさんの話&#34;&gt;宝を探すおっさんの話&lt;/h2&gt;
+
+&lt;p&gt;あるところにおっさんが住んでいました。そんなおっさんの所に、ある手紙が届きました。&lt;br&gt;
+「宝探しの冒険にでませんか？今がその時です」&lt;br&gt;
+明らかに胡散臭い手紙です。その手紙にはさらにこう書いてあります。&lt;br&gt;
+「&lt;strong&gt;あなたの家から100m先の駅のロッカーに、宝物があります&lt;/strong&gt;。鍵を同封しておきます」&lt;br&gt;
+本当に胡散臭いですが、行くだけなら害は無いだろうと、おっさんはその駅へと向かったのでした。&lt;/p&gt;
+
+&lt;p&gt;駅のロッカーに着くと、おっさんは手紙に同封されていたキーでロッカーを開けました。なんと、100円玉と更に次の宝への手紙が入っていたのです。
+手紙にはこう書いてありました。&lt;br&gt;
+「&lt;strong&gt;次の宝は1500m先の隣の駅のロッカーです&lt;/strong&gt;」&lt;/p&gt;
+
+&lt;p&gt;このようにしておっさんは何千個ものロッカーを渡り歩き、数十万円を手にしましたとさ・・。&lt;/p&gt;
+
+&lt;p&gt;&lt;sub style=&#34;font-size:0.8em&#34;&gt;※この話はフィクションです&lt;/sub&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;osm-pbfファイルの話&#34;&gt;osm.pbfファイルの話&lt;/h2&gt;
+
+&lt;p&gt;さて、冒頭に変な話を書きました。おっさんは何千個ものロッカーを歩いて旅して、最終的に数十万を手に入れました。果たしてこれは割にあう話なのでしょうか？
+もしこれが一日で全てのロッカーを歩き回ったというのなら、割のいい話かもしれません。でも、実際におっさんは一年がかりで旅をしました。おっさんは苦労の割には時間の無駄だなぁと思ったようです。&lt;/p&gt;
+
+&lt;p&gt;こんな話を書いたのは、osm.pbfの中身がこの話に似ている部分があるからです。つまり、ファイルの先頭に&lt;strong&gt;最初のデータの場所&lt;/strong&gt;が書いてあります。そして最初のデータの先頭に、&lt;strong&gt;次のデータの場所&lt;/strong&gt;が書いてあります。このようにosm.pbfもファイルの先頭からたどっていかないと、必要なデータにたどり着けないような構造になっているのです。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+        <a href='https://code-house.jp/2016/10/21/osmpbf2/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
+    
+    <item>
       <title>[OSM] .osm.pbfファイルを読み込んでみる１</title>
       <link>https://code-house.jp/2016/10/18/osmpbf1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
       <guid>https://code-house.jp/2016/10/18/osmpbf1/</guid>
       <description>
-        .osm.pbfとは？ 前回の記事(Open Street Map)で、Open Street Mapにハマっていたわけですが、blogも更新が滞る中、より一層とハマって
+        &lt;h2 id=&#34;osm-pbfとは&#34;&gt;.osm.pbfとは？&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://code-house.jp/2016/09/16/osmsummary/&#34;&gt;前回の記事(Open Street Map)&lt;/a&gt;で、Open Street Mapにハマっていたわけですが、blogも更新が滞る中、より一層とハマっていました。今回の記事では、Open Street Mapのデータが全て詰まったファイルであるosm.pbfファイルについて書きたいと思う。&lt;/p&gt;
+
+&lt;p&gt;さて、このファイル。全世界のファイルとなると&lt;strong&gt;33Gを越えるサイズ&lt;/strong&gt;で、そのまま扱うには実に厄介なサイズなのである。中身はzlibで圧縮されているようで単純に読み込んでメモリに展開すると、おそらく60Gを越えるのではないかと思う。なので現実的には少しずつ読み込んで何らかの処理をする(例えば、世界の電車の駅だけを抽出するとか)のであるが、33Gもデータがあると扱い方によってはものすごく時間のかかる処理になるのである。なので&lt;strong&gt;メモリを程々に使って&lt;/strong&gt;(程々といっても数ギガのオーダー。64bitOSでないと扱えない)、そこそこ&lt;strong&gt;高速にデータを処理&lt;/strong&gt;させる必要がある。結構データを扱うのに苦労しハマったので、その顛末について記事にしておく。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/10/18/osmpbf1/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
