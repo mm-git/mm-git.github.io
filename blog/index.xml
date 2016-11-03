@@ -7,7 +7,19 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Fri, 21 Oct 2016 11:00:23 &#43;0900</updated>
+    <updated>Thu, 27 Oct 2016 10:33:19 &#43;0900</updated>
+    
+    <item>
+      <title>[OSM] osm.pbfを読み込む３ node座標編</title>
+      <link>https://code-house.jp/2016/10/27/osmpbf3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2016/10/27/osmpbf3/</guid>
+      <description>
+        ロッカーの前で おっさんはロッカーのキーを握りしめ、駅のロッカーの前に立っていました。ロッカーの中にはお宝があります。しかし、その駅のロッカー
+        <a href='https://code-house.jp/2016/10/27/osmpbf3/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>[OSM] osm.pbfを読み込む２ block編</title>
@@ -17,6 +29,8 @@
       <guid>https://code-house.jp/2016/10/21/osmpbf2/</guid>
       <description>
         &lt;h2 id=&#34;宝を探すおっさんの話&#34;&gt;宝を探すおっさんの話&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://goo.gl/FsIaG2&#34; width=&#34;40%&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;あるところにおっさんが住んでいました。そんなおっさんの所に、ある手紙が届きました。&lt;br&gt;
 「宝探しの冒険にでませんか？今がその時です」&lt;br&gt;
@@ -34,10 +48,10 @@
 
 &lt;h2 id=&#34;osm-pbfファイルの話&#34;&gt;osm.pbfファイルの話&lt;/h2&gt;
 
-&lt;p&gt;さて、冒頭に変な話を書きました。おっさんは何千個ものロッカーを歩いて旅して、最終的に数十万を手に入れました。果たしてこれは割にあう話なのでしょうか？
+&lt;p&gt;さて、冒頭に変な話を書きました。おっさんは何千個ものロッカーを歩いて旅して、最終的に数十万を手に入れました。果たしてこれは割にあう話なのでしょうか？&lt;br&gt;
 もしこれが一日で全てのロッカーを歩き回ったというのなら、割のいい話かもしれません。でも、実際におっさんは一年がかりで旅をしました。おっさんは苦労の割には時間の無駄だなぁと思ったようです。&lt;/p&gt;
 
-&lt;p&gt;こんな話を書いたのは、osm.pbfの中身がこの話に似ている部分があるからです。つまり、ファイルの先頭に&lt;strong&gt;最初のデータの場所&lt;/strong&gt;が書いてあります。そして最初のデータの先頭に、&lt;strong&gt;次のデータの場所&lt;/strong&gt;が書いてあります。このようにosm.pbfもファイルの先頭からたどっていかないと、必要なデータにたどり着けないような構造になっているのです。&lt;/p&gt;
+&lt;p&gt;こんな話を書いたのは、osm.pbfの中身がこの話に似ている部分があるからです。つまり、ファイルの先頭に&lt;strong&gt;最初のデータの場所&lt;/strong&gt;が書いてあります。そして最初のデータの先頭に、&lt;strong&gt;次のデータの場所&lt;/strong&gt; が書いてあります。このようにosm.pbfもファイルの先頭からたどっていかないと、必要なデータにたどり着けないような構造になっているのです。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/10/21/osmpbf2/' class="read-more"><nobr>Read more →</nobr></a>
@@ -343,35 +357,6 @@
 
 &lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/17/gulpcoffee/' class="read-more"><nobr>Read more →</nobr></a>
-      </description>
-    </item>
-    
-    <item>
-      <title>[Hugo] ページネーションを追加する</title>
-      <link>https://code-house.jp/2016/08/16/hugopagination/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>https://code-house.jp/2016/08/16/hugopagination/</guid>
-      <description>
-        &lt;h2 id=&#34;ブログ一覧ページの追加&#34;&gt;ブログ一覧ページの追加&lt;/h2&gt;
-
-&lt;p&gt;このサイトは&lt;code&gt;hugo-uno&lt;/code&gt;というベーステーマを元に作成している。しかし、このテーマはトップページに最新の記事を１０個だけ表示するようになっていた。また、&lt;code&gt;index.html#blog&lt;/code&gt;というハッシュを付けた場合に一覧を表示するようになっている(カバーページと一覧ページを同一のhtmlで切り替えて表示するようになている)。&lt;/p&gt;
-
-&lt;p&gt;これを下記のように変更したいのだが、これがなかなかわかりにくくて、特に下記の★の２つはだいぶ調べるのに時間がかかった。最終的には対応できたのでこれを記事にしておきたいと思う。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;rootのindex.htmlはカバーページ専用とする。
-
-&lt;ul&gt;
-&lt;li&gt;この変更についてはこの記事では説明しない。変更点は&lt;a href=&#34;https://github.com/mm-git/hugo&#34;&gt;mm-git/hugo&lt;/a&gt;参照。&lt;code&gt;layouts/index.html&lt;/code&gt;, &lt;code&gt;static/js/main.js&lt;/code&gt;あたりを変更している。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;blog&lt;/code&gt;、&lt;code&gt;work&lt;/code&gt;といったセクションごとに、記事の一覧を作成する。★&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;blog&lt;/code&gt;は５記事毎にページを切り替えるようにする。★&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;work&lt;/code&gt;は同一ページに全一覧を載せる。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;/p&gt;
-        <a href='https://code-house.jp/2016/08/16/hugopagination/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     
