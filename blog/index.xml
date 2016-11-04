@@ -7,17 +7,29 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Thu, 27 Oct 2016 10:33:19 &#43;0900</updated>
+    <updated>Fri, 04 Nov 2016 15:33:19 &#43;0900</updated>
     
     <item>
       <title>[OSM] osm.pbfを読み込む３ node座標編</title>
-      <link>https://code-house.jp/2016/10/27/osmpbf3/</link>
+      <link>https://code-house.jp/2016/11/04/osmpbf3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>https://code-house.jp/2016/10/27/osmpbf3/</guid>
+      <guid>https://code-house.jp/2016/11/04/osmpbf3/</guid>
       <description>
-        ロッカーの前で おっさんはロッカーのキーを握りしめ、駅のロッカーの前に立っていました。ロッカーの中にはお宝があります。しかし、その駅のロッカー
-        <a href='https://code-house.jp/2016/10/27/osmpbf3/' class="read-more"><nobr>Read more →</nobr></a>
+        &lt;h2 id=&#34;ロッカーの前で&#34;&gt;ロッカーの前で&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://goo.gl/2Ou1dg&#34; width=&#34;40%&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;おっさんはロッカーのキーを握りしめ、駅のロッカーの前に立っていました。ロッカーの中にはお宝があります。しかし、その駅のロッカーはものすごい数があり、しかもロッカーの番号はところどころ欠番がありました。&lt;br&gt;
+お宝がほしかったおっさんは、最初から順にロッカーの番号を探していきました。&lt;br&gt;
+ところが、なんということでしょう。おっさんが持ったキーのロッカーは、何千個もあったロッカーのうち、&lt;strong&gt;最後から３番目のロッカーだったのです。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;結局、おっさんは１つの宝を探し出すのに、その駅で何時間も過ごす羽目になったのでした・・。&lt;/p&gt;
+
+&lt;p&gt;&lt;sub style=&#34;font-size:0.8em&#34;&gt;※この話はフィクションです&lt;/sub&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+        <a href='https://code-house.jp/2016/11/04/osmpbf3/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     

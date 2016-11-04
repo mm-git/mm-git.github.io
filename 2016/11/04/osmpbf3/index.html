@@ -1,0 +1,347 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja-jp">
+<head prefix="og: http://ogp.me/ns#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> [OSM] osm.pbfを読み込む３ node座標編 </title>
+    
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/lightGallery.css" />
+    <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/solarizedlight.min.css" />
+    
+    <link rel="apple-touch-icon" sizes="57x57" href="https://code-house.jp/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://code-house.jp/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://code-house.jp/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://code-house.jp/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://code-house.jp/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://code-house.jp/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://code-house.jp/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://code-house.jp/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://code-house.jp/apple-touch-icon-180x180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="logo">
+<link rel="icon" type="image/png" sizes="228x228" href="https://code-house.jp/coast-228x228.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://code-house.jp/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://code-house.jp/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://code-house.jp/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="230x230" href="https://code-house.jp/favicon-230x230.png">
+<link rel="shortcut icon" href="https://code-house.jp/favicon.ico">
+<link rel="yandex-tableau-widget" href="https://code-house.jp/yandex-browser-manifest.json">
+<meta name="msapplication-TileColor" content="#666666">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<link rel="icon" type="image/png" sizes="192x192" href="https://code-house.jp/android-chrome-192x192.png">
+<link rel="manifest" href="https://code-house.jp/manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#666666">
+<meta name="application-name" content="logo">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="https://code-house.jp/apple-touch-startup-image-320x460.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-640x920.png">
+<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-640x1096.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-750x1294.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="https://code-house.jp/apple-touch-startup-image-1182x2208.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="https://code-house.jp/apple-touch-startup-image-1242x2148.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="https://code-house.jp/apple-touch-startup-image-748x1024.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="https://code-house.jp/apple-touch-startup-image-768x1004.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1496x2048.png">
+<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1536x2008.png">
+    
+        <meta property="og:site_name" content="CODE HOUSE" />
+    <meta property="og:url" content="https://code-house.jp/2016/11/04/osmpbf3/" />
+    <meta property="og:title" content="[OSM] osm.pbfを読み込む３ node座標編" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content="https://code-house.jp/2016/11/04/osmpbf3/" />
+
+    
+        <meta property="og:description" content="osm.pbfを読み込む話の第三弾。座標の取得に一苦労する話" />
+        
+            <meta property="og:image" content="https://code-house.jp/open-graph.png">
+            <meta property="twitter:image" content="https://code-house.jp/open-graph.png">
+        
+        <meta property="og:type" content="article" />
+    
+
+
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
+    
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      showMathMenu: false,
+      displayAlign: "left",
+      HTML: ["input/TeX", "output/HTML-CSS"],
+      "HTML-CSS": {
+        styles: {
+          ".MathJax_Display": {
+            margin:0
+          }
+        }
+      }
+    });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-81918210-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    
+    <header class="panel-cover panel-cover--collapsed">
+    
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content">
+                
+                <a href="https://code-house.jp" title="link to homepage for CODE HOUSE">
+                    <img src="https://code-house.jp/images/codehouse_logo.png" width="100" alt="CODE HOUSE logo" class="panel-cover__logo" />
+                </a>
+                
+                <p class="panel-cover__title panel-title">
+                    <a href="https://code-house.jp"  title="link to homepage for CODE HOUSE">CODE HOUSE</a>
+                </p>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">Hello, I&#39;m a freelance software engineer.</p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-n avigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="https://code-house.jp/work" title="link to CODE HOUSE work" class="blog-button">Work</a> </li>
+                            <li class="navigation__item"><a href="https://code-house.jp/blog" title="link to CODE HOUSE blog" class="blog-button">Blog</a> </li>
+
+                            
+                            
+                        </ul>
+                    </nav>
+                    <br>
+                    <nav class="cover-navigation navigation--social">
+    <ul class="navigation">   
+        
+        <li class="navigation__item">
+            <a href="https://github.com/mm-git" title="mm-git on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.linkedin.com/in/meguro/en" title="Linkedin"> <i class='fa fa-linkedin'></i> <span class="label">Linkedin</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.facebook.com/motoyasu.meguro" title="motoyasu.meguro on facebook"> <i class='fa fa-facebook'></i> <span class="label">facebook</span> </a>
+        </li>  
+    </ul>
+</nav>
+
+                </div>
+                
+                <p class="panel-cover__copyright">Powered by Hugo. Copyright © 2016 code-house.jp</p>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="https://code-house.jp" title="link to homepage for CODE HOUSE"> <img src="https://code-house.jp/images/codehouse_logo.png" width="80" alt="CODE HOUSE logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="https://code-house.jp"  title="link to homepage for CODE HOUSE">CODE HOUSE</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  Hello, I&#39;m a freelance software engineer.  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="https://code-house.jp/work" title="link to CODE HOUSE work" class="blog-button">Work</a> </li>
+                                <li class="navigation__item"><a href="https://code-house.jp/blog" title="link to CODE HOUSE blog" class="blog-button">Blog</a> </li>
+                                
+                                
+                            </ul>
+                        </nav>
+                        <br><nav class="cover-navigation navigation--social">
+    <ul class="navigation">   
+        
+        <li class="navigation__item">
+            <a href="https://github.com/mm-git" title="mm-git on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.linkedin.com/in/meguro/en" title="Linkedin"> <i class='fa fa-linkedin'></i> <span class="label">Linkedin</span> </a>
+        </li>   
+        
+        <li class="navigation__item">
+            <a href="http://www.facebook.com/motoyasu.meguro" title="motoyasu.meguro on facebook"> <i class='fa fa-facebook'></i> <span class="label">facebook</span> </a>
+        </li>  
+    </ul>
+</nav>
+
+                    </div>
+                    <p class="panel-cover__copyright">Powered by Hugo. Copyright © 2016 code-house.jp</p>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>[OSM] osm.pbfを読み込む３ node座標編</h1>
+          
+          <div class="tags_list">
+             <div class="tags_item"><a href="https://code-house.jp/tags/openstreetmap/">OpenStreetMap</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/map/">Map</a></div>
+          </div>
+          
+          <p class="post-date">2016-11-04</p>
+          
+          <h2 id="ロッカーの前で">ロッカーの前で</h2>
+
+<p><img src="https://goo.gl/2Ou1dg" width="40%"></p>
+
+<p>おっさんはロッカーのキーを握りしめ、駅のロッカーの前に立っていました。ロッカーの中にはお宝があります。しかし、その駅のロッカーはものすごい数があり、しかもロッカーの番号はところどころ欠番がありました。<br>
+お宝がほしかったおっさんは、最初から順にロッカーの番号を探していきました。<br>
+ところが、なんということでしょう。おっさんが持ったキーのロッカーは、何千個もあったロッカーのうち、<strong>最後から３番目のロッカーだったのです。</strong></p>
+
+<p>結局、おっさんは１つの宝を探し出すのに、その駅で何時間も過ごす羽目になったのでした・・。</p>
+
+<p><sub style="font-size:0.8em">※この話はフィクションです</sub></p>
+
+<p></p>
+
+<h2 id="osm-pbfのdenseデータの話">osm.pbfのdenseデータの話</h2>
+
+<p>今回も冒頭に変な話を書きました。おっさんはもう少し効率良くロッカーを探すことができなかったのでしょうか？<br>
+というわけで、今回のテーマはデータの検索とソートの話です。PCで扱うデータも扱い方を間違うと、おっさんのように無駄な時間がかかってしまいます。</p>
+
+<p>osm.pbfファイルののdenseデータ。これは地図上のあらゆる座標データが集まったデータです。座標を識別するための番号、座標(経度、緯度)、その座標のその他の情報(名前など)から成り立っています。<br>
+この座標を識別するための番号(以降node_idと呼ぶ)も、先程の話と同じようにところどころ飛び飛びの番号になっています。<br>
+世界中のデータを扱おうとすると、このnode_idの検索を何千万回、何億回と行う必要があります。</p>
+
+<h3 id="最初に作ったプログラム">最初に作ったプログラム</h3>
+
+<p>ところで、あるnode_idの座標情報が欲しい場合に、それを探すプログラムを作成してみました。こんな感じです。</p>
+
+<ol>
+<li>どのnode_idがどのdenseグループに格納されているかを予め調べておく。</li>
+<li>そのnode_idが格納されている、denseグループを読み込む。</li>
+<li>denseの内容を配列に展開する。</li>
+<li>denseの配列からnode_idを探す。検索には pythonのindex()を使う。</li>
+</ol>
+
+<p>概ね一回の検索に0.2〜0.5秒ぐらいの時間がかかります。これだと何億回という回数になってくると、<strong>処理によっては数千日かかる計算になります。</strong></p>
+
+<h3 id="2のdense読み込み対策">2のdense読み込み対策</h3>
+
+<p>2のdenseの読み込みですが、glibの展開とProtocol Bufferの展開の時間が馬鹿になりません。<br>
+なので、展開済みの必要なデータだけを予め別ファイルに保存しておいて、都度読み込むということをやってみました。確かにこれで随分早くなりました。4000日が400日ぐらいには短縮されました。(約10倍早くなりましたが、SSDを80G近く使ってしまいました)<br></p>
+
+<h3 id="3の対策">3の対策</h3>
+
+<p>Imposmのソースを見てみました。node_idと座標の展開の他に、その座標の名前などのデータの展開に少し時間がかかっているようでした。
+今回、node_idと座標のみが必要だったのでそれだけを処理するコードを別途作りました。ほんの少し早くなりました。</p>
+
+<h3 id="4の対策-本記事のメイン">4の対策(本記事のメイン)</h3>
+
+<p>densuに格納されているnode_idですが、欠番はあるものの、昇順であることは間違いないようです。なので、pythonのindex()関数でよしなに高速に検索してくれるだろうと思っていましたが、世の中そんなに甘くはありませんでした。
+よってこれを単純にバイナリサーチにするだけで激的に早くなりました。これで、40倍ぐらいは早くなりました。それでも、まだ私が行いたい処理を終えるには10日ぐらいの日数が必要でした。</p>
+
+<blockquote>
+<p>バイナリサーチ</p>
+
+<p>おっさんは、考えました。最初から順にロッカーを探すのはアホだと。
+よくみると、ロッカーは欠番はあるものの、番号の並び順が戻る事はないことに気が付きました。
+そこで、おっさんはまず全体の真ん中にあるロッカーを目指します。そしてロッカーと持っているキーの番号を比べます。
+キーの番号の方が、その真ん中のロッカーより大きいです。そしたら、次はその真ん中のロッカーと最後のロッカーの更に真ん中に行きます。
+そして再びロッカーと持っているキーの番号を比べます。今度はキーの番号の方が小さいとします。
+おっさんは、全体の真ん中のロッカーと、真ん中の真ん中のロッカーのさらに真ん中に行きます。
+真ん中の真ん中の真ん中の・・と移動を続けていくと、最終的に目的のロッカーにたどりつきます。
+こうすることで、キーの番号とロッカーの番号を比較して判断する回数が圧倒的に減ります。これがバイナリサーチです。</p>
+</blockquote>
+
+<p><img src="https://goo.gl/LMCNwy" width="40%"></p>
+
+<h3 id="バイナリサーチの先へ">バイナリサーチの先へ</h3>
+
+<p>10日というのは、いろんなことを試行錯誤するには長過ぎる時間です。せめて、あと10倍の高速化が必要でした。<br>
+様々な対策をして、それでも時間がかかっていたのは、denseグループの読み込みとバイナリサーチでした。</p>
+
+<p>2の対策。必要な時に都度データを読み込むという対策。これは、PCのメモリには限界があるので、必要なデータだけをキャッシュしておくという対策も兼ねていました。ところが、たまたまですが、このキャッシュサイズを誤って設定してしまいました。結果PCのメモリサイズを遥かに越えるデータを読み込む形になったのですが、不思議な事に問題なくプログラムは動き続けました。<br>
+PCのメモリは足りなくなると、使用頻度の低そうな部分を一時的にファイルに書き出して、その部分を他でも使えるような動作をします。いわゆる、ページングという機能です。windowsもmacOSのこのあたりの根本的なところは一緒のようです。windowsの場合ページングのサイズは予め設定があり、それ以上のメモリ確保はできなさそうだし、ページングが頻発するとCPUパワーにかかわらず結構重くなるイメージがありました。ところがmacOS。足りなくなったらその分ページングサイズを増やし続けるようで、しかもページング処理がそれほど重くない。<br>
+結局、プログラムで必要なデータを都度読み込んでキャッシングしてという処理を書いていましたが、これを丸ごとOSのページング処理に任せたほうが圧倒的に速いということがわかりました。これだけで、既に10倍以上早くなりました。各densuも一回読み込んだらメモリに置きっぱなしなので、展開済みの中間ファイルも不要になりました。</p>
+
+<p>続いて、バイナリサーチ。これはもう検索をしている限り、どうやっても時間がかかります。なので検索をやめるしかありません。検索せずに任意のnode_idの情報をすぐに見つけるには？</p>
+
+<blockquote>
+<p>絶対アドレス</p>
+
+<p>おっさんはバイナリサーチですら面倒臭いと思いました。だって、真ん中の真ん中に行くたびに、
+何度か目的のロッカーの前を素通りした上、結構な距離を歩いたのです。
+そこでおっさんは画期的な方法を考え出しました。
+よく見ると、ロッカーの幅はどれも寸分たがわず同じでした。
+そこで、駅員に頼み込んで許可をもらい、ロッカーを並べ直しました。
+欠番のあるところは、その分間を空けてロッカーを並べ直したのです。
+すると、ロッカーの幅はどれも同じなので、目的の番号のロッカーまでの距離がすぐに分かるようになりました。
+おっさんはその距離を歩くことで、即座に目的のロッカーの前にたどり着くことができるようになったのです。</p>
+</blockquote>
+
+<p>このようにして、node_idが欠番のところはそれだけ分データの間隔を空けて配置してみることにしました。ただこうすることで30G以上のメモリが必要でした。しかし、上記に書いたように足りないメモリはmacOSがうまいことページング処理を行ってくれます。なので、OSの動作に任せるようにプログラムを書いてみたところ、更に10倍弱の高速化をすることができました。</p>
+
+<h2 id="最後に">最後に</h2>
+
+<p>osm.pbfに含まれる、全道路の座標を取得する。というプログラムを書きました。4000日はかかると思われた計算は、最終的に1時間40分まで短縮することができました。上記に書いた以外にも、マルチプロセス化などあらゆる手段を使って高速化した結果です。(道路の座標を取得した後、更にそれを保存する処理を追加したところ、結局計算には1日弱かかるようになっていまいましたが・・)</p>
+
+<p>今回のことで思ったことは、まだ早くなるはずと信じてプログラムを組めば、時間のかかる処理もまだまだ早くなる可能性があるということです。
+CPUのクロック周波数って、そこだけを見るともう何年もほとんど変わってない。でもたぶん想像以上にCPUは進化しているし(例えばキャッシュが効率的に使われたりだとか、64bitの演算が早くなってたりするんでは？)、SSDやメモリなんかも多分すごく早くなっているので、それをソフトの力で引き出してやることが重要だと思う。</p>
+
+<p>なお、今回作ったコードは後日githubにでも置く予定です。</p>
+
+<p><strong>2016/11/04 追記</strong>
+githubにcodeを置きました。あまり綺麗なコードではありませんが・・。</p>
+
+<blockquote>
+<p><a href="https://github.com/mm-git/osmpbf-extract-ways">mm-git/osmpbf-extract-ways</a></p>
+</blockquote>
+          
+        </div>
+        <div class="sharing">
+<a href="https://twitter.com/intent/tweet?status=%5bOSM%5d%20osm.pbf%e3%82%92%e8%aa%ad%e3%81%bf%e8%be%bc%e3%82%80%ef%bc%93%20node%e5%ba%a7%e6%a8%99%e7%b7%a8-https%3a%2f%2fcode-house.jp%2f2016%2f11%2f04%2fosmpbf3%2f" target="_blank" title="Follow me on Twitter" class="twitter">
+<span class="fa fa-twitter-square fa-2x"></span></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2f2016%2f11%2f04%2fosmpbf3%2f" target="_blank" title="Join me on Facebook" class="facebook">
+<span class="fa fa-facebook-square fa-2x"></span></a>
+<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2f2016%2f11%2f04%2fosmpbf3%2f" target="_blank" title="Google+" class="googleplus">
+<span class="fa fa-google-plus-square fa-2x"></span></a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2f2016%2f11%2f04%2fosmpbf3%2f&title=%5bOSM%5d%20osm.pbf%e3%82%92%e8%aa%ad%e3%81%bf%e8%be%bc%e3%82%80%ef%bc%93%20node%e5%ba%a7%e6%a8%99%e7%b7%a8" target="_blank" title="LinkedIn" class="linkedin">
+<span class="fa fa-linkedin-square fa-2x"></span></a>
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>
