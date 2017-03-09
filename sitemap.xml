@@ -2,8 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://code-house.jp/</loc>
-    <lastmod>2016-11-04T15:33:19+09:00</lastmod>
+    <loc>https://code-house.jp/2017/03/09/calendar01/</loc>
+    <lastmod>2017-03-09T15:03:05+09:00</lastmod>
   </url>
   
   <url>
@@ -144,6 +144,257 @@
   <url>
     <loc>https://code-house.jp/2016/07/26/hugoinsatallation/</loc>
     <lastmod>2016-07-26T11:38:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/application/</loc>
+    <lastmod>2016-09-06T15:02:41+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/backbone/</loc>
+    <lastmod>2016-08-18T08:01:36+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/blog/</loc>
+    <lastmod>2017-03-09T15:03:05+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/browsersync/</loc>
+    <lastmod>2016-08-25T08:21:43+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/</loc>
+    <lastmod>2017-03-09T15:03:05+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/calendar/</loc>
+    <lastmod>2017-03-09T15:03:05+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/canvas/</loc>
+    <lastmod>2016-08-10T10:30:21+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/coffeescript/</loc>
+    <lastmod>2016-08-18T08:01:36+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/coredata/</loc>
+    <lastmod>2016-09-06T15:02:41+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/css/</loc>
+    <lastmod>2016-08-12T14:30:12+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/docker/</loc>
+    <lastmod>2016-08-26T15:18:08+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/favicon/</loc>
+    <lastmod>2016-08-11T12:14:50+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/git/</loc>
+    <lastmod>2016-08-26T15:18:08+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/github/</loc>
+    <lastmod>2016-08-26T15:18:08+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/google/</loc>
+    <lastmod>2016-08-29T16:18:22+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/gulp/</loc>
+    <lastmod>2016-08-25T08:21:43+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/html/</loc>
+    <lastmod>2016-08-19T15:16:45+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/html5/</loc>
+    <lastmod>2016-08-10T10:30:21+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/hugo/</loc>
+    <lastmod>2016-08-26T15:18:08+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/imagemagick/</loc>
+    <lastmod>2016-08-02T18:32:15+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/imagemin/</loc>
+    <lastmod>2016-08-21T18:21:25+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/ios/</loc>
+    <lastmod>2016-09-06T15:02:41+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/logo/</loc>
+    <lastmod>2016-08-11T12:14:50+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/map/</loc>
+    <lastmod>2016-11-04T15:33:19+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/markdown/</loc>
+    <lastmod>2016-08-09T13:38:22+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/node/</loc>
+    <lastmod>2016-08-25T08:21:43+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/opengraph/</loc>
+    <lastmod>2016-08-11T12:14:50+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/openstreetmap/</loc>
+    <lastmod>2016-11-04T15:33:19+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/photo/</loc>
+    <lastmod>2016-07-27T14:15:44+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/php/</loc>
+    <lastmod>2016-08-25T08:21:43+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/png/</loc>
+    <lastmod>2016-08-02T18:32:15+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/potrace/</loc>
+    <lastmod>2016-08-02T18:32:15+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/promise/</loc>
+    <lastmod>2016-08-18T08:01:36+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/pygments/</loc>
+    <lastmod>2016-08-20T19:30:57+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/sass/</loc>
+    <lastmod>2016-08-12T14:30:12+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/solarized/</loc>
+    <lastmod>2016-08-20T19:30:57+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/svg/</loc>
+    <lastmod>2016-08-02T18:32:15+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/swift/</loc>
+    <lastmod>2016-09-06T15:02:41+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/wercker/</loc>
+    <lastmod>2016-08-26T15:18:08+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/work/</loc>
+    <lastmod>2016-08-11T12:14:50+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://code-house.jp/tags/xcode/</loc>
+    <lastmod>2016-09-06T15:02:41+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>

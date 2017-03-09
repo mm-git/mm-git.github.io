@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>CODE HOUSE </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>https://code-house.jp/tags/calendar/index.xml</link>
+    <language>ja_jp</language>
+    
+    <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    
+    <item>
+      <title>カレンダーの処理はなぜあんなにややこしいのか？　前編</title>
+      <link>https://code-house.jp/2017/03/09/calendar01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2017/03/09/calendar01/</guid>
+      <description>
+        &lt;p&gt;本業の仕事に没頭しており、ブログの更新を全くしていませんでした。久々に更新しますが、今回の話は少し愚痴っぽいかもしれない。&lt;/p&gt;
+
+&lt;h2 id=&#34;カレンダー&#34;&gt;カレンダー&lt;/h2&gt;
+
+&lt;p&gt;カレンダー、つまり日付や日時の処理をプログラムで書いたことのある人はたくさんいると思う。そして、その面倒臭さに皆苦労していると思う。どのプログラム言語を使ったとしても、今や日時を扱うライブラリやAPIは充実しているので、実際にはそれほど困らないのかもしれない。
+今回の記事では、カレンダーに関するアプリ、処理を行う場合の面倒くさい点と、なぜそうなっているのかをまとめてみた。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;なぜ月の日数は一定でないのか？&lt;/li&gt;
+&lt;li&gt;なぜうるう年があるのか？&lt;/li&gt;
+&lt;li&gt;春分の日、秋分の日はなぜ毎年微妙に違う日なのか？&lt;/li&gt;
+&lt;li&gt;うるう秒って何？&lt;/li&gt;
+&lt;li&gt;時差の処理&lt;/li&gt;
+&lt;li&gt;サマータイムの処理&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;/p&gt;
+        <a href='https://code-house.jp/2017/03/09/calendar01/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
+    
+  </channel>
+</rss>
