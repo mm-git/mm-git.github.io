@@ -3,11 +3,11 @@
   <channel>
       <title>CODE HOUSE </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://code-house.jp/tags/imagemagick/index.xml</link>
+    <link>https://code-house.jp/tags/imagemagick/</link>
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    <updated>Tue, 02 Aug 2016 18:32:15 &#43;0900</updated>
     
     <item>
       <title>透過pngをsvgに変換する</title>

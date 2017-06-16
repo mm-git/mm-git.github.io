@@ -1,10 +1,10 @@
-    <!DOCTYPE html>
+  <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja-jp">
 <head prefix="og: http://ogp.me/ns#">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title> Blogs </title>
+    <title> [WORK] 標高エリアデータのjsonを作成する </title>
     
     <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/uno.min.css" />
     <link rel="stylesheet" type="text/css" href="https://code-house.jp/css/lightGallery.css" />
@@ -49,10 +49,10 @@
 <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="https://code-house.jp/apple-touch-startup-image-1536x2008.png">
     
         <meta property="og:site_name" content="CODE HOUSE" />
-    <meta property="og:url" content="https://code-house.jp/blog/" />
-    <meta property="og:title" content="Blogs" />
+    <meta property="og:url" content="https://code-house.jp/2017/06/15/altitudeareajson/" />
+    <meta property="og:title" content="[WORK] 標高エリアデータのjsonを作成する" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:url" content="https://code-house.jp/blog/" />
+    <meta name="twitter:url" content="https://code-house.jp/2017/06/15/altitudeareajson/" />
 
     
         <meta property="og:description" content="" />
@@ -65,7 +65,7 @@
 
 
     
-    <link href="https://code-house.jp/blog/index.xml" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
+    <link href="" rel="alternate" type="application/rss+xml" title="CODE HOUSE" />
     
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -94,8 +94,8 @@
     </script>
 </head>
 
-    <body>
-        <div id="scriptHeader">
+  <body>
+    <div id="scriptHeader">
     
     <header class="panel-cover panel-cover--collapsed">
     
@@ -205,108 +205,142 @@
     </header>
 </noscript>
 
-        <div class="content-wrapper">
-            <div class="content-wrapper__inner">
-                <section id="main">
-                    
-                    
-                    <div class="article_list">
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>[WORK] 標高エリアデータのjsonを作成する</h1>
+          
+          <div class="tags_list">
+             <div class="tags_item"><a href="https://code-house.jp/tags/altitude/">altitude</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/json/">json</a></div> <div class="tags_item"><a href="https://code-house.jp/tags/javascript/">javascript</a></div>
+          </div>
+          
+          <p class="post-date">2017-06-15</p>
+          
+          
 
-                        
+<p>ブログの更新があまりにも放置状態なので、日々の作業の前に今日したいことを少しだけ書いていくことにする。</p>
 
-                        
-                            <article class="summary_post summary_link" onClick="document.location.href = 'https:\/\/code-house.jp\/2016\/08\/18\/mapinitialize\/'">
-<header>
-<h2 class="summary-title">[GoogleMaps] Node.jsを使ったgoogle mapの初期化  </h2>
-<div class="post-meta">2016-08-18 - Read in 5 Min </div>
-</header>
-<div class="summary">
-    Node.js、coffeescript、Backbone.jsを使って、サクッとgoogle mapsを初期化してみる
-</div>
-<footer>
-</footer>
-</article>
+<h2 id="mapアプリ">mapアプリ</h2>
 
-                        
-                            <article class="summary_post summary_link" onClick="document.location.href = 'https:\/\/code-house.jp\/2016\/08\/17\/gulpcoffee\/'">
-<header>
-<h2 class="summary-title">[gulp] coffee script編  </h2>
-<div class="post-meta">2016-08-17 - Read in 2 Min </div>
-</header>
-<div class="summary">
-    coffeescriptのファイルをwebpackを使ってjsファイルに変換する。
-</div>
-<footer>
-</footer>
-</article>
+<p>mapに関するアプリは以前からずっと作成を細々と続けている。まともにリリース、世の中に公表したことはまだ無い。多少の問題はあっても、さっさと何かしらリリースしたい。</p>
 
-                        
-                            <article class="summary_post summary_link" onClick="document.location.href = 'https:\/\/code-house.jp\/2016\/08\/16\/hugopagination\/'">
-<header>
-<h2 class="summary-title">[Hugo] ページネーションを追加する  </h2>
-<div class="post-meta">2016-08-16 - Read in 5 Min </div>
-</header>
-<div class="summary">
-    Hugoにblog一覧のページを追加する。５記事毎にページを切り替えるようにしてみる。
-</div>
-<footer>
-</footer>
-</article>
+<h2 id="標高エリアデータの作成">標高エリアデータの作成</h2>
 
-                        
-                            <article class="summary_post summary_link" onClick="document.location.href = 'https:\/\/code-house.jp\/2016\/08\/12\/hugopreparedesign\/'">
-<header>
-<h2 class="summary-title">[Hugo] テーマのデサイン変更　準備編  </h2>
-<div class="post-meta">2016-08-12 - Read in 5 Min </div>
-</header>
-<div class="summary">
-    Hugoのテンプレートテーマのデザインを調整する。そのための準備について説明する。
-</div>
-<footer>
-</footer>
-</article>
+<p>今日すること。標高エリアデータの作成。手元には、全世界の標高データのあるエリアと無いエリア(主に海)を表したバイナリデータがある。このデータは経度360度、緯度180度を更に3x3のグリットに区切って、そこに標高データがあるかどうかを0/1のビットで表したデータである(約72kb)。バイナリデータはウェブアプリ(javascript)では扱いにくい。なのでこれをjson形式のデータにしてみるのが今日の課題。</p>
 
-                        
-                            <article class="summary_post summary_link" onClick="document.location.href = 'https:\/\/code-house.jp\/2016\/08\/11\/gulpfavicons\/'">
-<header>
-<h2 class="summary-title">[gulp] favicon編  </h2>
-<div class="post-meta">2016-08-11 - Read in 2 Min </div>
-</header>
-<div class="summary">
-    gulpであらゆるサイズのfaviconを生成する
-</div>
-<footer>
-</footer>
-</article>
+<p><img src="https://goo.gl/PTmTVR" width="40%"></p>
 
-                        
+<h2 id="jsonデータの仕様">jsonデータの仕様</h2>
 
-                        <article class="summary_post">
-                            <nav role="pagination">
-                                <div class="pagination__page-number">4 / 6</div>
-                                <div class="pagination__arrow">
-                                
-                                    <a href="https://code-house.jp/blog/page/3/">&lt;&lt;&lt;</a>
-                                
+<p>さて目的とするjsonデータの仕様であるが、なかなか悩ましい。緯度は北緯、南緯合わせて180度。これを16進数の文字列にすると、最大で2Byteになる。経度は360度。16進数の文字列にすると最大で3Byteになる。合わせて5Byte、これを標高データのある座標だけを並べたjsonを考えてみると、下記のようになる。</p>
 
-                                
-                                    <a href="https://code-house.jp/blog/page/5/">&gt;&gt;&gt;</a>
-                                
-                                </div>
-                            </nav>
-                            <div class="archive">
-                                <br>
-                                <a href="https://code-house.jp/tags/">Tags</a> /
-                                <a href="https://code-house.jp/archives/">Archive</a>
-                            </div>
-                        </article>
-                    </div>
-                    
-                </section>
-            </div>
+<h5 id="area-json">area.json</h5>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #657b83">{</span>
+  <span style="color: #859900">&quot;area&quot;</span><span style="color: #657b83">:</span> <span style="color: #657b83">[</span><span style="color: #2aa198">&quot;0872D&quot;</span><span style="color: #657b83">,</span> <span style="color: #2aa198">&quot;0872E&quot;</span><span style="color: #657b83">,</span> <span style="color: #dc322f">...</span><span style="color: #657b83">]</span>
+<span style="color: #657b83">}</span>
+</pre></div>
+</td></tr></table>
+<p>多くのデータで文字列の頭は0になる。それをわかっていて座標を5byteで表すのは、データサイズ的にもったいない気がする。</p>
+
+<p>そこで、データを北緯、南緯、東経、西経の４エリアに分けて考える。すると、座標は4byteのデータで表すことができる。</p>
+
+<h5 id="area-json-1">area.json</h5>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #657b83">{</span>
+  <span style="color: #859900">&quot;area&quot;</span><span style="color: #657b83">:</span> <span style="color: #657b83">{</span>
+    <span style="color: #859900">&quot;NE&quot;</span><span style="color: #657b83">:</span> <span style="color: #657b83">[</span><span style="color: #2aa198">&quot;872D&quot;</span><span style="color: #657b83">,</span> <span style="color: #2aa198">&quot;872E&quot;</span><span style="color: #657b83">,</span> <span style="color: #dc322f">...</span><span style="color: #657b83">],</span>
+    <span style="color: #859900">&quot;SE&quot;</span><span style="color: #657b83">:</span> <span style="color: #657b83">[</span><span style="color: #dc322f">...</span><span style="color: #657b83">],</span>
+    <span style="color: #859900">&quot;NW&quot;</span><span style="color: #657b83">:</span> <span style="color: #657b83">[</span><span style="color: #dc322f">...</span><span style="color: #657b83">],</span>
+    <span style="color: #859900">&quot;SW&quot;</span><span style="color: #657b83">:</span> <span style="color: #657b83">[</span><span style="color: #dc322f">...</span><span style="color: #657b83">]</span>
+  <span style="color: #657b83">}</span>
+<span style="color: #657b83">}</span>
+</pre></div>
+</td></tr></table>
+<p>最初に書いたが、実際には緯度、経度のデータはさらに3x3のグリットに分かれている(何故3x3なのかは後日書くかも)。そして多くのエリアでは、3x3全てのグリッドにデータが存在すると思われる。なので、データの欠けている場合だけ、更に座標の文字列の後ろにその情報を追加する。</p>
+
+<p>3x3のグリッドの何処が欠けているかを単純に表すと、9bitのデータ(512パターン)になる。16進数で表すと3Byte、Base64で変換しても2Byteになる。</p>
+
+<p>さて、実際のデータでグリッドの欠けるパターンには何パターンあるのかを調べてみることにする。512パターン全てが現れるとは考えにくい。</p>
+
+<p>(ここで、pythonでコードを書いて調べてみた・・・)</p>
+
+<p>意外にも418パターンも存在した。仕方がないのでグリッドのデータが存在しない場合のみ、Base64で変換した2Byteを座標文字列の後ろに追加することにする。</p>
+
+<h5 id="area-json-2">area.json</h5>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #657b83">{</span>
+  <span style="color: #859900">&quot;area&quot;</span><span style="color: #657b83">:</span> <span style="color: #657b83">{</span>
+    <span style="color: #859900">&quot;NE&quot;</span><span style="color: #657b83">:</span> <span style="color: #657b83">[</span><span style="color: #2aa198">&quot;872DEg&quot;</span><span style="color: #657b83">,</span> <span style="color: #2aa198">&quot;872E&quot;</span><span style="color: #657b83">,</span> <span style="color: #dc322f">...</span><span style="color: #657b83">],</span>
+    <span style="color: #859900">&quot;SE&quot;</span><span style="color: #657b83">:</span> <span style="color: #657b83">[</span><span style="color: #dc322f">...</span><span style="color: #657b83">],</span>
+    <span style="color: #859900">&quot;NW&quot;</span><span style="color: #657b83">:</span> <span style="color: #657b83">[</span><span style="color: #dc322f">...</span><span style="color: #657b83">],</span>
+    <span style="color: #859900">&quot;SW&quot;</span><span style="color: #657b83">:</span> <span style="color: #657b83">[</span><span style="color: #dc322f">...</span><span style="color: #657b83">]</span>
+  <span style="color: #657b83">}</span>
+<span style="color: #657b83">}</span>
+</pre></div>
+</td></tr></table>
+<p>ここで、出来上がったjsonのファイルサイズを見てみると、元の72kByteを大幅に超えている・・。</p>
+
+<h2 id="最終的に">最終的に・・</h2>
+
+<p>いろいろ考えていて、ふと思いついた。緯度のデータが90度で7bit。経度が180度で8bit。3x3のグリッドが9bit。合わせるとちょうど24bitで6の倍数になることに気がついた。するとbase64エンコードの様に6bitづつに分けて文字で表すと、常に4Byteのデータでグリッドを表すことができる。最終的には下記の様な不思議な文字列のjsonデータが出来上がったのである。</p>
+
+<h5 id="area-json-3">area.json</h5>
+<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #657b83">{</span>
+  <span style="color: #859900">&quot;area&quot;</span><span style="color: #657b83">:</span> <span style="color: #657b83">{</span>
+    <span style="color: #859900">&quot;SW&quot;</span><span style="color: #657b83">:</span> <span style="color: #2aa198">&quot;?kG[SfG[?ZG[.....&quot;</span><span style="color: #657b83">,</span>
+    <span style="color: #859900">&quot;NE&quot;</span><span style="color: #657b83">:</span> <span style="color: #2aa198">&quot;uo==~M@=~V@=.....&quot;</span><span style="color: #657b83">,</span>
+    <span style="color: #859900">&quot;SE&quot;</span><span style="color: #657b83">:</span> <span style="color: #2aa198">&quot;GosXWpGX?~SW.....&quot;</span><span style="color: #657b83">,</span>
+    <span style="color: #859900">&quot;NW&quot;</span><span style="color: #657b83">:</span> <span style="color: #2aa198">&quot;@OJ=cKI=~FI=.....&quot;</span>
+  <span style="color: #657b83">}</span>
+<span style="color: #657b83">}</span>
+</pre></div>
+</td></tr></table>
+<p>変換のコードをgithubに置いておきます。</p>
+
+<blockquote>
+<p><a href="https://github.com/mm-git/filter_convert">mm-git/filter_convert</a></p>
+</blockquote>
+
+          
         </div>
-        <footer class="footer"></footer>
-
+        <div class="sharing">
+<a href="https://twitter.com/intent/tweet?status=%5bWORK%5d%20%e6%a8%99%e9%ab%98%e3%82%a8%e3%83%aa%e3%82%a2%e3%83%87%e3%83%bc%e3%82%bf%e3%81%aejson%e3%82%92%e4%bd%9c%e6%88%90%e3%81%99%e3%82%8b-https%3a%2f%2fcode-house.jp%2f2017%2f06%2f15%2faltitudeareajson%2f" target="_blank" title="Follow me on Twitter" class="twitter">
+<span class="fa fa-twitter-square fa-2x"></span></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcode-house.jp%2f2017%2f06%2f15%2faltitudeareajson%2f" target="_blank" title="Join me on Facebook" class="facebook">
+<span class="fa fa-facebook-square fa-2x"></span></a>
+<a href="https://plus.google.com/share?url=https%3a%2f%2fcode-house.jp%2f2017%2f06%2f15%2faltitudeareajson%2f" target="_blank" title="Google+" class="googleplus">
+<span class="fa fa-google-plus-square fa-2x"></span></a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcode-house.jp%2f2017%2f06%2f15%2faltitudeareajson%2f&title=%5bWORK%5d%20%e6%a8%99%e9%ab%98%e3%82%a8%e3%83%aa%e3%82%a2%e3%83%87%e3%83%bc%e3%82%bf%e3%81%aejson%e3%82%92%e4%bd%9c%e6%88%90%e3%81%99%e3%82%8b" target="_blank" title="LinkedIn" class="linkedin">
+<span class="fa fa-linkedin-square fa-2x"></span></a>
+</div>
         
-    </body>
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
 </html>

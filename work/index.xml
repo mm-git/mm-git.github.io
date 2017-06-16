@@ -3,7 +3,7 @@
   <channel>
       <title>CODE HOUSE </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://code-house.jp/work/index.xml</link>
+    <link>https://code-house.jp/work/</link>
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
@@ -11,22 +11,22 @@
     
     <item>
       <title>CODE HOUSE LOGO</title>
-      <link>https://code-house.jp/work/2016/codehouselogo</link>
+      <link>https://code-house.jp/work/2016/codehouselogo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>https://code-house.jp/work/2016/codehouselogo</guid>
+      <guid>https://code-house.jp/work/2016/codehouselogo/</guid>
       <description>
         CODE HOUSE LOGOを作成しました。githubにはCC BY-ND 4.0として登録しています。 mm-git/logos
-        <a href='https://code-house.jp/work/2016/codehouselogo' class="read-more"><nobr>Read more →</nobr></a>
+        <a href='https://code-house.jp/work/2016/codehouselogo/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     
     <item>
       <title>NODE.JS BACKBONE-GRAPH</title>
-      <link>https://code-house.jp/work/2016/backbonegraph</link>
+      <link>https://code-house.jp/work/2016/backbonegraph/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>https://code-house.jp/work/2016/backbonegraph</guid>
+      <guid>https://code-house.jp/work/2016/backbonegraph/</guid>
       <description>
         &lt;p&gt;&lt;img src=&#34;https://goo.gl/V5p3Ag&#34;&gt;&lt;/p&gt;
 
@@ -35,7 +35,7 @@
 &lt;p&gt;&lt;a href=&#34;https://github.com/mm-git/backbone-graph&#34;&gt;mm-git/backbone-graph&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
-        <a href='https://code-house.jp/work/2016/backbonegraph' class="read-more"><nobr>Read more →</nobr></a>
+        <a href='https://code-house.jp/work/2016/backbonegraph/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     

@@ -3,21 +3,21 @@
   <channel>
       <title>CODE HOUSE </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://code-house.jp/tags/opengraph/index.xml</link>
+    <link>https://code-house.jp/tags/opengraph/</link>
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    <updated>Thu, 11 Aug 2016 12:14:50 &#43;0900</updated>
     
     <item>
       <title>CODE HOUSE LOGO</title>
-      <link>https://code-house.jp/work/2016/codehouselogo</link>
+      <link>https://code-house.jp/work/2016/codehouselogo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>https://code-house.jp/work/2016/codehouselogo</guid>
+      <guid>https://code-house.jp/work/2016/codehouselogo/</guid>
       <description>
         CODE HOUSE LOGOを作成しました。githubにはCC BY-ND 4.0として登録しています。 mm-git/logos
-        <a href='https://code-house.jp/work/2016/codehouselogo' class="read-more"><nobr>Read more →</nobr></a>
+        <a href='https://code-house.jp/work/2016/codehouselogo/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     

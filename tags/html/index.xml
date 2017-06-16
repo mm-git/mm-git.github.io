@@ -3,11 +3,11 @@
   <channel>
       <title>CODE HOUSE </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://code-house.jp/tags/html/index.xml</link>
+    <link>https://code-house.jp/tags/html/</link>
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    <updated>Fri, 19 Aug 2016 15:16:45 &#43;0900</updated>
     
     <item>
       <title>[Hugo] タグを追加する</title>

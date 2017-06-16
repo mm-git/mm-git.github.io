@@ -3,11 +3,23 @@
   <channel>
       <title>CODE HOUSE </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://code-house.jp/index.xml</link>
+    <link>https://code-house.jp/</link>
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Thu, 09 Mar 2017 15:03:05 &#43;0900</updated>
+    <updated>Thu, 15 Jun 2017 09:36:37 &#43;0900</updated>
+    
+    <item>
+      <title>[WORK] 標高エリアデータのjsonを作成する</title>
+      <link>https://code-house.jp/2017/06/15/altitudeareajson/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2017/06/15/altitudeareajson/</guid>
+      <description>
+        ブログの更新があまりにも放置状態なので、日々の作業の前に今日したいことを少しだけ書いていくことにする。 mapアプリ mapに関するアプリは以前
+        <a href='https://code-house.jp/2017/06/15/altitudeareajson/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>カレンダーの処理はなぜあんなにややこしいのか？　前編</title>
@@ -350,33 +362,6 @@
 
 &lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/19/hugotaxonomy/' class="read-more"><nobr>Read more →</nobr></a>
-      </description>
-    </item>
-    
-    <item>
-      <title>[GoogleMaps] Node.jsを使ったgoogle mapの初期化</title>
-      <link>https://code-house.jp/2016/08/18/mapinitialize/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>https://code-house.jp/2016/08/18/mapinitialize/</guid>
-      <description>
-        &lt;h2 id=&#34;node-js-coffeescript-backbone-jsでgoogle-map&#34;&gt;Node.js、coffeescript、Backbone.jsでgoogle map？？&lt;/h2&gt;
-
-&lt;p&gt;今回の記事ではNode.js、coffeescript、Backbone.jsを使って、サクッとgoogle mapを初期化してみようと思う。最近の流行りとして、node.jsはわかるものの、coffeescriptとBackbone.jsはどうなのよ？と言われそうである。今から何かを始めるのであれば、JavascriptはES2015、ES2016あたりで記載すべきだと思うし、フレームワークはReactとかを使いたいところである。しかし、現在作成しているwebアプリが上記のタイトルの構成なのでそれで説明をしたいと思う。coffeescriptはともかく、Backbone.jsはそれなりに使いやすいし、まだ現役ではあると思う。&lt;/p&gt;
-
-&lt;p&gt;この記事用にgithubのレポジトリを作成してみたので参考に。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/mm-git/googleMapsSample&#34;&gt;mm-git/googleMapsSample&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;今回の記事では画面全体に地図を表示するまでを説明するが、&lt;strong&gt;この方法が楽なポイントは下記の通りである。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;htmlファイルで、google mapsのapiやjqueryなどの読込が&lt;strong&gt;不要&lt;/strong&gt;。(ビルド済みのjsファイルだけ読み込めばOK!!)&lt;/li&gt;
-&lt;li&gt;google mapsの初期化を待ってから何かの処理する場合のスクリプトが&lt;strong&gt;簡潔に書ける&lt;/strong&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;/p&gt;
-        <a href='https://code-house.jp/2016/08/18/mapinitialize/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     

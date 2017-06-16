@@ -3,11 +3,11 @@
   <channel>
       <title>CODE HOUSE </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://code-house.jp/tags/coffeescript/index.xml</link>
+    <link>https://code-house.jp/tags/coffeescript/</link>
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    <updated>Thu, 18 Aug 2016 08:01:36 &#43;0900</updated>
     
     <item>
       <title>[GoogleMaps] Node.jsを使ったgoogle mapの初期化</title>
