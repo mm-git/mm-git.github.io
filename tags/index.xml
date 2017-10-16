@@ -7,7 +7,7 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Thu, 15 Jun 2017 09:36:37 &#43;0900</updated>
+    <updated>Mon, 19 Jun 2017 10:07:21 &#43;0900</updated>
     
     <item>
       <title>Altitude</title>
@@ -130,6 +130,18 @@
     </item>
     
     <item>
+      <title>Es6</title>
+      <link>https://code-house.jp/tags/es6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/tags/es6/</guid>
+      <description>
+        
+        <a href='https://code-house.jp/tags/es6/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
+    
+    <item>
       <title>Favicon</title>
       <link>https://code-house.jp/tags/favicon/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
@@ -174,18 +186,6 @@
       <description>
         
         <a href='https://code-house.jp/tags/google/' class="read-more"><nobr>Read more →</nobr></a>
-      </description>
-    </item>
-    
-    <item>
-      <title>Gulp</title>
-      <link>https://code-house.jp/tags/gulp/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>https://code-house.jp/tags/gulp/</guid>
-      <description>
-        
-        <a href='https://code-house.jp/tags/gulp/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     

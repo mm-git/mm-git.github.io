@@ -228,53 +228,30 @@
 <h3 id="wercker-yml">wercker.yml</h3>
 
 <h5 id="wercker-yml-1">wercker.yml</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #657b83">box:</span> <span style="color: #657b83">python:2.7-slim</span>
-<span style="color: #657b83">build:</span>
-  <span style="color: #657b83">steps:</span>
-    <span style="color: #657b83">-</span> <span style="color: #657b83">install-packages:</span>
-        <span style="color: #657b83">packages:</span> <span style="color: #657b83">git</span>
-    <span style="color: #657b83">-</span> <span style="color: #657b83">pip-install:</span>
-        <span style="color: #657b83">requirements_file:</span> <span style="color: #2aa198">&quot;&quot;</span>
-        <span style="color: #657b83">packages_list:</span> <span style="color: #2aa198">&quot;pygments-style-solarized&quot;</span>
-    <span style="color: #657b83">-</span> <span style="color: #657b83">script:</span>
-        <span style="color: #657b83">name:</span> <span style="color: #657b83">initialize git submodules</span>
-        <span style="color: #657b83">code:</span> <span style="color: #657b83">git submodule update --init</span>
-    <span style="color: #657b83">-</span> <span style="color: #657b83">arjen/hugo-build:</span>
-        <span style="color: #657b83">theme:</span> <span style="color: #657b83">hugo-uno</span>
-        <span style="color: #657b83">flags:</span> <span style="color: #657b83">--buildDrafts=false -v</span>
-<span style="color: #657b83">deploy:</span>
-  <span style="color: #657b83">steps:</span>
-    <span style="color: #657b83">-</span> <span style="color: #657b83">install-packages:</span>
-        <span style="color: #657b83">packages:</span> <span style="color: #657b83">git ssh-client</span>
-    <span style="color: #657b83">-</span> <span style="color: #657b83">leipert/git-push:</span>
-        <span style="color: #657b83">gh_oauth:</span> <span style="color: #657b83">$GIT_TOKEN</span>
-        <span style="color: #657b83">repo:</span> <span style="color: #657b83">mm-git/mm-git.github.io</span>
-        <span style="color: #657b83">branch:</span> <span style="color: #657b83">master</span>
-        <span style="color: #657b83">basedir:</span> <span style="color: #657b83">public</span>
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 1</span>box: python:2.7-slim
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 2</span>build:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 3</span>  steps:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 4</span>    - install-packages:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 5</span>        packages: git
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 6</span>    - pip-install:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 7</span>        requirements_file: &#34;&#34;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 8</span>        packages_list: &#34;pygments-style-solarized&#34;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 9</span>    - script:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">10</span>        name: initialize git submodules
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">11</span>        code: git submodule update --init
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">12</span>    - arjen/hugo-build:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">13</span>        theme: hugo-uno
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">14</span>        flags: --buildDrafts=false -v
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">15</span>deploy:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">16</span>  steps:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">17</span>    - install-packages:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">18</span>        packages: git ssh-client
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">19</span>    - leipert/git-push:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">20</span>        gh_oauth: $GIT_TOKEN
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">21</span>        repo: mm-git/mm-git.github.io
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">22</span>        branch: master
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">23</span>        basedir: public</code></pre>
+</div>
 <h3 id="なぜ遅いか">なぜ遅いか？</h3>
 
 <ul>
@@ -299,39 +276,23 @@
 <h3 id="独自docker-boxを使ったwercker-yml">独自docker boxを使ったwercker.yml</h3>
 
 <h5 id="wercker-yml-2">wercker.yml</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #657b83">box:</span> <span style="color: #657b83">mmgit/hugo-box</span>
-<span style="color: #657b83">build:</span>
-  <span style="color: #657b83">steps:</span>
-    <span style="color: #657b83">-</span> <span style="color: #657b83">script:</span>
-        <span style="color: #657b83">name:</span> <span style="color: #657b83">initialize git submodules</span>
-        <span style="color: #657b83">code:</span> <span style="color: #657b83">git submodule update --init</span>
-    <span style="color: #657b83">-</span> <span style="color: #657b83">arjen/hugo-build:</span>
-        <span style="color: #657b83">theme:</span> <span style="color: #657b83">hugo-uno</span>
-        <span style="color: #657b83">flags:</span> <span style="color: #657b83">--buildDrafts=false -v</span>
-<span style="color: #657b83">deploy:</span>
-  <span style="color: #657b83">steps:</span>
-    <span style="color: #657b83">-</span> <span style="color: #657b83">leipert/git-push:</span>
-        <span style="color: #657b83">gh_oauth:</span> <span style="color: #657b83">$GIT_TOKEN</span>
-        <span style="color: #657b83">repo:</span> <span style="color: #657b83">mm-git/mm-git.github.io</span>
-        <span style="color: #657b83">branch:</span> <span style="color: #657b83">master</span>
-        <span style="color: #657b83">basedir:</span> <span style="color: #657b83">public</span>
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 1</span>box: mmgit/hugo-box
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 2</span>build:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 3</span>  steps:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 4</span>    - script:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 5</span>        name: initialize git submodules
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 6</span>        code: git submodule update --init
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 7</span>    - arjen/hugo-build:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 8</span>        theme: hugo-uno
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 9</span>        flags: --buildDrafts=false -v
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">10</span>deploy:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">11</span>  steps:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">12</span>    - leipert/git-push:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">13</span>        gh_oauth: $GIT_TOKEN
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">14</span>        repo: mm-git/mm-git.github.io
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">15</span>        branch: master
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">16</span>        basedir: public</code></pre>
+</div>
 <ul>
 <li>必要なものがインストールされたboxを使うことで、<strong>体感的には１〜２分で記事が配信されるようになった。</strong></li>
 <li>wercker.ymlもhugoのビルドとデプロイのみの記述になり、非常にスッキリした。</li>

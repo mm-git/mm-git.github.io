@@ -244,11 +244,9 @@
 <h3 id="config-toml">config.toml</h3>
 
 <h5 id="config-toml-1">config.toml</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
-2</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #657b83">[</span><span style="color: #cb4b16">taxonomies</span><span style="color: #657b83">]</span>
-<span style="color: #657b83">tag = &quot;tags&quot;</span>
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">1</span>[taxonomies]
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">2</span>tag = &#34;tags&#34;</code></pre>
+</div>
 <p><strong>この設定だが非常に紛らわしいので注意</strong></p>
 
 <ul>
@@ -267,35 +265,21 @@
 <h3 id="layouts-taxonomy-tag-terms-html">layouts/taxonomy/tag.terms.html</h3>
 
 <h5 id="layouts-taxonomy-tag-terms-html-1">layouts/taxonomy/tag.terms.html</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>:
-<span style="color: #657b83">&lt;</span><span style="color: #859900">section</span> <span style="color: #657b83">id=</span><span style="color: #2aa198">&quot;main&quot;</span><span style="color: #657b83">&gt;</span>
-  <span style="color: #657b83">&lt;</span><span style="color: #859900">div</span><span style="color: #657b83">&gt;</span>
-    <span style="color: #657b83">&lt;</span><span style="color: #859900">h1</span> <span style="color: #657b83">id=</span><span style="color: #2aa198">&quot;title&quot;</span><span style="color: #657b83">&gt;</span>{{ .Title }}<span style="color: #657b83">&lt;/</span><span style="color: #859900">h1</span><span style="color: #657b83">&gt;</span>
-    <span style="color: #657b83">&lt;</span><span style="color: #859900">div</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;tags_list&quot;</span><span style="color: #657b83">&gt;</span>
-    {{ range $key, $value := .Data.Terms }}
-        <span style="color: #657b83">&lt;</span><span style="color: #859900">div</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;tags_item&quot;</span><span style="color: #657b83">&gt;</span>
-            <span style="color: #657b83">&lt;</span><span style="color: #859900">a</span> <span style="color: #657b83">href=</span><span style="color: #2aa198">&quot;{{ $key | urlize }}&quot;</span><span style="color: #657b83">&gt;</span>{{ $key }} <span style="color: #657b83">&lt;</span><span style="color: #859900">span</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;tags_number&quot;</span><span style="color: #657b83">&gt;</span>{{ len $value }}<span style="color: #657b83">&lt;/</span><span style="color: #859900">span</span><span style="color: #657b83">&gt;&lt;/</span><span style="color: #859900">a</span><span style="color: #657b83">&gt;</span>
-        <span style="color: #657b83">&lt;/</span><span style="color: #859900">div</span><span style="color: #657b83">&gt;</span>
-    {{ end }}
-    <span style="color: #657b83">&lt;/</span><span style="color: #859900">div</span><span style="color: #657b83">&gt;</span>
-  <span style="color: #657b83">&lt;/</span><span style="color: #859900">div</span><span style="color: #657b83">&gt;</span>
-<span style="color: #657b83">&lt;/</span><span style="color: #859900">section</span><span style="color: #657b83">&gt;</span>
-:
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 1</span>:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 2</span>&lt;<span style="font-weight:bold">section</span> <span style="color:#007f7f">id</span>=<span style="color:#0ff;font-weight:bold">&#34;main&#34;</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 3</span>  &lt;<span style="font-weight:bold">div</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 4</span>    &lt;<span style="font-weight:bold">h1</span> <span style="color:#007f7f">id</span>=<span style="color:#0ff;font-weight:bold">&#34;title&#34;</span>&gt;{{ .Title }}&lt;/<span style="font-weight:bold">h1</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 5</span>    &lt;<span style="font-weight:bold">div</span> <span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;tags_list&#34;</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 6</span>    {{ range $key, $value := .Data.Terms }}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 7</span>        &lt;<span style="font-weight:bold">div</span> <span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;tags_item&#34;</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 8</span>            &lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">&#34;{{ $key | urlize }}&#34;</span>&gt;{{ $key }} &lt;<span style="font-weight:bold">span</span> <span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;tags_number&#34;</span>&gt;{{ len $value }}&lt;/<span style="font-weight:bold">span</span>&gt;&lt;/<span style="font-weight:bold">a</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 9</span>        &lt;/<span style="font-weight:bold">div</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">10</span>    {{ end }}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">11</span>    &lt;/<span style="font-weight:bold">div</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">12</span>  &lt;/<span style="font-weight:bold">div</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">13</span>&lt;/<span style="font-weight:bold">section</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">14</span>:</code></pre>
+</div>
 <ul>
 <li>上記は、tag.terms.htmlの一部。</li>
 <li>このファイルを元に、<code>public/tags/index.html</code>が作成される。</li>
@@ -306,41 +290,24 @@
 <h3 id="layouts-taxonomy-tag-html">layouts/taxonomy/tag.html</h3>
 
 <h5 id="layouts-taxonomy-tag-html-1">layouts/taxonomy/tag.html</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>:
-<span style="color: #657b83">&lt;</span><span style="color: #859900">section</span> <span style="color: #657b83">id=</span><span style="color: #2aa198">&quot;main&quot;</span><span style="color: #657b83">&gt;</span>
-    <span style="color: #657b83">&lt;</span><span style="color: #859900">div</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;tags_list&quot;</span><span style="color: #657b83">&gt;</span>
-    <span style="color: #657b83">&lt;</span><span style="color: #859900">div</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;tags_title&quot;</span><span style="color: #657b83">&gt;&lt;</span><span style="color: #859900">span</span><span style="color: #657b83">&gt;</span>{{ .Title }}<span style="color: #657b83">&lt;/</span><span style="color: #859900">span</span><span style="color: #657b83">&gt;&lt;/</span><span style="color: #859900">div</span><span style="color: #657b83">&gt;</span>
-    <span style="color: #657b83">&lt;/</span><span style="color: #859900">div</span><span style="color: #657b83">&gt;</span>
-    <span style="color: #657b83">&lt;</span><span style="color: #859900">ul</span> <span style="color: #657b83">id=</span><span style="color: #2aa198">&quot;list&quot;</span><span style="color: #657b83">&gt;</span>
-        {{ range .Data.Pages }}
-        <span style="color: #657b83">&lt;</span><span style="color: #859900">li</span><span style="color: #657b83">&gt;</span>
-            {{ .Date.Format &quot;2006-01-02&quot; }}
-            <span style="color: #657b83">&lt;</span><span style="color: #859900">a</span> <span style="color: #657b83">href=</span><span style="color: #2aa198">&quot;{{ .RelPermalink }}&quot;</span><span style="color: #657b83">&gt;</span>{{ .Title }}<span style="color: #657b83">&lt;/</span><span style="color: #859900">a</span><span style="color: #657b83">&gt;</span>
-        <span style="color: #657b83">&lt;/</span><span style="color: #859900">li</span><span style="color: #657b83">&gt;</span>
-        {{ end }}
-    <span style="color: #657b83">&lt;/</span><span style="color: #859900">ul</span><span style="color: #657b83">&gt;</span>
-    <span style="color: #657b83">&lt;</span><span style="color: #859900">hr</span><span style="color: #657b83">&gt;</span>
-    <span style="color: #657b83">&lt;</span><span style="color: #859900">a</span> <span style="color: #657b83">href=</span><span style="color: #2aa198">&quot;{{ .Site.BaseURL }}/tags&quot;</span><span style="color: #657b83">&gt;</span>Tags<span style="color: #657b83">&lt;/</span><span style="color: #859900">a</span><span style="color: #657b83">&gt;</span>
-<span style="color: #657b83">&lt;/</span><span style="color: #859900">section</span><span style="color: #657b83">&gt;</span>
-:
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 1</span>:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 2</span>&lt;<span style="font-weight:bold">section</span> <span style="color:#007f7f">id</span>=<span style="color:#0ff;font-weight:bold">&#34;main&#34;</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 3</span>    &lt;<span style="font-weight:bold">div</span> <span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;tags_list&#34;</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 4</span>    &lt;<span style="font-weight:bold">div</span> <span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;tags_title&#34;</span>&gt;&lt;<span style="font-weight:bold">span</span>&gt;{{ .Title }}&lt;/<span style="font-weight:bold">span</span>&gt;&lt;/<span style="font-weight:bold">div</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 5</span>    &lt;/<span style="font-weight:bold">div</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 6</span>    &lt;<span style="font-weight:bold">ul</span> <span style="color:#007f7f">id</span>=<span style="color:#0ff;font-weight:bold">&#34;list&#34;</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 7</span>        {{ range .Data.Pages }}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 8</span>        &lt;<span style="font-weight:bold">li</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 9</span>            {{ .Date.Format &#34;2006-01-02&#34; }}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">10</span>            &lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">&#34;{{ .RelPermalink }}&#34;</span>&gt;{{ .Title }}&lt;/<span style="font-weight:bold">a</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">11</span>        &lt;/<span style="font-weight:bold">li</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">12</span>        {{ end }}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">13</span>    &lt;/<span style="font-weight:bold">ul</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">14</span>    &lt;<span style="font-weight:bold">hr</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">15</span>    &lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">&#34;{{ .Site.BaseURL }}/tags&#34;</span>&gt;Tags&lt;/<span style="font-weight:bold">a</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">16</span>&lt;/<span style="font-weight:bold">section</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">17</span>:</code></pre>
+</div>
 <ul>
 <li>上記は、tag.htmlの一部。</li>
 <li>このファイルを元に、<code>public/tags/タグ名/index.html</code>が作成される。</li>
@@ -369,21 +336,14 @@
 <h3 id="layouts-blog-single-html">layouts/blog/single.html</h3>
 
 <h5 id="layouts-blog-single-html-1">layouts/blog/single.html</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>:
-{{ with .Params.tags }}
-<span style="color: #657b83">&lt;</span><span style="color: #859900">div</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;tags_list&quot;</span><span style="color: #657b83">&gt;</span>
-  {{ range . }} <span style="color: #657b83">&lt;</span><span style="color: #859900">div</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;tags_item&quot;</span><span style="color: #657b83">&gt;&lt;</span><span style="color: #859900">a</span> <span style="color: #657b83">href=</span><span style="color: #2aa198">&quot;/tags/{{ lower . }}/&quot;</span><span style="color: #657b83">&gt;</span>{{ . }}<span style="color: #657b83">&lt;/</span><span style="color: #859900">a</span><span style="color: #657b83">&gt;&lt;/</span><span style="color: #859900">div</span><span style="color: #657b83">&gt;</span>{{ end }}
-<span style="color: #657b83">&lt;/</span><span style="color: #859900">div</span><span style="color: #657b83">&gt;</span>
-{{ end }}
-:
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">1</span>:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">2</span>{{ with .Params.tags }}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">3</span>&lt;<span style="font-weight:bold">div</span> <span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;tags_list&#34;</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">4</span>  {{ range . }} &lt;<span style="font-weight:bold">div</span> <span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;tags_item&#34;</span>&gt;&lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">&#34;/tags/{{ lower . }}/&#34;</span>&gt;{{ . }}&lt;/<span style="font-weight:bold">a</span>&gt;&lt;/<span style="font-weight:bold">div</span>&gt;{{ end }}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">5</span>&lt;/<span style="font-weight:bold">div</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">6</span>{{ end }}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">7</span>:</code></pre>
+</div>
 <ul>
 <li>上記は、single.htmlの一部。</li>
 <li>記事のタグは<code>.Params.tags</code>で取得できる。</li>

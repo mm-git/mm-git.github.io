@@ -250,31 +250,19 @@
 <h3 id="layouts-section-blog-html">layouts/section/blog.html</h3>
 
 <h5 id="layouts-section-blog-html-1">layouts/section/blog.html</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>:
-<span style="color: #657b83">&lt;</span><span style="color: #859900">section</span> <span style="color: #657b83">id=</span><span style="color: #2aa198">&quot;main&quot;</span><span style="color: #657b83">&gt;</span>
-    {{ $paginator := .Paginate (where .Data.Pages &quot;Type&quot; &quot;blog&quot;) 5 }}
-    
-    <span style="color: #657b83">&lt;</span><span style="color: #859900">div</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;article_list&quot;</span><span style="color: #657b83">&gt;</span>
-        {{ range $paginator.Pages }}
-            {{ .Render &quot;summary&quot; }}
-        {{ end }}
-        :
-    <span style="color: #657b83">&lt;/</span><span style="color: #859900">div</span><span style="color: #657b83">&gt;</span>
-<span style="color: #657b83">&lt;/</span><span style="color: #859900">section</span><span style="color: #657b83">&gt;</span>
-:
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 1</span>:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 2</span>&lt;<span style="font-weight:bold">section</span> <span style="color:#007f7f">id</span>=<span style="color:#0ff;font-weight:bold">&#34;main&#34;</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 3</span>    {{ $paginator := .Paginate (where .Data.Pages &#34;Type&#34; &#34;blog&#34;) 5 }}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 4</span>    
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 5</span>    &lt;<span style="font-weight:bold">div</span> <span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;article_list&#34;</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 6</span>        {{ range $paginator.Pages }}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 7</span>            {{ .Render &#34;summary&#34; }}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 8</span>        {{ end }}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 9</span>        :
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">10</span>    &lt;/<span style="font-weight:bold">div</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">11</span>&lt;/<span style="font-weight:bold">section</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">12</span>:</code></pre>
+</div>
 <ul>
 <li>上記は、blog.htmlの一部。記事一覧とページ機能の部分のみ抜粋。</li>
 <li>このファイルを元にして、<code>public/blog/index.html</code>が作成される。
@@ -305,29 +293,18 @@
 <h3 id="layouts-blog-summary-html">layouts/blog/summary.html</h3>
 
 <h5 id="layouts-blog-summary-html-1">layouts/blog/summary.html</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #657b83">&lt;</span><span style="color: #859900">article</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;summary_post summary_link&quot;</span> <span style="color: #657b83">onClick=</span><span style="color: #2aa198">&quot;document.location.href = &#39;{{ .Permalink }}&#39;&quot;</span><span style="color: #657b83">&gt;</span>
-<span style="color: #657b83">&lt;</span><span style="color: #859900">header</span><span style="color: #657b83">&gt;</span>
-<span style="color: #657b83">&lt;</span><span style="color: #859900">h2</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;summary-title&quot;</span><span style="color: #657b83">&gt;</span>{{ .Title }} {{ if .Draft }}:: DRAFT{{end}} <span style="color: #657b83">&lt;/</span><span style="color: #859900">h2</span><span style="color: #657b83">&gt;</span>
-<span style="color: #657b83">&lt;</span><span style="color: #859900">div</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;post-meta&quot;</span><span style="color: #657b83">&gt;</span>{{ .Date.Format &quot;2006-01-02&quot; }} - Read in {{ .ReadingTime }} Min <span style="color: #657b83">&lt;/</span><span style="color: #859900">div</span><span style="color: #657b83">&gt;</span>
-<span style="color: #657b83">&lt;/</span><span style="color: #859900">header</span><span style="color: #657b83">&gt;</span>
-<span style="color: #657b83">&lt;</span><span style="color: #859900">div</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;summary&quot;</span><span style="color: #657b83">&gt;</span>
-    {{ .Description }}
-<span style="color: #657b83">&lt;/</span><span style="color: #859900">div</span><span style="color: #657b83">&gt;</span>
-<span style="color: #657b83">&lt;</span><span style="color: #859900">footer</span><span style="color: #657b83">&gt;</span>
-<span style="color: #657b83">&lt;/</span><span style="color: #859900">footer</span><span style="color: #657b83">&gt;</span>
-<span style="color: #657b83">&lt;/</span><span style="color: #859900">article</span><span style="color: #657b83">&gt;</span>
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 1</span>&lt;<span style="font-weight:bold">article</span> <span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;summary_post summary_link&#34;</span> <span style="color:#007f7f">onClick</span>=<span style="color:#0ff;font-weight:bold">&#34;document.location.href = &#39;{{ .Permalink }}&#39;&#34;</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 2</span>&lt;<span style="font-weight:bold">header</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 3</span>&lt;<span style="font-weight:bold">h2</span> <span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;summary-title&#34;</span>&gt;{{ .Title }} {{ if .Draft }}:: DRAFT{{end}} &lt;/<span style="font-weight:bold">h2</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 4</span>&lt;<span style="font-weight:bold">div</span> <span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;post-meta&#34;</span>&gt;{{ .Date.Format &#34;2006-01-02&#34; }} - Read in {{ .ReadingTime }} Min &lt;/<span style="font-weight:bold">div</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 5</span>&lt;/<span style="font-weight:bold">header</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 6</span>&lt;<span style="font-weight:bold">div</span> <span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;summary&#34;</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 7</span>    {{ .Description }}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 8</span>&lt;/<span style="font-weight:bold">div</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 9</span>&lt;<span style="font-weight:bold">footer</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">10</span>&lt;/<span style="font-weight:bold">footer</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">11</span>&lt;/<span style="font-weight:bold">article</span>&gt;</code></pre>
+</div>
 <ul>
 <li>記事の内容にアクセスするには、<code>.Permalink</code>、<code>.Title</code>などの変数を用いる。
 
@@ -361,29 +338,18 @@
 <h3 id="layouts-section-work-html">layouts/section/work.html</h3>
 
 <h5 id="layouts-section-work-html-1">layouts/section/work.html</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>:
-<span style="color: #657b83">&lt;</span><span style="color: #859900">section</span> <span style="color: #657b83">id=</span><span style="color: #2aa198">&quot;main&quot;</span><span style="color: #657b83">&gt;</span>
-    <span style="color: #657b83">&lt;</span><span style="color: #859900">div</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;article_list&quot;</span><span style="color: #657b83">&gt;</span>
-        {{ range .Data.Pages }}
-            {{ if eq .Type &quot;work&quot; }}
-                {{ .Render &quot;summary&quot;}}
-            {{ end }}
-        {{ end }}
-    <span style="color: #657b83">&lt;/</span><span style="color: #859900">div</span><span style="color: #657b83">&gt;</span>
-<span style="color: #657b83">&lt;/</span><span style="color: #859900">section</span><span style="color: #657b83">&gt;</span>
-:
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 1</span>:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 2</span>&lt;<span style="font-weight:bold">section</span> <span style="color:#007f7f">id</span>=<span style="color:#0ff;font-weight:bold">&#34;main&#34;</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 3</span>    &lt;<span style="font-weight:bold">div</span> <span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;article_list&#34;</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 4</span>        {{ range .Data.Pages }}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 5</span>            {{ if eq .Type &#34;work&#34; }}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 6</span>                {{ .Render &#34;summary&#34;}}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 7</span>            {{ end }}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 8</span>        {{ end }}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 9</span>    &lt;/<span style="font-weight:bold">div</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">10</span>&lt;/<span style="font-weight:bold">section</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">11</span>:</code></pre>
+</div>
 <ul>
 <li>上記は、work.htmlの一部。記事一覧とページ機能の部分のみ抜粋。</li>
 <li>このファイルを元にして、<code>public/work/index.html</code>が作成される。</li>
@@ -398,33 +364,20 @@
 <h3 id="layouts-work-summary-html">layouts/work/summary.html</h3>
 
 <h5 id="layouts-work-summary-html-1">layouts/work/summary.html</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #657b83">&lt;</span><span style="color: #859900">article</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;summary_post summary_link sumary_work&quot;</span> <span style="color: #657b83">onClick=</span><span style="color: #2aa198">&quot;document.location.href = &#39;{{ .Permalink }}&#39;&quot;</span><span style="color: #657b83">&gt;</span>
-<span style="color: #657b83">&lt;</span><span style="color: #859900">header</span><span style="color: #657b83">&gt;</span>
-<span style="color: #657b83">&lt;/</span><span style="color: #859900">header</span><span style="color: #657b83">&gt;</span>
-<span style="color: #657b83">&lt;</span><span style="color: #859900">footer</span><span style="color: #657b83">&gt;</span>
-<span style="color: #657b83">&lt;/</span><span style="color: #859900">footer</span><span style="color: #657b83">&gt;</span>
-<span style="color: #657b83">&lt;</span><span style="color: #859900">div</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;post_image_frame&quot;</span><span style="color: #657b83">&gt;</span>
-    {{ if .Params.landscape }}
-    <span style="color: #657b83">&lt;</span><span style="color: #859900">img</span> <span style="color: #657b83">src=</span><span style="color: #2aa198">&quot;{{ .Params.image }}&quot;</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;post_image post_image_landscape&quot;</span><span style="color: #657b83">&gt;</span>
-    {{ else }}
-    <span style="color: #657b83">&lt;</span><span style="color: #859900">img</span> <span style="color: #657b83">src=</span><span style="color: #2aa198">&quot;{{ .Params.image }}&quot;</span> <span style="color: #657b83">class=</span><span style="color: #2aa198">&quot;post_image&quot;</span><span style="color: #657b83">&gt;</span>
-    {{ end }}
-<span style="color: #657b83">&lt;/</span><span style="color: #859900">div</span><span style="color: #657b83">&gt;</span>
-<span style="color: #657b83">&lt;/</span><span style="color: #859900">article</span><span style="color: #657b83">&gt;</span>
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 1</span>&lt;<span style="font-weight:bold">article</span> <span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;summary_post summary_link sumary_work&#34;</span> <span style="color:#007f7f">onClick</span>=<span style="color:#0ff;font-weight:bold">&#34;document.location.href = &#39;{{ .Permalink }}&#39;&#34;</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 2</span>&lt;<span style="font-weight:bold">header</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 3</span>&lt;/<span style="font-weight:bold">header</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 4</span>&lt;<span style="font-weight:bold">footer</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 5</span>&lt;/<span style="font-weight:bold">footer</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 6</span>&lt;<span style="font-weight:bold">div</span> <span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;post_image_frame&#34;</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 7</span>    {{ if .Params.landscape }}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 8</span>    &lt;<span style="font-weight:bold">img</span> <span style="color:#007f7f">src</span>=<span style="color:#0ff;font-weight:bold">&#34;{{ .Params.image }}&#34;</span> <span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;post_image post_image_landscape&#34;</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 9</span>    {{ else }}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">10</span>    &lt;<span style="font-weight:bold">img</span> <span style="color:#007f7f">src</span>=<span style="color:#0ff;font-weight:bold">&#34;{{ .Params.image }}&#34;</span> <span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;post_image&#34;</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">11</span>    {{ end }}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">12</span>&lt;/<span style="font-weight:bold">div</span>&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">13</span>&lt;/<span style="font-weight:bold">article</span>&gt;</code></pre>
+</div>
 <ul>
 <li><code>blog</code>一覧では、記事のタイトル、説明文を表示していたが、<code>work</code>では画像のみを表示している。</li>
 <li>本サイトではwork記事の.mdファイルフロントマターに、<code>image</code>と<code>landscape</code>を設定するようにしている。</li>

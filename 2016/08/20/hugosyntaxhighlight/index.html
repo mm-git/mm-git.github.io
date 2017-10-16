@@ -250,17 +250,12 @@
 <h3 id="config-toml">config.toml</h3>
 
 <h5 id="config-toml-1">config.toml</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #657b83">:</span>
-<span style="color: #657b83">pygmentscodefences = true</span>
-<span style="color: #657b83">pygmentsstyle = &quot;solarizedlight&quot;</span>
-<span style="color: #657b83">PygmentsOptions = &quot;linenos=table,nobackground=true&quot;</span>
-<span style="color: #657b83">:</span>
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">1</span>:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">2</span>pygmentscodefences = true
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">3</span>pygmentsstyle = &#34;solarizedlight&#34;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">4</span>PygmentsOptions = &#34;linenos=table,nobackground=true&#34;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">5</span>:</code></pre>
+</div>
 <ul>
 <li><code>config.toml</code>の先頭部分のどこかに上記３行を追加する。</li>
 <li>Syntax Highlightを有効にする場合、公式ページでは<code>pygmentsuseclasses = true</code>と書いてあるが、<strong><code>pygmentscodefences = true</code>が正しい</strong>ようだ。</li>
@@ -284,9 +279,8 @@
 
 <p>Hugoは記事のmarkdownファイル内にFenced Code Blockを見つけた場合、Pygmentsという外部ツールを使ってコードをSyntax Hightlight付きのHTMLに変換する。そのため、ローカル環境で記事を変換したり表示を確認したるする場合、Pygmentsをインストールしておく必要がある。
 PygmentsのインストールにはPython 2.7が必要(手元の環境はPython V2.7.12, pip V8.1.2)。下記のようにしてインストールする。</p>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>pip install Pygments
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">1</span>pip install Pygments</code></pre>
+</div>
 <ul>
 <li><code>Hugo</code>コマンドを実行する前に入れておかないと大量のエラーが出る。</li>
 </ul>
@@ -294,49 +288,34 @@ PygmentsのインストールにはPython 2.7が必要(手元の環境はPython 
 <h3 id="pygments-style-solarizedをインストールする">pygments-style-solarizedをインストールする</h3>
 
 <p>Pygmentsはインストールした直後の状態でsolarizedをサポートしていない。初期状態でサポートしている配色は下記のコマンドで確認できる。</p>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
-2</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>$ python -c <span style="color: #2aa198">&#39;from pygments.styles import get_all_styles; print list(get_all_styles())&#39;</span>
-<span style="color: #657b83">[</span><span style="color: #2aa198">&#39;manni&#39;</span>, <span style="color: #2aa198">&#39;igor&#39;</span>, <span style="color: #2aa198">&#39;lovelace&#39;</span>, <span style="color: #2aa198">&#39;xcode&#39;</span>, <span style="color: #2aa198">&#39;vim&#39;</span>, <span style="color: #2aa198">&#39;autumn&#39;</span>, <span style="color: #2aa198">&#39;vs&#39;</span>, <span style="color: #2aa198">&#39;rrt&#39;</span>, <span style="color: #2aa198">&#39;native&#39;</span>, <span style="color: #2aa198">&#39;perldoc&#39;</span>, <span style="color: #2aa198">&#39;borland&#39;</span>, <span style="color: #2aa198">&#39;tango&#39;</span>, <span style="color: #2aa198">&#39;emacs&#39;</span>, <span style="color: #2aa198">&#39;friendly&#39;</span>, <span style="color: #2aa198">&#39;monokai&#39;</span>, <span style="color: #2aa198">&#39;paraiso-dark&#39;</span>, <span style="color: #2aa198">&#39;colorful&#39;</span>, <span style="color: #2aa198">&#39;murphy&#39;</span>, <span style="color: #2aa198">&#39;bw&#39;</span>, <span style="color: #2aa198">&#39;pastie&#39;</span>, <span style="color: #2aa198">&#39;algol_nu&#39;</span>, <span style="color: #2aa198">&#39;paraiso-light&#39;</span>, <span style="color: #2aa198">&#39;trac&#39;</span>, <span style="color: #2aa198">&#39;default&#39;</span>, <span style="color: #2aa198">&#39;algol&#39;</span>, <span style="color: #2aa198">&#39;fruity&#39;</span><span style="color: #657b83">]</span>
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">1</span>$ python -c <span style="color:#0ff;font-weight:bold">&#39;from pygments.styles import get_all_styles; print list(get_all_styles())&#39;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">2</span>[<span style="color:#0ff;font-weight:bold">&#39;manni&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;igor&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;lovelace&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;xcode&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;vim&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;autumn&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;vs&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;rrt&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;native&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;perldoc&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;borland&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;tango&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;emacs&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;friendly&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;monokai&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;paraiso-dark&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;colorful&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;murphy&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;bw&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;pastie&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;algol_nu&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;paraiso-light&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;trac&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;default&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;algol&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;fruity&#39;</span>]</code></pre>
+</div>
 <p>そこで、<code>pygments-style-solarized</code>をインストールする。</p>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>pip install pygments-style-solarized
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">1</span>pip install pygments-style-solarized</code></pre>
+</div>
 <p>この後、再度配色を確認すると<code>solarizeddark</code>, <code>solarizedlight</code>が追加されているのがわかる。</p>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
-2</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>$ python -c <span style="color: #2aa198">&#39;from pygments.styles import get_all_styles; print list(get_all_styles())&#39;</span>
-<span style="color: #657b83">[</span><span style="color: #2aa198">&#39;manni&#39;</span>, <span style="color: #2aa198">&#39;igor&#39;</span>, <span style="color: #2aa198">&#39;lovelace&#39;</span>, <span style="color: #2aa198">&#39;xcode&#39;</span>, <span style="color: #2aa198">&#39;vim&#39;</span>, <span style="color: #2aa198">&#39;autumn&#39;</span>, <span style="color: #2aa198">&#39;vs&#39;</span>, <span style="color: #2aa198">&#39;rrt&#39;</span>, <span style="color: #2aa198">&#39;native&#39;</span>, <span style="color: #2aa198">&#39;perldoc&#39;</span>, <span style="color: #2aa198">&#39;borland&#39;</span>, <span style="color: #2aa198">&#39;tango&#39;</span>, <span style="color: #2aa198">&#39;emacs&#39;</span>, <span style="color: #2aa198">&#39;friendly&#39;</span>, <span style="color: #2aa198">&#39;monokai&#39;</span>, <span style="color: #2aa198">&#39;paraiso-dark&#39;</span>, <span style="color: #2aa198">&#39;colorful&#39;</span>, <span style="color: #2aa198">&#39;murphy&#39;</span>, <span style="color: #2aa198">&#39;bw&#39;</span>, <span style="color: #2aa198">&#39;pastie&#39;</span>, <span style="color: #2aa198">&#39;algol_nu&#39;</span>, <span style="color: #2aa198">&#39;paraiso-light&#39;</span>, <span style="color: #2aa198">&#39;trac&#39;</span>, <span style="color: #2aa198">&#39;default&#39;</span>, <span style="color: #2aa198">&#39;algol&#39;</span>, <span style="color: #2aa198">&#39;fruity&#39;</span>, <span style="color: #2aa198">&#39;solarizeddark&#39;</span>, <span style="color: #2aa198">&#39;solarizedlight&#39;</span><span style="color: #657b83">]</span>
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">1</span>$ python -c <span style="color:#0ff;font-weight:bold">&#39;from pygments.styles import get_all_styles; print list(get_all_styles())&#39;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">2</span>[<span style="color:#0ff;font-weight:bold">&#39;manni&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;igor&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;lovelace&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;xcode&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;vim&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;autumn&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;vs&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;rrt&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;native&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;perldoc&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;borland&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;tango&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;emacs&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;friendly&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;monokai&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;paraiso-dark&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;colorful&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;murphy&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;bw&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;pastie&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;algol_nu&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;paraiso-light&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;trac&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;default&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;algol&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;fruity&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;solarizeddark&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;solarizedlight&#39;</span>]</code></pre>
+</div>
 <h3 id="solarizedlight用のcssファイルを用意する">solarizedlight用のcssファイルを用意する</h3>
 
 <p>各配色のcssファイルは下記のコマンドで確認することができる。これを、<code>solarizedlight.css</code>などのファイルにリダイレクトで出力する。</p>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #657b83">$</span> <span style="color: #859900">pygmentize</span> <span style="color: #859900">-S</span> <span style="color: #859900">solarizedlight</span> <span style="color: #859900">-f</span> <span style="color: #859900">html</span>
-<span style="color: #268bd2">.hll</span> <span style="color: #657b83">{</span> <span style="color: #268bd2">background-color</span><span style="color: #657b83">:</span> <span style="color: #2aa198">#ffffcc</span> <span style="color: #657b83">}</span>
-<span style="color: #268bd2">.c</span> <span style="color: #657b83">{</span> <span style="color: #268bd2">color</span><span style="color: #657b83">:</span> <span style="color: #2aa198">#93a1a1</span><span style="color: #657b83">;</span> <span style="color: #268bd2">font-style</span><span style="color: #657b83">:</span> <span style="color: #268bd2">italic</span> <span style="color: #657b83">}</span> <span style="color: #93a1a1; font-style: italic">/* Comment */</span>
-<span style="color: #268bd2">.err</span> <span style="color: #657b83">{</span> <span style="color: #268bd2">color</span><span style="color: #657b83">:</span> <span style="color: #2aa198">#dc322f</span> <span style="color: #657b83">}</span> <span style="color: #93a1a1; font-style: italic">/* Error */</span>
-<span style="color: #268bd2">.g</span> <span style="color: #657b83">{</span> <span style="color: #268bd2">color</span><span style="color: #657b83">:</span> <span style="color: #2aa198">#657b83</span> <span style="color: #657b83">}</span> <span style="color: #93a1a1; font-style: italic">/* Generic */</span>
-<span style="color: #657b83">:</span>
-<span style="color: #657b83">:</span>
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">1</span>$ <span style="font-weight:bold">pygmentize</span> <span style="font-weight:bold">-S</span> <span style="font-weight:bold">solarizedlight</span> <span style="font-weight:bold">-f</span> <span style="font-weight:bold">html</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">2</span>.hll { <span style="color:#fff;font-weight:bold">background-color</span>: <span style="color:#ff0;font-weight:bold">#ffffcc</span> }
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">3</span>.c { <span style="color:#fff;font-weight:bold">color</span>: <span style="color:#ff0;font-weight:bold">#93a1a1</span>; <span style="color:#fff;font-weight:bold">font-style</span>: <span style="color:#fff;font-weight:bold">italic</span> } <span style="color:#007f7f">/* Comment */</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">4</span>.err { <span style="color:#fff;font-weight:bold">color</span>: <span style="color:#ff0;font-weight:bold">#dc322f</span> } <span style="color:#007f7f">/* Error */</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">5</span>.g { <span style="color:#fff;font-weight:bold">color</span>: <span style="color:#ff0;font-weight:bold">#657b83</span> } <span style="color:#007f7f">/* Generic */</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">6</span>:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">7</span>:</code></pre>
+</div>
 <p>上記のようにして作ったcssファイルを、header部分のlayoutファイルで読み込むようにする。</p>
 
 <h5 id="layouts-partials-head-html">layouts/partials/head.html</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>:
-    <span style="color: #657b83">&lt;</span><span style="color: #859900">link</span> <span style="color: #657b83">rel=</span><span style="color: #2aa198">&quot;stylesheet&quot;</span> <span style="color: #657b83">type=</span><span style="color: #2aa198">&quot;text/css&quot;</span> <span style="color: #657b83">href=</span><span style="color: #2aa198">&quot;{{ .Site.BaseURL }}/css/solarizedlight.css&quot;</span> <span style="color: #657b83">/&gt;</span>
-:
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">1</span>:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">2</span>    &lt;<span style="font-weight:bold">link</span> <span style="color:#007f7f">rel</span>=<span style="color:#0ff;font-weight:bold">&#34;stylesheet&#34;</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">&#34;text/css&#34;</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">&#34;{{ .Site.BaseURL }}/css/solarizedlight.css&#34;</span> /&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">3</span>:</code></pre>
+</div>
 <h3 id="記事にfenced-code-blockでソースコードを書く">記事にFenced Code Blockでソースコードを書く</h3>
 
 <p>Syntax Highlightを行いたいソースコードの上下を、```で囲む。最初の```に続けて、ファイルのフォーマット(bash, html, javascript, coffeeなど)を書くと、Syntax hilightの機能が働く。(ファイルのフォーマット無しだと、単に書いた内容がそのまま出力されるだけ)</p>

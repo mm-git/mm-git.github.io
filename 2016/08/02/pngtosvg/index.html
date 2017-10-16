@@ -244,9 +244,8 @@
 <h3 id="findでファイルを探すもファイルが多い場合">findでファイルを探すもファイルが多い場合。</h3>
 
 <p>例えば、shellで<code>find . -name '*.png'</code>のように実行すると、カレントフォルダ以下にあるpngファイルが検索できる。これをパイプを使って次のコマンドに渡したりできるのだが、ファイル数が多い場合エラーになってしまう。そこで、fineの結果をxargsというコマンドに渡して、どんなにファイルが多くても１つずつ処理させたりすることができる。(必ずしも１つずつ処理させる必要はないが)</p>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>find . -name <span style="color: #2aa198">&#39;*.png&#39;</span> <span style="color: #657b83">|</span> xargs -IX -n1 wc -c X
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">1</span>find . -name <span style="color:#0ff;font-weight:bold">&#39;*.png&#39;</span> | xargs -IX -n1 wc -c X</code></pre>
+</div>
 <ul>
 <li>findの結果を1つずつ処理するために、xargsで<code>-n1</code>を指定している。こうすることでxagrsに続くコマンドに1つだけ値を渡すことができる。</li>
 <li><code>-n1</code>は次のコマンドにパラメータを幾つずつ渡すかを指定するパラメータ。次のコマンドを同時に幾つ実行するかは別途指定する必要がある。</li>
@@ -267,29 +266,18 @@
 <p>フォルダの構造を維持して、svgファイルを出力したい。そこで、あるフォルダのファイルを最初に処理した際に、出力先にも同じフォルダを作成するshell functionを作ってみる。</p>
 
 <h5 id="pngtosvg-sh">pngtosvg.sh</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #93a1a1; font-style: italic"># $1に元ファイルのパス、$2に出力先のフォルダ名が指定されているとする</span>
-<span style="color: #859900">function</span> pngtosvg<span style="color: #657b83">()</span> <span style="color: #657b83">{</span>
-  <span style="color: #cb4b16">src</span><span style="color: #657b83">=</span><span style="color: #859900">$(</span>dirname <span style="color: #cb4b16">$1</span><span style="color: #859900">)</span>
-  <span style="color: #cb4b16">exp</span><span style="color: #657b83">=</span><span style="color: #2aa198">&quot;s/^[^\/]*/</span><span style="color: #cb4b16">$2</span><span style="color: #2aa198">/&quot;</span>
-  <span style="color: #cb4b16">dist</span><span style="color: #657b83">=</span><span style="color: #2aa198">`</span><span style="color: #268bd2">echo</span> <span style="color: #cb4b16">$src</span> <span style="color: #657b83">|</span> sed -e <span style="color: #cb4b16">$exp</span><span style="color: #2aa198">`</span>
-
-  <span style="color: #859900">if</span> <span style="color: #657b83">[</span> ! -d <span style="color: #cb4b16">$dist</span> <span style="color: #657b83">];</span> <span style="color: #859900">then</span>
-    <span style="color: #268bd2">echo</span> <span style="color: #cb4b16">$dist</span>
-    mkdir -p <span style="color: #cb4b16">$dist</span>
-  <span style="color: #859900">fi</span>
-<span style="color: #657b83">}</span>
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 1</span><span style="color:#007f7f"># $1に元ファイルのパス、$2に出力先のフォルダ名が指定されているとする
+</span><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 2</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">function</span> pngtosvg() {
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 3</span>  <span style="font-weight:bold">src</span>=<span style="color:#fff;font-weight:bold">$(</span>dirname <span style="font-weight:bold">$1</span><span style="color:#fff;font-weight:bold">)</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 4</span>  <span style="font-weight:bold">exp</span>=<span style="color:#0ff;font-weight:bold">&#34;s/^[^\/]*/</span><span style="font-weight:bold">$2</span><span style="color:#0ff;font-weight:bold">/&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 5</span>  <span style="font-weight:bold">dist</span>=<span style="color:#0ff;font-weight:bold">`</span>echo <span style="font-weight:bold">$src</span> | sed -e <span style="font-weight:bold">$exp</span><span style="color:#0ff;font-weight:bold">`</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 6</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 7</span>  <span style="color:#fff;font-weight:bold">if</span> [ ! -d <span style="font-weight:bold">$dist</span> ]; <span style="color:#fff;font-weight:bold">then</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 8</span>    echo <span style="font-weight:bold">$dist</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 9</span>    mkdir -p <span style="font-weight:bold">$dist</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">10</span>  <span style="color:#fff;font-weight:bold">fi</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">11</span>}</code></pre>
+</div>
 <p>このfunctionのハマりポイント。</p>
 
 <ul>
@@ -315,37 +303,22 @@
 <p>記事に書いてある通りに、shell functionをexportして、xargsからはbashのスクリプトとして実行する。</p>
 
 <h5 id="pngtosvg-sh-1">pngtosvg.sh</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #93a1a1; font-style: italic"># $1に元ファイルのパス、$2に出力先のフォルダ名が指定されているとする</span>
-<span style="color: #859900">function</span> pngtosvg<span style="color: #657b83">()</span> <span style="color: #657b83">{</span>
-  <span style="color: #cb4b16">src</span><span style="color: #657b83">=</span><span style="color: #859900">$(</span>dirname <span style="color: #cb4b16">$1</span><span style="color: #859900">)</span>
-  <span style="color: #cb4b16">exp</span><span style="color: #657b83">=</span><span style="color: #2aa198">&quot;s/^[^\/]*/</span><span style="color: #cb4b16">$2</span><span style="color: #2aa198">/&quot;</span>
-  <span style="color: #cb4b16">dist</span><span style="color: #657b83">=</span><span style="color: #2aa198">`</span><span style="color: #268bd2">echo</span> <span style="color: #cb4b16">$src</span> <span style="color: #657b83">|</span> sed -e <span style="color: #cb4b16">$exp</span><span style="color: #2aa198">`</span>
-
-  <span style="color: #859900">if</span> <span style="color: #657b83">[</span> ! -d <span style="color: #cb4b16">$dist</span> <span style="color: #657b83">];</span> <span style="color: #859900">then</span>
-    <span style="color: #268bd2">echo</span> <span style="color: #cb4b16">$dist</span>
-    mkdir -p <span style="color: #cb4b16">$dist</span>
-  <span style="color: #859900">fi</span>
-<span style="color: #657b83">}</span>
-<span style="color: #268bd2">export</span> -f pngtosvg
-
-<span style="color: #93a1a1; font-style: italic"># ここの$1はpngtosvg.shに渡された第一パラメータ(元フォルダ)である。$2は出力先のフォルダである。</span>
-find <span style="color: #cb4b16">$1</span> -name <span style="color: #2aa198">&#39;*.png&#39;</span> <span style="color: #657b83">|</span> xargs -IX -n1 bash -c <span style="color: #2aa198">&quot;pngtosvg X </span><span style="color: #cb4b16">$2</span><span style="color: #2aa198">&quot;</span>
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 1</span><span style="color:#007f7f"># $1に元ファイルのパス、$2に出力先のフォルダ名が指定されているとする
+</span><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 2</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">function</span> pngtosvg() {
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 3</span>  <span style="font-weight:bold">src</span>=<span style="color:#fff;font-weight:bold">$(</span>dirname <span style="font-weight:bold">$1</span><span style="color:#fff;font-weight:bold">)</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 4</span>  <span style="font-weight:bold">exp</span>=<span style="color:#0ff;font-weight:bold">&#34;s/^[^\/]*/</span><span style="font-weight:bold">$2</span><span style="color:#0ff;font-weight:bold">/&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 5</span>  <span style="font-weight:bold">dist</span>=<span style="color:#0ff;font-weight:bold">`</span>echo <span style="font-weight:bold">$src</span> | sed -e <span style="font-weight:bold">$exp</span><span style="color:#0ff;font-weight:bold">`</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 6</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 7</span>  <span style="color:#fff;font-weight:bold">if</span> [ ! -d <span style="font-weight:bold">$dist</span> ]; <span style="color:#fff;font-weight:bold">then</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 8</span>    echo <span style="font-weight:bold">$dist</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 9</span>    mkdir -p <span style="font-weight:bold">$dist</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">10</span>  <span style="color:#fff;font-weight:bold">fi</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">11</span>}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">12</span>export -f pngtosvg
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">13</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">14</span><span style="color:#007f7f"># ここの$1はpngtosvg.shに渡された第一パラメータ(元フォルダ)である。$2は出力先のフォルダである。
+</span><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">15</span><span style="color:#007f7f"></span>find <span style="font-weight:bold">$1</span> -name <span style="color:#0ff;font-weight:bold">&#39;*.png&#39;</span> | xargs -IX -n1 bash -c <span style="color:#0ff;font-weight:bold">&#34;pngtosvg X </span><span style="font-weight:bold">$2</span><span style="color:#0ff;font-weight:bold">&#34;</span></code></pre>
+</div>
 <ul>
 <li><code>sh pngtosvg.sh hoge fuga</code>の様に実行する。hogeのフォルダ構造がそのままfugaフォルダにも適応される。
 
@@ -382,11 +355,9 @@ find <span style="color: #cb4b16">$1</span> -name <span style="color: #2aa198">&
 </blockquote>
 
 <p>上記の記事で使われている<code>convert</code>というコマンドは、imagemagickをインストールすると使えようになる。imagemagickもOSXの場合<code>brew install imagemagick</code>でインストールが可能である。上記の記事ではpngをpngに変換しているが、この記事ではbmpに変換するので、下記のように最後のファイル名を.bmpに変更する。</p>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
-2</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>convert xxx.png  <span style="color: #cb4b16">\(</span> +clone -alpha opaque -fill white -colorize 100% <span style="color: #cb4b16">\)</span> +swap -geometry +0+0 -compose Over -composite -alpha off xxx.bmp
-potrace --svg xxx.bmp
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">1</span>convert xxx.png  <span style="color:#0ff;font-weight:bold">\(</span> +clone -alpha opaque -fill white -colorize <span style="color:#ff0;font-weight:bold">100</span>% <span style="color:#0ff;font-weight:bold">\)</span> +swap -geometry +0+0 -compose Over -composite -alpha off xxx.bmp
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">2</span>potrace --svg xxx.bmp</code></pre>
+</div>
 <h3 id="osxで-を入力しようとしたら-になる">osxで\を入力しようとしたら¥になる？</h3>
 
 <p>上記のコマンドで、<code>\</code>を入力しようとしたところ、OSXの環境によっては<code>¥</code>しか入力できなくてハマった。
@@ -404,49 +375,28 @@ potrace --svg xxx.bmp
 <p>以上をふまえて、最終的なshell scriptは下記のようになる。</p>
 
 <h5 id="pngtosvg-sh-2">pngtosvg.sh</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #93a1a1; font-style: italic"># $1に元ファイルのパス、$2に出力先のフォルダ名が指定されているとする</span>
-<span style="color: #859900">function</span> pngtosvg<span style="color: #657b83">()</span> <span style="color: #657b83">{</span>
-  <span style="color: #cb4b16">base</span><span style="color: #657b83">=</span><span style="color: #859900">$(</span>basename <span style="color: #cb4b16">$1</span><span style="color: #859900">)</span>
-  <span style="color: #cb4b16">src</span><span style="color: #657b83">=</span><span style="color: #859900">$(</span>dirname <span style="color: #cb4b16">$1</span><span style="color: #859900">)</span>
-  <span style="color: #cb4b16">exp</span><span style="color: #657b83">=</span><span style="color: #2aa198">&quot;s/^[^\/]*/</span><span style="color: #cb4b16">$2</span><span style="color: #2aa198">/&quot;</span>
-  <span style="color: #cb4b16">dist</span><span style="color: #657b83">=</span><span style="color: #2aa198">`</span><span style="color: #268bd2">echo</span> <span style="color: #cb4b16">$src</span> <span style="color: #657b83">|</span> sed -e <span style="color: #cb4b16">$exp</span><span style="color: #2aa198">`</span>
-  <span style="color: #cb4b16">distfile</span><span style="color: #657b83">=</span><span style="color: #2aa198">`</span><span style="color: #268bd2">echo</span> <span style="color: #cb4b16">$dist</span>/<span style="color: #cb4b16">$base</span> <span style="color: #657b83">|</span> sed -e <span style="color: #2aa198">&#39;s/.png/.bmp/&#39;`</span>
-
-  <span style="color: #859900">if</span> <span style="color: #657b83">[</span> ! -d <span style="color: #cb4b16">$dist</span> <span style="color: #657b83">];</span> <span style="color: #859900">then</span>
-    <span style="color: #268bd2">echo</span> <span style="color: #cb4b16">$dist</span>
-    mkdir -p <span style="color: #cb4b16">$dist</span>
-  <span style="color: #859900">fi</span>
-
-  convert <span style="color: #cb4b16">$1</span>  <span style="color: #cb4b16">\(</span> +clone -alpha opaque -fill white -colorize 100% <span style="color: #cb4b16">\)</span> +swap -geometry +0+0 -compose Over -composite -alpha off <span style="color: #cb4b16">$distfile</span>
-  potrace --svg <span style="color: #cb4b16">$distfile</span>
-  rm <span style="color: #cb4b16">$distfile</span>
-<span style="color: #657b83">}</span>
-<span style="color: #268bd2">export</span> -f pngtosvg
-
-<span style="color: #93a1a1; font-style: italic"># ここの$1はpngtosvg.shに渡された第一パラメータ(元フォルダ)である。$2は出力先のフォルダである。</span>
-find <span style="color: #cb4b16">$1</span> -name <span style="color: #2aa198">&#39;*.png&#39;</span> <span style="color: #657b83">|</span> xargs -IX -n1 bash -c <span style="color: #2aa198">&quot;pngtosvg X </span><span style="color: #cb4b16">$2</span><span style="color: #2aa198">&quot;</span>
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 1</span><span style="color:#007f7f"># $1に元ファイルのパス、$2に出力先のフォルダ名が指定されているとする
+</span><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 2</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">function</span> pngtosvg() {
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 3</span>  <span style="font-weight:bold">base</span>=<span style="color:#fff;font-weight:bold">$(</span>basename <span style="font-weight:bold">$1</span><span style="color:#fff;font-weight:bold">)</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 4</span>  <span style="font-weight:bold">src</span>=<span style="color:#fff;font-weight:bold">$(</span>dirname <span style="font-weight:bold">$1</span><span style="color:#fff;font-weight:bold">)</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 5</span>  <span style="font-weight:bold">exp</span>=<span style="color:#0ff;font-weight:bold">&#34;s/^[^\/]*/</span><span style="font-weight:bold">$2</span><span style="color:#0ff;font-weight:bold">/&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 6</span>  <span style="font-weight:bold">dist</span>=<span style="color:#0ff;font-weight:bold">`</span>echo <span style="font-weight:bold">$src</span> | sed -e <span style="font-weight:bold">$exp</span><span style="color:#0ff;font-weight:bold">`</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 7</span>  <span style="font-weight:bold">distfile</span>=<span style="color:#0ff;font-weight:bold">`</span>echo <span style="font-weight:bold">$dist</span>/<span style="font-weight:bold">$base</span> | sed -e <span style="color:#0ff;font-weight:bold">&#39;s/.png/.bmp/&#39;</span><span style="color:#0ff;font-weight:bold">`</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 8</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 9</span>  <span style="color:#fff;font-weight:bold">if</span> [ ! -d <span style="font-weight:bold">$dist</span> ]; <span style="color:#fff;font-weight:bold">then</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">10</span>    echo <span style="font-weight:bold">$dist</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">11</span>    mkdir -p <span style="font-weight:bold">$dist</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">12</span>  <span style="color:#fff;font-weight:bold">fi</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">13</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">14</span>  convert <span style="font-weight:bold">$1</span>  <span style="color:#0ff;font-weight:bold">\(</span> +clone -alpha opaque -fill white -colorize <span style="color:#ff0;font-weight:bold">100</span>% <span style="color:#0ff;font-weight:bold">\)</span> +swap -geometry +0+0 -compose Over -composite -alpha off <span style="font-weight:bold">$distfile</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">15</span>  potrace --svg <span style="font-weight:bold">$distfile</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">16</span>  rm <span style="font-weight:bold">$distfile</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">17</span>}
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">18</span>export -f pngtosvg
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">19</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">20</span><span style="color:#007f7f"># ここの$1はpngtosvg.shに渡された第一パラメータ(元フォルダ)である。$2は出力先のフォルダである。
+</span><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">21</span><span style="color:#007f7f"></span>find <span style="font-weight:bold">$1</span> -name <span style="color:#0ff;font-weight:bold">&#39;*.png&#39;</span> | xargs -IX -n1 bash -c <span style="color:#0ff;font-weight:bold">&#34;pngtosvg X </span><span style="font-weight:bold">$2</span><span style="color:#0ff;font-weight:bold">&#34;</span></code></pre>
+</div>
           
         </div>
         <div class="sharing">

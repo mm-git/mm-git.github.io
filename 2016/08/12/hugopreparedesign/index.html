@@ -261,59 +261,33 @@
 <p>まず、hugo自体の設定ファイルを編集する。このサイトでは下記のようになっている。</p>
 
 <h5 id="config-toml-1">config.toml</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #cb4b16">baseurl</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;http://siteurl&quot;</span>
-<span style="color: #cb4b16">languageCode</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;ja_jp&quot;</span>
-<span style="color: #cb4b16">title</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;サイトタイトル&quot;</span>
-<span style="color: #cb4b16">author</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;作成者&quot;</span>
-<span style="color: #cb4b16">copyright</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;Powered by Hugo. Copyright © 2016 製作者名&quot;</span>
-<span style="color: #cb4b16">theme</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;hugo-uno&quot;</span>
-<span style="color: #cb4b16">canonifyurls</span> <span style="color: #657b83">=</span> <span style="color: #268bd2">true</span>
-<span style="color: #cb4b16">hasCJKLanguage</span> <span style="color: #657b83">=</span> <span style="color: #268bd2">true</span>
-<span style="color: #cb4b16">pygmentscodefences</span> <span style="color: #657b83">=</span> <span style="color: #268bd2">true</span>
-<span style="color: #cb4b16">pygmentsstyle</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;solarizedlight&quot;</span>
-<span style="color: #cb4b16">PygmentsOptions</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;linenos=table,nobackground=true&quot;</span>
-
-<span style="color: #657b83">[</span>Params<span style="color: #657b83">]</span>
-<span style="color: #cb4b16">description</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;サイトの説明&quot;</span>
-<span style="color: #cb4b16">github</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;gituhubアカウント名&quot;</span>
-<span style="color: #cb4b16">facebook</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;フェイスブックアカウント名&quot;</span>
-<span style="color: #cb4b16">linkedin</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;Linkedinアカウント名&quot;</span>
-<span style="color: #cb4b16">logo</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;/images/ロゴファイル名&quot;</span>
-
-<span style="color: #657b83">[</span>taxonomies<span style="color: #657b83">]</span>
-<span style="color: #cb4b16">tag</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;tags&quot;</span>
-<span style="color: #cb4b16">archive</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;archives&quot;</span>
-
-<span style="color: #657b83">[</span>permalinks<span style="color: #657b83">]</span>
-<span style="color: #cb4b16">blog</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;/:year/:month/:day/:slug/&quot;</span>
-<span style="color: #cb4b16">work</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;/work/:year/:slug&quot;</span>
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 1</span><span style="font-weight:bold">baseurl</span> = <span style="color:#0ff;font-weight:bold">&#34;http://siteurl&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 2</span><span style="font-weight:bold">languageCode</span> = <span style="color:#0ff;font-weight:bold">&#34;ja_jp&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 3</span><span style="font-weight:bold">title</span> = <span style="color:#0ff;font-weight:bold">&#34;サイトタイトル&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 4</span><span style="font-weight:bold">author</span> = <span style="color:#0ff;font-weight:bold">&#34;作成者&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 5</span><span style="font-weight:bold">copyright</span> = <span style="color:#0ff;font-weight:bold">&#34;Powered by Hugo. Copyright © 2016 製作者名&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 6</span><span style="font-weight:bold">theme</span> = <span style="color:#0ff;font-weight:bold">&#34;hugo-uno&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 7</span><span style="font-weight:bold">canonifyurls</span> = true
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 8</span><span style="font-weight:bold">hasCJKLanguage</span> = true
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 9</span><span style="font-weight:bold">pygmentscodefences</span> = true
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">10</span><span style="font-weight:bold">pygmentsstyle</span> = <span style="color:#0ff;font-weight:bold">&#34;solarizedlight&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">11</span><span style="font-weight:bold">PygmentsOptions</span> = <span style="color:#0ff;font-weight:bold">&#34;linenos=table,nobackground=true&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">12</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">13</span>[Params]
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">14</span><span style="font-weight:bold">description</span> = <span style="color:#0ff;font-weight:bold">&#34;サイトの説明&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">15</span><span style="font-weight:bold">github</span> = <span style="color:#0ff;font-weight:bold">&#34;gituhubアカウント名&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">16</span><span style="font-weight:bold">facebook</span> = <span style="color:#0ff;font-weight:bold">&#34;フェイスブックアカウント名&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">17</span><span style="font-weight:bold">linkedin</span> = <span style="color:#0ff;font-weight:bold">&#34;Linkedinアカウント名&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">18</span><span style="font-weight:bold">logo</span> = <span style="color:#0ff;font-weight:bold">&#34;/images/ロゴファイル名&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">19</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">20</span>[taxonomies]
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">21</span><span style="font-weight:bold">tag</span> = <span style="color:#0ff;font-weight:bold">&#34;tags&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">22</span><span style="font-weight:bold">archive</span> = <span style="color:#0ff;font-weight:bold">&#34;archives&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">23</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">24</span>[permalinks]
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">25</span><span style="font-weight:bold">blog</span> = <span style="color:#0ff;font-weight:bold">&#34;/:year/:month/:day/:slug/&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">26</span><span style="font-weight:bold">work</span> = <span style="color:#0ff;font-weight:bold">&#34;/work/:year/:slug&#34;</span></code></pre>
+</div>
 <ul>
 <li>先頭のパラメータはHugo自体のパラメータ。<code>.Site.パラメータ名</code>で取得できる。
 
@@ -337,27 +311,17 @@
 </ul>
 
 <h5 id="project-folder-archetypes-default-md">project_folder/archetypes/default.md</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>+++
-<span style="color: #cb4b16">date</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;now()&quot;</span>
-<span style="color: #cb4b16">draft</span> <span style="color: #657b83">=</span> <span style="color: #268bd2">true</span>
-<span style="color: #cb4b16">slug</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;&quot;</span>
-<span style="color: #cb4b16">tags</span> <span style="color: #657b83">=</span> <span style="color: #657b83">[</span><span style="color: #2aa198">&quot;&quot;</span>, <span style="color: #2aa198">&quot;&quot;</span><span style="color: #657b83">]</span>
-<span style="color: #cb4b16">title</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;&quot;</span>
-<span style="color: #cb4b16">description</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;&quot;</span>
-<span style="color: #cb4b16">image</span> <span style="color: #657b83">=</span> <span style="color: #2aa198">&quot;&quot;</span>
-<span style="color: #cb4b16">landscape</span> <span style="color: #657b83">=</span> <span style="color: #268bd2">true</span>
-+++
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 1</span>+++
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 2</span><span style="font-weight:bold">date</span> = <span style="color:#0ff;font-weight:bold">&#34;now()&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 3</span><span style="font-weight:bold">draft</span> = true
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 4</span><span style="font-weight:bold">slug</span> = <span style="color:#0ff;font-weight:bold">&#34;&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 5</span><span style="font-weight:bold">tags</span> = [<span style="color:#0ff;font-weight:bold">&#34;&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;&#34;</span>]
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 6</span><span style="font-weight:bold">title</span> = <span style="color:#0ff;font-weight:bold">&#34;&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 7</span><span style="font-weight:bold">description</span> = <span style="color:#0ff;font-weight:bold">&#34;&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 8</span><span style="font-weight:bold">image</span> = <span style="color:#0ff;font-weight:bold">&#34;&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 9</span><span style="font-weight:bold">landscape</span> = true
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">10</span>+++</code></pre>
+</div>
 <ul>
 <li><code>slug</code>でPermalinkに使用される文字列が指定できるようになる。指定しなければPermalinkはタイトルと同じになる。</li>
 <li><code>description</code>はこのサイトでは、一覧の説明文、Open Graphに設定されるように対応している。</li>
@@ -396,13 +360,10 @@
 <li><code>.scss</code>ファイルを変更した場合、ビルドが必要である。</li>
 <li><code>hugo-uno</code>のページにも書いてあるが、ビルドには、<code>sass</code>と<code>bourbon</code>が必要。</li>
 </ul>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>gem install sass
-gem install bourbon
-bourbon install --path static/scss
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">1</span>gem install sass
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">2</span>gem install bourbon
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">3</span>bourbon install --path static/scss</code></pre>
+</div>
 <ul>
 <li><code>.scss</code>のビルド方法は、<a href="https://code-house.jp/2016/08/06/gulpsass/">[gulp] sass編</a>を参照。</li>
 </ul>

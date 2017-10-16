@@ -267,25 +267,16 @@ pip install imposm
 <h3 id="ファイル内のデータを追いかけてみる">ファイル内のデータを追いかけてみる</h3>
 
 <h5 id="pbf-sample-py">pbf_sample.py</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #cb4b16">from</span> <span style="color: #b58900">imposm.parser.pbf.parser</span> <span style="color: #cb4b16">import</span> <span style="color: #586e75">PBFFile</span><span style="color: #657b83">,</span> <span style="color: #586e75">PrimitiveBlockParser</span>
-
-<span style="color: #586e75">pbf</span> <span style="color: #657b83">=</span> <span style="color: #586e75">PBFFile</span><span style="color: #657b83">(</span><span style="color: #2aa198">&#39;osm.pbfファイル名&#39;</span><span style="color: #657b83">)</span>
-<span style="color: #859900">for</span> <span style="color: #586e75">block</span> <span style="color: #859900">in</span> <span style="color: #586e75">pbf</span><span style="color: #657b83">.</span><span style="color: #586e75">blob_offsets</span><span style="color: #657b83">():</span>
-    <span style="color: #586e75">blob_pos</span> <span style="color: #657b83">=</span> <span style="color: #586e75">block</span><span style="color: #657b83">[</span><span style="color: #2aa198">&#39;blob_pos&#39;</span><span style="color: #657b83">]</span>
-    <span style="color: #586e75">blob_size</span> <span style="color: #657b83">=</span> <span style="color: #586e75">block</span><span style="color: #657b83">[</span><span style="color: #2aa198">&#39;blob_size&#39;</span><span style="color: #657b83">]</span>
-
-    <span style="color: #586e75">block_parser</span> <span style="color: #657b83">=</span> <span style="color: #586e75">PrimitiveBlockParser</span><span style="color: #657b83">(</span><span style="color: #2aa198">&#39;osm.pbfファイル名&#39;</span><span style="color: #657b83">,</span> <span style="color: #586e75">blob_pos</span><span style="color: #657b83">,</span> <span style="color: #586e75">blob_size</span><span style="color: #657b83">)</span>
-    <span style="color: #93a1a1; font-style: italic"># 以下、読み込んだblockの処理</span>
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">1</span><span style="color:#fff;font-weight:bold">from</span> imposm.parser.pbf.parser <span style="color:#fff;font-weight:bold">import</span> PBFFile, PrimitiveBlockParser
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">2</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">3</span>pbf = PBFFile(<span style="color:#0ff;font-weight:bold"></span><span style="color:#0ff;font-weight:bold">&#39;osm.pbfファイル名&#39;</span>)
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">4</span><span style="color:#fff;font-weight:bold">for</span> block in pbf.blob_offsets():
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">5</span>    blob_pos = block[<span style="color:#0ff;font-weight:bold"></span><span style="color:#0ff;font-weight:bold">&#39;blob_pos&#39;</span>]
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">6</span>    blob_size = block[<span style="color:#0ff;font-weight:bold"></span><span style="color:#0ff;font-weight:bold">&#39;blob_size&#39;</span>]
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">7</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">8</span>    block_parser = PrimitiveBlockParser(<span style="color:#0ff;font-weight:bold"></span><span style="color:#0ff;font-weight:bold">&#39;osm.pbfファイル名&#39;</span>, blob_pos, blob_size)
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">9</span>    <span style="color:#007f7f"># 以下、読み込んだblockの処理</span></code></pre>
+</div>
 <ul>
 <li>ファイルの先頭で、PBFFile, PrimitiveBlockParserの２つをimportします。ほぼこの２つで、ファイル内の情報にアクセスできると思います。</li>
 <li>PBFFileはファイル内のデータの場所を順番に教えてくれます。実際のファイルの構造を知らなくてもOKです。</li>

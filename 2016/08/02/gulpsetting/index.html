@@ -256,11 +256,9 @@ nodeアプリやモジュールの作成でgulpを使う場合の初期設定に
 例えば、上記のsass.coffeeには&rdquo;sass&rdquo;という名前のgulpスクリプトが登録されている。<code>gulp sass</code>とすると実行できる。</p>
 
 <h5 id="gulpfile-coffee-1">gulpfile.coffee</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
-2</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #cb4b16">requireDir = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;require-dir&#39;</span><span style="color: #657b83">)</span>
-<span style="color: #657b83">requireDir(</span><span style="color: #2aa198">&#39;./gulp/tasks&#39;</span><span style="color: #657b83">,</span> <span style="color: #657b83">{</span> <span style="color: #cb4b16">recurse: </span><span style="color: #859900">true</span> <span style="color: #657b83">})</span>
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coffee" data-lang="coffee"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">1</span><span style="font-weight:bold">requireDir = </span>require(<span style="color:#0ff;font-weight:bold">&#39;require-dir&#39;</span>)
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">2</span>requireDir(<span style="color:#0ff;font-weight:bold">&#39;./gulp/tasks&#39;</span>, { <span style="font-weight:bold">recurse: </span><span style="color:#fff;font-weight:bold">true</span> })</code></pre>
+</div>
 <h3 id="config-coffee">config.coffee</h3>
 
 <p>gulp/config.coffeeには、gulpスクリプト全体に共通する設定を記入する。json形式で好きなように設定を書く。
@@ -268,39 +266,25 @@ gulpスクリプトでは、あるフォルダの内容を処理して公開フ�
 下記の例では、srcとdestで元ファイルのフォルダと公開フォルダを指定するような設定を書いている。</p>
 
 <h5 id="gulp-config-coffee">gulp/config.coffee</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #cb4b16">module.exports = </span><span style="color: #657b83">{</span>
-  <span style="color: #cb4b16">src: </span><span style="color: #2aa198">&#39;./src&#39;</span>
-  <span style="color: #cb4b16">dest: </span><span style="color: #2aa198">&#39;./app&#39;</span>
-  <span style="color: #657b83">:</span>
-  <span style="color: #657b83">:</span>
-<span style="color: #657b83">}</span>
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coffee" data-lang="coffee"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">1</span><span style="font-weight:bold">module.exports = </span>{
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">2</span>  <span style="font-weight:bold">src: </span><span style="color:#0ff;font-weight:bold">&#39;./src&#39;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">3</span>  <span style="font-weight:bold">dest: </span><span style="color:#0ff;font-weight:bold">&#39;./app&#39;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">4</span>  :
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">5</span>  :
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">6</span>}</code></pre>
+</div>
 <p>こうすることで、例えば下記の様にconfig.coffeeを読み込んで、<code>config.src</code>の様に参照ができるようになる。</p>
 
 <h5 id="gulp-tasks-sass-coffee">gulp/tasks/sass.coffee</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #cb4b16">fs = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;fs&#39;</span><span style="color: #657b83">)</span>
-<span style="color: #cb4b16">gulp = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp&#39;</span><span style="color: #657b83">)</span>
-<span style="color: #cb4b16">config = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;../config&#39;</span><span style="color: #657b83">)</span>    <span style="color: #93a1a1; font-style: italic"># config.coffeeを読み込む</span>
-
-<span style="color: #657b83">gulp.task</span> <span style="color: #2aa198">&#39;sass&#39;</span><span style="color: #657b83">,</span> <span style="color: #268bd2">-&gt;</span>
-  <span style="color: #cb4b16">files = </span><span style="color: #657b83">fs.readdirSync(config.src</span> <span style="color: #657b83">+</span> <span style="color: #2aa198">&#39;/scss&#39;</span><span style="color: #657b83">)</span>  <span style="color: #93a1a1; font-style: italic">## config.srcの様にして参照できる</span>
-  <span style="color: #657b83">:</span>
-  <span style="color: #657b83">:</span>
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coffee" data-lang="coffee"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">1</span><span style="font-weight:bold">fs = </span>require(<span style="color:#0ff;font-weight:bold">&#39;fs&#39;</span>)
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">2</span><span style="font-weight:bold">gulp = </span>require(<span style="color:#0ff;font-weight:bold">&#39;gulp&#39;</span>)
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">3</span><span style="font-weight:bold">config = </span>require(<span style="color:#0ff;font-weight:bold">&#39;../config&#39;</span>)    <span style="color:#007f7f"># config.coffeeを読み込む
+</span><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">4</span><span style="color:#007f7f"></span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">5</span>gulp.task <span style="color:#0ff;font-weight:bold">&#39;sass&#39;</span>, -&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">6</span>  <span style="font-weight:bold">files = </span>fs.readdirSync(config.src + <span style="color:#0ff;font-weight:bold">&#39;/scss&#39;</span>)  <span style="color:#007f7f">## config.srcの様にして参照できる
+</span><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">7</span><span style="color:#007f7f"></span>  :
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">8</span>  :</code></pre>
+</div>
 <h3 id="package-json">package.json</h3>
 
 <p>gulpを最初に設定した時のpackage.jsonの中身は下記のようになっている。</p>
@@ -311,23 +295,15 @@ gulpスクリプトでは、あるフォルダの内容を処理して公開フ�
 <p>を実行すれば、package.jsonには自動的に下記が追加される。</p>
 
 <h5 id="package-json-1">package.json</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #657b83">{</span>
-  <span style="color: #dc322f">:</span>
-  <span style="color: #859900">&quot;devDependencies&quot;</span><span style="color: #657b83">:</span> <span style="color: #657b83">{</span>
-    <span style="color: #859900">&quot;coffee-script&quot;</span><span style="color: #657b83">:</span> <span style="color: #2aa198">&quot;^1.10.0&quot;</span><span style="color: #657b83">,</span>
-    <span style="color: #859900">&quot;gulp&quot;</span><span style="color: #657b83">:</span> <span style="color: #2aa198">&quot;^3.9.1&quot;</span><span style="color: #657b83">,</span>
-    <span style="color: #859900">&quot;require-dir&quot;</span><span style="color: #657b83">:</span> <span style="color: #2aa198">&quot;^0.3.0&quot;</span>
-  <span style="color: #657b83">}</span>
-<span style="color: #657b83">}</span>
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">1</span>{
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">2</span>  <span style="color:#f00">:</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">3</span>  <span style="font-weight:bold">&#34;devDependencies&#34;</span>: {
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">4</span>    <span style="font-weight:bold">&#34;coffee-script&#34;</span>: <span style="color:#0ff;font-weight:bold">&#34;^1.10.0&#34;</span>,
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">5</span>    <span style="font-weight:bold">&#34;gulp&#34;</span>: <span style="color:#0ff;font-weight:bold">&#34;^3.9.1&#34;</span>,
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">6</span>    <span style="font-weight:bold">&#34;require-dir&#34;</span>: <span style="color:#0ff;font-weight:bold">&#34;^0.3.0&#34;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">7</span>  }
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">8</span>}</code></pre>
+</div>
           
         </div>
         <div class="sharing">

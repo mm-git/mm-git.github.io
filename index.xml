@@ -7,7 +7,31 @@
     <language>ja_jp</language>
     
     <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
-    <updated>Thu, 15 Jun 2017 09:36:37 &#43;0900</updated>
+    <updated>Mon, 16 Oct 2017 11:26:21 &#43;0900</updated>
+    
+    <item>
+      <title>K社様向け案件 eKarte</title>
+      <link>https://code-house.jp/work/2017/ekarte/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/work/2017/ekarte/</guid>
+      <description>
+        eKarte code houseとしての初めての受注案件です。K社様向けにeKarteシステムを作成しました。 成果物 個人の病院の患者のカルテを電子化するWEB
+        <a href='https://code-house.jp/work/2017/ekarte/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
+    
+    <item>
+      <title>[WORK]標高エリアjsonデータを読み込む</title>
+      <link>https://code-house.jp/2017/06/19/readaltitudejson/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/2017/06/19/readaltitudejson/</guid>
+      <description>
+        標高エリアjsonデータを読み込む 先日の記事で作成した、不思議な文字列のjsonデータを読み込むクラスを作成してみる。読み込みの手順は下記の
+        <a href='https://code-house.jp/2017/06/19/readaltitudejson/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
     
     <item>
       <title>[WORK] 標高エリアデータのjsonを作成する</title>
@@ -304,64 +328,6 @@
 
 &lt;p&gt;&lt;/p&gt;
         <a href='https://code-house.jp/2016/08/21/gulpimagemin/' class="read-more"><nobr>Read more →</nobr></a>
-      </description>
-    </item>
-    
-    <item>
-      <title>[Hugo] Syntax highlight</title>
-      <link>https://code-house.jp/2016/08/20/hugosyntaxhighlight/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>https://code-house.jp/2016/08/20/hugosyntaxhighlight/</guid>
-      <description>
-        &lt;h2 id=&#34;hugoでソースコードを綺麗に表示する&#34;&gt;Hugoでソースコードを綺麗に表示する&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://goo.gl/H565BV&#34; width=&#34;50%&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;このサイトは特にたくさんのソースコードを記事に載せているが、ソースコードを綺麗に色付きで表示するには、HugoのSyntax hightlight機能を有効にする必要がある。しかし、&lt;strong&gt;Syntax Highlight機能をONにするだけで簡単に実現できなかった&lt;/strong&gt;ので記事にしておこうと思う。
-さらに、Syntax Highlightの配色として&lt;strong&gt;Solarized&lt;/strong&gt;を使いたかったのだが、これがそのままでは未対応だった。少し工夫が必要だったのでそれも書いておく。&lt;/p&gt;
-
-&lt;p&gt;公式の情報は下記の通り。Hugo V0.15以降で対応しているようだ。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;http://hugodocs.netlify.com/extras/highlighting/&#34;&gt;Hugo – Syntax Highlighting&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;参考になった記事&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;http://qiita.com/hfm/items/3df99e0f94162d454f7a&#34;&gt;hugo で Fence Code Blocks (```)を有効化する - Qiita&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;/p&gt;
-        <a href='https://code-house.jp/2016/08/20/hugosyntaxhighlight/' class="read-more"><nobr>Read more →</nobr></a>
-      </description>
-    </item>
-    
-    <item>
-      <title>[Hugo] タグを追加する</title>
-      <link>https://code-house.jp/2016/08/19/hugotaxonomy/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>https://code-house.jp/2016/08/19/hugotaxonomy/</guid>
-      <description>
-        &lt;h2 id=&#34;タグ一覧ページと記事の先頭にタグを追加&#34;&gt;タグ一覧ページと記事の先頭にタグを追加&lt;/h2&gt;
-
-&lt;p&gt;Hugoの記事は、markdownファイルの先頭に下記の様に書くことで、その記事にタグを付けることができる。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;tags = [&amp;quot;Hugo&amp;quot;, &amp;quot;html&amp;quot;, ...]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ただしこれらの一覧を表示したり、記事の先頭にタグを表示したりするには、layoutsフォルダ以下のテンプレートを追加、作成しないといけない。最終的には下記の様に対応を行ったが、これもなかなかわかりにくかったので記事にしておく。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;http://baseurl/tags&lt;/code&gt;でタグ一覧ページを表示する。&lt;/li&gt;
-&lt;li&gt;例えば&lt;code&gt;Hugo&lt;/code&gt;に関する記事の場合、&lt;code&gt;http://baseurl/tags/hugo&lt;/code&gt;でその一覧を表示する。&lt;/li&gt;
-&lt;li&gt;各記事の先頭にタグを表示する。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;/p&gt;
-        <a href='https://code-house.jp/2016/08/19/hugotaxonomy/' class="read-more"><nobr>Read more →</nobr></a>
       </description>
     </item>
     

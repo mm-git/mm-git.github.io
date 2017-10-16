@@ -261,57 +261,32 @@
 <h3 id="gulp-tasks-server-coffee">gulp/tasks/server.coffee</h3>
 
 <h5 id="gulp-tasks-server-coffee-1">gulp/tasks/server.coffee</h5>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #cb4b16">gulp = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp&#39;</span><span style="color: #657b83">)</span>
-<span style="color: #cb4b16">browserSync = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;browser-sync&#39;</span><span style="color: #657b83">).create()</span>
-<span style="color: #cb4b16">php = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;gulp-connect-php&#39;</span><span style="color: #657b83">)</span>
-<span style="color: #cb4b16">config = </span><span style="color: #657b83">require(</span><span style="color: #2aa198">&#39;../config&#39;</span><span style="color: #657b83">)</span>
-
-<span style="color: #657b83">gulp.task</span> <span style="color: #2aa198">&#39;php&#39;</span><span style="color: #657b83">,</span> <span style="color: #268bd2">-&gt;</span>
-  <span style="color: #657b83">php.server({</span>
-    <span style="color: #cb4b16">base: </span><span style="color: #2aa198">&#39;app&#39;</span>
-    <span style="color: #cb4b16">port: </span><span style="color: #2aa198">8000</span>
-  <span style="color: #657b83">})</span>
-
-<span style="color: #657b83">gulp.task</span> <span style="color: #2aa198">&#39;connect&#39;</span><span style="color: #657b83">,</span> <span style="color: #268bd2">-&gt;</span>
-  <span style="color: #657b83">browserSync.init({</span>
-    <span style="color: #cb4b16">baseDir: </span><span style="color: #2aa198">&#39;app&#39;</span>
-    <span style="color: #cb4b16">proxy: </span><span style="color: #2aa198">&#39;localhost:8000&#39;</span>
-  <span style="color: #657b83">})</span>
-
-<span style="color: #657b83">gulp.task</span> <span style="color: #2aa198">&#39;reload&#39;</span><span style="color: #657b83">,</span> <span style="color: #268bd2">-&gt;</span>
-  <span style="color: #657b83">browserSync.reload()</span>
-
-<span style="color: #657b83">gulp.task</span> <span style="color: #2aa198">&#39;server&#39;</span><span style="color: #657b83">,</span> <span style="color: #657b83">[</span><span style="color: #2aa198">&#39;php&#39;</span><span style="color: #657b83">,</span> <span style="color: #2aa198">&#39;connect&#39;</span><span style="color: #657b83">],</span> <span style="color: #268bd2">-&gt;</span>
-  <span style="color: #657b83">gulp.watch(config.src</span> <span style="color: #657b83">+</span> <span style="color: #2aa198">&#39;/**/*.coffee&#39;</span><span style="color: #657b83">,</span> <span style="color: #657b83">[</span><span style="color: #2aa198">&#39;coffee&#39;</span><span style="color: #657b83">])</span>
-  <span style="color: #657b83">gulp.watch(config.src</span> <span style="color: #657b83">+</span> <span style="color: #2aa198">&#39;/**/*.scss&#39;</span><span style="color: #657b83">,</span> <span style="color: #657b83">[</span><span style="color: #2aa198">&#39;sass&#39;</span><span style="color: #657b83">])</span>
-
-  <span style="color: #657b83">gulp.watch(config.dest</span> <span style="color: #657b83">+</span> <span style="color: #2aa198">&quot;/**/*&quot;</span><span style="color: #657b83">,</span> <span style="color: #657b83">[</span><span style="color: #2aa198">&#39;reload&#39;</span><span style="color: #657b83">])</span>
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coffee" data-lang="coffee"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 1</span><span style="font-weight:bold">gulp = </span>require(<span style="color:#0ff;font-weight:bold">&#39;gulp&#39;</span>)
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 2</span><span style="font-weight:bold">browserSync = </span>require(<span style="color:#0ff;font-weight:bold">&#39;browser-sync&#39;</span>).create()
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 3</span><span style="font-weight:bold">php = </span>require(<span style="color:#0ff;font-weight:bold">&#39;gulp-connect-php&#39;</span>)
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 4</span><span style="font-weight:bold">config = </span>require(<span style="color:#0ff;font-weight:bold">&#39;../config&#39;</span>)
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 5</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 6</span>gulp.task <span style="color:#0ff;font-weight:bold">&#39;php&#39;</span>, -&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 7</span>  php.server({
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 8</span>    <span style="font-weight:bold">base: </span><span style="color:#0ff;font-weight:bold">&#39;app&#39;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 9</span>    <span style="font-weight:bold">port: </span><span style="color:#ff0;font-weight:bold">8000</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">10</span>  })
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">11</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">12</span>gulp.task <span style="color:#0ff;font-weight:bold">&#39;connect&#39;</span>, -&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">13</span>  browserSync.init({
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">14</span>    <span style="font-weight:bold">baseDir: </span><span style="color:#0ff;font-weight:bold">&#39;app&#39;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">15</span>    <span style="font-weight:bold">proxy: </span><span style="color:#0ff;font-weight:bold">&#39;localhost:8000&#39;</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">16</span>  })
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">17</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">18</span>gulp.task <span style="color:#0ff;font-weight:bold">&#39;reload&#39;</span>, -&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">19</span>  browserSync.reload()
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">20</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">21</span>gulp.task <span style="color:#0ff;font-weight:bold">&#39;server&#39;</span>, [<span style="color:#0ff;font-weight:bold">&#39;php&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;connect&#39;</span>], -&gt;
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">22</span>  gulp.watch(config.src + <span style="color:#0ff;font-weight:bold">&#39;/**/*.coffee&#39;</span>, [<span style="color:#0ff;font-weight:bold">&#39;coffee&#39;</span>])
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">23</span>  gulp.watch(config.src + <span style="color:#0ff;font-weight:bold">&#39;/**/*.scss&#39;</span>, [<span style="color:#0ff;font-weight:bold">&#39;sass&#39;</span>])
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">24</span>
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">25</span>  gulp.watch(config.dest + <span style="color:#0ff;font-weight:bold">&#34;/**/*&#34;</span>, [<span style="color:#0ff;font-weight:bold">&#39;reload&#39;</span>])</code></pre>
+</div>
 <ul>
 <li>まずポート番号8000で起動するphpタスクを作成している。</li>
 <li>続いて、<code>baseDir</code>(公開フォルダ)を<code>app</code>としたbrowserSyncのタスクを作成する。タスク名は<code>connect</code>。ブラウザからの要求がphpファイルであった場合、<code>proxy</code>の設定により、内部的にポート8000で通信を行う。browserSync自体は初期設定でポート3000で起動する。</li>
@@ -322,53 +297,30 @@
 </ul>
 
 <h3 id="server実行">server実行</h3>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>$ gulp server
-<span style="color: #657b83">[</span>hh:mn:ss<span style="color: #657b83">]</span> Requiring external module coffee-script/register
-<span style="color: #657b83">(</span>node:2591<span style="color: #657b83">)</span> fs: re-evaluating native module sources is not supported. If you are using the graceful-fs module, please update it to a more recent version.
-<span style="color: #657b83">[</span>hh:mn:ss<span style="color: #657b83">]</span> Using gulpfile project_folder/gulpfile.coffee
-<span style="color: #657b83">[</span>hh:mn:ss<span style="color: #657b83">]</span> Starting <span style="color: #2aa198">&#39;php&#39;</span>...
-<span style="color: #657b83">[</span>hh:mn:ss<span style="color: #657b83">]</span> Finished <span style="color: #2aa198">&#39;php&#39;</span> after <span style="color: #93a1a1; font-style: italic">## ms</span>
-<span style="color: #657b83">[</span>hh:mn:ss<span style="color: #657b83">]</span> Starting <span style="color: #2aa198">&#39;connect&#39;</span>...
-<span style="color: #657b83">[</span>hh:mn:ss<span style="color: #657b83">]</span> Finished <span style="color: #2aa198">&#39;connect&#39;</span> after <span style="color: #93a1a1; font-style: italic">## ms</span>
-<span style="color: #657b83">[</span>hh:mn:ss<span style="color: #657b83">]</span> Starting <span style="color: #2aa198">&#39;server&#39;</span>...
-<span style="color: #657b83">[</span>hh:mn:ss<span style="color: #657b83">]</span> Finished <span style="color: #2aa198">&#39;server&#39;</span> after <span style="color: #93a1a1; font-style: italic">### ms</span>
-PHP 5.6.24 Development Server started at Thu Aug <span style="color: #2aa198">25</span> hh:mm:ss yyyy
-Listening on http://127.0.0.1:8000
-Document root is project_folder/app
-Press Ctrl-C to quit.
-<span style="color: #657b83">[</span>BS<span style="color: #657b83">]</span> Proxying: http://localhost:8000
-<span style="color: #657b83">[</span>BS<span style="color: #657b83">]</span> Access URLs:
- -------------------------------------
-       Local: http://localhost:3000
-    External: http://###.###.###.###:3000
- -------------------------------------
-          UI: http://localhost:3001
- UI External: http://###.###.###.###:3001
- -------------------------------------
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 1</span>$ gulp server
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 2</span>[hh:mn:ss] Requiring external module coffee-script/register
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 3</span>(node:2591) fs: re-evaluating native module sources is not supported. If you are using the graceful-fs module, please update it to a more recent version.
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 4</span>[hh:mn:ss] Using gulpfile project_folder/gulpfile.coffee
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 5</span>[hh:mn:ss] Starting <span style="color:#0ff;font-weight:bold">&#39;php&#39;</span>...
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 6</span>[hh:mn:ss] Finished <span style="color:#0ff;font-weight:bold">&#39;php&#39;</span> after <span style="color:#007f7f">## ms
+</span><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 7</span><span style="color:#007f7f"></span>[hh:mn:ss] Starting <span style="color:#0ff;font-weight:bold">&#39;connect&#39;</span>...
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 8</span>[hh:mn:ss] Finished <span style="color:#0ff;font-weight:bold">&#39;connect&#39;</span> after <span style="color:#007f7f">## ms
+</span><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;"> 9</span><span style="color:#007f7f"></span>[hh:mn:ss] Starting <span style="color:#0ff;font-weight:bold">&#39;server&#39;</span>...
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">10</span>[hh:mn:ss] Finished <span style="color:#0ff;font-weight:bold">&#39;server&#39;</span> after <span style="color:#007f7f">### ms
+</span><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">11</span><span style="color:#007f7f"></span>PHP <span style="color:#ff0;font-weight:bold">5</span>.6.24 Development Server started at Thu Aug <span style="color:#ff0;font-weight:bold">25</span> hh:mm:ss yyyy
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">12</span>Listening on http://127.0.0.1:8000
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">13</span>Document root is project_folder/app
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">14</span>Press Ctrl-C to quit.
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">15</span>[BS] Proxying: http://localhost:8000
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">16</span>[BS] Access URLs:
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">17</span> -------------------------------------
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">18</span>       Local: http://localhost:3000
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">19</span>    External: http://###.###.###.###:3000
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">20</span> -------------------------------------
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">21</span>          UI: http://localhost:3001
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">22</span> UI External: http://###.###.###.###:3001
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">23</span> -------------------------------------</code></pre>
+</div>
 <ul>
 <li>上記を実行すると、デフォルトのブラウザで<code>http://localhost:3000</code>が開く。
 

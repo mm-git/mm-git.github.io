@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>CODE HOUSE </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>https://code-house.jp/tags/vue/</link>
+    <language>ja_jp</language>
+    
+    <copyright>Powered by Hugo. Copyright © 2016 code-house.jp</copyright>
+    <updated>Mon, 16 Oct 2017 11:26:21 &#43;0900</updated>
+    
+    <item>
+      <title>K社様向け案件 eKarte</title>
+      <link>https://code-house.jp/work/2017/ekarte/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>https://code-house.jp/work/2017/ekarte/</guid>
+      <description>
+        eKarte code houseとしての初めての受注案件です。K社様向けにeKarteシステムを作成しました。 成果物 個人の病院の患者のカルテを電子化するWEB
+        <a href='https://code-house.jp/work/2017/ekarte/' class="read-more"><nobr>Read more →</nobr></a>
+      </description>
+    </item>
+    
+  </channel>
+</rss>

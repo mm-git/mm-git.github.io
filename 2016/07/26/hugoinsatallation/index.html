@@ -228,25 +228,18 @@
 <h3 id="インストール">インストール</h3>
 
 <p>私はmacで作業するのでhomebrewでインストールした。</p>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>brew install hugo
-hugo new site hugo
-<span style="color: #268bd2">cd</span> hugo
-git init
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">1</span>brew install hugo
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">2</span>hugo new site hugo
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">3</span>cd hugo
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">4</span>git init</code></pre>
+</div>
 <h3 id="テーマのインストール">テーマのインストール</h3>
 
 <p>テーマは themesフォルダ内に使用するテーマをgit cloneしてもいいのだけれど、下記のようにsubmoduleとして登録するようにしてみた。こうすることで、テーマ自体を自分のリポジトリに含めずに管理することができる。なお、テーマはhugo-unoを選択してみた。</p>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span><span style="color: #268bd2">cd</span> themes
-git submodule add https://github.com/fredrikloch/hugo-uno hugo-uno
-<span style="color: #268bd2">cd</span> ..
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">1</span>cd themes
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">2</span>git submodule add https://github.com/fredrikloch/hugo-uno hugo-uno
+<span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">3</span>cd ..</code></pre>
+</div>
 <p>※git initを実行していない、つまり親フォルダに .git フォルダが無いと、git submoduleできないので注意。</p>
 
 <h3 id="最低限の設定">最低限の設定</h3>
@@ -260,9 +253,8 @@ git submodule add https://github.com/fredrikloch/hugo-uno hugo-uno
 <h3 id="ローカルで表示">ローカルで表示</h3>
 
 <p>下記のようにしてserverを起動した後、localhost:1313にアクセスするとhugo-unoのテーマでページが表示されます。</p>
-<table class="highlighttable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"><pre style="line-height: 125%">1</pre></div></td><td class="code"><div class="highlight"><pre style="line-height: 125%"><span></span>hugo server
-</pre></div>
-</td></tr></table>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#727272;margin-right:0.4em;padding:00.4em00.4em;">1</span>hugo server</code></pre>
+</div>
 <p><img title="hugo-uno" src="https://goo.gl/ynu35b" alt="hugo-uno" /></p>
           
         </div>
